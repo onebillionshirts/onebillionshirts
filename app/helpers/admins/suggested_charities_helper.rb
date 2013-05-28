@@ -1,0 +1,2 @@
+module Admins::SuggestedCharitiesHelper
+end

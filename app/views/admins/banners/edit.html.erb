@@ -1,0 +1,6 @@
+<h1>Editing Banner</h1>
+<% url = admins_banner_path(@banner) %>
+<%= render :partial => 'form', :locals => { :url => url } %>
+<div style="float: left;width:100%;">
+  <%= link_to 'Back', admins_banners_path %>
+</div>

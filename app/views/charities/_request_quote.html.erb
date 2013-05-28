@@ -1,0 +1,50 @@
+<%= form_tag "/orders/order_process" do %>
+    <div id="errors"></div>
+    <%= hidden_field_tag :charity_id, @charity.id %>
+    <div class="dropdown_txt">
+      <h1 style="font-size: 18px">Congrats! You are making a</h1><span>huge</span><h1 style="font-size: 18px">difference.</h1>
+    </div>
+    <!--dropdown_txt ends-->
+    <div class="drop_head">
+      <p style="font-family: arial !important;">The charity you have selected:</p>
+      <span><%= @charity.name %></span>
+    </div>
+
+    <!--bot_link ends-->
+    <div class="go_btn_holder">
+      <div class="go_btn" style="float:right">
+        <div class="go_lft"></div>
+        <!--go_lft ends-->
+        <div class="go_mid"><a class="btn_a" href="javascript:void(0);" id="go">GO To Order Form !</a></div>
+
+      </div>
+
+      <div class="bot_link">
+        <h2><a class="bot_it" href="#" id="continue">continue to browse our site</a></h2>
+      </div>
+
+
+    </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+    $("#go").click(function () {
+        $('#request-quote').bPopup().close();
+        $(this).closest('form').submit();
+        return false;
+    });
+
+    $(function () {
+        $("input[name='option_id']").change(function () {
+            if ($(".option_id").is(":checked")) {
+                $('.go_btn').show();
+            } else {
+                $('.go_btn').hide();
+            }
+        });
+    });
+
+
+</script>

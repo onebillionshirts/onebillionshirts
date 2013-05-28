@@ -1,0 +1,137 @@
+<% if admin_signed_in? %>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Orders</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Orders", admins_orders_url %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Banners</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Banners", admins_banners_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Banner", new_admins_banner_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Charities</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Charity Categories", admins_charity_categories_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Charity Category", new_admins_charity_category_path %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Charities", admins_charities_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Charity", new_admins_charity_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Shirt Options</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Shirt Options", admins_shirt_options_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Shirt Option", new_admins_shirt_option_path %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Shirt Sub Options", admins_shirt_sub_options_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Shirt Sub Option", new_admins_shirt_sub_option_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Shirt Colors</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Shirt Colors", admins_shirt_colors_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Shirt Color", new_admins_shirt_color_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Shirt Sizes</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Size Categories", admins_size_categories_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Size Category", new_admins_size_category_path %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Sizes Options", admins_size_options_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Size Option", new_admins_size_option_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Ink Color Options</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Ink Color Options", admins_ink_color_options_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Ink Color Option", new_admins_ink_color_option_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Suggested Charity</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Suggested Charities", admins_suggested_charities_url %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">References</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage References", admins_references_path %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "New Reference", new_admins_reference_path %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Static Page</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Manage Pages", admins_pages_url %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Image Upload</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Posts", admins_posts_url %>
+      </div>
+    </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">Client Spotlights</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Client Spotlights", admins_client_spotlights_url %>
+      </div>
+        </div>
+
+    <div class="leftHeading">
+      <div class="inrHeading">FAQ'S</div>
+      <div class="inrHeadingGray">
+        <%= link_to "Questions_categories", admins_questions_categories_url %>
+      </div>
+      <div class="inrHeadingGray">
+        <%= link_to "Questions", admins_questions_url %>
+      </div>
+
+    </div>
+
+<% end %>

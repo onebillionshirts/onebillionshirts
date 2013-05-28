@@ -1,0 +1,99 @@
+<% content_for :head do %>
+    <% @title = "Order process - OneBillionShirts" %>
+    <%= @title %>
+<% end %>
+<%= render :partial => "/orders/progress_bar", :locals => { :count => 1 } %>
+<%= form_tag "/orders/form_2" do %>
+    <%= hidden_field_tag :charity_id, @charity.id %>
+    <div class="order_form_hold">
+      <div class="order_text">
+        <div class="order_head"><h1>Let's work</h1><span> together </span>
+
+          <h1>to change the world!</h1></div>
+        <!--order_head-->
+        <p>Only work with us if it's a win-win for you. We promise to meet or beat your current prices, deliver the
+          same
+          product, and make sure we make the deadline.</p>
+      </div>
+      <!--order_text ends-->
+      <div id="errors"></div>
+      <div class="order_form-1">
+        <div class="order_items">
+          <div class="items_head"><span>1.</span>
+
+            <p>Quantity</p></div>
+          <div class="items_det">
+            <%= text_area_tag :quantity %>
+          </div>
+          <!--items_det ends-->
+        </div>
+        <!--order_items ends-->
+        <div class="order_items">
+          <div class="items_head"><span>2.</span>
+
+            <p>Select your shirt:</p></div>
+          <div class="items_det">
+            <% if @shirt_options.present? %>
+                <% @shirt_options.each do |option| %>
+                    <div class="select_shirt">
+                      <%= radio_button_tag "shirt_option_id", option.id, false, :class => "options" %>
+                      <p><%= option.name %></p>
+                    </div>
+                <% end %>
+            <% end %>
+            <div class="select_shirt">
+              <%= radio_button_tag "shirt_option_id", "other", false %>
+              <p>Other</p>
+              <%= text_field_tag "other_shirt_option" %>
+            </div>
+
+          </div>
+          <div class="items_det" id="sub_options" style="display:none;">
+            <% if @shirt_sub_options.present? %>
+                <% @shirt_sub_options.each do |sub_option| %>
+                    <div class="select_shirt">
+                      <%= radio_button_tag "shirt_sub_option_id", sub_option.id, false %>
+                      <p><%= sub_option.name %></p>
+                    </div>
+                <% end %>
+            <% end %>
+            <!--select_shirt ends-->
+          </div>
+          <!--items_det ends-->
+        </div>
+        <!--order_items ends-->
+      </div>
+      <!--order_form-1 ends-->
+      <div class="next_btn_hold">
+        <a href="javascript:void(0)" id="next">Next</a>
+      </div>
+      <!--next_btn ends-->
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $("input[name='shirt_option_id']").change(function () {
+            if ($(this).is(":checked") && $(this).val() != "other") {
+                $('#sub_options').show();
+            } else {
+                $('#sub_options').hide();
+            }
+        });
+    });
+
+
+    $("#next").click(function () {
+        var form = $(this).closest('form');
+        $.post(form.attr("action"), form.serialize(), function (response) {
+            if (response.success) {
+                $("#form-holder").html(response.html);
+            } else {
+                $("#errors").html(response.html);
+            }
+        }, "json");
+        return false;
+    });
+
+
+</script>

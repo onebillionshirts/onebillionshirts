@@ -1,0 +1,7 @@
+<h1>Editing client_spotlight</h1>
+<% url = admins_client_spotlight_path(@client_spotlight) %>
+<%= render :partial => 'form', :locals => {:url => url} %>
+
+<div style="float: left;width:100%;">
+  <%= link_to 'Back', admins_client_spotlights_path %>
+</div>

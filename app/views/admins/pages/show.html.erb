@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<% unless @page.blank? %>
+    <h1><%= @page.page_name.capitalize %></h1>
+    <p>
+      <%=  raw(@page.page_content) %>
+    </p>
+<% end %>
+<%= link_to 'Edit', edit_admins_page_path(@page) %> |
+<%= link_to 'Back', admins_pages_path %>

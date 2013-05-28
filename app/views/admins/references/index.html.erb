@@ -1,0 +1,21 @@
+<h1>Listing References</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @references.each do |reference| %>
+      <tr>
+        <td><%= reference.name %></td>
+        <td><%= link_to 'Edit', edit_admins_reference_path(reference) %></td>
+        <td><%= link_to 'Destroy', admins_reference_path(reference), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Reference', new_admins_reference_path %>

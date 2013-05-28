@@ -1,0 +1,6 @@
+<h1>Editing Shirt Option</h1>
+<% url = admins_shirt_option_path(@shirt_option) %>
+<%= render :partial => 'form', :locals => { :url => url } %>
+<div style="float: left;width:100%;">
+  <%= link_to 'Back', admins_shirt_options_path %>
+</div>

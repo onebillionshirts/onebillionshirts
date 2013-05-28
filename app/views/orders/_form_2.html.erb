@@ -1,0 +1,82 @@
+<% content_for :head do %>
+    <% @title = "Order process - OneBillionShirts" %>
+    <%= @title %>
+<% end %>
+<%= render :partial => "/orders/progress_bar", :locals => {:count => 2} %>
+<%= form_tag "/orders/form_3" do %>
+    <div id="errors"></div>
+    <%= hidden_field_tag :shirt_color_id %>
+    <div class="order_form_hold">
+      <div class="select_color_hold">
+        <%= render :partial => '/orders/color_boxes_list' %>
+      </div>
+    </div>
+
+
+    <div class="new_color_form_div">
+      <div class="add_code_form">
+        <div class="heading_left">
+          <h3>Or,type your own color:</h3>
+        </div>
+        <div class="text_box_right">
+          <input type="text" size="30" id="shirt_color_name" name="shirt_color_name"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="next_btn_hold">
+      <a href="javascript:void(0)" class="readmore" id="next">Next</a>
+    </div>
+    <!--Let User to add their own color ends here-->
+
+    <!--next_btn ends-->
+
+    <!--order_form_hold ends-->
+<% end %>
+
+<script type='text/javascript'>
+    $("#next").click(function () {
+        var form = $(this).closest('form');
+        $.post(form.attr("action"), form.serialize(), function (response) {
+            if (response.success) {
+                $("#form-holder").html(response.html);
+            } else {
+                $("#errors").html(response.html);
+            }
+        }, "json");
+        return false;
+    });
+
+    $('#shirt_color_name').click(function () {
+        $(".selected").each(function () {
+            $(this).removeClass("selected");
+        });
+        $("#shirt_color_id").val(null);
+    });
+
+    $('#open_color_code_field').click(function () {
+        $('.add_code_form').show();
+    });
+
+    $('#close_color_form').click(function () {
+        $('.add_code_form').hide();
+    });
+
+    $("#save_color_code").click(function () {
+        if ($('#pick_color_code').val().length) {
+            val = $('#pick_color_code').val();
+            $.ajax({
+                url: "/orders/save_new_color?code=" + val, type: 'get', dataType: 'html',
+                processData: false,
+                success: function (data) {
+                    $('.select_color_hold').html(data);
+                    $('.add_code_form').hide();
+                }
+            });
+        }
+        else {
+            alert("Code field is blank?")
+        }
+    });
+
+</script>

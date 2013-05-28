@@ -1,0 +1,6 @@
+<h1>Editing Charity Category</h1>
+<% url = admins_charity_category_path(@charity_category) %>
+<%= render :partial => 'form', :locals => { :url => url } %>
+<div style="float: left;width:100%;">
+  <%= link_to 'Back', admins_charity_categories_path %>
+</div>

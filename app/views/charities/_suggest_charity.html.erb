@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+    <div class="wrapper">
+      <div class="notice">
+        <p><%= flash[:notice] %></p>
+      </div>
+    </div>
+<% end %>
+<h2>Quick Suggest:</h2>
+
+<div class="quick_suggest_div">
+  <div class="quick_suggest_iner_div">
+    <p>Add a link to a website, we will review, and if accepted we will manually upload the charity. </p>
+    <i><input type="text" size="30" placeholder="Charity website here" id="charity_website_textfield"/></i>
+    <a href="javascript:;" id="add_charity_website">Submit</a>
+  </div>
+</div>
+<% flash[:notice] = nil %>

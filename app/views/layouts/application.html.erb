@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="google-site-verification" content="cVjwrkSJ7PDdnpz8XP9wmBMg365t6srzraCKRWLUJYs"/>
+  <meta name="title" content="OneBillionShirts.org: Custom T-shirts That Make a Difference!">
+  <meta name="description" content="Onebillionshirts.org raises money and awareness for charities through leveraging the multi-billion dollar T-shirt industry.">
+  <meta name="keywords" content="Onebillionshirts.org, charity t-shirts, custom t-shirts, charity, t-shirt donations">
+  <!--<title>OneBillionShirts</title>-->
+  <title><%= yield :head %></title>
+
+  <link rel="icon" type="image/png" href="/assets/favicon.ico">
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+
+  <%= csrf_meta_tags %>
+
+  <!-- End SlidesJS Required -->
+  <script type="text/javascript" src="/assets/jquery.ennui.contentslider.js"></script>
+  <!-- SlidesJS Required: Link to jquery.slides.js -->
+  <script type="text/javascript" src="/assets/jquery.easing.1.3.js"></script>
+  <script type="text/javascript">var switchTo5x = true;</script>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "76c7d2cf-e6a6-4026-a628-8611dbc0e2ae", doNotHash: true, doNotCopy: true, hashAddressBar: true});
+
+
+  stLight.subscribe("click",fun1);
+//  stLight.subscribe("click", function () {
+//      alert("s");
+//  });
+  function fun1(event, service) {
+
+  }
+
+  </script>
+
+</head>
+<body>
+
+<%= render :partial => "/layouts/header" %>
+<%= yield %>
+<%= render :partial => "/layouts/footer" %>
+<div id="request-quote" class="dropdown clearfix" style="display: none;"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function set_active(key) {
+        $.get("/charities/get_charities?key=" + key, function (response) {
+            $('#charities').html(response);
+        });
+        $(".active").each(function () {
+            $(this).removeClass("active");
+        });
+        $('.charity-link-' + key).closest("li").addClass("active");
+        return false;
+    }
+    $(document).ready(function () {
+        $(".active").each(function () {
+            $(this).removeClass("active");
+        });
+        <% if cookies[:key].blank? %>
+        $('.charity-link-featured').closest("li").addClass("active");
+        <% else %>
+        $('.charity-link-<%= cookies[:key]%>').closest("li").addClass("active");
+        <% end %>
+
+    });
+
+</script>

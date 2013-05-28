@@ -1,0 +1,110 @@
+<script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column',
+                margin: [ 50, 50, 100, 80]
+            },
+            title: {
+                text: 'Top Shared Charities'
+            },
+            xAxis: {
+                categories: ["<%= @charities.first.name%>",
+                    "<%= @charities.second.name%>",
+                    "<%= @charities.third.name%>",
+                    "<%= @charities.fourth.name%>",
+                    "<%= @charities.fifth.name%>",
+                    "<%= @charities.fifth.name%>"
+                ],
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Number Of Shares'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                            'Population in 2008: '+ Highcharts.numberFormat(this.y, 1) +
+                            ' millions';
+                }
+            },
+            series: [{
+                name: 'Population',
+                data: [16, 15, 14, 13, 12],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    });
+</script>
+<%#= javascript_include_tag "highcharts", "exporting" %>
+  <!--<script src="/assets/highcharts.js"></script>-->
+  <!--<script src="javascripts/modules/exporting.js"></script>-->
+<% content_for :head do %>
+    <% @title = "Share Contest - OneBillionShirts" %>
+    <%= @title %>
+<% end %>
+  <div class="slider_hold" style="height:auto;">
+  <div class="share_contest_containor_div">
+    <h1>Sharing is <span>Caring</span> Contest</h1>
+  </div>
+  <!--slider_text ends-->
+</div>    <!--slider_hold ends-->
+<div class="wrapper">
+  <div class="img_det_txt">
+    <p>Our sharing is caring contest showcases the charities with the most social
+      involvement from our site. The charity with the most "shares" will win $5,000
+      donated directly from Onebillionshirts.org </p>
+
+    <p>
+      How it works: Simply visit your favorite charity's page within our site and share
+      the link and encourage others to do the same. Track in real time who is leading
+      below...
+
+    </p>
+    <!--abt_list_im1 ends-->
+    <!--img_det_txt ends-->
+  </div>
+  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto;"></div>
+  <div class="list_charity">
+    <%= render :partial => "home/view_all_charities" %>
+  </div>
+  <a  href="javascript:;" class="charity-link-all" id="top_cahrities">All Charities</a>
+  <!--wrapper ends-->
+</div>
+
+
+<script type="text/javascript">
+    $("#top_cahrities").click(function () {
+            $.ajax({
+                url: "home/view_all_charities" , type: 'get', dataType: 'html',
+                processData: false,
+                success: function (data) {
+                    $('.list_charity').html(data);
+                }
+            });
+    });
+</script>

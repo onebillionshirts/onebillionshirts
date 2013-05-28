@@ -1,0 +1,28 @@
+<h1>Listing client_spotlights</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @client_spotlights.each do |client_spotlight| %>
+  <tr>
+    <td><%= raw(client_spotlight.description) %></td>
+    <td><%= client_spotlight.name %></td>
+    <td><%= client_spotlight.client_spotlight_type %></td>
+    <td><%= image_tag client_spotlight.client_spotlight_images.first.asset.url(:thumb) if client_spotlight.client_spotlight_images.present? %></td>
+    <td><%= link_to 'Edit', edit_admins_client_spotlight_path(client_spotlight) %></td>
+    <td><%= link_to 'Destroy', admins_client_spotlight_path(client_spotlight), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Client spotlight', new_admins_client_spotlight_path %>

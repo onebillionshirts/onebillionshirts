@@ -1,0 +1,7 @@
+<h1>Editing Questions</h1>
+<% url = admins_question_path(@question) %>
+<%= render :partial => 'form', :locals => {:url => url} %>
+
+<div style="float: left;width:100%;">
+  <%= link_to 'Back', admins_questions_path %>
+</div>

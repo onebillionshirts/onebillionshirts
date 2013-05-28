@@ -1,0 +1,21 @@
+<h1>Listing Shirt Sub Options</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @shirt_sub_options.each do |shirt_sub_option| %>
+      <tr>
+        <td><%= shirt_sub_option.name %></td>
+        <td><%= link_to 'Edit', edit_admins_shirt_sub_option_path(shirt_sub_option) %></td>
+        <td><%= link_to 'Destroy', admins_shirt_sub_option_path(shirt_sub_option), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Shirt Sub Option', new_admins_shirt_sub_option_path %>

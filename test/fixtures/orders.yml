@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  avg_size: 1
+  per_year: 1
+
+two:
+  avg_size: 1
+  per_year: 1

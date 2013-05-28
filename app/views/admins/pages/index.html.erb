@@ -1,0 +1,17 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.page_name %></td>
+    <td><%= link_to 'Show', admins_page_path(page) %></td>
+    <td><%= link_to 'Edit', edit_admins_page_path(page) %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,148 @@
+<% content_for :head do %>
+    <% @title = "Our Story - OneBillionShirts" %>
+    <%= @title %>
+<% end %>
+<% @page_content = Page.find_by_page_name('our_story').page_content %>
+<% if @page_content.present? %>
+    <%= raw(@page_content) %>
+<% else %>
+
+    <div class="slider_hold" style="height:auto;">
+      <div class="slider_text">
+        <h1 style="width:634px;"><span>Together</span> we can impact the lives of millions.</h1>
+
+        <p>Let's work together to make our world a better place</p>
+      </div>
+      <!--slider_text ends-->
+    </div><!--slider_hold ends-->
+    <div class="wrapper">
+
+        <div class="img_det_txt">
+
+        <div class="abt_img_t"><img src="/assets/abt_img.png"/></div>
+           <!--abt_img_t ends-->
+        <div class="abt_sto_txt">
+
+          <h1>Our Story:</h1>
+
+          <p>In 2011, Greg and Jill, a newly married couple living in Connecticut decided to move to Boston to pursue
+            something bigger. This is where they met Albion, a refugee from Kosovo who was saved from war and moved to
+            America at age 14 with the help of others.
+
+            While talking about their passion for business and giving back, they decide to start a business together
+            that
+            will allow them to do business and help change the world in the process.
+
+            With Greg's established custom goods businesses and connections, Jill's organization skills and passion for
+            giving, and Albion's finance and operations background, the three set off to change the world through custom
+            t-shirts.
+          </p>
+        </div>
+        <!--abt_sto_txt ends-->
+        <div class="abt_sto_txt">
+
+          <h1>Our Team:</h1>
+
+          <span>Gregory Berry</span>
+
+          <p>As a serial entrepreneur, Greg knows what it is like to start with no resources, connections, or capital.
+            Starting a national Italian food company at age 21 to selling T-shirts outside of stadiums and concerts, and
+            everything in between, he always knew hard work and persistence is the key to success.</br>
+
+            Born and raised in Waterbury, CT which Forbes describes as a
+            <a href="http://www.forbes.com/forbes/2008/0407/103.html" target="_blank">29 square mile junk pile,</a>
+            success
+            and opportunity were not prevalent. Through creativity, ingenuity, and resourcefulness, he developed many
+            concepts which can be run from a laptop and began his ascent to the top of the business world, which he
+            compares
+            to driving in unknown land with a faulty GPS unit.</br>
+
+            In 2012, after building a successful custom apparel business, he decided it was time to give back and
+            develop a
+            socially responsible concept that would help make the world a better place. Through his current ventures and
+            business relationships, he knew the t-shirt business would be a great avenue.</br>
+
+            He asked others: how many t-shirts do you own? This led him to research how many blank shirts are sold each
+            year
+            to be screen printed, which to his amazement was around 1 billion. This was the start of
+            OneBillionShirts.org
+          </p>
+        </div>
+        <!--abt_sto_txt ends-->
+        <div class="abt_sto_txt">
+
+          <span>Albion Calaj</span>
+
+          <p>Growing up in Kosovo, Albion and his older brother learned quickly the value of entrepreneurship. At age
+            10, he
+            and his brother recognized an unfulfilled niche, selling VCR's to others with families living in abroad.
+            Soon
+            they began making profit and helping other reunite with their loved ones.
+            </br>
+
+            In 1999, Albion came to America with the help of a charity, which he would never forget. This provided an
+            opportunity to start a new life and chase the American Dream. Working multiple jobs during high school and
+            beyond, he was able to bring money home and purchase both commercial and residential real estate and
+            eventually
+            start a trucking business which he sold.</br>
+            Never forgetting how others impacted his life, Albion devoted many years to charity with MAASBESA, a non
+            profit
+            organization devoted to the well-being of the Albanian-American community in Massachusetts and KSB (Kosovo
+            Society Boston), which helps
+            bring children from Kosovo to USA for medical treatment.</br>
+
+            After graduating Northeastern University, Albion entered the world of high finance joining Morgan Stanley as
+            a
+            wealth adviser. In late 2011, he met Greg & Jill and his penchant for entrepreneurism was sparked again.</p>
+        </div>
+        <!--abt_sto_txt ends-->
+        <div class="abt_sto_txt">
+
+          <span>Jill Berry</span>
+
+          <p>After graduating Secret Heart University and receiving her Masters in Education from University of
+            Bridgeport,
+            Jill began a fulfilling career as a public school teacher in Waterbury, CT. </br>
+
+            Working with inner city youths in a school system plagued with high poverty rates, she loved having an
+            impact on
+            the lives of others. Supplying her own teaching materials and selling candy to raise funds for school
+            activities, she loved the challenge.</br>
+            In 2011 after getting married that summer, she decided to take a leap of faith and move to Boston with her
+            new
+            husband. Without a Massachusetts teaching certificate, Jill knew that she would find a new career and hoped
+            it
+            would be just as fulfilling. Taking a year off and working with Greg, she began to get the entrepreneurial
+            bug.
+            While looking into local non-profits, she was intrigued at the mention of a new venture with Greg & Albion
+            and
+            starting as the Director of Giving.  </br>
+
+            From working in impoverished schools, she understands the value of resourcefulness, passion and frugality,
+            which
+            are the cornerstone of this social startup.</p>
+        </div>
+        <!--abt_sto_txt ends-->
+
+      </div>
+      <!--img_det_txt ends-->
+
+      <!--<div class="btn_align">-->
+      <!--<div class="choose_btn_2">-->
+      <!--<a href="/charities">Choose Your Charity</a></div>-->
+      <!--</div>-->
+
+
+    </div><!--wrapper ends-->
+<% end %>
+<div class="wrapper"><%= render :partial => "home/calculate_input_field", :locals => {:val => nil} %></div>
+<style type="text/css">
+
+    .calc_btn {
+        float: left;
+        margin: 0 auto 0 122px;
+        padding: 12px 0 10px;
+        width: 550px;
+    }
+
+</style>

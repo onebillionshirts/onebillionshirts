@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag "jquery.bxslider", :media => "all" %>
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "jquery" %>
+<div class="slider_hold">
+  <% if @banners.present? %>
+      <ul class="bxslider" id="bxslider1">
+        <% @banners.each do |banner| %>
+            <li>
+              <div class="slider_text">
+                <%= raw banner.content %>
+              </div>
+              <!--slider_text ends-->
+              <div class="slider_img">
+                <%= image_tag banner.image.url %>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+  <% end %>
+  <!--slider_img ends-->
+</div>
+<!--slider_hold ends-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#bxslider1').bxSlider();
+    });
+</script>

@@ -1,0 +1,95 @@
+<% content_for :head do %>
+    <% @title = "Order process - OneBillionShirts" %>
+    <%= @title %>
+<% end %>
+<%= stylesheet_link_tag "jquery.ui.datepicker","jquery.ui.datepicker.min"  %>
+<%= render :partial => "/orders/progress_bar", :locals => {:count => 5} %>
+<%= form_for @client, :url => "/orders/save_order" do |f| %>
+    <div class="order_form_hold">
+      <div class="slider_text">
+        <h1>Thank you!</h1>
+
+        <p>Now we just need a few more details and we'll get back to you shortly!</p>
+      </div>
+      <!--slider_text ends-->
+      <div id="errors"></div>
+      <div class="personal_info_inputs">
+        <div class="input_items_det">
+          <div class="name_field">
+            <label>First Name</label>
+            <%= f.text_field :first_name %>
+          </div>
+          <!--name_field ends-->
+          <div class="name_field">
+            <label>Last Name</label>
+            <%= f.text_field :last_name %>
+          </div>
+          <!--last_name_field ends-->
+          <!--email_field ends-->
+          <div class="phone_field">
+            <label>Email</label>
+            <%= f.text_field :email %>
+          </div>
+          <!--phone_field ends-->
+          <div class="zip_code_field">
+            <label>Delivery Zip Code</label>
+            <%= f.text_field :zip %>
+          </div>
+          <!--zip_code_field ends-->
+          <div class="select_reference_field">
+            <label>How did you hear about us?</label>
+            <%= f.select :reference_id, options_from_collection_for_select(Reference.all, :id, :name) %>
+          </div>
+          <!--reference field ends-->
+          <div class="select_reference_field">
+            <label>Deadline</label>
+            <input type="text" id="datepicker" name="deadline" class="datepicker_div">
+            <%#= text_field_tag "deadline", :id => "datepicker" %>
+          </div>
+          <!--reference field ends-->
+
+          <div class="current_price_field">
+            <label>Your Current Price Per Shirt</label>
+
+            <div class="mark">
+              <img src="/assets/question_img.png"/>
+
+              <div class="q_hover" style="display:none;">
+                Our goal is to match or beat your current price and still donate 25¢ to charity. If we cannot match or
+                beat your current prices, it may not be in your best interest to print with us. Please provide an honest
+                total price including all screen charges, art fees, etc. and we will do our best to create a win-win!
+              </div>
+            </div>
+            <%= f.text_field :price_per_shirt %>
+          </div>
+          <!--current_price_field ends-->
+        </div>
+        <!--input_items_det ends-->
+      </div>
+      <!--personal_info_inputs ends-->
+      <div class="next_btn_hold_send">
+        <a href="javascript:void(0)" id="send"></a>
+      </div>
+      <!--next_btn_hold ends-->
+    </div><!--order_form_hold ends-->
+<% end %>
+
+<script type='text/javascript'>
+
+    $("#send").click(function () {
+        var form = $(this).closest('form');
+        $.post(form.attr("action"), form.serialize(), function (response) {
+            if (response.success) {
+                window.location.href = '/orders/thank_you';
+            } else {
+                $("#errors").html(response.html);
+            }
+        }, "json");
+        return false;
+    });
+
+    $(function () {
+            $("#datepicker").datepicker({dateFormat:'yy-mm-dd'});
+        });
+
+</script>
