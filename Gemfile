@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "mysql2"
+gem "pg"
 gem "devise"
 gem "paperclip", "~> 3.0"
 gem "tinymce-rails"
