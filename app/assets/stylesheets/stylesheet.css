@@ -698,22 +698,22 @@ width:210px;
 }
 
 .color_boxes {
-    width: 790px;
+    width: 385px;
     margin: 50px auto 0 auto;
 }
 
 .color_box {
     float: left;
-    width: 100px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
     margin: 0 30px 20px 0;
     background: #00adef;
 }
 
 .color_box_div {
     float: left;
-    height: 150px;
-    width: 130px;
+    height: 30px;
+    width: 30px;
 }
 
 .color_code_div {
@@ -724,8 +724,6 @@ width:210px;
 
 .shirt_sizes {
     float: left;
-    width: 100%;
-    margin: 70px 0 0 0;
     text-align: center;
 }
 
@@ -742,9 +740,9 @@ width:210px;
 
 .youth_sizes p {
     float: left;
-    width: 150px;
+    width: 70px;
     text-align: left;
-    font-size: 36px;
+    font-size: 16px;
     margin: 0;
 }
 
@@ -759,20 +757,18 @@ width:210px;
 
 .size_input {
     float: left;
-    width: 63px;
-    height: 43px;
-    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 .size_input_lft {
-    background: url(/assets/size_input_lft.png) no-repeat;
     width: 8px;
     height: 43px;
     float: left;
 }
 
 .size_input_mid {
-    background: url(/assets/size_input_mid.png) repeat-x;
     width: 55px;
     height: 43px;
     float: left;
@@ -780,10 +776,10 @@ width:210px;
 
 .size_input_mid input {
     background: none;
-    border: none;
-    width: 50px;
-    height: 40px;
-    font-size: 28px;
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
     font-weight: normal;
     text-align: center;
 }

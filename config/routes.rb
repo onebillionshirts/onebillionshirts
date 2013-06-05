@@ -82,7 +82,6 @@ OneBS::Application.routes.draw do
     resources :size_categories
     resources :size_options
     resources :ink_color_options
-    resources :orders
     resources :charity_categories
     resources :suggested_charities
     resources :references
@@ -109,6 +108,7 @@ OneBS::Application.routes.draw do
     collection do
       get :generate_pdf, :thank_you, :save_new_color
       post :order_process, :form_1, :form_2, :form_3, :form_4, :form_5, :save_order
+      get :quick_quote
     end
   end
 

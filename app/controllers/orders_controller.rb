@@ -6,6 +6,12 @@ class OrdersController < ApplicationController
     @shirt_sub_options = ShirtSubOption.all
   end
 
+  def quick_quote
+    @charities = Charity.all
+    @shirt_options = ShirtOption.all
+    @shirt_sub_options = ShirtSubOption.all
+  end
+
   def form_2
     make_all_variables_nil
     $charity_id = params[:charity_id]
