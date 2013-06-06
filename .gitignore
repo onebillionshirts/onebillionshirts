@@ -18,3 +18,4 @@
 .idea/
 db/schema.rb
 /vendor/bundle/
+*.DS_Store

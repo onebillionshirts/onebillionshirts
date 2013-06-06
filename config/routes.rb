@@ -76,17 +76,10 @@ OneBS::Application.routes.draw do
         get :image_form
       end
     end
-    resources :shirt_options
-    resources :shirt_sub_options
-    resources :shirt_colors
-    resources :size_categories
-    resources :size_options
-    resources :ink_color_options
     resources :charity_categories
     resources :suggested_charities
     resources :references
     resources :pages
-    resources :orders
   end
 
   resources :home do
@@ -107,8 +100,6 @@ OneBS::Application.routes.draw do
 
   resources :orders do
     collection do
-      get :generate_pdf, :thank_you, :save_new_color
-      post :order_process, :form_1, :form_2, :form_3, :form_4, :form_5, :save_order
       get :quick_quote
     end
   end

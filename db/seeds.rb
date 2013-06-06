@@ -37,63 +37,6 @@ Banner.create!(:content => "<h1>This is how it <span>works...</span></h1> <p>If 
                :image   => File.new("doc/banners/illust_final0004.png")
 )
 
-puts "Deleting existing shirt options.."
-sos = ShirtOption.all
-sos.each { |so| so.destroy } if sos.present?
-
-puts "Creating default shirt options...."
-ShirtOption.create!(:name => "100% Cotton")
-ShirtOption.create!(:name => "50/50 Blend")
-ShirtOption.create!(:name => "Premium")
-ShirtOption.create!(:name => "Tech Shirt")
-
-
-puts "Deleting existing shirt sub options.."
-ssos = ShirtSubOption.all
-ssos.each { |so| so.destroy } if ssos.present?
-
-puts "Creating default shirt sub options...."
-ShirtSubOption.create!(:name => "Short Sleeve")
-ShirtSubOption.create!(:name => "Long Sleeve")
-
-puts "Deleting existing shirt colors.."
-scs = ShirtColor.all
-scs.each { |sc| sc.destroy } if scs.present?
-
-puts "Creating default shirt colors...."
-(0..17).each do
-  ShirtColor.create!(:code => "%06x" % (rand * 0xffffff))
-end
-
-
-puts "Deleting existing shirt size categories.."
-scs = SizeCategory.all
-scs.each { |ss| ss.destroy } if scs.present?
-
-puts "Creating default shirt Sizes Categories...."
-%w(Youth Men Women).each do |c_name|
-  SizeCategory.create!(:name => c_name)
-end
-
-puts "Deleting existing Size Option.."
-scs = SizeOption.all
-scs.each { |ss| ss.destroy } if scs.present?
-
-puts "Creating default shirt Sizes Options...."
-%w(S M L XL XXL).each do |name|
-  SizeOption.create!(:name => name)
-end
-
-puts "Deleting existing ink color options.."
-icos = InkColorOption.all
-icos.each { |ico| ico.destroy } if icos.present?
-
-puts "Creating default ink color options..."
-%w(Front Back).each do |side|
-  (1..10).each do |name|
-    InkColorOption.create!(:name => name, :side => side)
-  end
-end
 
 puts "Deleting existing charity categories.."
 cgs = CharityCategory.all

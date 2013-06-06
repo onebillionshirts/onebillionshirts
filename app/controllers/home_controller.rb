@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   def index
     @banners = Banner.all
     @charities = Charity.featured
-    @order = Order.new
     get_default_charity
   end
 
@@ -24,7 +23,6 @@ class HomeController < ApplicationController
 
   def how_it_works
     @page_content = Page.find_by_page_name('how_it_works').page_content
-    @order = Order.new
   end
 
   def top_ten_reasons
@@ -33,7 +31,6 @@ class HomeController < ApplicationController
 
   def share_contest
     @charities = Charity.find(:all, :limit => 10)
-    #:order=> "id DESC",
   end
 
   def send_email
