@@ -1,0 +1,37 @@
+.btn_align
+  .calc_btn
+    .calc_box_div
+      .calc_box_img_div
+        %img{:src => "/assets/search_icon.png"}/
+      .calc_box_input_div
+        .calc_box_input_div_left
+          %input#number_of_shirts{:placeholder => "How many t-shirts do you order?", :size => "30", :type => "text"}/
+        .calc_box_input_div_right
+          %a#calculate_value.select-link{:href => "javascript:;"} CALCULATE
+        / <div class="calc_box_input_div_right"><a href="javascript:;" id="calculate_value">CALCULATE</a></div>
+        / <a href="/charities">Choose Your Charity</a>
+  - if val != nil
+    .calc_img_div
+      %img{:src => "/assets/calc_arrow.png"}/
+:javascript
+  $("#calculate_value").click(function () {
+      $(".selected-active").each(function () {
+          $(this).children("a").html("CALCULATE");
+          $(this).removeClass("selected-active");
+      });
+      $(this).closest(".selected_btn").addClass("selected-active");
+      $(this).html("CALCULATE Selected");
+      val = $('#number_of_shirts').val();
+      $.get("/home/calculated_value_popup?number_of_shirts=" + val, function (response) {
+          $('#request-quote').html(response);
+          $('#request-quote').bPopup({
+              closeClass: 'bot_it',
+              onClose: function () {
+                  $(".selected_btn").removeClass("selected-active");
+                  $(".select-link").html("CALCULATE");
+              }
+          });
+
+      });
+      return false;
+  });

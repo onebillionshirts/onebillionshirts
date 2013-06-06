@@ -1,0 +1,110 @@
+= stylesheet_link_tag "jquery.bxslider", :media => "all"
+- content_for :head do
+  - @title = "#{@charity.name} - OneBillionShirts"
+  = @title
+.rit_content
+  .chose_charity
+    .back_link
+      %a.charity-link{:href => "javascript:;", :onclick => "set_active('#{@get_key}');"} Back
+    / back_link ends
+  / chose_charity ends
+  .charity_list
+    .c_list_img_n
+      - if @charity.logo.present?
+        = image_tag(@charity.logo.image.url(:medium))
+      - else
+        %img{:src => "/assets/no_logo.jpg"}/
+    / c_list_img_n ends
+    .c_list_txt_n
+      .selected_btn_b
+        %a.select-link{:href => "/charities/request_quote?id=#{@charity.id}"} Choose This Charity
+      .list_txt_det
+        %h2= @charity.name
+        %p= @charity.address
+        %span
+          = @charity.city
+          , #{@charity.state} #{@charity.zip}
+        %p
+          Category: #{@charity.charity_category.name}
+        %p
+          Website: #{@charity.website}
+        %p
+          Tax ID: #{@charity.tax_id}
+      / list_txt_det ends
+    .sharethis_div
+      .socialz
+        %span.st_sharethis_large{:displaytext => "ShareThis"}
+        %span.st_facebook_large{:displaytext => "Facebook"}
+        %span.st_twitter_large{:st_via => ""}
+        %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
+        %span.st_pinterest_large{:displaytext => "Pinterest"}
+        %span.st_email_large{:displaytext => "Email"}
+      .sharethis_img
+        %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
+      .sharethis_text
+        %p
+          Every share helps this charity raise more money through our charity
+          %span contests.
+      / <span class='st_pinterest_large' displayText='Pinterest'></span>
+      / <span class='st_email_large' displayText='Email'></span>
+    / c_list_txt_n ends
+    .text_infor
+      %h2 Mission Statement
+      %p= raw @charity.mission_statement
+    .text_infor
+      %h2 Description
+      %p= raw @charity.description
+    - if @charity.video_url.present?
+      .video_hold
+        = raw youtube_embed(@charity.video_url)
+      / video_hold ends
+    .img_slider
+      - if @charity.pictures.present?
+        %ul{:class => @charity.pictures.size > 4 ? 'bxslider' : '', :id => @charity.pictures.size > 4 ? 'bxslider3' : ''}
+          - @charity.pictures.each do |charity_image|
+            %li
+              - picture1 = charity_image.image.url.split("pictures")
+              - unless @charity.logo.image.url == "#{picture1[0]}logos#{picture1[1]}"
+                = image_tag charity_image.image.url(:thumb) unless charity_image.image.blank?
+              - else
+                = image_tag @charity.logo.image.url(:thumb) unless @charity.logo.image.blank?
+    / img_slider ends
+  / charity_list ends
+.selected_btn_b
+  %a.select-link{:href => "/charities/request_quote?id=#{@charity.id}"} Choose This Charity
+/ selected_btn_b ends
+:javascript
+  $(".select-link").click(function () {
+          $(this).closest(".selected_btn_b").addClass("selected-active");
+          $(this).html("Charity Selected");
+          $.get($(this).attr("href"), function (response) {
+              $('#request-quote').bPopup({
+                  closeClass: 'bot_it',
+                  onClose: function () {
+                      $(".selected_btn_b").removeClass("selected-active");
+                      $(".select-link").html("Choose This Charity");
+                  }
+              });
+              $('#request-quote').html(response.html);
+          });
+          return false;
+      });
+  
+      $(document).ready(function () {
+          $('#bxslider3').bxSlider({
+              minSlides: 2,
+              maxSlides: 3,
+              slideWidth: 100,
+              slideMargin: 10
+          });
+  //
+      });
+  
+      stButtons.getCount("#{@charity.slug}key=#{@get_key}", "sharethis", $(".st_sharethis_hcount"));
+      stButtons.getCount("#{@charity.slug}key=#{@get_key}", "facebook", $(".st_facebook_hcount"));
+      stButtons.getCount("#{@charity.slug}key=#{@get_key}", "twitter", $(".st_twitter_hcount"));
+      stButtons.getCount("#{@charity.slug}key=#{@get_key}", "LinkedIn", $(".st_linkedin_hcount"));
+:css
+  .img_slider .bx-wrapper .bx-controls-direction a {
+      top: 35%;
+  }

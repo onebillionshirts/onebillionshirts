@@ -1,0 +1,82 @@
+- content_for :head do
+  - @title = "Top 10 Reasons - OneBillionShirts"
+  = @title
+- if @page_content.present?
+  = raw(@page_content)
+- else
+  .slider_hold{:style => "height:auto;"}
+    .slider_text
+      %h1{:style => "font-size: 46px; width: 700px;"} Top 10 reasons to work with us.
+      %p Our mission is much larger then t-shirts!
+    / slider_text ends
+  / slider_hold ends
+  .wrapper
+    .img_det_txt
+      .abt_list.m_top_75
+        %h1 10. Quality Shirts & Fast Turnaround
+        %p
+          We print using the same blank shirts, same inks and same print
+          techniques as every other large scale printer in the world
+      / abt_list ends
+      .abt_list
+        %h1 9. Spread Goodness
+        %p
+          Our mission is to raise more money and awareness for charities
+          around the world to allow them to do what they do best, change the world!
+      / abt_list ends
+      .abt_list
+        %h1 8. Show That You Care
+        %p
+          We present you with a choice. Print with us and redirect money
+          to charity or use another vendor and just get your shirts printed.
+          Working with us shows that you care.
+      / abt_list ends
+      .abt_list
+        %h1 7. Join The Movement
+        %p
+          We promote you and each other through our network and together
+          we all rise to the top.
+        %img{:src => "img/about_img.png"}/
+      .abt_list
+        %h1 6. Promote Giving
+        %p
+          When your employees, associates, and stakeholders see you leverage
+          this opportunity, they will be more conscious of opportunities and
+          chances to give back.
+      / abt_list_im ends
+      .abt_list
+        %h1 5. Help People You Care About
+        %p
+          When we donate from our profit, it is not to a cause we choose.
+          We donate from our profit to a cause in which you choose. This
+          puts money directly in the hands of those you care about and believe in.
+      .abt_list
+        %h1 4. Save Money
+        %p
+          Our promise is that we will beat or match your current prices
+          and still donate from our profit. If that is not the case, it may not be the best
+          fit to work with us. We only want to create a win-win for all.
+      .abt_list
+        %h1 3. Be The Change
+        %p
+          We all want to make the world a better place. By working with us
+          you are directly raising money for a charity and indirectly
+          helping to create a snowball effect. The bigger the snowball,
+          the bigger the change!
+      .abt_list
+        %h1 2. Lead By Example
+        %p
+          Those around you will see that you are taking advantage of every
+          opportunity to promote goodness in your world. This shows others
+          to be more aware of opportunities around them and will create
+          a domino effect.
+      .abt_list
+        %h1 1. It Just Makes Sense!
+        %p
+          You are simply placing the same order as usual and by doing so
+          donating money directly to a charity of your choice and joining
+          a movement set out to leave the world a better place, a total
+          win-win!
+      / abt_list_im1 ends
+    / img_det_txt ends
+  / wrapper ends

@@ -1,0 +1,19 @@
+= stylesheet_link_tag "jquery.bxslider", :media => "all"
+= javascript_include_tag "jquery"
+= javascript_include_tag "jquery"
+.slider_hold
+  - if @banners.present?
+    %ul#bxslider1.bxslider
+      - @banners.each do |banner|
+        %li
+          .slider_text
+            = raw banner.content
+          / slider_text ends
+          .slider_img
+            = image_tag banner.image.url
+  / slider_img ends
+/ slider_hold ends
+:javascript
+  $(document).ready(function () {
+      $('#bxslider1').bxSlider();
+  });

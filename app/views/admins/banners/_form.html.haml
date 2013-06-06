@@ -1,0 +1,22 @@
+= form_for(@banner, :url => url) do |f|
+  - if @banner.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@banner.errors.count, "error")
+        prohibited this banner from being saved:
+      %ul
+        - @banner.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :image
+    = f.file_field :image
+  .actions
+    = f.submit "Save", :class => "smallBtn"
+:javascript
+  tinyMCE.init({
+      mode:'textareas',
+      theme:'advanced'
+  });

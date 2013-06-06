@@ -1,0 +1,15 @@
+= form_for(@charity_category, :url => url) do |f|
+  - if @charity_category.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@charity_category.errors.count, "error")
+        prohibited this charity category from being
+        saved:
+      %ul
+        - @charity_category.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit "Save", :class => "smallBtn"

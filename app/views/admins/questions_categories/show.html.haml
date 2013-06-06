@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %b Category:
+  = @questions_category.category
+= link_to 'Edit', edit_questions_category_path(@questions_category)
+|
+\#{link_to 'Back', questions_categories_path}

@@ -1,9 +1,0 @@
-<h1>Editing post</h1>
-
-<% url = admins_post_path(@post) %>
-<%= render :partial => 'form', :locals => {:url => url} %>
-<%= render 'form' %>
-
-<div style="float: left;width:100%;">
-  <%= link_to 'Back', admins_posts_path %>
-</div>

@@ -1,0 +1,12 @@
+%p#notice= notice
+%p
+  %b Description:
+  = raw(@client_spotlight.description)
+%p
+  %b Name:
+  = @client_spotlight.name
+%p
+  %b Type:
+  = @client_spotlight.client_spotlight_type
+= link_to 'Edit', edit_admins_client_spotlight_path(@client_spotlight)
+|

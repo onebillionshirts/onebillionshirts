@@ -1,0 +1,37 @@
+= form_tag "/orders/order_process" do
+  #errors
+  = hidden_field_tag :charity_id, @charity.id
+  .dropdown_txt
+    %h1{:style => "font-size: 18px"} Congrats! You are making a
+    %span huge
+    %h1{:style => "font-size: 18px"} difference.
+  / dropdown_txt ends
+  .drop_head
+    %p{:style => "font-family: arial !important;"} The charity you have selected:
+    %span= @charity.name
+  / bot_link ends
+  .go_btn_holder
+    .go_btn{:style => "float:right"}
+      .go_lft
+      / go_lft ends
+      .go_mid
+        %a#go.btn_a{:href => "javascript:void(0);"} GO To Order Form !
+    .bot_link
+      %h2
+        %a#continue.bot_it{:href => "#"} continue to browse our site
+:javascript
+  $("#go").click(function () {
+      $('#request-quote').bPopup().close();
+      $(this).closest('form').submit();
+      return false;
+  });
+
+  $(function () {
+      $("input[name='option_id']").change(function () {
+          if ($(".option_id").is(":checked")) {
+              $('.go_btn').show();
+          } else {
+              $('.go_btn').hide();
+          }
+      });
+  });

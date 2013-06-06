@@ -1,0 +1,15 @@
+.row
+  .span6
+    %h2 Listing Charity Categories
+  .span5
+    = link_to 'New Charity Category', new_admins_charity_category_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th
+  - @charity_categories.each do |charity_category|
+    %tr
+      %td= link_to charity_category.name, admins_charity_category_path(charity_category)
+      %td 
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_charity_category_path(charity_category)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_charity_category_path(charity_category), method: :delete, confirm: "Are you sure?"

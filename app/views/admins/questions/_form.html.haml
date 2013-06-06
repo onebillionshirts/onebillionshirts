@@ -1,0 +1,22 @@
+= form_for(@question, :url => url) do |f|
+  - if @question.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@question.errors.count, "error")
+        prohibited this question from being saved:
+      %ul
+        - @question.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    %b CATEGORY NAME
+    = f.select :questions_category_id, @questions_categories.map{ |c| [c.category, c.id] }
+  .field
+    = f.label :question
+    %br/
+    = f.text_field :question
+  .field
+    = f.label :answer
+    %br/
+    = f.text_area :answer
+  .actions
+    = f.submit "Save", :class => "smallBtn"

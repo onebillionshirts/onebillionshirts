@@ -1,0 +1,42 @@
+Charity: #{@order.charity.name if @order.charity.present?}
+%br/
+Quantity: #{@order.quantity}
+%br/
+Shirt Option:
+- if @order.shirt_option.present?
+  = @order.shirt_option.name
+- else
+  = @order.other_shirt_option
+,#{@order.shirt_sub_option.name if @order.shirt_sub_option.present?}
+%br/
+Shirt Color:
+- @order.shirt_color.code if @order.shirt_color.present?
+%br/
+%b Shirt Sizes:
+%br/
+- if @order.order_size_values.present?
+  - @order.order_size_values.each do |order_value|
+    = order_value.size_category.name
+    (#{order_value.size_option.name}): #{order_value.value}
+    %br/
+%b Ink Color Options:
+%br/
+- @order.ink_color_options.each do |ink_color|
+  = ink_color.side
+  \:  #{ink_color.name}
+  %br/
+- end  if @order.ink_color_options.present?
+Design Instructions: #{@order.instructions}
+%br/
+%b Client Details:
+%br/
+- if @order.client.present?
+  First Name: #{@order.client.first_name}
+  %br/
+  Last Name: #{@order.client.last_name}
+  %br/
+  Email: #{@order.client.email}
+  %br/
+  Postal Zip Code: #{@order.client.zip}
+  %br/
+  Current Price per Shirt: #{@order.client.price_per_shirt}

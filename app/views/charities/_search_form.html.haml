@@ -1,0 +1,32 @@
+= form_tag "/charities/search_charities" ,:id => "e_form" do
+  .search_holder
+    .srh_input
+      %label Search:
+      = text_field_tag :search_key
+      %a#search{:href => "javascript:void(0)"}
+        %img{:src => "/assets/Search.png"}/
+    / srh_input ends
+  / search_holder ends
+:javascript
+  $("#search").click(function () {
+      var form = $(this).closest('form');
+      $.post(form.attr("action"), form.serialize(), function (response) {
+          $("#charities").html(response.html);
+      }, "json");
+      return false;
+  });
+
+  $(document).ready(function () {
+      $(window).keypress(function(e){
+      var code = (e.keyCode ? e.keyCode : e.which);
+      if (code == 13) {
+          e.preventDefault();
+          var form = $("#e_form");
+          $.post(form.attr("action"), form.serialize(), function (response) {
+              console.log("aaaaa");
+              $("#charities").html(response.html);
+          }, "json");
+          return false;
+      }
+      })
+      });

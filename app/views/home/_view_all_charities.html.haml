@@ -1,0 +1,5 @@
+- unless @charities.blank?
+  %ol{:start => "1"}
+    - @charities.each do |charity|
+      %li
+        %a{:href => "/#{charity.slug}?key=#{$get_key}"}= charity.name

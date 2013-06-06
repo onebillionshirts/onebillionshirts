@@ -1,0 +1,17 @@
+.row
+  .span6
+    %h2 Questions
+  .span5
+    = link_to 'New Question', new_admins_question_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Question
+    %th Answer
+    %th
+  - @questions.each do |question|
+    %tr
+      %td= question.question
+      %td= question.answer
+      %td
+        =link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_question_path(question)
+        =link_to '<i class="icon-remove"></i>'.html_safe, admins_question_path(question), method: :delete, data: {confirm: 'Are you sure?'}

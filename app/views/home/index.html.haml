@@ -1,0 +1,146 @@
+- content_for :head do
+  - @title = "OneBillionShirts.org - Custom T-shirts For Good!"
+  = @title
+.wrapper
+  .inner_wrapper_div
+    %h1
+      YOUR
+      %span#show_name RACE
+      T-SHIRTS CAN MAKE A HUGE DIFFERENCE!
+    = hidden_field_tag "color_code_", "RACE", :id => "get_name"
+    %p
+      We print your t-shirts, save you money, and donate a minimum of 25¢ per shirt to a charity of your choice! This
+      simple concept can change the world...
+  = render :partial => "home/calculate_input_field", :locals => {:val => 1}
+.green_bg
+/ green_bg ends
+.wrapper
+  .our_idea
+    .idea_txt
+      %h1 Our Concept
+      %p
+        We will print your shirts and donate 25¢ per shirt to charity from our profit, while offering the highest
+        quality, fast turnaround, and lowest prices possible.
+      %p
+        If we set the bar, others will follow and we can
+        redirect a huge amount of money to charity!
+    / idea_txt ends
+    .idea_img
+      %img{:src => "/assets/new_chart.jpg"}/
+    .idea_dn
+      %p Together we can donate more than 99.9% of Fortune 500 companies per year!
+      %img{:src => "/assets/idea_img_arrow.png"}/
+    / idea_dn ends
+  / our_idea ends
+/ wrapper ends
+.stages_bg
+  .wrapper
+    .process_list
+      %h1 It's really simple
+      .process_stages
+        .stages_1
+          %img{:src => "/assets/stage_1_img.png"}/
+          .stage_txt.mrg_L_1
+            %span 1.
+            %p Choose a charity.
+        / stages_1 ends
+        .stages_1
+          %img{:src => "/assets/stage_2_img.png"}/
+          .stage_txt.mrg_L_2
+            %span 2.
+            %p Order Shirts.
+        / stages_1 ends
+        .stages_1
+          %img{:src => "/assets/stage_3_img.png"}/
+          .stage_txt.mrg_L_3
+            %span 3.
+            %p Receive Shirts &amp; Help Others.
+          / stage_txt
+        / stages_1 ends
+      / process_stages ends
+    / process_list ends
+  / wrapper ends
+/ idea_proces ends
+/ sliding_text ends
+.wrapper
+  .idea_proces
+    = render :partial => "/home/charities"
+    / featured_imgs ends
+  .sliding_text{:style => "margin-top: 0px !important;"}
+    %span.left-comma
+    %h2
+      Just think, together we can raise more money per year than 99% of Fortune 500 companies. That is truly
+      powerful. Once each consumer realizes the impact their order has and the influence they hold, we will begin to see
+      a shift in wealth that will change the world. This
+      inconspicuous act will propel our global community to new heights and will raise the bar of giving to others.
+    %span.right-comma
+  .bottom-text
+    %p Gregory Berry, Co-Founder, OneBillionShirts
+  / sliding_text ends
+  .btn_align
+    .calc_btn
+      .calc_box_div
+        .calc_box_img_div
+          %img{:src => "/assets/search_icon.png"}/
+        .calc_box_input_div
+          .calc_box_input_div_left
+            %input#number_of_shirts1{:placeholder => "How many t-shirts do you order?", :size => "30", :type => "text"}/
+          .calc_box_input_div_right
+            %a#calculate_value1.select-link{:href => "javascript:;"} CALCULATE
+          / <div class="calc_box_input_div_right"><a href="javascript:;" id="calculate_value">CALCULATE</a></div>
+          / <a href="/charities">Choose Your Charity</a>
+    / <div class="calc_img_div"><img src="/assets/calc_arrow.png"/></div>
+/ wrapper ends
+/ calculate_impact ends
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38304888-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+
+  $("#calculate_value1").click(function () {
+      $(".selected-active").each(function () {
+          $(this).children("a").html("CALCULATE");
+          $(this).removeClass("selected-active");
+      });
+      $(this).closest(".selected_btn").addClass("selected-active");
+      $(this).html("CALCULATE Selected");
+      val = $('#number_of_shirts1').val();
+      $.get("/home/calculated_value_popup?number_of_shirts=" + val, function (response) {
+          $('#request-quote').html(response);
+          $('#request-quote').bPopup({
+              closeClass: 'bot_it',
+              onClose: function () {
+                  $(".selected_btn").removeClass("selected-active");
+                  $(".select-link").html("CALCULATE");
+              }
+          });
+
+      });
+      return false;
+  });
+
+  $(document).ready(function () {
+      min = setInterval("refresh_name()", 2000);
+  });
+  function refresh_name() {
+      var myArray = ['Event', 'Promo', 'RACE', "League", "Game", "Corporate", "Volunteer", "School", "Party", "Reunion"];
+      var rand = myArray[Math.floor(Math.random() * myArray.length)];
+      $('#show_name').html(rand);
+  }
+:css
+  .calc_img_div {
+      float: left;
+  }
+
+  .calc_img_div img {
+      margin: 21px 0 0 412px;
+  }

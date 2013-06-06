@@ -1,0 +1,87 @@
+= javascript_include_tag "jPages"
+- content_for :head do
+  - @title = "Charities - OneBillionShirts"
+  = @title
+:javascript
+  /* when document is ready */
+  $(function () {
+      /* initiate plugin */
+      $("div.holder").jPages({
+          containerID: "itemContainer",
+          midRange: 5,
+          perPage: 25
+      });
+  });
+= render :partial => "/charities/search_form"
+.rit_sort_heads
+  %p Sort by:
+  %a.sort-key{:href => "/charities/sort_charities?sort_key=name"} Name
+  %a.sort-key{:href => "/charities/sort_charities?sort_key=created_at"} Recently Added
+  %a.sort-key{:href => "/charities/sort_charities?sort_key=city"} City
+  %a.sort-key{:href => "/charities/sort_charities?sort_key=state"} State
+/ rit_sort_heads ends
+- if @charities.present?
+  / ! end of #sidebar
+  / navigation holder
+  / item container
+  %ul#itemContainer
+    - @charities.each do |charity|
+      %li
+        .charity_list
+          .c_list_img
+            %a{:href => "/#{charity.slug}"}
+              - cookies[:key] =   $get_key
+              - if charity.logo.present?
+                = image_tag charity.logo.image.url(:thumb)
+              - else
+                %img{:height => "150", :src => "/assets/no_logo.jpg", :width => "150"}/
+          / c_list_img ends
+          .c_list_txt
+            .list_txt_det
+              %h2= charity.name
+              %span
+                = charity.city
+                , #{charity.state} #{charity.zip}
+              %p= raw charity.mission_statement
+            / list_txt_det ends
+            %a{:href => "/#{charity.slug}"} Learn more
+            .selected_btn_holder
+              .selected_btn
+                %a.select-link{:href => "/charities/request_quote?id=#{charity.id}"}
+                  Choose This
+                  Charity
+            / selected_btn_holder ends
+          / c_list_txt ends
+          .border_bot
+          / border_bot ends
+  %br/
+  / navigation holder
+  .holder
+  / charity_list ends
+:javascript
+  $(".sort-key").click(function () {
+      $.get($(this).attr("href"), function (response) {
+          $('#charities').html(response.html);
+      });
+      return false;
+  });
+
+  $(".select-link").click(function () {
+      $(".selected-active").each(function () {
+          $(this).children("a").html("Choose This Charity");
+          $(this).removeClass("selected-active");
+      });
+      $(this).closest(".selected_btn").addClass("selected-active");
+      $(this).html("Charity Selected");
+      $.get($(this).attr("href"), function (response) {
+          $('#request-quote').bPopup({
+              closeClass: 'bot_it',
+              onClose: function () {
+                  $(".selected_btn").removeClass("selected-active");
+                  $(".select-link").html("Choose This Charity");
+              }
+          });
+          $('#request-quote').html(response.html);
+      });
+      return false;
+  });

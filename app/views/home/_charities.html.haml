@@ -1,0 +1,40 @@
+= stylesheet_link_tag "jquery.bxslider", :media => "all"
+= javascript_include_tag "jquery"
+= javascript_include_tag "jquery"
+- if @charities.present?
+  %h1 Featured Charities:
+  .img_slider
+    %ul#bxslider2.bxslider
+      - @charities.each do |charity|
+        %li
+          %a{:href => "/#{charity.slug}"}
+            = image_tag charity.logo.image.url(:slider) if charity.logo.present?
+/ slider_hold ends
+:javascript
+  $(document).ready(function () {
+      $('#bxslider2').bxSlider({
+          minSlides:2,
+          maxSlides:3,
+          slideWidth:100,
+          slideMargin:10
+      });
+  });
+:css
+  .img_slider .bx-wrapper .bx-controls-direction a {
+      top: 30% !important;
+  }
+
+  .img_slider .bx-wrapper img {
+      width: 200;
+      display: block;
+  }
+
+  .img_slider ul li {
+      margin: 0 10px !important;
+      width: 200px !important;
+  }
+
+  .img_slider .bx-wrapper .bx-viewport {
+      margin: 0 auto !important;
+      width: 90% !important;
+  }

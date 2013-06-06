@@ -1,0 +1,5 @@
+%h1 Editing Charity
+- url = admins_charity_path(@charity)
+= render :partial => 'form', :locals => { :url => url }
+%div{:style => "float: left;width:100%;"}
+  = link_to 'Back', admins_charities_path

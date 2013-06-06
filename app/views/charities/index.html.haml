@@ -1,0 +1,14 @@
+.wrapper
+  .charity_holder
+    .main_content
+      .lft_content_bar
+        = render :partial => "/charities/side_bar"
+      / lft_content_bar ends
+      .rit_content
+        #charities
+          = render :partial => "/charities/list"
+        / charity_list ends
+      / rit_content ends
+    / main_content ends
+  / charity_holder ends
+/ wrapper ends

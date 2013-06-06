@@ -1,0 +1,97 @@
+= stylesheet_link_tag 'gmaps4rails'
+- content_for :head do
+  - @title = "Contact - OneBillionShirts"
+  = @title
+.slider_hold_contact
+  .slider_text
+    %h1.wid_im
+      We're located in the
+      %span heart
+      of Downtown Boston
+    %p Contact us today and we'll get right back to you.
+  / slider_text ends
+/ slider_hold ends
+/ wrapper ends
+.map_hold
+  - @marker = '[{"lng": "-71.05833","lat": "42.358562"},{"lng": "-71.05833", "lat": "42.358562" }]'
+  = gmaps({ "map_options" => { "center_latitude"  => 42.358562,       |
+    "center_longitude" => -71.05833,                                  |
+    "detect_location"  => false,                                      |
+    "center_on_user"   => false,                                      |
+    "auto_adjust"      => false,                                      |
+    "auto_zoom"        => true,                                       |
+    "zoom"             => 16 }, "markers" => { "data" => @marker } }) |
+.wrapper
+  .contact_hold
+    .cnt_lft_rit
+      .cnt_lft
+        %p OneBillionShirts.org
+        %p One Boston PI
+        %p 26th Floor
+        %p Boston MA, 02108
+      / cnt_lft ends
+      .cnt_rit
+        %p (617) 276-2295
+        %p info@onebillionshirts.org
+      / cnt_rit ends
+    / cnt_lft_rit ends
+    = form_tag "/home/send_email" do
+      #errors
+      .cnt_field_lft_rit
+        .cnt_field_lft
+          .cnt_inputs
+            %label Name:
+            = text_field_tag :name
+          / cnt_inputs
+          .cnt_inputs
+            %label Email:
+            = text_field_tag :email
+          / cnt_inputs
+        / cnt_field_lft ends
+        .cnt_field_rit
+          .cnt_inputs
+            %label Company / Organization:
+            = text_field_tag :company
+          / cnt_inputs
+          .cnt_inputs
+            %label Phone:
+            = text_field_tag :phone
+          / cnt_inputs
+        / cnt_field_rit ends
+        .cnt_txtarea
+          .cnt_inputs_n
+            %label Inquiry:
+            = text_area_tag :inquiry
+          / cnt_inputs_n
+        / cnt_txtarea ends
+        .cnt_send_btn_add_hold
+          .cnt_add
+            %label 4+4 =
+            = text_field_tag :answer
+          / cnt_add ends
+          .send_btn_rit
+            %a#send{:href => "javascript:void(0)"} Send
+          / send_btn_rit ends
+        / cnt_send_btn_add_hold ends
+      / cnt_lft_rit ends
+  / contact_hold ends
+/ wrapper ends
+= yield :scripts
+:javascript
+  $("#send").click(function () {
+      var form = $(this).closest('form');
+      $.post(form.attr("action"), form.serialize(), function (response) {
+          if (response.success) {
+              window.location.href = '/home/thank_you';
+          } else {
+              $("#errors").html(response.html);
+          }
+      }, "json");
+      return false;
+  });
+
+  $(".mark").hover(function () {
+      $('.q_hover').show();
+  }, function () {
+      $('.q_hover').hide();
+  });

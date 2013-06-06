@@ -1,0 +1,9 @@
+%h2 Listing Suggested Charities
+%table.table-striped.table.table-bordered
+  %tr
+    %th URL
+    %th
+  - @suggested_charities.each do |suggested_charity|
+    %tr
+      %td= suggested_charity.url
+      %td= link_to '<i class="icon-remove"></i>'.html_safe, admins_suggested_charity_path(suggested_charity), method: :delete, data: { confirm: 'Are you sure?' }

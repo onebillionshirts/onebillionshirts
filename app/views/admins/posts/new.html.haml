@@ -1,0 +1,4 @@
+%h1 New post
+- url = admins_posts_path(@posts)
+= render :partial => 'form', :locals => {:url => url}
+= link_to 'Back', admins_posts_path

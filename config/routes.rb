@@ -80,6 +80,7 @@ OneBS::Application.routes.draw do
     resources :suggested_charities
     resources :references
     resources :pages
+    resources :style_categories
   end
 
   resources :home do

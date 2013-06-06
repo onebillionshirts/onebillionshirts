@@ -1,0 +1,9 @@
+.topBanner
+  .logo
+    = image_tag("logo_admin.png")
+  - if admin_signed_in?
+    .topRightNav
+      .topLinks
+        %span.gray
+        = current_admin.email
+        | #{link_to "Sign Out", sign_out_path}

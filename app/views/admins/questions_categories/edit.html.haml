@@ -1,0 +1,5 @@
+%h1 Editing questions_category
+- url = admins_questions_category_path(@questions_category)
+= render :partial => 'form', :locals => {:url => url}
+%div{:style => "float: left;width:100%;"}
+  = link_to 'Back', admins_questions_categories_path

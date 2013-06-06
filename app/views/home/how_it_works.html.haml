@@ -1,0 +1,14 @@
+- content_for :head do
+  - @title = "How it works - OneBillionShirts"
+  = @title
+- if @page_content.present?
+  = raw(@page_content)
+- else
+.wrapper= render :partial => "home/calculate_input_field", :locals => {:val => nil}
+:css
+  .calc_btn {
+      float: left;
+      margin: 0 auto 0 122px;
+      padding: 12px 0 10px;
+      width: 550px;
+  }

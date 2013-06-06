@@ -1,0 +1,133 @@
+- content_for :head do
+  - @title = "Products - OneBillionShirts"
+  = @title
+.wrapper
+  .ccc_hold
+    .order_text
+      .brand_head
+        %h1
+          You need it? We
+          %span> got
+          it!
+        %p We carry hundreds of brands and thousands of individual SKU's from regular t-shirts to high quality sweat wicking tech shirts. If you need it, we carry it!
+      / brand_head
+      .brands_carry
+        %h1 Products & Brands we carry...
+        .brands_shrts_hold
+          .brand_list
+            .t_shirt_one
+              %img{:src => "/assets/shirt_1.png", :style => "height:168px;"}/
+            / t_shirt ends
+            %p T-shirts:
+            %span American Apparel
+            %span Alternative Apparel
+            %span Addidas
+            %span Champion
+            %span Comfort Colors
+            %span New Balance
+            %span Gildan
+            %span Jerzees
+            %span Anvil
+            %span Fruit of the Loom
+            %span Hanes
+            %span Next Level
+            %span Bella
+            %span Canvas
+            %span Badger
+            %span C2 Sport
+            %span Bayside
+            %span Union Made
+            %h2 Tech Shirts:
+            %span Addidas
+            %span Champion
+            %span New Balance
+            %span Gildan
+            %span Port Authority
+            %span Sport-Tek
+            %span Jerzees
+          / brand_list ends
+          .brand_list
+            .t_shirt
+              %img{:src => "/assets/shirt_2.png"}/
+            / t_shirt ends
+            %p Long Sleeve T-shirts:
+            %span American Apparel
+            %span Alternative Apparel
+            %span Addidas
+            %span Champion
+            %span New Balance
+            %span Gildan
+            %span Jerzees
+            %span Anvil
+            %span Fruit of the Loom
+            %span Hanes
+            %span Next Level
+            %span Bella
+            %span Canvas
+            %h2 Tech Shirts:
+            %span Ultra Club
+            %span Addidas
+            %span Champion
+            %span New Balance
+            %span Gildan Jerzees
+            %span Bella
+            %span Canvas
+            %span Sport-Tek
+          / brand_list ends
+          .brand_list
+            .t_shirt
+              %img{:src => "/assets/shirt_3.png"}/
+            / t_shirt ends
+            %p Sweatshirts:
+            %span American Apparel
+            %span Alternative Apparel
+            %span Ultraclub
+            %span Champion
+            %span Gildan
+            %span Jerzees
+            %span Fruit of the Loom
+            %span Hanes
+            %span Badger
+            %span Bayside
+            %span J America
+            %span Weatherproof
+            %span Sport-Tek
+            %span Nike
+            %span Russell
+          / brand_list ends
+          .brand_list
+            .t_shirt
+              %img{:src => "/assets/shirt_4.png"}/
+            / t_shirt ends
+            %p Polo Shirts:
+            %span American Apparel
+            %span Ultraclub
+            %span Addidas
+            %span Izod
+            %span Outer Banks
+            %span Champion
+            %span Gildan
+            %span Anvil
+            %span Hanes
+            %span Next Level
+            %span Badger
+            %span C2 Sport
+            %span A4
+            %span Bayside
+            %span Sport-Tek
+            %span Nike
+          / brand_list ends
+        / brands_shrts_hold ends
+        %h2 and many more styles...
+      / brands_carry ends
+    / ccc_hold ends
+  / order_text ends
+/ wrapper ends
+.wrapper= render :partial => "home/calculate_input_field", :locals => {:val => nil}
+:css
+  .calc_btn {
+      float: left;
+      margin: 0 auto 0 122px;
+      padding: 12px 0 10px;
+      width: 550px;
+  }

@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %b Question:
+  = @question.question
+%p
+  %b Answer:
+  = @question.answer
+= link_to 'Edit', edit_admins_question_path(@question)
+|
+\#{link_to 'Back', admins_questions_path}

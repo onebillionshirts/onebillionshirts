@@ -1,0 +1,86 @@
+= form_tag "/orders/order_process" do
+  - unless @default_charity.blank?
+    = hidden_field_tag :charity_id, @default_charity.id
+  - else
+    = hidden_field_tag :charity_id, nil
+  #errors
+  .dropdown_txt
+    %h1 SAVE MONEY & HELP OTHERS!!
+  / dropdown_txt ends
+  .drop_head
+    .calculate_popup
+      .calculate_popup_left
+        %p
+          Prices starting at:
+          %span
+            $#{number_with_precision(@price, :precision => 2)}
+          per shirt!
+        %br/
+        %div{:style => "font-size: 12px;"}
+          Competitor prices compared at #{@compared_price}
+      .calculate_popup_right
+        .donation_box
+          %p{:style => "text-align: center;"} Your Donation:
+          %br/
+          %h3
+            $#{number_with_precision(@donation, :precision => 2)}
+    .drop_head_list
+      .rq_option_list1
+        %div{:style => "float: left; width: 35px; margin-top: 3px;"}
+          %input.option_id{:name => "group1", :type => "radio", :value => @default_charity.id unless @default_charity.blank?}/
+        %div{:style => "float: left; width: 370px;"}
+          %span{:style => "text-align: left;"}
+            Send my donation to the charity of the week...
+            %br/
+            %i= @default_charity.name unless @default_charity.blank?
+        %h2
+        %div{:style => "float: left; width: 35px; margin-top: 3px;"}
+          %input.option_id1{:name => "group1", :type => "radio", :value => ""}/
+        %div{:style => "float: left; width: 280px;"}
+          %span I will select another charity
+    .go_btn_holder
+      .go_btn{:style => "float:right;"}
+        .go_lft
+        / go_lft ends
+        .go_mid
+          %a#go.btn_a{:href => "javascript:void(0);"} Next Step
+        %br/
+        %br/
+        %br/
+        .bot_link
+          %h2
+            %a#continue.bot_it{:href => "#"} continue to browse our site
+        / go_mid ends
+        / go_rit ends
+  / drop_head ends
+:javascript
+  $("#go").click(function () {
+      if (!$(".option_id").is(':checked')) {
+          window.location.href = '/charities'
+      }
+      else {
+          $(this).closest('form').submit();
+          return false;
+      }
+  });
+:css
+  .dropdown {
+      height: 350px;
+  }
+
+  .bot_link {
+      float: right;
+      margin: 10px 45px 0 0;
+      text-align: center;
+      width: 97%;
+  }
+
+  .drop_head_list {
+      float: left;
+      margin: 20px 0 10px -10px;
+      width: 100%;
+  }
+  .rq_option_list1 {
+      margin: 0 auto;
+      width: 74%;
+  }

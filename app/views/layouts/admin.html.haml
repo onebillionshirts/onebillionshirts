@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title OneBS: Administrator
+    = stylesheet_link_tag "admins/bootstrap.min"
+    = javascript_include_tag "application"
+    = javascript_include_tag "admins/bootstrap.min"
+    = csrf_meta_tags
+    :javascript
+      $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+      })
+    :css
+      .container{
+        width: 1200px !important;
+      } 
+      .new_btn{
+        margin-top: 15px;
+      }
+
+  %body
+    -if admin_signed_in?
+      = render :partial => "layouts/admin/links"
+    = render :partial => 'layouts/flash', :object => flash
+    .container{style:"padding-top:70px;"}
+      =yield
+

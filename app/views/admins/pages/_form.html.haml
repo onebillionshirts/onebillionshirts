@@ -1,0 +1,20 @@
+= form_for(@page, :url => url) do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@page.errors.count, "error")
+        prohibited this page from being saved:
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+  %h1= @page.page_name
+  .field
+    = f.label :page_content
+    = f.text_area :page_content
+  .actions
+    = f.submit "Save", :class => "smallBtn"
+:javascript
+  tinyMCE.init({
+      mode: 'textareas',
+      theme: 'advanced'
+  });

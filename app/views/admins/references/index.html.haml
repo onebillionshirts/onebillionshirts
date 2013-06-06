@@ -1,0 +1,13 @@
+%h1 Listing References
+%table
+  %tr
+    %th Name
+    %th
+    %th
+  - @references.each do |reference|
+    %tr
+      %td= reference.name
+      %td= link_to 'Edit', edit_admins_reference_path(reference)
+      %td= link_to 'Destroy', admins_reference_path(reference), method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Reference', new_admins_reference_path

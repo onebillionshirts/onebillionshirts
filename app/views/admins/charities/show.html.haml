@@ -1,0 +1,76 @@
+%h1 Charity Details
+.details-info-holder
+  %label Name
+  .details-info
+    = @charity.name
+.details-info-holder
+  %label Address
+  .details-info
+    = @charity.address
+.details-info-holder
+  %label City
+  .details-info
+    = @charity.city
+.details-info-holder
+  %label State
+  .details-info
+    = @charity.state
+.details-info-holder
+  %label Zip Code
+  .details-info
+    = @charity.zip
+.details-info-holder
+  %label Category
+  .details-info
+    = @charity.charity_category.name
+.details-info-holder
+  %label Website
+  .details-info
+    = @charity.website
+.details-info-holder
+  %label Mission Statement
+  .details-info
+    = @charity.mission_statement
+.details-info-holder
+  %label Description
+  .details-info
+    = @charity.description
+.details-info-holder
+  %label Youtube Video
+  .details-info
+    = @charity.video_url
+.details-info-holder
+  %label Twitter ID
+  .details-info
+    = @charity.twitter_id
+.details-info-holder
+  %label Facebook Page
+  .details-info
+    = @charity.facebook_page
+.details-info-holder
+  %label Is Featured ?
+  .details-info
+    = @charity.is_featured
+.details-info-holder
+  %label Is Top 10 ?
+  .details-info
+    = @charity.is_top_ten
+.details-info-holder
+  %label Is Default ?
+  .details-info
+    = @charity.is_default
+.images-holder
+  %h2 Images
+  - if @charity.logo.present?
+    .charity-image
+      = image_tag @charity.logo.image.url(:thumb)
+  - else
+    .charity-image
+      %img{:height => "150", :src => "/assets/no_logo.jpg", :width => "150"}/
+  - if @charity.pictures.present?
+    - @charity.pictures.each do |picture|
+      - picture1 = picture.image.url.split("pictures")
+      - unless @charity.logo.image.url == "#{picture1[0]}logos#{picture1[1]}"
+        .charity-image
+          = image_tag picture.image.url(:thumb) if picture.image.url.present?
+= link_to 'Destroy', admins_charity_path(@charity), method: :delete, data: {confirm: 'Are you sure?'}

@@ -1,0 +1,15 @@
+.row
+  .span6
+    %h2 FAQ Categories
+  .span5
+    = link_to 'New FAQ Category', new_admins_questions_category_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th
+  - @questions_categories.each do |questions_category|
+    %tr
+      %td= questions_category.category
+      %td
+        =link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_questions_category_path(questions_category)
+        =link_to '<i class="icon-remove"></i>'.html_safe, admins_questions_category_path(questions_category), method: :delete, data: { confirm: 'Are you sure?' }

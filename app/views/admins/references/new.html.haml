@@ -1,0 +1,5 @@
+%h1 New Reference
+- url = admins_references_path
+= render :partial => 'form', :locals => { :url => url }
+%div{:style => "float: left;width:100%;"}
+  = link_to 'Back', admins_references_path

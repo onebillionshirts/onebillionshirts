@@ -1,0 +1,55 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar.collapsed{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =#link_to "OneBS Admin" ,admins_banners_path
+      #main-menu.nav-collapse.collapse{:style => "height: 0px;"}
+        %ul#main-menu-left.nav
+          %li.active
+            =link_to "Orders" 
+          %li
+            =link_to "Banners" , admins_banners_path
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Charities
+              %b.caret
+            %ul#swatch-menu.dropdown-menu
+              %li
+                =link_to "Charities" , admins_charities_path
+              %li
+                =link_to "New Charity" , new_admins_charity_path
+              %li.divider
+              %li
+                =link_to "Categories" , admins_charity_categories_path
+              %li
+                =link_to "New Category" , new_admins_charity_category_path
+              %li.divider
+              %li
+                =link_to "Suggested" , admins_suggested_charities_path
+          %li
+            =link_to "Shirt Styles", admins_style_categories_path
+          %li
+            =link_to "References" , admins_references_path 
+          %li
+            =link_to "Static Pages" , admins_pages_path
+          %li
+            =link_to "Image Upload" , admins_posts_path
+          %li
+            =link_to "Client Spotlights" , admins_client_spotlights_path 
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              FAQs
+              %b.caret
+            %ul#swatch-menu.dropdown-menu
+              %li
+                =link_to "Categories" , admins_questions_categories_path
+              %li
+                =link_to "New Category" , new_admins_questions_category_path
+              %li.divider
+              %li
+                =link_to "Questions" , admins_questions_path
+              %li
+                =link_to "New Question" , new_admins_question_path

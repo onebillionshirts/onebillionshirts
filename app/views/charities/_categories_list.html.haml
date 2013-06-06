@@ -1,0 +1,19 @@
+= render :partial => "/charities/search_form"
+.categories-holder
+  - if @causes.present?
+    .category-list
+      - @causes.each do |cause|
+        .category
+          %img{:src => "/assets/back_btn_2.png"}/
+          %a{:href => "javascript:;", :onclick => "get_category_charities('#{cause.id}');"}
+            = cause.name
+:javascript
+  function get_category_charities(category_id) {
+      $.ajax({
+          url: "/charities/get_charities?key="+ category_id, type: 'get', dataType: 'html',
+          processData: false,
+          success: function (data) {
+              $('#charities').html(data);
+          }
+      });
+  }
