@@ -1,0 +1,21 @@
+= form_for([:admins, @style]) do |f|
+  - if @style.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@style.errors.count, "error")
+        prohibited this style category from being
+        saved:
+      %ul
+        - @style.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+    = f.label :photo
+    = unless @style.new_record?
+      =image_tag @style.photo(:thumb)
+    = f.file_field :photo
+    = f.label :category
+    = f.grouped_collection_select(:style_sub_category_id, StyleCategory.all, :style_sub_categories, :name, :id, :name)
+  .actions
+    = f.submit "Save", :class => "smallBtn"

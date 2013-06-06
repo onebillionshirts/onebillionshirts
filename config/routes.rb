@@ -81,6 +81,8 @@ OneBS::Application.routes.draw do
     resources :references
     resources :pages
     resources :style_categories
+    resources :style_sub_categories
+    resources :styles
   end
 
   resources :home do

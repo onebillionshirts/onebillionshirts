@@ -1,0 +1,19 @@
+= form_for([:admins, @style_category]) do |f|
+  - if @style_category.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@style_category.errors.count, "error")
+        prohibited this style category from being
+        saved:
+      %ul
+        - @style_category.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+    = f.label :photo
+    = unless @style_category.new_record?
+      =image_tag @style_category.photo(:thumb)
+    = f.file_field :photo
+  .actions
+    = f.submit "Save", :class => "smallBtn"

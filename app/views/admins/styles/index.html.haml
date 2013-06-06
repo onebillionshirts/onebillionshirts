@@ -1,0 +1,17 @@
+.row
+  .span6
+    %h2 Shirt Styles
+  .span5
+    = link_to 'New Style', new_admins_style_path, class:"btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Image
+    %th
+  - @styles.each do |style|
+    %tr
+      %td= style.name
+      %td= image_tag style.photo(:thumb), style:"height:40px"
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_style_path(style)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_style_path(style), method: :delete, data: { confirm: 'Are you sure?' }

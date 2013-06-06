@@ -1,0 +1,17 @@
+.row
+  .span6
+    %h2 Style Categories
+  .span5
+    = link_to 'New Style Categories', new_admins_style_category_path, class:"btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Image
+    %th
+  - @style_categories.each do |style_category|
+    %tr
+      %td= style_category.name
+      %td= image_tag style_category.photo(:thumb), style:"height:40px"
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_style_category_path(style_category)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_style_category_path(style_category), method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,17 @@
+.row
+  .span6
+    %h2 Style SubCategories
+  .span5
+    = link_to 'New Style SubCategories', new_admins_style_sub_category_path, class:"btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Parent Category
+    %th
+  - @style_categories.each do |style_sub_category|
+    %tr
+      %td= style_sub_category.name
+      %td= style_sub_category.style_category.name
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_style_sub_category_path(style_sub_category)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_style_sub_category_path(style_sub_category), method: :delete, data: { confirm: 'Are you sure?' }
