@@ -86,6 +86,7 @@ OneBS::Application.routes.draw do
     resources :suggested_charities
     resources :references
     resources :pages
+    resources :orders
   end
 
   resources :home do
