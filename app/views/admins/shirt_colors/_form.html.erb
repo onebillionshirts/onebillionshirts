@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag "colorpicker", :media => "all" %>
+<%= javascript_include_tag "colorpicker" %>
+
+<%= form_for(@shirt_color, :url => url) do |f| %>
+    <% if @shirt_color.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@shirt_color.errors.count, "error") %> prohibited this shirt color from being
+            saved:</h2>
+
+          <ul>
+            <% @shirt_color.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :code %>
+      <%= f.text_field :code %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save", :class => "smallBtn" %>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $('#shirt_color_code').ColorPicker({
+        onSubmit:function (hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onBeforeShow:function () {
+            $(this).ColorPickerSetColor(this.value);
+        }
+    })
+            .bind('keyup', function () {
+                $(this).ColorPickerSetColor(this.value);
+            });
+</script>

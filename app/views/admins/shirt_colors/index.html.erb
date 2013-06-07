@@ -1,0 +1,24 @@
+<h1>Listing Shirt Colors</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @shirt_colors.each do |shirt_color| %>
+      <tr>
+        <td>
+          <div style="float:left;width:40px;height:18px;margin-right: 5px;<%= "background: ##{shirt_color.code}" %>"></div>
+          <%= shirt_color.code %>
+        </td>
+        <td><%= link_to 'Edit', edit_admins_shirt_color_path(shirt_color) %></td>
+        <td><%= link_to 'Destroy', admins_shirt_color_path(shirt_color), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Shirt Color', new_admins_shirt_color_path %>

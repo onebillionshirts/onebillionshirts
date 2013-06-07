@@ -1,9 +1,37 @@
+:javascript
+  $(document).ready(function(){
+    var active_diag = null
+    $(".change_style").click(function(){
+      $("#style_picker").dialog({width:500, height:500});
+      return false;
+     })
+    $(".final_style").click(function(){
+      active_diag.dialog("close");
+      $("#style_id").val($(this).attr("id"));
+      $("span.selected_style_name").text($(this).data("name"))
+      return false;
+     })
+    $(".sub_cat").click(function(){
+      id = "#dialog_"+$(this).attr('id');
+      active_diag = $(id).dialog({width:500, height:500});
+      $("#style_picker").dialog('close');
+      return false;
+     })
+  })
 %div{:style => "padding:40px 170px;"}
   %br/
   %h2 Quick Quote Form
   %div{:style => "clear:both;margin-top:20px"}
     %div{:style => "width:20%; float:left;"}
-      %h3 Colors
+      %h3 Style
+    %div
+      %span.selected_style_name= Style.first.name
+      =hidden_field_tag :style_id
+      %a.change_style{style:"color:blue;cursor:pointer;"}
+        Change
+  %div{:style => "clear:both;margin-top:20px"}
+    %div{:style => "width:20%; float:left;"}
+      %h3 Charity
     %div
       = select_tag "people", options_from_collection_for_select(@charities, "id", "name")
   %div{:style => "clear:both;margin-top:20px;height:90px;"}
@@ -157,7 +185,6 @@
         / color_box ends
   %div{:style => "clear:both;margin-top:20px"}
     %div{:style => "width:20%; float:left;"}
-      %h3 Sizes
     %div
       .shirt_sizes
         .sizes_hold
@@ -195,52 +222,6 @@
               .size_input_mid
                 %input#1_5_values_{:name => "1_5_values[]", :type => "text"}/
               / size_input_mid ends
-          .youth_sizes
-            %p Men
-            .size_input
-              .size_input_mid
-                %input#2_1_values_{:name => "2_1_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#2_2_values_{:name => "2_2_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#2_3_values_{:name => "2_3_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#2_4_values_{:name => "2_4_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#2_5_values_{:name => "2_5_values[]", :type => "text"}/
-              / size_input_mid ends
-          .youth_sizes
-            %p Women
-            .size_input
-              .size_input_mid
-                %input#3_1_values_{:name => "3_1_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#3_2_values_{:name => "3_2_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#3_3_values_{:name => "3_3_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#3_4_values_{:name => "3_4_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#3_5_values_{:name => "3_5_values[]", :type => "text"}/
-              / size_input_mid ends
-          / youth_sizes ends
-        / sizes_hold ends
   %div{:style => "clear:both;margin-top:20px"}
     %div{:style => "width:20%; float:left;"}
       %h3 Ink Colors
@@ -249,3 +230,28 @@
       = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
       %label Back
       = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+
+
+%div#style_picker{style:"width:500px;height:500px;display:none;"}
+  %h2
+    Pick A Style
+  -@style_categories.each do |sc|
+    %div{style:"clear:both;width:400px"}
+      %h3=sc.name
+      %div{style:"float:left;margin-left:15px;"}
+        -sc.style_sub_categories.each do |ssc|
+          =link_to ssc.name, "", style:"color:blue", id: "#{ssc.id}", class:"sub_cat"
+      %div{style:"float:right;"}
+        =image_tag sc.photo(:thumb)
+    %br
+
+- @sub_cats.each do |sc|
+  %div{style:"width:500px;height:500px;display:none;", id:"dialog_#{sc.id}"}
+    %h3=sc.name
+    -sc.styles.each do |st|
+      %div{style:"clear:both;width:400px"}
+        %div{style:"float:left;"}
+          =link_to st.name, "", style:"color:blue", id:"#{st.id}", class:"final_style", data: {name: "#{st.name}"}
+        %div{style:"float:right;"}
+          =image_tag st.photo(:thumb)
+      %br

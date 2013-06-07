@@ -17,5 +17,6 @@
     = f.file_field :photo
     = f.label :category
     = f.grouped_collection_select(:style_sub_category_id, StyleCategory.all, :style_sub_categories, :name, :id, :name)
+    = f.hidden_field :shirt_colors
   .actions
     = f.submit "Save", :class => "smallBtn"
