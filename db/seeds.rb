@@ -46,5 +46,3 @@ puts "Creating default Charity Categories...."
 %w(Advocacy Arts Education Environment Health International Religion SocialService Youth).each do |name|
   CharityCategory.create!(:name => name)
 end
-
-
