@@ -1,10 +1,18 @@
-%h1 Administrator Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    = f.email_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
-  .actions
-    = f.submit "Sign in", :class => "smallBtn"
+.row
+  .span12{style:"text-align:center"}
+    %h2 Administrator Sign in
+.row
+  .span10.offset2
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=>{class:"form form-horizontal"}) do |f|
+      %fieldset
+        .control-group
+          = f.label :email, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.email_field :email
+      %fieldset
+        .control-group
+          = f.label :password, class:"control-label",:style=>"padding-right:30px"
+          .control
+          = f.email_field :password
+      .span2.offset2
+        = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px;margin-left:10px"

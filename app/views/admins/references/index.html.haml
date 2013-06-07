@@ -1,13 +1,15 @@
-%h1 Listing References
-%table
+.row
+  .span6
+    %h2 Listing References
+  .span5
+    = link_to 'New Reference', new_admins_reference_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
   %tr
     %th Name
-    %th
     %th
   - @references.each do |reference|
     %tr
       %td= reference.name
-      %td= link_to 'Edit', edit_admins_reference_path(reference)
-      %td= link_to 'Destroy', admins_reference_path(reference), method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Reference', new_admins_reference_path
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_reference_path(reference)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_reference_path(reference), method: :delete, data: { confirm: 'Are you sure?' }

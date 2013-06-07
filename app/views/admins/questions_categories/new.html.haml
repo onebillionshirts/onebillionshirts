@@ -1,5 +1,5 @@
-%h1 New questions_category
+.row
+  .span12{style:"text-align:center"}
+    %h2 New Questions Category
 - url = admins_questions_categories_path(@questions_categories)
 = render :partial => 'form', :locals => {:url => url}
-%div{:style => "float: left;width:100%;"}
-  = link_to 'Back', admins_questions_categories_path

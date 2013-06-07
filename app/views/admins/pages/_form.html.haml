@@ -11,8 +11,8 @@
   .field
     = f.label :page_content
     = f.text_area :page_content
-  .actions
-    = f.submit "Save", :class => "smallBtn"
+  .span2.offset4
+    = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"
 :javascript
   tinyMCE.init({
       mode: 'textareas',

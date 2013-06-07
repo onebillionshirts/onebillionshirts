@@ -1,15 +1,17 @@
-%h1 Listing Banners
-%table
+.row
+  .span6
+    %h2  Listing Banners
+  .span5
+    = link_to 'New Banner', new_admins_banner_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
   %tr
     %th Content
     %th Image
     %th
-    %th
   - @banners.each do |banner|
     %tr
-      %td= banner.content
+      %td= banner.content.html_safe
       %td= image_tag banner.image.url(:thumb)
-      %td= link_to 'Edit', edit_admins_banner_path(banner)
-      %td= link_to 'Destroy', admins_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Banner', new_admins_banner_path
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_banner_path(banner)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' }

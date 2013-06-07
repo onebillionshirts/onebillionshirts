@@ -1,75 +1,119 @@
-= form_for(@charity, :url => url) do |f|
-  - if @charity.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@charity.errors.count, "error")
-        prohibited this charity from being saved:
-      %ul
-        - @charity.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :zip
-    = f.text_field :zip
-  .field
-    %label Category
-    = f.select :charity_category_id, options_from_collection_for_select(CharityCategory.all, :id, :name, @charity.charity_category.present? ? @charity.charity_category.id : nil)
-  .field
-    = f.label :website
-    = f.text_field :website
-  .field
-    = f.label :tax_id
-    = f.text_field :tax_id
-  .field
-    = f.label :mission_statement
-    = f.text_area :mission_statement
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    %label Youtube Video URL
-    = f.text_field :video_url
-  .field
-    %label Twitter ID
-    = f.text_field :twitter_id
-  .field
-    %label Facebook Page
-    = f.text_field :facebook_page
-  .field
-    %label Is Featured ?
-    = f.check_box :is_featured
-  .field
-    %label In Top 10 ?
-    = f.check_box :is_top_ten
-  .field
-    %label Set As Default ?
-    = f.check_box :is_default
-  .field
-    %label{:style => "width:100%"} Add Logo:
-    - f.object.logo ||= Logo.new
-    = f.fields_for :logo do |logo|
-      = logo.file_field :image
-  .field
-    %label{:style => "width:100%"} Add More Pictures:
-    - $f = f
-    #image-form-holder
-      = render :partial => '/admins/charities/images'
-    .up_check_txt
-      %a.add-link{:href => "/admins/charities/image_form"} add another
-    / upload_hold ends
-  .actions
-    = f.submit "Save", :class => "smallBtn"
+.row
+  = form_for(@charity, :url => url, :html=>{class:"form form-horizontal"}) do |f|
+    - if @charity.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@charity.errors.count, "error")
+          prohibited this charity from being saved:
+        %ul
+          - @charity.errors.full_messages.each do |msg|
+            %li.alert.alert-error
+              = msg
+    .span6
+      %fieldset
+        .control-group
+          = f.label :name, class:"control-label"
+          .controls
+            = f.text_field :name
+      %fieldset
+        .control-group
+          = f.label "Category", class:"control-label"
+          .controls
+            = f.select :charity_category_id, options_from_collection_for_select(CharityCategory.all, :id, :name, @charity.charity_category.present? ? @charity.charity_category.id : nil)
+      %fieldset
+        .control-group
+          = f.label :website, class:"control-label"
+          .controls
+            = f.text_field :website
+      %fieldset
+        .control-group
+          = f.label :tax_id, class:"control-label"
+          .controls
+            = f.text_field :tax_id
+      %fieldset
+        .control-group
+          = f.label :mission_statement, class:"control-label"
+          .controls
+            = f.text_area :mission_statement, :rows=>"4"
+      %fieldset
+        .control-group
+          = f.label "YouTube Video URL", class:"control-label"
+          .controls
+            = f.text_field :video_url
+      %fieldset
+        .control-group
+          = f.label "Twitter ID", class:"control-label"
+          .controls
+            = f.text_field :twitter_id
+      %fieldset
+        .control-group
+          = f.label "Facebook Page", class:"control-label"
+          .controls
+            = f.text_field :facebook_page
+      %fieldset
+        .control-group
+          = f.label "Is Featured?", class:"control-label"
+          .controls
+            = f.check_box :is_featured
+      %fieldset
+        .control-group
+          = f.label "In Top Ten?", class:"control-label"
+          .controls
+            = f.check_box :is_top_ten
+      %fieldset
+        .control-group
+          = f.label "In Top Ten?", class:"control-label"
+          .controls
+            = f.check_box :is_default
+
+    .span6
+      %fieldset
+        .control-group
+          = f.label :address, class:"control-label"
+          .controls
+            = f.text_field :address
+      %fieldset
+        .control-group
+          = f.label :city, class:"control-label"
+          .controls
+            = f.text_field :city
+      %fieldset
+        .control-group
+          = f.label :state, class:"control-label"
+          .controls
+            = f.text_field :state
+      %fieldset
+        .control-group
+          = f.label :zip, class:"control-label"
+          .controls
+            = f.text_field :zip
+      %fieldset
+        .control-group
+          = f.label :address, class:"control-label"
+          .controls
+            = f.text_field :address
+      %fieldset
+        .control-group
+          %label.control-label Add Logo:
+          - f.object.logo ||= Logo.new
+          .controls
+            = f.fields_for :logo do |logo|
+              = logo.file_field :image
+      %fieldset
+        .control-group
+          %label.control-label Add More Pictures:
+          - $f = f
+          .controls
+            #image-form-holder
+              = render :partial => '/admins/charities/images'
+            .up_check_txt
+              =link_to  "add another", "/admins/charities/image_form", :class=>"add-link"
+    .row
+      .span4.offset2
+        .action
+          = f.submit "Save", :class => "btn btn-primary btn-large", style:"width: 200px; margin-left: 20px;"
+
+
 / wrapper ends
 :javascript
   $(".add-link").click(function () {

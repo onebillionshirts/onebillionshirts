@@ -1,4 +1,4 @@
-= form_for(@client_spotlight, :url => url) do |f|
+= form_for(@client_spotlight, :url => url,:html=>{class:"form form-horizontal"}) do |f|
   - if @client_spotlight.errors.any?
     #error_explanation
       %h2
@@ -8,24 +8,29 @@
       %ul
         - @client_spotlight.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :client_spotlight_type
-    %br/
-    = f.text_field :client_spotlight_type
-  .field
-    = f.fields_for :client_spotlight_images, f.object.client_spotlight_images.build do |asset|
-      = asset.label :asset
-      = asset.file_field :asset
-  .actions
-    = f.submit "Save", :class => "smallBtn"
+  %fieldset
+    .control-group
+      = f.label :description, class:"control-label",:style=>"padding-right:30px"
+      .control
+      = f.text_area :description, :rows=>"4"
+  %fieldset
+    .control-group
+      = f.label :name, class:"control-label",:style=>"padding-right:30px"
+      .control
+      = f.text_field :name
+  %fieldset
+    .control-group
+      = f.label :client_spotlight_type, class:"control-label",:style=>"padding-right:30px"
+      .control
+      = f.text_field :client_spotlight_type
+  = f.fields_for :client_spotlight_images, f.object.client_spotlight_images.build do |asset|
+    %fieldset
+      .control-group
+        = asset.label :asset, class:"control-label",:style=>"padding-right:30px"
+        .control
+        = asset.file_field :asset, :rows=>"4"
+  .span2.offset4
+    = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"
 :javascript
   tinyMCE.init({
       mode:'textareas',

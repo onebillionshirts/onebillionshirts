@@ -1,17 +1,18 @@
-%h1 Listing posts
-%table
+.row
+  .span6
+    %h2 Listing posts
+  .span5
+    = link_to 'New Post', new_admins_post_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
   %tr
     %th Title
     %th Content
     %th
-    %th
-    %th
   - @posts.each do |post|
     %tr
-      %td= post.title
+      %td
+        =link_to post.title, admins_post_path(post)
       %td= post.content
-      %td= link_to 'Show', admins_post_path(post)
-      %td= link_to 'Edit', edit_admins_post_path(post)
-      %td= link_to 'Destroy', admins_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Post', new_admins_post_path
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_post_path(post)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }

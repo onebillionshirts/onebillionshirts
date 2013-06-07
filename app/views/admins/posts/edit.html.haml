@@ -1,6 +1,6 @@
-%h1 Editing post
+.row
+  .span12{style:"text-align:center"}
+    %h2 Editing post
 - url = admins_post_path(@post)
 = render :partial => 'form', :locals => {:url => url}
 = render 'form'
-%div{:style => "float: left;width:100%;"}
-  = link_to 'Back', admins_posts_path
