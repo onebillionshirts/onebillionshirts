@@ -6,4 +6,8 @@ class OrdersController < ApplicationController
     @sub_cats = StyleSubCategory.all
   end
 
+  def calculate
+
+  end
+
 end

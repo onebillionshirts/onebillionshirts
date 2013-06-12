@@ -105,6 +105,7 @@ OneBS::Application.routes.draw do
   resources :orders do
     collection do
       get :quick_quote
+      get :calculate
     end
   end
 

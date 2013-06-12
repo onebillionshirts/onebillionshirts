@@ -1,5 +1,13 @@
 :javascript
   $(document).ready(function(){
+
+    function is_int(value){
+      if((parseFloat(value) == parseInt(value)) && !isNaN(value)){
+        return true;
+      } else {
+        return false;
+      }
+    }
     var active_diag = null
     $(".change_style").click(function(){
       $("#style_picker").dialog({width:500, height:500});
@@ -17,6 +25,30 @@
       $("#style_picker").dialog('close');
       return false;
      })
+    $("#charity_id").change(function(){
+      id = $(this).val()
+      el = "#charity_"+id
+      $el = $(el)
+      $(".logo_place img.logoimg").attr("src", $el.data("logo"))
+      $(".title_place").text($el.data("name"))
+      $(".desc_place").text($el.data("desc"))
+    })
+
+    $("#calculate").click(function(){
+      n_s = parseInt($("#n_s").val())
+      n_m = parseInt($("#n_m").val())
+      n_l = parseInt($("#n_l").val())
+      n_xl = parseInt($("#n_xl").val())
+      n_xxl = parseInt($("#n_xxl").val())
+
+      total = n_s + n_m + n_l + n_xl + n_xxl
+
+      cost = total * 4.50
+
+      $(".cost").text("Total Cost: $"+cost)
+      return false;
+
+    })
   })
 %div{:style => "padding:40px 170px;"}
   %br/
@@ -33,7 +65,9 @@
     %div{:style => "width:20%; float:left;"}
       %h3 Charity
     %div
-      = select_tag "people", options_from_collection_for_select(@charities, "id", "name")
+      = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name")
+      -@charities.each do |charity|
+        %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement}}
   %div{:style => "clear:both;margin-top:20px;height:90px;"}
     %div{:style => "width:20%; float:left;"}
       %h3 Color
@@ -204,23 +238,23 @@
             %p Youth
             .size_input
               .size_input_mid
-                %input#1_1_values_{:name => "1_1_values[]", :type => "text"}/
+                %input#n_s{:name => "1_1_values[]", :type => "text"}/
               / size_input_mid ends
             .size_input
               .size_input_mid
-                %input#1_2_values_{:name => "1_2_values[]", :type => "text"}/
+                %input#n_m{:name => "1_2_values[]", :type => "text"}/
               / size_input_mid ends
             .size_input
               .size_input_mid
-                %input#1_3_values_{:name => "1_3_values[]", :type => "text"}/
+                %input#n_l{:name => "1_3_values[]", :type => "text"}/
               / size_input_mid ends
             .size_input
               .size_input_mid
-                %input#1_4_values_{:name => "1_4_values[]", :type => "text"}/
+                %input#n_xl{:name => "1_4_values[]", :type => "text"}/
               / size_input_mid ends
             .size_input
               .size_input_mid
-                %input#1_5_values_{:name => "1_5_values[]", :type => "text"}/
+                %input#n_xxl{:name => "1_5_values[]", :type => "text"}/
               / size_input_mid ends
   %div{:style => "clear:both;margin-top:20px"}
     %div{:style => "width:20%; float:left;"}
@@ -230,6 +264,23 @@
       = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
       %label Back
       = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+
+  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
+    =link_to "Calculate", "", style: "background-color: orange;width: 100px;margin-left: auto;margin-right: auto;height: 27px;line-height: 27px;color: white;", id: "calculate"
+  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
+    %div{style: "float:left;width:50%"}
+      %h2.cost
+        Total Cost: 
+    %div{style: "float:left;width:50%"}
+      %div{style: "float:left;width:50%"}
+        .logo_place
+          =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
+      %div{style: "float:left;width:50%"}
+        .title_place
+          =Charity.first.name
+        .desc_place
+          =Charity.first.mission_statement
+
 
 
 %div#style_picker{style:"width:500px;height:500px;display:none;"}
