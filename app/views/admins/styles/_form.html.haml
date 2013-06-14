@@ -17,5 +17,27 @@
     = f.file_field :photo
     = f.label :category
     = f.grouped_collection_select(:style_sub_category_id, StyleCategory.all, :style_sub_categories, :name, :id, :name)
+    = f.label :price_white
+    = f.text_field :price_white
+    = f.label :price_color
+    = f.text_field :price_color
+    = f.label :profit_margin
+    = f.label "24", style:"float:left;"
+    = f.text_field :m_24, value: 30, class:"span1", style: "float: left;"
+    = f.label "48", style:"float:left;"
+    = f.text_field :m_48, value: 27, class:"span1" , style: "float: left;"
+    = f.label "72", style:"float:left;"
+    = f.text_field :m_72, value: 26,  class:"span1", style: "float: left;"
+    = f.label "144", style:"float:left;"
+    = f.text_field :m_144, value: 24, class:"span1", style: "float: left;"
+    = f.label "288", style:"float:left;"
+    = f.text_field :m_288, value: 22, class:"span1", style: "float: left;"
+    = f.label "576", style:"float:left;"
+    = f.text_field :m_576, value: 20, class:"span1", style: "float: left;"
+    = f.label "1000", style:"float:left;"
+    = f.text_field :m_1000, value: 19, class:"span1", style: "float: left;"
+    = f.label "2000", style:"float:left;"
+    = f.text_field :m_2000, value: 17, class:"span1", style: "float: left;"
+
   .actions
     = f.submit "Save", :class => "smallBtn"

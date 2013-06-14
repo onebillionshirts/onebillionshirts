@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  c_1: 9.99
+  c_2: 9.99
+  c_3: 9.99
+  c_4: 9.99
+  c_5: 9.99
+  c_6: 9.99
+
+two:
+  c_1: 9.99
+  c_2: 9.99
+  c_3: 9.99
+  c_4: 9.99
+  c_5: 9.99
+  c_6: 9.99

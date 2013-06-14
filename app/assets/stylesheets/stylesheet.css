@@ -711,6 +711,8 @@ width:210px;
 }
 
 .color_box_div {
+    padding: 5px;
+    cursor: pointer;
     float: left;
     height: 30px;
     width: 30px;

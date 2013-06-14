@@ -66,6 +66,7 @@ OneBS::Application.routes.draw do
   # just remember to delete public/index.html.
 
   namespace :admins do
+    resource :cost_matrix
     resources :banners
     resources :client_spotlights
     resources :questions

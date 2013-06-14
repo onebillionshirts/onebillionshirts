@@ -1,0 +1,14 @@
+%h2
+  Cost Matrix
+  =link_to "Edit", edit_admins_cost_matrix_path
+%table.table.table-striped.table-bordered
+  %tr
+    %th Colors
+    -@mat.matrix_cols.each do |mc|
+      %td=mc.count
+  -6.times do |i|
+    %tr
+      %td= i+1
+      -@mat.matrix_cols.each do |mc|
+        %td
+          =mc.send("c_#{i+1}".to_sym)

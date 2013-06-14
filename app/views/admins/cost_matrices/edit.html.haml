@@ -1,0 +1,15 @@
+%h2
+  Cost Matrix
+=form_tag admins_cost_matrix_path, method: :put do
+  %table.table.table-striped.table-bordered
+    %tr
+      %th Colors
+      -@mat.matrix_cols.each do |mc|
+        %td=mc.count
+    -6.times do |i|
+      %tr
+        %td= i+1
+        -@mat.matrix_cols.each do |mc|
+          %td
+            =text_field_tag "mc[#{mc.id}][c_#{i+1}]", mc.send("c_#{i+1}".to_sym)
+  =submit_tag "Update"

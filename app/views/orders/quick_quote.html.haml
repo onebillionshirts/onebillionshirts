@@ -1,3 +1,8 @@
+:css
+  .chosen{
+    outline: 2px solid black;
+    }
+
 :javascript
   $(document).ready(function(){
 
@@ -34,6 +39,11 @@
       $(".desc_place").text($el.data("desc"))
     })
 
+    $(".color_box_div").click(function(){
+      $(".color_box_div").removeClass("chosen");
+      $(this).addClass("chosen");
+    })
+
     $("#calculate").click(function(){
       n_s = parseInt($("#n_s").val())
       n_m = parseInt($("#n_m").val())
@@ -43,9 +53,31 @@
 
       total = n_s + n_m + n_l + n_xl + n_xxl
 
-      cost = total * 4.50
+      style_id = $("#style_id").val()
 
-      $(".cost").text("Total Cost: $"+cost)
+      f_color = $("#front").val()
+      b_color = $("#back").val()
+
+      color = $(".color_box_div.chosen .color_code_div").data("title")
+      if(color == "White"){
+        style_color = 0
+        }
+      else{
+        style_color = 1
+        }
+        params = {total: total, style_id: style_id, f_color: f_color, b_color: b_color, style_color: style_color}
+        console.log(params)
+
+      $.ajax({
+        url: "/orders/calculate",
+        data: params,
+        method: "get",
+        success: function(data){
+          $("h2.unit").text("Unit Price: $"+data.unit)
+          $("h2.total").text("Total Price: $"+data.total)
+        }
+      })
+
       return false;
 
     })
@@ -58,7 +90,7 @@
       %h3 Style
     %div
       %span.selected_style_name= Style.first.name
-      =hidden_field_tag :style_id
+      =hidden_field_tag :style_id, Style.first.id
       %a.change_style{style:"color:blue;cursor:pointer;"}
         Change
   %div{:style => "clear:both;margin-top:20px"}
@@ -209,7 +241,7 @@
           #38.color_box{:style => "background: #8271c3"}
           .color_code_div{"data-title" => "Violet"}
         / color_box ends
-        .color_box_div
+        .color_box_div.chosen
           #39.color_box{:style => "background: #FFFFFF"}
           .color_code_div{"data-title" => "White"}
         / color_box ends
@@ -261,16 +293,18 @@
       %h3 Ink Colors
     %div
       %label Front
-      = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+      = select_tag :front, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
       %label Back
-      = select_tag :front, options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+      = select_tag :back, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
 
   %div{:style => "clear:both;margin-top:20px;text-align:center;"}
     =link_to "Calculate", "", style: "background-color: orange;width: 100px;margin-left: auto;margin-right: auto;height: 27px;line-height: 27px;color: white;", id: "calculate"
   %div{:style => "clear:both;margin-top:20px;text-align:center;"}
     %div{style: "float:left;width:50%"}
-      %h2.cost
-        Total Cost: 
+      %h2.unit
+        Unit Price: 
+      %h2.total
+        Total Price: 
     %div{style: "float:left;width:50%"}
       %div{style: "float:left;width:50%"}
         .logo_place
