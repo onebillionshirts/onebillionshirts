@@ -1,5 +1,15 @@
 class OrdersController < ApplicationController
 
+
+  def thankyou
+
+  end
+
+  def create
+    Order.create(params[:order])
+    render json: params
+  end
+
   def quick_quote
     @charities = Charity.all
     @style_categories = StyleCategory.all

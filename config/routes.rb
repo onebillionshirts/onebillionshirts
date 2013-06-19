@@ -66,6 +66,7 @@ OneBS::Application.routes.draw do
   # just remember to delete public/index.html.
 
   namespace :admins do
+    resources :orders
     resource :cost_matrix
     resources :banners
     resources :client_spotlights
@@ -101,14 +102,16 @@ OneBS::Application.routes.draw do
     end
   end
 
-  match "/:id", :to => "charities#show"
 
   resources :orders do
     collection do
       get :quick_quote
       get :calculate
+      get :thankyou
     end
   end
+
+  match "/:id", :to => "charities#show"
 
   root :to => 'home#index'
 

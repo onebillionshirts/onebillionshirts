@@ -1,9 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  avg_size: 1
-  per_year: 1
+  name: MyString
+  email: MyString
+  quantity: 1
+  n_s: 1
+  n_m: 1
+  n_l: 1
+  n_xl: 1
+  n_xxl: 1
+  style_id: 1
+  f_c: 1
+  b_c: 1
+  charity_id: 1
+  style_color: false
 
 two:
-  avg_size: 1
-  per_year: 1
+  name: MyString
+  email: MyString
+  quantity: 1
+  n_s: 1
+  n_m: 1
+  n_l: 1
+  n_xl: 1
+  n_xxl: 1
+  style_id: 1
+  f_c: 1
+  b_c: 1
+  charity_id: 1
+  style_color: false

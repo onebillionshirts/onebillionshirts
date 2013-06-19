@@ -11,5 +11,6 @@
  *= require_self
  *= require stylesheet
  *= require jquery.ui.min
+ *= require avgrund
 
  */

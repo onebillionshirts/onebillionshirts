@@ -6,9 +6,86 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .final_form a.place{
+    cursor: pointer;
+    margin-top: 100px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    line-height: 40px;
+    background-color: orange;
+    color: white;
+  }
+  .final_form input{
+    border: 1px solid #ccc;
+    width: 370px;
+    height: 30px;
+    font-size: 18px;
+    padding: 4px;
+    margin:10px;
+  }
 
 :javascript
   $(document).ready(function(){
+
+    $("a.request").click(function(){
+      $("div.final_form").bPopup();
+    })
+
+    $("a.place").click(function(){
+      n_s = toZero(parseInt($("#n_s").val()))
+      n_m = toZero(parseInt($("#n_m").val()))
+      n_l = toZero(parseInt($("#n_l").val()))
+      n_xl = toZero(parseInt($("#n_xl").val()))
+      n_xxl = toZero(parseInt($("#n_xxl").val()))
+
+      total = n_s + n_m + n_l + n_xl + n_xxl
+
+      style_id = $("#style_id").val()
+
+      f_color = $("#front").val()
+      b_color = $("#back").val()
+
+      color = $(".color_box_div.chosen .color_code_div").data("title")
+      if(color == "White"){
+        style_color = 0
+        }
+      else{
+        style_color = 1
+        }
+        params = { 
+          order: {
+            n_s: n_s, 
+            n_m: n_m, 
+            n_l: n_l, 
+            n_xl: n_xl, 
+            n_xxl: n_xxl, 
+            email: $("#email").val(), 
+            name: $("#name").val(), 
+            quantity: total, 
+            style_id: style_id, 
+            f_c: f_color, 
+            b_c: b_color, 
+            style_color: style_color, 
+            charity_id: $("#charity_id").val()
+          }
+        }
+
+      $.ajax({
+        url: "/orders/",
+        data: params,
+        method: "post",
+        success: function(data){
+          document.location = "/orders/thankyou"
+        }
+      })
+
+      return false;
+    })
 
     function is_int(value){
       if((parseFloat(value) == parseInt(value)) && !isNaN(value)){
@@ -341,6 +418,10 @@
           =Charity.first.name
         .desc_place
           =Charity.first.mission_statement
+  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
+    %a.request{style:"color:blue;cursor:pointer;font-size:20px;font-weight:bold"}
+      Request a Virtual Proof
+
 
 
 
@@ -367,3 +448,12 @@
         %div{style:"float:right;"}
           =image_tag st.photo(:thumb)
       %br
+
+
+
+%div.final_form{style:"text-align:center;display:none;width:400px; height:300px;background-color:white;padding:20px;border:2px #ccc"}
+  =text_field_tag "email", "", placeholder: "Enter your Email"
+  =text_field_tag "name", "", placeholder: "Enter Your Name"
+  %a.place
+    Place Order
+

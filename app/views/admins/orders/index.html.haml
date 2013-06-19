@@ -1,0 +1,26 @@
+.row
+  .span6
+    %h2 Listing Orders
+  .span5
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Email
+    %th Quantity
+    %th S,M,L,XL,XXL
+    %th Charity
+    %th Style
+    %th Color
+    %th Front
+    %th Back
+  - @orders.each do |order|
+    %tr
+      %td=order.name
+      %td=order.email
+      %td=order.quantity
+      %td=[order.n_s, order.n_m, order.n_l, order.n_xl, order.n_xxl].join(",")
+      %td=order.charity.name
+      %td=order.style.name
+      %td=(order.style_color ? "White" : "Color")
+      %td=order.f_c
+      %td=order.b_c
