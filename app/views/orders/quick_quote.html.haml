@@ -1,7 +1,11 @@
 :css
   .chosen{
     outline: 2px solid black;
-    }
+  }
+  table.more{
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 :javascript
   $(document).ready(function(){
@@ -44,12 +48,21 @@
       $(this).addClass("chosen");
     })
 
+    var toZero = function(i){
+      if (i.toString() == "NaN"){
+        return 0
+      }
+      else{
+        return i
+      }
+    }
+
     $("#calculate").click(function(){
-      n_s = parseInt($("#n_s").val())
-      n_m = parseInt($("#n_m").val())
-      n_l = parseInt($("#n_l").val())
-      n_xl = parseInt($("#n_xl").val())
-      n_xxl = parseInt($("#n_xxl").val())
+      n_s = toZero(parseInt($("#n_s").val()))
+      n_m = toZero(parseInt($("#n_m").val()))
+      n_l = toZero(parseInt($("#n_l").val()))
+      n_xl = toZero(parseInt($("#n_xl").val()))
+      n_xxl = toZero(parseInt($("#n_xxl").val()))
 
       total = n_s + n_m + n_l + n_xl + n_xxl
 
@@ -75,6 +88,11 @@
         success: function(data){
           $("h2.unit").text("Unit Price: $"+data.unit)
           $("h2.total").text("Total Price: $"+data.total)
+          $("h2.charity").text("Charity: $"+data.charity)
+          $("table.more").find("tr").remove();
+          $.each(data.more, function(i,item){
+            $("table.more").append("<tr><td>"+item.num+"</td><td>"+item.unit+"</td><td>"+item.charity+"</td></tr>")
+          })
         }
       })
 
@@ -305,6 +323,15 @@
         Unit Price: 
       %h2.total
         Total Price: 
+      %h2.charity
+        Charity
+      %br
+      %h3 Order more and save
+      %table.more
+        %tr
+          %th QTY
+          %th Price
+          %th Charity
     %div{style: "float:left;width:50%"}
       %div{style: "float:left;width:50%"}
         .logo_place
