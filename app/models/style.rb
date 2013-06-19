@@ -38,8 +38,15 @@ class Style < ActiveRecord::Base
 
   def per_by_quantity(num)
     arr = [24,48,72,144,288,576,1000,2000]
-    closest = arr.min_by{|v| (v-num).abs}
-    return self.send("m_#{closest}".to_sym)
+    closest = arr.detect{|v| num<v}
+    i = arr.find_index(closest)
+    unless i.nil?
+      i = i - 1 unless i.zero?
+    else
+      i = arr.size - 1
+    end
+    final = arr[i]
+    return self.send("m_#{final}".to_sym)
   end
 
 end

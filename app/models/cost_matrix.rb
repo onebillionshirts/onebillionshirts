@@ -12,8 +12,17 @@ class CostMatrix < ActiveRecord::Base
   end
 
   def self.cost(colors, quan)
-    closest = self.quantities.min_by{|v| (v-quan).abs}
-    match = self.default.matrix_cols.find_by_count(closest)
+    arr = self.quantities
+    closest = arr.detect{|v| quan<v}
+    i = arr.find_index(closest)
+    unless i.nil?
+      i = i - 1 unless i.zero?
+    else
+      i = arr.size - 1
+    end
+    final = arr[i]
+
+    match = self.default.matrix_cols.find_by_count(final)
     match.send("c_#{colors}")
   end
 
