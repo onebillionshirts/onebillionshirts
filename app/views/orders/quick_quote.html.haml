@@ -33,7 +33,7 @@
   $(document).ready(function(){
 
     $("a.request").click(function(){
-      $("div.final_form").bPopup();
+      $("div.final_form").bPopup({closeClass: "popClose"});
     })
 
     $("a.place").click(function(){
@@ -96,19 +96,23 @@
     }
     var active_diag = null
     $(".change_style").click(function(){
-      $("#style_picker").dialog({width:500, height:500});
+      $("#style_picker").bPopup({closeClass: "popClose"});
       return false;
      })
+    $("a#back").click(function(){
+      active_diag.bPopup().close();
+      acitve_diag = $("#style_picker").bPopup({closeClass: "popClose"});
+    })
     $(".final_style").click(function(){
-      active_diag.dialog("close");
+      active_diag.bPopup().close();
       $("#style_id").val($(this).attr("id"));
       $("span.selected_style_name").text($(this).data("name"))
       return false;
      })
     $(".sub_cat").click(function(){
       id = "#dialog_"+$(this).attr('id');
-      active_diag = $(id).dialog({width:500, height:500});
-      $("#style_picker").dialog('close');
+      active_diag = $(id).bPopup({closeClass: "popClose"});
+      $("#style_picker").bPopup().close();
       return false;
      })
     $("#charity_id").change(function(){
@@ -425,27 +429,36 @@
 
 
 
-%div#style_picker{style:"width:500px;height:500px;display:none;"}
+%div#style_picker{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;"}
   %h2
     Pick A Style
+  %div.popClose{style:"position: relative;top: -61px;left: 811px;width: 0px;cursor: pointer;color: orange;"}
+    X
   -@style_categories.each do |sc|
-    %div{style:"clear:both;width:400px"}
-      %h3=sc.name
+    %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
+      %h3{style:"color:rgb(43, 102, 226);"}=sc.name
       %div{style:"float:left;margin-left:15px;"}
-        -sc.style_sub_categories.each do |ssc|
-          =link_to ssc.name, "", style:"color:blue", id: "#{ssc.id}", class:"sub_cat"
-      %div{style:"float:right;"}
+        %ul{style:"margin-top:10px;"}
+          -sc.style_sub_categories.each do |ssc|
+            %li{style:"display:list-item;"}
+              =link_to ssc.name, "", style:"color:rgb(74, 187, 240);", id: "#{ssc.id}", class:"sub_cat"
+      %div{style:"float:right;margin-right:70px;"}
         =image_tag sc.photo(:thumb)
     %br
 
 - @sub_cats.each do |sc|
-  %div{style:"width:500px;height:500px;display:none;", id:"dialog_#{sc.id}"}
-    %h3=sc.name
+  %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;", id:"dialog_#{sc.id}"}
+    %h2
+      = "Pick A Style (#{sc.name})"
+    %div.popClose{style:"position: relative;top: -61px;left: 811px;width: 0px;cursor: pointer;color: orange;"}
+      X
+    %a#back{style:"cursor:pointer;font-size:17px;color: rgb(80, 192, 45)"}
+      Back
     -sc.styles.each do |st|
-      %div{style:"clear:both;width:400px"}
+      %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
         %div{style:"float:left;"}
           =link_to st.name, "", style:"color:blue", id:"#{st.id}", class:"final_style", data: {name: "#{st.name}"}
-        %div{style:"float:right;"}
+        %div{style:"float:right;margin-right:70px;"}
           =image_tag st.photo(:thumb)
       %br
 
