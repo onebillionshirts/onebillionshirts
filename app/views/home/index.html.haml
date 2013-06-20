@@ -1,36 +1,30 @@
 - content_for :head do
   - @title = "OneBillionShirts.org - Custom T-shirts For Good!"
   = @title
-.wrapper
-  .inner_wrapper_div
-    %h1
-      YOUR
-      %span#show_name RACE
-      T-SHIRTS CAN MAKE A HUGE DIFFERENCE!
-    = hidden_field_tag "color_code_", "RACE", :id => "get_name"
-    %p
-      We print your t-shirts, save you money, and donate a minimum of 25¢ per shirt to a charity of your choice! This
-      simple concept can change the world...
-  = render :partial => "home/calculate_input_field", :locals => {:val => 1}
-.green_bg
-/ green_bg ends
+.featured-section
+  .wrapper
+    .inner_wrapper_div
+      %h1
+        Your Custom T-shirts Can Change The World!
+      .process-images
+      .quick_quote
+        %a.quick{href: "/orders/quick_quote"}
+          Quick Quote
+        %p
+          %span
+            or
+          %a.inline
+            Learn More
 .wrapper
   .our_idea
-    .idea_txt
-      %h1 Our Concept
-      %p
-        We will print your shirts and donate 25¢ per shirt to charity from our profit, while offering the highest
-        quality, fast turnaround, and lowest prices possible.
-      %p
-        If we set the bar, others will follow and we can
-        redirect a huge amount of money to charity!
-    / idea_txt ends
-    .idea_img
-      %img{:src => "/assets/new_chart.jpg"}/
-    .idea_dn
-      %p Together we can donate more than 99.9% of Fortune 500 companies per year!
-      %img{:src => "/assets/idea_img_arrow.png"}/
-    / idea_dn ends
+    %h3
+      “Being saved from a war gave me a deep appreciation
+      for the work done by charities, now it is my mission to make
+      sure every custom t-shirt printed has a direct impact on others”
+    .testi
+      %img{src:"/assets/testimonial-person-thumb.png"}
+      %h4
+        Albion Calaj, Co-founder
   / our_idea ends
 / wrapper ends
 .stages_bg
@@ -62,36 +56,22 @@
   / wrapper ends
 / idea_proces ends
 / sliding_text ends
-.wrapper
-  .idea_proces
-    = render :partial => "/home/charities"
-    / featured_imgs ends
-  .sliding_text{:style => "margin-top: 0px !important;"}
-    %span.left-comma
-    %h2
-      Just think, together we can raise more money per year than 99% of Fortune 500 companies. That is truly
-      powerful. Once each consumer realizes the impact their order has and the influence they hold, we will begin to see
-      a shift in wealth that will change the world. This
-      inconspicuous act will propel our global community to new heights and will raise the bar of giving to others.
-    %span.right-comma
-  .bottom-text
-    %p Gregory Berry, Co-Founder, OneBillionShirts
-  / sliding_text ends
-  .btn_align
-    .calc_btn
-      .calc_box_div
-        .calc_box_img_div
-          %img{:src => "/assets/search_icon.png"}/
-        .calc_box_input_div
-          .calc_box_input_div_left
-            %input#number_of_shirts1{:placeholder => "How many t-shirts do you order?", :size => "30", :type => "text"}/
-          .calc_box_input_div_right
-            %a#calculate_value1.select-link{:href => "javascript:;"} CALCULATE
-          / <div class="calc_box_input_div_right"><a href="javascript:;" id="calculate_value">CALCULATE</a></div>
-          / <a href="/charities">Choose Your Charity</a>
-    / <div class="calc_img_div"><img src="/assets/calc_arrow.png"/></div>
-/ wrapper ends
-/ calculate_impact ends
+.wrapper{style:"clear:both;"}
+  .bottom_contain
+    .bottom_quote
+      %a.quick{href: "/orders/quick_quote"}
+        Quick Quote
+      %p
+        %span
+          or
+        %a.inline
+          Learn More
+    %h4 
+      We will beat your current price
+      & donate in your name from our profit.
+      Now, that is a win-win!
+    %img{src:"/assets/sketchy-arrow.png"}
+
 :javascript
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-38304888-1']);

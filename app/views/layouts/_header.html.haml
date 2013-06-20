@@ -1,52 +1,53 @@
-.wrapper
-  .logo_quote
-    .logo
-    / logo ends
-    /
-      div class="quote_req">
-      <a href="/charities">ORDER NOW</a>
-      </div>
-      <!--quote_req ends
-  / logo_quote ends
-  .navigation{:style => "position: relative"}
-    %ul#nav1
-      %li
-        %a{:href => "/"} Home
-      %li
-        %a{:href => "/about"} Info
-        %ul
-          %li
-            %a{:href => "/about"} About
-          / <li><a href="#">Mission</a></li>
-          %li
-            %a{:href => "/our_story"} Our Story
-          %li
-            %a{:href => "/how_it_works"} How It Works
-          %li
-            %a{:href => "/brand"} Products
-          %li
-            %a{:href => "/top_ten_reasons"} Top 10 Reasons
-        / <li><a href="/" onmouseout="mclosetime('info_details')" onmouseover="mopen('info_details')">Info</a>
-        / &amp;lt;!&amp;ndash;drop-top ends&amp;ndash;&amp;gt;
-        / <div id="info_details" style="display: none;">
-        / <div class="drop-mid">
-        / <ul>
-        / <li><a href="/about">About</a></li>
-        / <li><a href="/about">Mission</a></li>
-        / <li><a href="/our_story">Our Story</a></li>
-        / <li><a href="/how_it_works">How It Works</a></li>
-        / <li><a href="/how_it_works">Top 10 Reasons</a></li>
-        / </ul>
-        / </div>
-        / </div>
-      %li
-        %a{:href => "/client_spotlight"} Client Spotlight
-      %li
-        %a{:href => "/charities"} Charities
-      %li
-        %a{:href => "/contact"} Contact
-  / nav1igation ends
-/ wrapper ends
+.header-wrapper
+  .header-container
+    .logo_quote
+      .logo
+      / logo ends
+      /
+        div class="quote_req">
+        <a href="/charities">ORDER NOW</a>
+        </div>
+        <!--quote_req ends
+    / logo_quote ends
+    .navigation{:style => "position: relative"}
+      %ul#nav1
+        %li
+          %a{:href => "/"} Home
+        %li
+          %a{:href => "/about"} Info
+          %ul
+            %li
+              %a{:href => "/about"} About
+            / <li><a href="#">Mission</a></li>
+            %li
+              %a{:href => "/our_story"} Our Story
+            %li
+              %a{:href => "/how_it_works"} How It Works
+            %li
+              %a{:href => "/brand"} Products
+            %li
+              %a{:href => "/top_ten_reasons"} Top 10 Reasons
+          / <li><a href="/" onmouseout="mclosetime('info_details')" onmouseover="mopen('info_details')">Info</a>
+          / &amp;lt;!&amp;ndash;drop-top ends&amp;ndash;&amp;gt;
+          / <div id="info_details" style="display: none;">
+          / <div class="drop-mid">
+          / <ul>
+          / <li><a href="/about">About</a></li>
+          / <li><a href="/about">Mission</a></li>
+          / <li><a href="/our_story">Our Story</a></li>
+          / <li><a href="/how_it_works">How It Works</a></li>
+          / <li><a href="/how_it_works">Top 10 Reasons</a></li>
+          / </ul>
+          / </div>
+          / </div>
+        %li
+          %a{:href => "/client_spotlight"} Client Spotlight
+        %li
+          %a{:href => "/charities"} Charities
+        %li
+          %a{:href => "/contact"} Contact
+    / nav1igation ends
+  / wrapper ends
 :javascript
   $(document).ready(function () {
 

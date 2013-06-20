@@ -2230,9 +2230,9 @@ width:210px;
 }
 
 .our_idea {
-    float: left;
-    width: 100%;
-    margin-top: 20px;
+  text-align: center;
+  margin: 100px auto 24px auto;
+  width: 925px;
 }
 
 .idea_txt {
@@ -2483,7 +2483,7 @@ width:210px;
     clear: both;
     float: left;
     height: 352px;
-    margin: 50px 0 60px 0;
+    margin: 50px 0 30px 0;
 }
 
 .process_list {
@@ -3487,11 +3487,11 @@ width:210px;
 }
 
 .inner_wrapper_div h1 {
-    font-size: 26px;
+    font-size: 40px;
     margin: 30px auto;
     text-align: center;
-    font-family: Arial ! important;
-    width: 94%;
+    width: 73%;
+    color: white;
 }
 
 .inner_wrapper_div p {
@@ -3767,7 +3767,147 @@ width:210px;
 .faq_abt span{font-size:20px;font-weight:normal; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; }
 .div.hidden{
     display: none;
+}
+.header-wrapper{
+  background-color: white;
+  height: 89px;
+  border-bottom: 7px solid #ed6430;
+  width: 100%;
+}
 
+.header-container{
+  width: 960px;
+  margin: 0 auto;
+}
 
+.featured-section{
+  background-image: url("/assets/featured-bg.jpg");
+  height: 519px;
+  width: 100%;
+  background-position: center -90px;
+}
+.process-images{
+  background-image: url("/assets/shirt-process-img.png");
+  height: 247px;
+  width: 768px;
+  margin: 0 auto;
+}
 
+.featured-section .inner_wrapper_div {
+  text-align: center;
+  width: 960px;
+  position: relative;
+  margin: 0 auto;
+  height: 519px;
+}
+.quick_quote a.quick{
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #ed6430;
+  padding: 15px 45px;
+  border: 4px solid white;
+}
+.quick_quote a.inline{
+  color: #1d1761;
+  font-size: 15px;
+  text-decoration: underline;
+  float: left;
+  margin-left: 12px;
+}
+.quick_quote{
+  width: 260px;
+  position: absolute;
+  left: 355px;
+  top: 500px;
+  cursor: pointer;
+}
+
+.quick_quote p{
+  width: 120px;
+  font-size: 15px;
+  float: left;
+  margin: 0 0 0 80px;
+}
+
+.quick_quote p span{
+  float: left;
+  color: #ccc;
+}
+
+.our_idea h3{
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+.testi{
+  margin: 10px auto;
+  width: 310px;
+  line-height: 86px;
+  font-style: italic;
+}
+.testi img{
+  float:left;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.bottom_quote a.quick{
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #ed6430;
+  padding: 15px 45px;
+  border: 4px solid white;
+  float: left;
+}
+.bottom_quote a.inline{
+  color: #1d1761;
+  font-size: 15px;
+  text-decoration: underline;
+  float: left;
+  margin-left: 12px;
+}
+.bottom_quote{
+  width: 230px;
+  cursor: pointer;
+  margin-right: 50px;
+  float: left;
+  margin-left: 20px;
+}
+
+.bottom_quote p{
+  width: 120px;
+  font-size: 15px;
+  float: left;
+  margin: 0 0 0 80px;
+}
+
+.bottom_quote p span{
+  float: left;
+  color: #ccc;
+}
+
+.bottom_contain{
+  position: relative;
+  width: 600px;
+  margin: 0 auto 30px auto;
+  height: 80px;
+}
+.bottom_contain h4{
+  line-height:25px;
+  float: left;
+  width: 294px;
+  text-align: center;
+}
+
+.bottom_contain img{
+  position: absolute;
+  left: 246px;
+  bottom: -20px;
 }
