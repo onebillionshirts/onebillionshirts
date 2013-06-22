@@ -27,35 +27,65 @@
         Albion Calaj, Co-founder
   / our_idea ends
 / wrapper ends
-.stages_bg
-  .wrapper
-    .process_list
-      %h1 It's really simple
-      .process_stages
-        .stages_1
-          %img{:src => "/assets/stage_1_img.png"}/
-          .stage_txt.mrg_L_1
-            %span 1.
-            %p Choose a charity.
-        / stages_1 ends
-        .stages_1
-          %img{:src => "/assets/stage_2_img.png"}/
-          .stage_txt.mrg_L_2
-            %span 2.
-            %p Order Shirts.
-        / stages_1 ends
-        .stages_1
-          %img{:src => "/assets/stage_3_img.png"}/
-          .stage_txt.mrg_L_3
-            %span 3.
-            %p Receive Shirts &amp; Help Others.
-          / stage_txt
-        / stages_1 ends
-      / process_stages ends
-    / process_list ends
-  / wrapper ends
-/ idea_proces ends
-/ sliding_text ends
+.wrapper
+  .top-charity
+    .col
+      %img{src:"/assets/dummy.png"}
+    .col
+      %h3
+        love our concept because
+      %span
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu vulputate nulla, ac vulputate leo. Ut aliquet neque eget tempor euismod. Sed venenatis bibendum velit ut venenatis. Duis hendrerit ac urna quis
+      %a Learn More
+  .featured-area
+    %ul.bxslider
+      -Charity.all.each do |char|
+        %li=image_tag char.logo.image(:thumb), style:"width:100px;"
+
+  / our_idea ends
+/ wrapper ends
+.wrapper{style:"clear:both;"}
+  .how_it_works
+    .how_img
+      %img{src:"/assets/how-it-works.png"}
+    .how_bottom
+      .col
+        %h3
+          %span
+            Charities 
+          love our concept because
+          for every t-shirt we print there is a
+          minimum of 25¢ being redirected
+          back to a non-profit organization
+          creating a brand new multi-million
+          dollar fundraising stream!
+        %a Participate
+      .col{style:"border-left:1px solid #ccc;"}
+        %h3
+          %span
+            Customers
+          love us because we save
+          96% of clients money compared to
+          their current vendor but also donate
+          directly from our pockets to a charity
+          of their choice allowing them to save
+          money and help others!
+        %a How It Works
+  / our_idea ends
+/ wrapper ends
+.wrapper{style:"clear:both;"}
+  .final-area{style:"float:left;margin-bottom:40px;"}
+    %ul.bxbig
+      -Charity.all.each do |char|
+        %li
+          .single_charity
+            .col{style:"width:50%;padding:0px 40px;"}
+              %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
+                =char.mission_statement
+            .col{style:"width:30%"}
+              =image_tag char.logo.image(:thumb), style:"float: right;padding-right: 45px;"
+  / our_idea ends
+/ wrapper ends
 .wrapper{style:"clear:both;"}
   .bottom_contain
     .bottom_quote
@@ -110,6 +140,8 @@
 
   $(document).ready(function () {
       min = setInterval("refresh_name()", 2000);
+      $(".bxslider").bxSlider({nextText: "", prevText:"", auto: true, slideWidth: 100, moveSlides: 1, minSlides: 8, maxSlides: 8, pager: false})
+      $(".bxbig").bxSlider({nextText: "", prevText:"", auto: true, slideWidth: 960, moveSlides: 1, minSlides: 1, maxSlides: 1, pager: false})
   });
   function refresh_name() {
       var myArray = ['Event', 'Promo', 'RACE', "League", "Game", "Corporate", "Volunteer", "School", "Party", "Reunion"];
