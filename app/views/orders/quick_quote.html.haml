@@ -1,4 +1,73 @@
 :css
+  a.request{
+    cursor: pointer;
+    font-size: 20px;
+    width: 250px;
+    border: 1px solid #ccc;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 258px;
+    background-color: #00afeb;
+    color: white;
+    font-weight: normal;
+  }
+  table.more td{
+    width: 60px;
+    text-align: center;
+  }
+
+  table.more th{
+    width: 60px;
+    text-align: center;
+  }
+  div#results h4{
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  a#calculate{
+    background-color: #ed6430;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 39px;
+    line-height: 39px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #c6bebb;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+  span.selected_style_name{
+    font-size: 16px;
+    }
+  #front, #back{
+    margin-left: 10px;
+    display: inline;
+    width: 50px;
+    height: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  #charity_id{
+    width: 220px;
+    height: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    float:left;
+  }
+  .move{
+    margin-left:250px;
+    }
+  .padded h3{
+    color: #ed6430;
+    font-size:20px;
+  }
+  .padded > div{
+    margin-bottom:25px;
+    float:left;
+  }
   .chosen{
     outline: 2px solid black;
   }
@@ -139,6 +208,7 @@
     }
 
     $("#calculate").click(function(){
+      $("#calculate").text("Calculating...")
       n_s = toZero(parseInt($("#n_s").val()))
       n_m = toZero(parseInt($("#n_m").val()))
       n_l = toZero(parseInt($("#n_l").val()))
@@ -167,12 +237,14 @@
         data: params,
         method: "get",
         success: function(data){
-          $("h2.unit").text("Unit Price: $"+data.unit)
-          $("h2.total").text("Total Price: $"+data.total)
-          $("h2.charity").text("Charity: $"+data.charity)
-          $("table.more").find("tr").remove();
+          $("#calculate").text("Calculate")
+          $(".after_section").show();
+          $("h4.unit").text("Unit Price: $"+data.unit)
+          $("h4.total").text("Total Price: $"+data.total)
+          $("h4.charity").text("Charity: $"+data.charity)
+          $("table.more").find("tr.data").remove();
           $.each(data.more, function(i,item){
-            $("table.more").append("<tr><td>"+item.num+"</td><td>"+item.unit+"</td><td>"+item.charity+"</td></tr>")
+            $("table.more").append("<tr class='data'><td>"+item.num+"</td><td>"+item.unit+"</td><td>"+item.charity+"</td></tr>")
           })
         }
       })
@@ -183,248 +255,251 @@
   })
 %div{:style => "padding:40px 170px;"}
   %br/
-  %h2 Quick Quote Form
-  %div{:style => "clear:both;margin-top:20px"}
-    %div{:style => "width:20%; float:left;"}
-      %h3 Style
-    %div
-      %span.selected_style_name= Style.first.name
-      =hidden_field_tag :style_id, Style.first.id
-      %a.change_style{style:"color:blue;cursor:pointer;"}
-        Change
-  %div{:style => "clear:both;margin-top:20px"}
-    %div{:style => "width:20%; float:left;"}
-      %h3 Charity
-    %div
-      = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name")
-      -@charities.each do |charity|
-        %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement}}
-  %div{:style => "clear:both;margin-top:20px;height:90px;"}
-    %div{:style => "width:20%; float:left;"}
-      %h3 Color
-    %div
-      .color_boxes
-        .color_box_div
-          #1.color_box{:style => "background: #5ea682"}
-          .color_code_div{"data-title" => "Irish Green"}
-        / color_box ends
-        .color_box_div
-          #2.color_box{:style => "background: #2170c0"}
-          .color_code_div{"data-title" => "Royal"}
-        / color_box ends
-        .color_box_div
-          #3.color_box{:style => "background: #e2e3e5"}
-          .color_code_div{"data-title" => "Ash"}
-        / color_box ends
-        .color_box_div
-          #4.color_box{:style => "background: #fe78d0"}
-          .color_code_div{"data-title" => "Azalea"}
-        / color_box ends
-        .color_box_div
-          #5.color_box{:style => "background: #000000"}
-          .color_code_div{"data-title" => "Black"}
-        / color_box ends
-        .color_box_div
-          #7.color_box{:style => "background: #76042d"}
-          .color_code_div{"data-title" => "Cardinal"}
-        / color_box ends
-        .color_box_div
-          #8.color_box{:style => "background: #7286b1"}
-          .color_code_div{"data-title" => "Carolina Blue"}
-        / color_box ends
-        .color_box_div
-          #9.color_box{:style => "background: #303232"}
-          .color_code_div{"data-title" => "Charcoal"}
-        / color_box ends
-        .color_box_div
-          #10.color_box{:style => "background: #f8d220"}
-          .color_code_div{"data-title" => "Daisy"}
-        / color_box ends
-        .color_box_div
-          #11.color_box{:style => "background: #462a19"}
-          .color_code_div{"data-title" => "Dark Chocolate"}
-        / color_box ends
-        .color_box_div
-          #12.color_box{:style => "background: #303232"}
-          .color_code_div{"data-title" => "Dark Heather"}
-        / color_box ends
-        .color_box_div
-          #13.color_box{:style => "background: #304328"}
-          .color_code_div{"data-title" => "Forest Green"}
-        / color_box ends
-        .color_box_div
-          #14.color_box{:style => "background: #f6af16"}
-          .color_code_div{"data-title" => "Gold"}
-        / color_box ends
-        .color_box_div
-          #15.color_box{:style => "background: #525a72"}
-          .color_code_div{"data-title" => "Heather Indigo"}
-        / color_box ends
-        .color_box_div
-          #16.color_box{:style => "background: #c7287b"}
-          .color_code_div{"data-title" => "Helliconia"}
-        / color_box ends
-        .color_box_div
-          #17.color_box{:style => "background: #d3d3d3"}
-          .color_code_div{"data-title" => "Ice Grey"}
-        / color_box ends
-        .color_box_div
-          #18.color_box{:style => "background: #4d6bb8"}
-          .color_code_div{"data-title" => "Iris"}
-        / color_box ends
-        .color_box_div
-          #19.color_box{:style => "background: #3a7a51"}
-          .color_code_div{"data-title" => "Kelly Green"}
-        / color_box ends
-        .color_box_div
-          #23.color_box{:style => "background: #89a040"}
-          .color_code_div{"data-title" => "Kiwi"}
-        / color_box ends
-        .color_box_div
-          #24.color_box{:style => "background: #c3d7f5"}
-          .color_code_div{"data-title" => "Light Blue"}
-        / color_box ends
-        .color_box_div
-          #25.color_box{:style => "background: #fcd2e1"}
-          .color_code_div{"data-title" => "Light Pink"}
-        / color_box ends
-        .color_box_div
-          #26.color_box{:style => "background: #c1fe6e"}
-          .color_code_div{"data-title" => "Lime"}
-        / color_box ends
-        .color_box_div
-          #27.color_box{:style => "background: #6c1039"}
-          .color_code_div{"data-title" => "Maroon"}
-        / color_box ends
-        .color_box_div
-          #28.color_box{:style => "background: #554d2e"}
-          .color_code_div{"data-title" => "Military Green"}
-        / color_box ends
-        .color_box_div
-          #29.color_box{:style => "background: #1c2041"}
-          .color_code_div{"data-title" => "Navy"}
-        / color_box ends
-        .color_box_div
-          #30.color_box{:style => "background: #fe6600"}
-          .color_code_div{"data-title" => "Orange"}
-        / color_box ends
-        .color_box_div
-          #31.color_box{:style => "background: #51008f"}
-          .color_code_div{"data-title" => "Purple"}
-        / color_box ends
-        .color_box_div
-          #32.color_box{:style => "background: #ab1223"}
-          .color_code_div{"data-title" => "Red"}
-        / color_box ends
-        .color_box_div
-          #33.color_box{:style => "background: #154395"}
-          .color_code_div{"data-title" => "Royal"}
-        / color_box ends
-        .color_box_div
-          #34.color_box{:style => "background: #e2fe0f"}
-          .color_code_div{"data-title" => "Safety Green"}
-        / color_box ends
-        .color_box_div
-          #35.color_box{:style => "background: #e96016"}
-          .color_code_div{"data-title" => "Safety Orange"}
-        / color_box ends
-        .color_box_div
-          #36.color_box{:style => "background: #fd9bc0"}
-          .color_code_div{"data-title" => "Safety Pink"}
-        / color_box ends
-        .color_box_div
-          #37.color_box{:style => "background: #989c9d"}
-          .color_code_div{"data-title" => "Sport Grey"}
-        / color_box ends
-        .color_box_div
-          #38.color_box{:style => "background: #8271c3"}
-          .color_code_div{"data-title" => "Violet"}
-        / color_box ends
-        .color_box_div.chosen
-          #39.color_box{:style => "background: #FFFFFF"}
-          .color_code_div{"data-title" => "White"}
-        / color_box ends
-        .color_box_div
-          #40.color_box{:style => "background: #fee48b"}
-          .color_code_div{"data-title" => "Yellow Haze"}
-        / color_box ends
-  %div{:style => "clear:both;margin-top:20px"}
-    %div{:style => "width:20%; float:left;"}
-    %div
-      .shirt_sizes
-        .sizes_hold
-          .youth_sizes
-            %p &nbsp;
-            .size_input
-              %p S
-            .size_input
-              %p M
-            .size_input
-              %p L
-            .size_input
-              %p XL
-            .size_input
-              %p XXL
-          .youth_sizes
-            %p Youth
-            .size_input
-              .size_input_mid
-                %input#n_s{:name => "1_1_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#n_m{:name => "1_2_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#n_l{:name => "1_3_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#n_xl{:name => "1_4_values[]", :type => "text"}/
-              / size_input_mid ends
-            .size_input
-              .size_input_mid
-                %input#n_xxl{:name => "1_5_values[]", :type => "text"}/
-              / size_input_mid ends
-  %div{:style => "clear:both;margin-top:20px"}
-    %div{:style => "width:20%; float:left;"}
-      %h3 Ink Colors
-    %div
-      %label Front
-      = select_tag :front, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
-      %label Back
-      = select_tag :back, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+  %h2 Quick Quote Order Form
+  .padded{style:"padding-left:100px;"}
+    %div{:style => "clear:both;margin-top:20px"}
+      %div{:style => "width:20%; float:left;"}
+        %h3 Charity:
+      %div.move
+        = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name")
+        =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
+        -@charities.each do |charity|
+          %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement}}
+    %div{:style => "clear:both;margin-top:20px"}
+      %div{:style => "width:20%; float:left;"}
+        %h3 Style:
+      %div.move
+        %span.selected_style_name= Style.first.name
+        =hidden_field_tag :style_id, Style.first.id
+        %a.change_style{style:"color:#00afeb;cursor:pointer;"}
+          Change
+    %div{:style => "clear:both;margin-top:20px;height:170px;"}
+      %div{:style => "width:20%; float:left;"}
+        %h3 Color:
+      %div.move
+        .color_boxes
+          .color_box_div
+            #1.color_box{:style => "background: #5ea682"}
+            .color_code_div{"data-title" => "Irish Green"}
+          / color_box ends
+          .color_box_div
+            #2.color_box{:style => "background: #2170c0"}
+            .color_code_div{"data-title" => "Royal"}
+          / color_box ends
+          .color_box_div
+            #3.color_box{:style => "background: #e2e3e5"}
+            .color_code_div{"data-title" => "Ash"}
+          / color_box ends
+          .color_box_div
+            #4.color_box{:style => "background: #fe78d0"}
+            .color_code_div{"data-title" => "Azalea"}
+          / color_box ends
+          .color_box_div
+            #5.color_box{:style => "background: #000000"}
+            .color_code_div{"data-title" => "Black"}
+          / color_box ends
+          .color_box_div
+            #7.color_box{:style => "background: #76042d"}
+            .color_code_div{"data-title" => "Cardinal"}
+          / color_box ends
+          .color_box_div
+            #8.color_box{:style => "background: #7286b1"}
+            .color_code_div{"data-title" => "Carolina Blue"}
+          / color_box ends
+          .color_box_div
+            #9.color_box{:style => "background: #303232"}
+            .color_code_div{"data-title" => "Charcoal"}
+          / color_box ends
+          .color_box_div
+            #10.color_box{:style => "background: #f8d220"}
+            .color_code_div{"data-title" => "Daisy"}
+          / color_box ends
+          .color_box_div
+            #11.color_box{:style => "background: #462a19"}
+            .color_code_div{"data-title" => "Dark Chocolate"}
+          / color_box ends
+          .color_box_div
+            #12.color_box{:style => "background: #303232"}
+            .color_code_div{"data-title" => "Dark Heather"}
+          / color_box ends
+          .color_box_div
+            #13.color_box{:style => "background: #304328"}
+            .color_code_div{"data-title" => "Forest Green"}
+          / color_box ends
+          .color_box_div
+            #14.color_box{:style => "background: #f6af16"}
+            .color_code_div{"data-title" => "Gold"}
+          / color_box ends
+          .color_box_div
+            #15.color_box{:style => "background: #525a72"}
+            .color_code_div{"data-title" => "Heather Indigo"}
+          / color_box ends
+          .color_box_div
+            #16.color_box{:style => "background: #c7287b"}
+            .color_code_div{"data-title" => "Helliconia"}
+          / color_box ends
+          .color_box_div
+            #17.color_box{:style => "background: #d3d3d3"}
+            .color_code_div{"data-title" => "Ice Grey"}
+          / color_box ends
+          .color_box_div
+            #18.color_box{:style => "background: #4d6bb8"}
+            .color_code_div{"data-title" => "Iris"}
+          / color_box ends
+          .color_box_div
+            #19.color_box{:style => "background: #3a7a51"}
+            .color_code_div{"data-title" => "Kelly Green"}
+          / color_box ends
+          .color_box_div
+            #23.color_box{:style => "background: #89a040"}
+            .color_code_div{"data-title" => "Kiwi"}
+          / color_box ends
+          .color_box_div
+            #24.color_box{:style => "background: #c3d7f5"}
+            .color_code_div{"data-title" => "Light Blue"}
+          / color_box ends
+          .color_box_div
+            #25.color_box{:style => "background: #fcd2e1"}
+            .color_code_div{"data-title" => "Light Pink"}
+          / color_box ends
+          .color_box_div
+            #26.color_box{:style => "background: #c1fe6e"}
+            .color_code_div{"data-title" => "Lime"}
+          / color_box ends
+          .color_box_div
+            #27.color_box{:style => "background: #6c1039"}
+            .color_code_div{"data-title" => "Maroon"}
+          / color_box ends
+          .color_box_div
+            #28.color_box{:style => "background: #554d2e"}
+            .color_code_div{"data-title" => "Military Green"}
+          / color_box ends
+          .color_box_div
+            #29.color_box{:style => "background: #1c2041"}
+            .color_code_div{"data-title" => "Navy"}
+          / color_box ends
+          .color_box_div
+            #30.color_box{:style => "background: #fe6600"}
+            .color_code_div{"data-title" => "Orange"}
+          / color_box ends
+          .color_box_div
+            #31.color_box{:style => "background: #51008f"}
+            .color_code_div{"data-title" => "Purple"}
+          / color_box ends
+          .color_box_div
+            #32.color_box{:style => "background: #ab1223"}
+            .color_code_div{"data-title" => "Red"}
+          / color_box ends
+          .color_box_div
+            #33.color_box{:style => "background: #154395"}
+            .color_code_div{"data-title" => "Royal"}
+          / color_box ends
+          .color_box_div
+            #34.color_box{:style => "background: #e2fe0f"}
+            .color_code_div{"data-title" => "Safety Green"}
+          / color_box ends
+          .color_box_div
+            #35.color_box{:style => "background: #e96016"}
+            .color_code_div{"data-title" => "Safety Orange"}
+          / color_box ends
+          .color_box_div
+            #36.color_box{:style => "background: #fd9bc0"}
+            .color_code_div{"data-title" => "Safety Pink"}
+          / color_box ends
+          .color_box_div
+            #37.color_box{:style => "background: #989c9d"}
+            .color_code_div{"data-title" => "Sport Grey"}
+          / color_box ends
+          .color_box_div
+            #38.color_box{:style => "background: #8271c3"}
+            .color_code_div{"data-title" => "Violet"}
+          / color_box ends
+          .color_box_div.chosen
+            #39.color_box{:style => "background: #FFFFFF"}
+            .color_code_div{"data-title" => "White"}
+          / color_box ends
+          .color_box_div
+            #40.color_box{:style => "background: #fee48b"}
+            .color_code_div{"data-title" => "Yellow Haze"}
+          / color_box ends
+    %div{:style => "clear:both;margin-top:20px"}
+      %div{:style => "width:20%; float:left;"}
+        %h3 Sizes:
+      %div.move
+        .shirt_sizes
+          .sizes_hold
+            .youth_sizes
+              .size_input
+                %p S
+              .size_input
+                %p M
+              .size_input
+                %p L
+              .size_input
+                %p XL
+              .size_input
+                %p XXL
+            .youth_sizes
+              .size_input
+                .size_input_mid
+                  %input#n_s{:name => "1_1_values[]", :type => "text"}/
+                / size_input_mid ends
+              .size_input
+                .size_input_mid
+                  %input#n_m{:name => "1_2_values[]", :type => "text"}/
+                / size_input_mid ends
+              .size_input
+                .size_input_mid
+                  %input#n_l{:name => "1_3_values[]", :type => "text"}/
+                / size_input_mid ends
+              .size_input
+                .size_input_mid
+                  %input#n_xl{:name => "1_4_values[]", :type => "text"}/
+                / size_input_mid ends
+              .size_input
+                .size_input_mid
+                  %input#n_xxl{:name => "1_5_values[]", :type => "text"}/
+                / size_input_mid ends
+    %div{:style => "clear:both;margin-top:20px"}
+      %div{:style => "width:20%; float:left;"}
+        %h3 Ink Colors:
+      %div.move
+        %label Front
+        = select_tag :front, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+        %label{style:"margin-left:15px;"} Back
+        = select_tag :back, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
 
-  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
-    =link_to "Calculate", "", style: "background-color: orange;width: 100px;margin-left: auto;margin-right: auto;height: 27px;line-height: 27px;color: white;", id: "calculate"
-  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
-    %div{style: "float:left;width:50%"}
-      %h2.unit
-        Unit Price: 
-      %h2.total
-        Total Price: 
-      %h2.charity
-        Charity
-      %br
-      %h3 Order more and save
-      %table.more
-        %tr
-          %th QTY
-          %th Price
-          %th Charity
-    %div{style: "float:left;width:50%"}
-      %div{style: "float:left;width:50%"}
-        .logo_place
-          =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
-      %div{style: "float:left;width:50%"}
-        .title_place
-          =Charity.first.name
-        .desc_place
-          =Charity.first.mission_statement
-  %div{:style => "clear:both;margin-top:20px;text-align:center;"}
-    %a.request{style:"color:blue;cursor:pointer;font-size:20px;font-weight:bold"}
-      Request a Virtual Proof
+    %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
+      =link_to "Calculate", "", id:"calculate"
+    .after_section{style:"display:none;"}
+      %div{:style => "clear:both;margin-top:20px;"}
+        %div#results{style: "float:left;width:50%"}
+          %h4.unit
+            Unit Price: 
+          %h4.total
+            Total Price: 
+          %h4.charity
+            Charity
+          %br
+          %h4 Order more and save
+          %table.more{style:"margin:0;margin-left:-20px;"}
+            %thead
+              %tr.head
+                %th QTY
+                %th Price
+                %th Charity
+        %div{style: "float:left;width:50%"}
+          %div{style: "float:left;width:50%"}
+            .logo_place
+              =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
+          %div{style: "float:left;width:50%"}
+            .title_place
+              =Charity.first.name
+            .desc_place
+              =Charity.first.mission_statement
+      %div{:style => "clear:both;margin-top:20px;text-align:center;"}
+        %a.request
+          Request a Virtual Proof
 
 
 
