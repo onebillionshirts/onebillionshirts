@@ -26,3 +26,22 @@ margin-left: 10px;
 margin-top: 4px;
 color: lightgreen;
 }
+
+.details-info-holder {
+  width: 500px;
+  clear: both;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.details-info-holder label{
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+  float: left;
+
+}
+.details-info-holder .details-info{
+  margin-left:210px;
+}
+

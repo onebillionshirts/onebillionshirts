@@ -6,8 +6,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    Order.create(params[:order])
-    render json: params
+    order_params = JSON.parse(params[:extras])
+    order_params.symbolize_keys![:order].symbolize_keys!
+    order = Order.new(order_params[:order])
+    order.front_art = params[:front_art]
+    order.back_art = params[:back_art]
+    order.save
+    redirect_to action: :thankyou and return
   end
 
   def quick_quote

@@ -13,6 +13,7 @@
     %th Color
     %th Front
     %th Back
+    %th
   - @orders.each do |order|
     %tr
       %td=order.name
@@ -21,6 +22,8 @@
       %td=[order.n_s, order.n_m, order.n_l, order.n_xl, order.n_xxl].join(",")
       %td=order.charity.name
       %td=order.style.name
-      %td=(order.style_color ? "White" : "Color")
+      %td
+        %div{style:"width:20px;height:20px;background-color:##{order.shirt_color.code}"}
       %td=order.f_c
       %td=order.b_c
+      %td=link_to "Details", admins_order_path(order)

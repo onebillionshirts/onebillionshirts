@@ -1,4 +1,14 @@
 :css
+  .final_form label{
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 15px;
+    display: block;
+    width: 130px;
+    text-align: left;
+  }
   a.request{
     cursor: pointer;
     font-size: 20px;
@@ -77,7 +87,7 @@
   }
   .final_form a.place{
     cursor: pointer;
-    margin-top: 100px;
+    margin-top: 20px;
     font-size: 18px;
     margin-left: auto;
     margin-right: auto;
@@ -89,7 +99,10 @@
     background-color: orange;
     color: white;
   }
-  .final_form input{
+  .final_form input[type='file']{
+    margin-top:18px;
+  }
+  .final_form input[type='text']{
     border: 1px solid #ccc;
     width: 370px;
     height: 30px;
@@ -129,39 +142,36 @@
       f_color = $("#front").val()
       b_color = $("#back").val()
 
-      color = $(".color_box_div.chosen .color_code_div").data("title")
-      if(color == "White"){
-        style_color = 0
+      color = $(".color_box_div.chosen").attr("id")
+      params = { 
+        order: {
+          n_s: n_s, 
+          n_m: n_m, 
+          n_l: n_l, 
+          n_xl: n_xl, 
+          n_xxl: n_xxl, 
+          email: $("#email").val(), 
+          name: $("#name").val(), 
+          quantity: total, 
+          style_id: style_id, 
+          f_c: f_color, 
+          b_c: b_color, 
+          shirt_color_id: color,
+          charity_id: $("#charity_id").val()
         }
-      else{
-        style_color = 1
-        }
-        params = { 
-          order: {
-            n_s: n_s, 
-            n_m: n_m, 
-            n_l: n_l, 
-            n_xl: n_xl, 
-            n_xxl: n_xxl, 
-            email: $("#email").val(), 
-            name: $("#name").val(), 
-            quantity: total, 
-            style_id: style_id, 
-            f_c: f_color, 
-            b_c: b_color, 
-            style_color: style_color, 
-            charity_id: $("#charity_id").val()
-          }
         }
 
-      $.ajax({
+        $("#extras").val(JSON.stringify(params))
+        $(".final_form form").submit()
+
+      /*$.ajax({
         url: "/orders/",
         data: params,
         method: "post",
         success: function(data){
           document.location = "/orders/thankyou"
         }
-      })
+      })*/
 
       return false;
     })
@@ -412,9 +422,16 @@
 
 
 
-%div.final_form{style:"text-align:center;display:none;width:400px; height:300px;background-color:white;padding:20px;border:2px #ccc"}
-  =text_field_tag "email", "", placeholder: "Enter your Email"
-  =text_field_tag "name", "", placeholder: "Enter Your Name"
+%div.final_form{style:"text-align:center;display:none;width:450px; height:330px;background-color:white;padding:20px;border:2px #ccc"}
+  =form_tag "/orders/", method: :post, multipart: true do
+    =hidden_field_tag :extras
+    =label_tag "Email"
+    =text_field_tag "email"
+    =label_tag "Full Name"
+    =text_field_tag "name"
+    =label_tag "Front Art Work"
+    =file_field_tag :front_art
+    =label_tag "Back Art Work"
+    =file_field_tag :back_art
   %a.place
     Place Order
-

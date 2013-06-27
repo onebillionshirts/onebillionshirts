@@ -1,0 +1,46 @@
+%h1 Order Details
+.details-info-holder
+  %label Customer Name
+  .details-info
+    = @order.name
+.details-info-holder
+  %label Email
+  .details-info
+    = @order.email
+.details-info-holder
+  %label Quantity
+  .details-info
+    = @order.quantity
+.details-info-holder
+  %label Sizes
+  .details-info
+    =[@order.n_s, @order.n_m, @order.n_l, @order.n_xl, @order.n_xxl].join(",")
+.details-info-holder
+  %label Charity
+  .details-info
+    = @order.charity.name
+.details-info-holder
+  %label Shirt Style
+  .details-info
+    = @order.style.name
+.details-info-holder
+  %label Color
+  .details-info
+    %div{style:"width:20px;height:20px;background-color:##{@order.shirt_color.code}"}
+.details-info-holder
+  %label Front Colors
+  .details-info
+    = @order.f_c
+.details-info-holder
+  %label Back Colors
+  .details-info
+    = @order.b_c
+.details-info-holder
+  %label Front Art Work
+  .details-info
+    = link_to "Download File", @order.front_art.url, class:"btn btn-primary", target: "_blank"
+.details-info-holder
+  %label Back Art Work
+  .details-info
+    = link_to "Download File", @order.back_art.url, class: "btn btn-primary", target: "_blank"
+= link_to 'Delete Order', admins_order_path(@order), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"
