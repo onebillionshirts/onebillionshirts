@@ -8,6 +8,11 @@ class Admins::StylesController< Admins::HomeController
   def create
     @style = Style.new(params[:style])
     if @style.save
+      params[:color_ids].split(",").each do |id|
+        if ShirtColor.exists?(id: id.to_i)
+          StyleColor.create(shirt_color_id: id, style_id: @style.id)
+        end
+      end
       flash[:notice] = "Style created"
       redirect_to action: :index and return
     else
@@ -32,7 +37,15 @@ class Admins::StylesController< Admins::HomeController
 
   def update
     @style = Style.find(params[:id])
-    @style.update_attributes(params[:style]) if @style
+    if @style
+      @style.update_attributes(params[:style])
+      @style.style_colors.destroy_all
+      params[:color_ids].split(",").each do |id|
+        if ShirtColor.exists?(id: id.to_i)
+          StyleColor.create(shirt_color_id: id, style_id: @style.id)
+        end
+      end
+    end
     flash[:notice] = "Style updated"
     redirect_to action: :index
   end

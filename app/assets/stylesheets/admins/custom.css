@@ -1,0 +1,28 @@
+.color_boxes {
+width: 385px;
+float: left;
+}
+.color_box_div {
+padding: 5px;
+cursor: pointer;
+float: left;
+height: 30px;
+width: 30px;
+}
+
+.color_box {
+float: left;
+width: 30px;
+height: 30px;
+margin: 0 30px 20px 0;
+background: #00adef;
+outline:1px solid gray;
+}
+
+.color_code_div {
+float: left;
+font-size: 18px;
+margin-left: 10px;
+margin-top: 4px;
+color: lightgreen;
+}

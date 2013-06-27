@@ -1,4 +1,36 @@
-= form_for([:admins, @style]) do |f|
+:javascript
+  $(document).ready(function(){
+
+   /* ids = $("#color_ids").val().split(",")
+     for(i in ids){
+      el = $(".color_code_div#"+ids[i])
+      if (el){
+        el.text("✔")
+      }
+    }*/
+
+    window.selectedColors = $("#color_ids").val().split(",")
+    $(".color_box").click(function(){
+      if ($(this).hasClass("selected")){
+        $(this).find("div.color_code_div").text("")
+        $(this).removeClass("selected")
+        index = selectedColors.indexOf($(this).data("id"))
+        selectedColors.splice(index,1)
+      }
+      else{
+        $(this).find("div.color_code_div").text("✔")
+        $(this).addClass("selected")
+        selectedColors.push($(this).data("id"))
+      }
+    })
+
+    $(".style_form").submit(function(){
+      $("#color_ids").val(selectedColors.toString())
+      return true
+    })
+  })
+= form_for([:admins, @style], html:{class: "style_form"}) do |f|
+  =hidden_field_tag :color_ids, @style.shirt_colors.collect(&:id).join(",").to_s
   - if @style.errors.any?
     #error_explanation
       %h2
@@ -21,23 +53,41 @@
     = f.text_field :price_white
     = f.label :price_color
     = f.text_field :price_color
+    = f.label :cost_level
+    = f.text_field :cost_level, placeholder: "1 2 or 3"
+    = f.label :material
+    = f.text_field :material
     = f.label :profit_margin
     = f.label "24", style:"float:left;"
-    = f.text_field :m_24, value: 30, class:"span1", style: "float: left;"
+    = f.text_field :m_24, value: @style.m_24 || 30, class:"span1", style: "float: left;"
     = f.label "48", style:"float:left;"
-    = f.text_field :m_48, value: 27, class:"span1" , style: "float: left;"
+    = f.text_field :m_48, value: @style.m_48 || 27, class:"span1" , style: "float: left;"
     = f.label "72", style:"float:left;"
-    = f.text_field :m_72, value: 26,  class:"span1", style: "float: left;"
+    = f.text_field :m_72, value: @style.m_72 || 26,  class:"span1", style: "float: left;"
     = f.label "144", style:"float:left;"
-    = f.text_field :m_144, value: 24, class:"span1", style: "float: left;"
+    = f.text_field :m_144, value: @style.m_144 || 24, class:"span1", style: "float: left;"
     = f.label "288", style:"float:left;"
-    = f.text_field :m_288, value: 22, class:"span1", style: "float: left;"
+    = f.text_field :m_288, value: @style.m_288 || 22, class:"span1", style: "float: left;"
     = f.label "576", style:"float:left;"
-    = f.text_field :m_576, value: 20, class:"span1", style: "float: left;"
+    = f.text_field :m_576, value: @style.m_576 || 20, class:"span1", style: "float: left;"
     = f.label "1000", style:"float:left;"
-    = f.text_field :m_1000, value: 19, class:"span1", style: "float: left;"
+    = f.text_field :m_1000, value: @style.m_1000 || 19, class:"span1", style: "float: left;"
     = f.label "2000", style:"float:left;"
-    = f.text_field :m_2000, value: 17, class:"span1", style: "float: left;"
+    = f.text_field :m_2000, value: @style.m_2000|| 18, class:"span1"
+    = f.label "Available Colors"
+    .color_boxes
+      -ShirtColor.all.each do |color|
+        -if @style.style_colors.exists?(shirt_color_id: color.id)
+          -claz = "selected"
+        -else
+          -claz = ""
+        .color_box_div
+          .color_box{class: "#{claz}", data: {id: "#{color.id}"}, :style => "background: ##{color.code}"}
+            .color_code_div{id:"#{color.id}", "data-title" => "#{color.name}"}
+              -if @style.style_colors.exists?(shirt_color_id: color.id)
+                ✔
+                
+          / color_box ends
 
-  .actions
+  .actions{style:"float: left;width: 100%;"}
     = f.submit "Save", :class => "smallBtn"

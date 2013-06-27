@@ -5,4 +5,8 @@ class ShirtColor < ActiveRecord::Base
 
   has_many :orders
 
+  def white?
+    self.code == "ffffff"
+  end
+
 end

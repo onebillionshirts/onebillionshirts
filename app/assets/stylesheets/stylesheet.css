@@ -708,6 +708,7 @@ width:210px;
     height: 30px;
     margin: 0 30px 20px 0;
     background: #00adef;
+    outline: 1px solid gray;
 }
 
 .color_box_div {

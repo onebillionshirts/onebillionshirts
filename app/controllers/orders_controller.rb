@@ -18,7 +18,10 @@ class OrdersController < ApplicationController
 
   def calculate
     style = Style.find(params[:style_id])
-    if params[:style_color] == "0"
+    
+    shirt_color = ShirtColor.find(params[:style_color])
+
+    if shirt_color.white?
       price = style.price_white
     else
       price = style.price_color

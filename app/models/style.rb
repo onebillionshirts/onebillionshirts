@@ -1,11 +1,14 @@
 class Style < ActiveRecord::Base
-  attr_accessible :name, :style_sub_category_id, :photo, :price_white, :price_color, :m_24, :m_48, :m_72, :m_144, :m_288, :m_576, :m_1000, :m_2000
+  attr_accessible :name, :style_sub_category_id, :photo, :price_white, :price_color, :m_24, :m_48, :m_72, :m_144, :m_288, :m_576, :m_1000, :m_2000, :cost_level, :material
 
 
   belongs_to :style_sub_category
 
   validates :name, presence: true
   validates :style_sub_category_id, presence: true
+
+  has_many :style_colors
+  has_many :shirt_colors, through: :style_colors
 
   validates :price_white, presence: true
   validates :price_color, presence: true
@@ -28,6 +31,8 @@ class Style < ActiveRecord::Base
   validates :m_576, numericality:  true
   validates :m_1000, numericality:  true
   validates :m_2000, numericality:  true
+
+  validates :cost_level, numericality:  true
   
 
   has_attached_file :photo, styles: {thumb: "100x100>", medium: "250x250>"}

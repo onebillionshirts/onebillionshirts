@@ -101,6 +101,16 @@
 :javascript
   $(document).ready(function(){
 
+    id = $("#style_id").val()
+    colors = $("#"+id+".final_style").data("colors")
+    colors = colors.split(",")
+    $(".color_box_div").hide();
+    for(i in colors){
+      $(".color_box_div#"+colors[i]).show()
+    }
+    $(".color_box_div").removeClass("chosen")
+    $($(".color_box_div:visible")[0]).addClass("chosen")
+
     $("a.request").click(function(){
       $("div.final_form").bPopup({closeClass: "popClose"});
     })
@@ -175,6 +185,14 @@
     $(".final_style").click(function(){
       active_diag.bPopup().close();
       $("#style_id").val($(this).attr("id"));
+      colors = $(this).data("colors")
+      colors = colors.split(",")
+      $(".color_box_div").hide();
+      for(i in colors){
+        $(".color_box_div#"+colors[i]).show()
+      }
+      $(".color_box_div").removeClass("chosen")
+      $($(".color_box_div:visible")[0]).addClass("chosen")
       $("span.selected_style_name").text($(this).data("name"))
       return false;
      })
@@ -222,15 +240,9 @@
       f_color = $("#front").val()
       b_color = $("#back").val()
 
-      color = $(".color_box_div.chosen .color_code_div").data("title")
-      if(color == "White"){
-        style_color = 0
-        }
-      else{
-        style_color = 1
-        }
-        params = {total: total, style_id: style_id, f_color: f_color, b_color: b_color, style_color: style_color}
-        console.log(params)
+      color = $(".color_box_div.chosen").attr("id")
+      params = {total: total, style_id: style_id, f_color: f_color, b_color: b_color, style_color: color}
+      console.log(params)
 
       $.ajax({
         url: "/orders/calculate",
@@ -273,155 +285,15 @@
         =hidden_field_tag :style_id, Style.first.id
         %a.change_style{style:"color:#00afeb;cursor:pointer;"}
           Change
-    %div{:style => "clear:both;margin-top:20px;height:170px;"}
+    %div{:style => "clear:both;margin-top:20px;height:auto;"}
       %div{:style => "width:20%; float:left;"}
         %h3 Color:
       %div.move
         .color_boxes
-          .color_box_div
-            #1.color_box{:style => "background: #5ea682"}
-            .color_code_div{"data-title" => "Irish Green"}
-          / color_box ends
-          .color_box_div
-            #2.color_box{:style => "background: #2170c0"}
-            .color_code_div{"data-title" => "Royal"}
-          / color_box ends
-          .color_box_div
-            #3.color_box{:style => "background: #e2e3e5"}
-            .color_code_div{"data-title" => "Ash"}
-          / color_box ends
-          .color_box_div
-            #4.color_box{:style => "background: #fe78d0"}
-            .color_code_div{"data-title" => "Azalea"}
-          / color_box ends
-          .color_box_div
-            #5.color_box{:style => "background: #000000"}
-            .color_code_div{"data-title" => "Black"}
-          / color_box ends
-          .color_box_div
-            #7.color_box{:style => "background: #76042d"}
-            .color_code_div{"data-title" => "Cardinal"}
-          / color_box ends
-          .color_box_div
-            #8.color_box{:style => "background: #7286b1"}
-            .color_code_div{"data-title" => "Carolina Blue"}
-          / color_box ends
-          .color_box_div
-            #9.color_box{:style => "background: #303232"}
-            .color_code_div{"data-title" => "Charcoal"}
-          / color_box ends
-          .color_box_div
-            #10.color_box{:style => "background: #f8d220"}
-            .color_code_div{"data-title" => "Daisy"}
-          / color_box ends
-          .color_box_div
-            #11.color_box{:style => "background: #462a19"}
-            .color_code_div{"data-title" => "Dark Chocolate"}
-          / color_box ends
-          .color_box_div
-            #12.color_box{:style => "background: #303232"}
-            .color_code_div{"data-title" => "Dark Heather"}
-          / color_box ends
-          .color_box_div
-            #13.color_box{:style => "background: #304328"}
-            .color_code_div{"data-title" => "Forest Green"}
-          / color_box ends
-          .color_box_div
-            #14.color_box{:style => "background: #f6af16"}
-            .color_code_div{"data-title" => "Gold"}
-          / color_box ends
-          .color_box_div
-            #15.color_box{:style => "background: #525a72"}
-            .color_code_div{"data-title" => "Heather Indigo"}
-          / color_box ends
-          .color_box_div
-            #16.color_box{:style => "background: #c7287b"}
-            .color_code_div{"data-title" => "Helliconia"}
-          / color_box ends
-          .color_box_div
-            #17.color_box{:style => "background: #d3d3d3"}
-            .color_code_div{"data-title" => "Ice Grey"}
-          / color_box ends
-          .color_box_div
-            #18.color_box{:style => "background: #4d6bb8"}
-            .color_code_div{"data-title" => "Iris"}
-          / color_box ends
-          .color_box_div
-            #19.color_box{:style => "background: #3a7a51"}
-            .color_code_div{"data-title" => "Kelly Green"}
-          / color_box ends
-          .color_box_div
-            #23.color_box{:style => "background: #89a040"}
-            .color_code_div{"data-title" => "Kiwi"}
-          / color_box ends
-          .color_box_div
-            #24.color_box{:style => "background: #c3d7f5"}
-            .color_code_div{"data-title" => "Light Blue"}
-          / color_box ends
-          .color_box_div
-            #25.color_box{:style => "background: #fcd2e1"}
-            .color_code_div{"data-title" => "Light Pink"}
-          / color_box ends
-          .color_box_div
-            #26.color_box{:style => "background: #c1fe6e"}
-            .color_code_div{"data-title" => "Lime"}
-          / color_box ends
-          .color_box_div
-            #27.color_box{:style => "background: #6c1039"}
-            .color_code_div{"data-title" => "Maroon"}
-          / color_box ends
-          .color_box_div
-            #28.color_box{:style => "background: #554d2e"}
-            .color_code_div{"data-title" => "Military Green"}
-          / color_box ends
-          .color_box_div
-            #29.color_box{:style => "background: #1c2041"}
-            .color_code_div{"data-title" => "Navy"}
-          / color_box ends
-          .color_box_div
-            #30.color_box{:style => "background: #fe6600"}
-            .color_code_div{"data-title" => "Orange"}
-          / color_box ends
-          .color_box_div
-            #31.color_box{:style => "background: #51008f"}
-            .color_code_div{"data-title" => "Purple"}
-          / color_box ends
-          .color_box_div
-            #32.color_box{:style => "background: #ab1223"}
-            .color_code_div{"data-title" => "Red"}
-          / color_box ends
-          .color_box_div
-            #33.color_box{:style => "background: #154395"}
-            .color_code_div{"data-title" => "Royal"}
-          / color_box ends
-          .color_box_div
-            #34.color_box{:style => "background: #e2fe0f"}
-            .color_code_div{"data-title" => "Safety Green"}
-          / color_box ends
-          .color_box_div
-            #35.color_box{:style => "background: #e96016"}
-            .color_code_div{"data-title" => "Safety Orange"}
-          / color_box ends
-          .color_box_div
-            #36.color_box{:style => "background: #fd9bc0"}
-            .color_code_div{"data-title" => "Safety Pink"}
-          / color_box ends
-          .color_box_div
-            #37.color_box{:style => "background: #989c9d"}
-            .color_code_div{"data-title" => "Sport Grey"}
-          / color_box ends
-          .color_box_div
-            #38.color_box{:style => "background: #8271c3"}
-            .color_code_div{"data-title" => "Violet"}
-          / color_box ends
-          .color_box_div.chosen
-            #39.color_box{:style => "background: #FFFFFF"}
-            .color_code_div{"data-title" => "White"}
-          / color_box ends
-          .color_box_div
-            #40.color_box{:style => "background: #fee48b"}
-            .color_code_div{"data-title" => "Yellow Haze"}
-          / color_box ends
+          -ShirtColor.all.each do |color|
+            .color_box_div{id:color.id}
+              .color_box{:style => "background: ##{color.code}"}
+                .color_code_div{"data-title" => "#{color.name}"}
     %div{:style => "clear:both;margin-top:20px"}
       %div{:style => "width:20%; float:left;"}
         %h3 Sizes:
@@ -530,12 +402,13 @@
     %a#back{style:"cursor:pointer;font-size:17px;color: rgb(80, 192, 45)"}
       Back
     -sc.styles.each do |st|
-      %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
-        %div{style:"float:left;"}
-          =link_to st.name, "", style:"color:blue", id:"#{st.id}", class:"final_style", data: {name: "#{st.name}"}
-        %div{style:"float:right;margin-right:70px;"}
-          =image_tag st.photo(:thumb)
-      %br
+      -unless st.shirt_colors.empty?
+        %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
+          %div{style:"float:left;"}
+            =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(","), name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
+          %div{style:"float:right;margin-right:70px;"}
+            =image_tag st.photo(:thumb)
+        %br
 
 
 
