@@ -15,15 +15,13 @@
       .go_lft
       / go_lft ends
       .go_mid
-        %a#go.btn_a{:href => "javascript:void(0);"} GO To Order Form !
+        %a#go.btn_a{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} GO To Order Form !
     .bot_link
       %h2
         %a#continue.bot_it{:href => "#"} continue to browse our site
 :javascript
   $("#go").click(function () {
       $('#request-quote').bPopup().close();
-      $(this).closest('form').submit();
-      return false;
   });
 
   $(function () {

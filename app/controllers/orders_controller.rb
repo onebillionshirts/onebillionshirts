@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     @charities = Charity.all
     @style_categories = StyleCategory.all
     @sub_cats = StyleSubCategory.all
+    @charity_id = params[:charity_id] || Charity.first.id
   end
 
   def calculate

@@ -49,9 +49,9 @@
           $(".active").each(function () {
               $(this).removeClass("active");
           });
-  <haml:silent>         if cookies[:key].blank? 
-  </haml:silent><haml:block>        $('.charity-link-featured').closest("li").addClass("active");
-  </haml:block><haml:silent>         else 
-  </haml:silent><haml:block>        $('.charity-link-#{cookies[:key]}').closest("li").addClass("active");
-  </haml:block>
+          // if cookies[:key].blank? 
+          //$('.charity-link-featured').closest("li").addClass("active");
+          // else 
+         //$('.charity-link-#{cookies[:key]}').closest("li").addClass("active");
+  
       });

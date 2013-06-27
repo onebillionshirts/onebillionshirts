@@ -273,7 +273,7 @@
       %div{:style => "width:20%; float:left;"}
         %h3 Charity:
       %div.move
-        = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name")
+        = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
         =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
         -@charities.each do |charity|
           %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement}}
