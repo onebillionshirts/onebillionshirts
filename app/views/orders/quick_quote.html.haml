@@ -1,4 +1,20 @@
 :css
+  a.popBtn{
+    width: 100px;
+    height: 40px;
+    background-color: #999;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 15px;
+    color: white;
+    float: left;
+    margin-right: 12px;
+    cursor:pointer;
+  }
+  a.popBtn:hover{
+    background-color: #666;
+  }
   .final_form label{
     float: left;
     margin-left: 10px;
@@ -51,7 +67,7 @@
   span.selected_style_name{
     font-size: 16px;
     }
-  #front, #back{
+  select#front, select#back{
     margin-left: 10px;
     display: inline;
     width: 50px;
@@ -386,11 +402,9 @@
 
 
 
-%div#style_picker{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;"}
+%div#style_picker{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:800px;height:auto;display:none;"}
   %h2
     Pick A Style
-  %div.popClose{style:"position: relative;top: -61px;left: 811px;width: 0px;cursor: pointer;color: orange;"}
-    X
   -@style_categories.each do |sc|
     %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
       %h3{style:"color:rgb(43, 102, 226);"}=sc.name
@@ -401,16 +415,14 @@
               =link_to ssc.name, "", style:"color:rgb(74, 187, 240);", id: "#{ssc.id}", class:"sub_cat"
       %div{style:"float:right;margin-right:70px;"}
         =image_tag sc.photo(:thumb)
-    %br
+  %div{style:"display: block;clear: both;float: right;"}
+    %a.popClose.popBtn
+      Cancel
 
 - @sub_cats.each do |sc|
   %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;", id:"dialog_#{sc.id}"}
     %h2
-      = "Pick A Style (#{sc.name})"
-    %div.popClose{style:"position: relative;top: -61px;left: 811px;width: 0px;cursor: pointer;color: orange;"}
-      X
-    %a#back{style:"cursor:pointer;font-size:17px;color: rgb(80, 192, 45)"}
-      Back
+      = "Pick A Style"
     -sc.styles.each do |st|
       -unless st.shirt_colors.empty?
         %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
@@ -418,11 +430,15 @@
             =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(","), name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
           %div{style:"float:right;margin-right:70px;"}
             =image_tag st.photo(:thumb)
-        %br
+    %div{style:"display: block;clear: both;float: right;"}
+      %a.popClose.popBtn
+        Cancel
+      %a#back.popBtn
+        Back
 
 
 
-%div.final_form{style:"text-align:center;display:none;width:450px; height:330px;background-color:white;padding:20px;border:2px #ccc"}
+%div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:330px;background-color:white;padding:20px;border:2px #ccc"}
   =form_tag "/orders/", method: :post, multipart: true do
     =hidden_field_tag :extras
     =label_tag "Email"
