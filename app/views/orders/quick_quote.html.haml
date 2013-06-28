@@ -131,7 +131,7 @@
   $(document).ready(function(){
 
     id = $("#style_id").val()
-    colors = $("#"+id+".final_style").data("colors")
+    colors = $("#"+id+".final_style").data("colors").toString()
     colors = colors.split(",")
     $(".color_box_div").hide();
     for(i in colors){
@@ -208,10 +208,10 @@
       active_diag.bPopup().close();
       acitve_diag = $("#style_picker").bPopup({closeClass: "popClose"});
     })
-    $(".final_style").click(function(){
+    $(".all").click(function(){
       active_diag.bPopup().close();
-      $("#style_id").val($(this).attr("id"));
-      colors = $(this).data("colors")
+      $("#style_id").val($(this).find(".final_style").attr("id"));
+      colors = $(this).find(".final_style").data("colors").toString()
       colors = colors.split(",")
       $(".color_box_div").hide();
       for(i in colors){
@@ -219,7 +219,7 @@
       }
       $(".color_box_div").removeClass("chosen")
       $($(".color_box_div:visible")[0]).addClass("chosen")
-      $("span.selected_style_name").text($(this).data("name"))
+      $("span.selected_style_name").text($(this).find(".final_style").data("name"))
       return false;
      })
     $(".sub_cat").click(function(){
@@ -279,10 +279,10 @@
           $(".after_section").show();
           $("h4.unit").text("Unit Price: $"+data.unit)
           $("h4.total").text("Total Price: $"+data.total)
-          $("h4.charity").text("Charity: $"+data.charity)
+          $("h4.charity").text("Donation: $"+data.charity.toFixed(2))
           $("table.more").find("tr.data").remove();
           $.each(data.more, function(i,item){
-            $("table.more").append("<tr class='data'><td>"+item.num+"</td><td>"+item.unit+"</td><td>"+item.charity+"</td></tr>")
+            $("table.more").append("<tr class='data'><td>"+item.num+"</td><td> $"+item.unit+"</td><td> $"+item.charity.toFixed(2)+"</td></tr>")
           })
         }
       })
@@ -385,7 +385,7 @@
               %tr.head
                 %th QTY
                 %th Price
-                %th Charity
+                %th Donation
         %div{style: "float:left;width:50%"}
           %div{style: "float:left;width:50%"}
             .logo_place
@@ -406,30 +406,34 @@
   %h2
     Pick A Style
   -@style_categories.each do |sc|
-    %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
+    %div{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;"}
       %h3{style:"color:rgb(43, 102, 226);"}=sc.name
-      %div{style:"float:left;margin-left:15px;"}
+      %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
+        =image_tag sc.photo(:thumb) , :style => "max-width: 150px;"
+      %div{style:"float:left;margin-left:15px;max-width: 185px;"}
         %ul{style:"margin-top:10px;"}
           -sc.style_sub_categories.each do |ssc|
             %li{style:"display:list-item;"}
               =link_to ssc.name, "", style:"color:rgb(74, 187, 240);", id: "#{ssc.id}", class:"sub_cat"
-      %div{style:"float:right;margin-right:70px;"}
-        =image_tag sc.photo(:thumb)
   %div{style:"display: block;clear: both;float: right;"}
     %a.popClose.popBtn
       Cancel
 
 - @sub_cats.each do |sc|
-  %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;", id:"dialog_#{sc.id}"}
+  %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;outline: rgb(204, 204, 204) solid 15px;", id:"dialog_#{sc.id}"}
     %h2
       = "Pick A Style"
     -sc.styles.each do |st|
       -unless st.shirt_colors.empty?
-        %div{style:"float:left;width:350px;margin:10px;padding:10px;"}
-          %div{style:"float:left;"}
-            =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(","), name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
-          %div{style:"float:right;margin-right:70px;"}
-            =image_tag st.photo(:thumb)
+        %div.all{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;cursor: pointer;"}
+          %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
+            =image_tag st.photo(:thumb), :style => "max-width: 150px;"
+          %div{style:"float:left;margin-left:15px;max-width: 185px;margin-top: 13px;margin-right: 100px;"}
+            %div{style:"float:left;"}
+              =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(",").to_s, name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
+            %div $ #{st.cost_level unless st.cost_level.blank?}
+            %div
+              = st.material  unless st.material.blank?
     %div{style:"display: block;clear: both;float: right;"}
       %a.popClose.popBtn
         Cancel

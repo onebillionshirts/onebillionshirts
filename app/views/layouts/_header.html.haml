@@ -1,7 +1,7 @@
 .header-wrapper
   .header-container
     .logo_quote
-      .logo
+      = link_to '', root_path, class:"logo"
       / logo ends
       /
         div class="quote_req">
@@ -41,7 +41,9 @@
           / </div>
           / </div>
         %li
-          %a{:href => "/client_spotlight"} Client Spotlight
+          %a{:href => "/client_spotlight"} Clients
+        %li
+          %a{:href => "/faq"} FAQs
         %li
           %a{:href => "/charities"} Charities
         %li
