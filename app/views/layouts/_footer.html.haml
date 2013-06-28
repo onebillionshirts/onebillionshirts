@@ -2,74 +2,22 @@
   .wrapper
     .footer_subdiv
       .footer_first_div
-        %h2 Quick Stats
+        %h2 Company
         .footer_first_left
-          %p
-            T-shirt Industry:
-            %br/
-            Gross per day:
-            %br/
-            Shirts sold per day:
-            %br/
-            Potential yearly donations:
-            %br/
-            Together changing the world:
-            %br/
-        .footer_first_right{:style => "text-align: right;margin-right: 3px;"}
-          %p
-            *$6,581,546,000
-            %br/
-            $18,031,632
-            %br/
-            3,606,326
-            %br/
-            $329,077,065
-            %br/
-            Priceless
-            %br/
-        %span * 2007 Census NAICS 31331
+          =link_to "Story"
+          =link_to "Mission"
+          =link_to "How it Works"
       .footer_second_div
-        %h2 Our Company
+        %h2 Charities
         .footer_second_portion
-          %p
-            One Billion Shirts, LLC
-            %br/
-            One Boston Place :: 26th Floor
-            %br/
-            Boston, MA 02108
-            %br/
-            MA Business # 461139003
-            %br/
-            (617) 276-2295
+          =link_to "Participate"
+          =link_to "The Benefits"
+          =link_to "Suggest Charity"
+
       .footer_third_div
-        %h2 Mission Statement
         .footer_second_portion
-          %p
-            Raise money and awareness for charities by leveraging the omnipresent custom
-            t-shirt. Redirecting wealth to change the world is the foundation of all business decisions
-            and opportunities.
           .socialz_list{:style => "margin-left: 25px;"}
-            %a{:href => "http://twitter.com/1billionshirts", :target => "_blank"}
-              %img{:alt => "twitter", :src => "/assets/twitter_icon.png"}/
-            %a{:href => "http://www.facebook.com/pages/Onebillionshirtsorg/537223036310715", :target => "_blank"}
-              %img{:alt => "facebook", :src => "/assets/facebook_icon.png"}/
-            %a{:href => "https://www.youtube.com/user/OneBillionShirts", :target => "_blank"}
-              %img{:alt => "youtube", :src => "/assets/youtube_icon.png"}/
-            %a{:href => "http://www.linkedin.com/company/2983736?trk=tyah", :target => "_blank"}
-              %img{:alt => "linkedin", :src => "/assets/linkedin_icon.png"}/
-    .footer_linkz
-      %ul
-        %li
-          %a{:href => "/our_story"} Our Story
-        %li
-          %a{:href => "/how_it_works"} How It Works
-        %li
-          %a{:href => "/top_ten_reasons"} Why Us
-        %li
-          %a{:href => "/charities"} Charities
-        %li
-          %a{:href => "/contact"} Contact
-        %li{:style => "float: right;"}
-          =# link_to "Media Kit", :controller => "home", :action => "download"
-  / wrapper ends
-/ foot ends
+            %a.fb{:href => "http://twitter.com/1billionshirts", :target => "_blank"}
+            %a.tw{:href => "http://www.facebook.com/pages/Onebillionshirtsorg/537223036310715", :target => "_blank"}
+            %a.em{:href => "https://www.youtube.com/user/OneBillionShirts", :target => "_blank"}
+            %a.ln{:href => "http://www.linkedin.com/company/2983736?trk=tyah", :target => "_blank"}

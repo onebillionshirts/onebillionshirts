@@ -67,6 +67,14 @@ h2 {
 
 }
 
+@font-face {
+    font-family: 'myriad-pro';
+    src: url('/assets/MyriadPro-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*************************** Homepage styling start ***********************************/
 .logo_quote {
     clear: both;
@@ -342,10 +350,12 @@ h2 {
 }
 
 .foot {
-    float: left;
-    height: 355px;
-    width: 100%;
-    background:none repeat scroll 0 0 #D5D5D5;
+  float:left;
+  height: 160px;
+  width: 100%;
+  background: none repeat scroll 0 0 #ffffff;
+  border-top: 7px solid #ed6430;
+  font-family: myriad-pro !important;
 }
 
 .foot .footer_subdiv {
@@ -364,14 +374,18 @@ h2 {
     float: left;
     margin-left: 30px;
     width: 34%;
-    border-right: 1px solid #c1c1c1;
 }
 
 .footer_second_div {
     float: left;
     width: 26%;
     margin-left: 30px;
-    border-right: 1px solid #c1c1c1;
+}
+
+.footer_second_portion a{
+  font-size: 15px;
+  font-weight: normal;
+  margin: 6px 0px;
 }
 
 .footer_third_div {
@@ -403,8 +417,9 @@ h2 {
 }
 
 .foot h2 {
-    color: #666666;
-    font-weight: normal;
+  color: #818285;
+  font-weight: normal;
+  font-size: 20px;
 }
 
 .foot ul li a {
@@ -419,6 +434,13 @@ h2 {
 .footer_first_left {
     float: left;
     width: 64%;
+    padding: 20px 0px;
+}
+
+.footer_first_left a{
+  margin: 6px 0px;
+  font-weight: normal;
+  font-size: 15px;
 }
 
 .footer_first_right {
@@ -427,9 +449,8 @@ h2 {
 }
 
 .socialz_list {
-float:left;
-width:210px;
-
+  width: 260px;
+  float:left;
 }
 .socialz_list img {
     float:left;
@@ -441,6 +462,7 @@ width:210px;
 .footer_second_portion {
     float: left;
     width: 96%;
+    padding: 20px 0px;
 }
 
 .footer_second_portion img {
@@ -3490,7 +3512,9 @@ width:210px;
 }
 
 .inner_wrapper_div h1 {
+    font-family: myriad-pro, Arial !important;
     font-size: 40px;
+    font-weight: normal;
     margin: 30px auto;
     text-align: center;
     width: 73%;
@@ -4060,6 +4084,48 @@ ul.bxbig li{
   height: 24px;
   width: 20px;
 }
+
 div.all:hover{
     background-color:#ccc;
 }
+
+.footer_second_portion a.tw{
+  width: 63px;
+  height: 63px;
+  background: url("/assets/t_n.png") no-repeat;
+  float:left;
+  margin: 0px 10px;
+}
+.footer_second_portion a.tw:hover{
+  background: url("/assets/t_hover.png") no-repeat;
+}
+.footer_second_portion a.fb{
+  width: 63px;
+  height: 63px;
+  background: url("/assets/f_n.png") no-repeat;
+  float:left;
+  margin: 0px 10px;
+}
+.footer_second_portion a.fb:hover{
+  background: url("/assets/f_hover.png") no-repeat;
+}
+.footer_second_portion a.em{
+  width: 63px;
+  height: 63px;
+  background: url("/assets/e_n.png") no-repeat;
+  float:left;
+  margin: 0px 10px;
+}
+.footer_second_portion a.em:hover{
+  background: url("/assets/e_hover.png") no-repeat;
+}
+.col h3{
+  font-family: myriad-pro !important;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+}
+.col h3 span{
+  margin-right: 2px;
+}
+
