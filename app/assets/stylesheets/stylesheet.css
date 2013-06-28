@@ -350,6 +350,7 @@ h2 {
 }
 
 .foot {
+  float:left;
   height: 160px;
   width: 100%;
   background: none repeat scroll 0 0 #ffffff;
