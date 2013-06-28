@@ -67,6 +67,14 @@ h2 {
 
 }
 
+@font-face {
+    font-family: 'myriad-pro';
+    src: url('/assets/MyriadPro-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*************************** Homepage styling start ***********************************/
 .logo_quote {
     clear: both;
@@ -346,6 +354,7 @@ h2 {
   width: 100%;
   background: none repeat scroll 0 0 #ffffff;
   border-top: 7px solid #ed6430;
+  font-family: myriad-pro !important;
 }
 
 .foot .footer_subdiv {
@@ -3502,7 +3511,9 @@ h2 {
 }
 
 .inner_wrapper_div h1 {
+    font-family: myriad-pro, Arial !important;
     font-size: 40px;
+    font-weight: normal;
     margin: 30px auto;
     text-align: center;
     width: 73%;
@@ -4102,4 +4113,13 @@ ul.bxbig li{
 }
 .footer_second_portion a.em:hover{
   background: url("/assets/e_hover.png") no-repeat;
+}
+.col h3{
+  font-family: myriad-pro !important;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+}
+.col h3 span{
+  margin-right: 2px;
 }
