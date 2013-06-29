@@ -12,7 +12,7 @@ html, body, div, span, ul, li, a, h1, h2, h3, h4, h5, h6, img, form, fieldset, i
 /* Global Styles */
 body {
     background: #fff;
-    font-family: museo_500regular, Arial, Helvetica, sans-serif !important;
+    font-family: Arial !important;
     font-size: 14px;
 }
 
@@ -3268,7 +3268,7 @@ h2 {
 .calc_box_div input[type="text"] {
     background: none repeat scroll 0 0 #EFEFEF;
     color: #949494;
-    font-family: 'museo_500regular';
+    font-family: Arial !important;
     font-size: 29px;
     font-weight: bold;
     height: 70px;
@@ -3512,9 +3512,9 @@ h2 {
 }
 
 .inner_wrapper_div h1 {
-    font-family: myriad-pro, Arial !important;
+    font-family: Arial !important;
     font-size: 40px;
-    font-weight: normal;
+    font-weight: bold;
     margin: 30px auto;
     text-align: center;
     width: 73%;
@@ -4129,3 +4129,27 @@ div.all:hover{
   margin-right: 2px;
 }
 
+
+.row {
+    margin-left: -20px;
+    *zoom: 1;
+}
+.row:before,
+.row:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.row:after {
+    clear: both;
+}
+[class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+}
+
+
+.span4 {
+    width: 300px;
+}
