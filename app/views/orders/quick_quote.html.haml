@@ -435,7 +435,13 @@
           %div{style:"float:left;margin-left:15px;max-width: 185px;margin-top: 13px;margin-right: 100px;"}
             %div{style:"float:left;"}
               =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(",").to_s, name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
-            %div $ #{st.cost_level unless st.cost_level.blank?}
+            -unless st.cost_level.blank?
+              -if st.cost_level.to_s == "1"
+                %div $
+              -if st.cost_level.to_s == "2"
+                %div $$
+              -if st.cost_level.to_s == "3"
+                %div $$$
             %div
               = st.material  unless st.material.blank?
     %div{style:"display: block;clear: both;float: right;"}

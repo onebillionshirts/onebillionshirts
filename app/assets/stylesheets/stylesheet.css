@@ -360,7 +360,7 @@ h2 {
 
 .foot .footer_subdiv {
     float: left;
-    margin-top: 13px;
+    margin-top: 26px;
     width: 960px;
 }
 
@@ -373,12 +373,12 @@ h2 {
 .footer_first_div {
     float: left;
     margin-left: 30px;
-    width: 34%;
+    width: 20%;
 }
 
 .footer_second_div {
     float: left;
-    width: 26%;
+    width: 20%;
     margin-left: 30px;
 }
 
@@ -390,7 +390,6 @@ h2 {
 
 .footer_third_div {
     float: left;
-    margin-left: 30px;
     width: 29%;
 }
 
