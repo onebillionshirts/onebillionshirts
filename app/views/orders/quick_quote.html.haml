@@ -370,42 +370,76 @@
         %label{style:"margin-left:15px;"} Back
         = select_tag :back, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
 
+    -#%div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
+    -#  =link_to "Calculate", "", id:"calculate"
+    -#.after_section{style:"display:none;"}
+    -#  .row{:style=>"margin-bottom:50px"}
+    -#    .span4#results
+    -#      %h4.unit
+    -#        Unit Price:
+    -#      %h4.total
+    -#        Total Price:
+    -#      %h4.charity
+    -#        Charity
+    -#      %br
+    -#    .span4
+    -#      %h4{style:"text-align: center;font-size: 16px;"} Order more and save
+    -#      %br
+    -#      %table.more
+    -#        %thead
+    -#          %tr.head
+    -#            %th QTY
+    -#            %th Price
+    -#            %th Donation
+    -#    .span4
+    -#      %div{:style=>"margin-left: 40px; float: left;"}
+    -#        .logo_place
+    -#          =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
+    -#      %div{:style=>"float: right;"}
+    -#        .title_place
+    -#          =Charity.first.name
+    -#        .desc_place
+    -#          =Charity.first.mission_statement
+    -#  .row
+    -#    .span4
+    -#    .span4{:style=>"margin-left: 55px;"}
+    -#      %a.request{style:"text-align:center"}
+    -#        Request a Virtual Proof
+    -#    .span4
+
     %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
       =link_to "Calculate", "", id:"calculate"
     .after_section{style:"display:none;"}
-      .row{:style=>"margin-bottom:50px"}
-        .span4#results
-          %h4.unit
-            Unit Price:
-          %h4.total
-            Total Price:
-          %h4.charity
-            Charity
-          %br
-        .span4
-          %h4{style:"text-align: center;font-size: 16px;"} Order more and save
-          %br
-          %table.more
-            %thead
-              %tr.head
-                %th QTY
-                %th Price
-                %th Donation
-        .span4
-          %div{:style=>"margin-left: 40px; float: left;"}
+      %div{:style => "clear:both;margin-top:20px;min-width: 1000px;"}
+        %div{style: "float:left;width:65%"}
+          %div#results{style: "float:left;width:50%"}
+            %h4.unit
+              Unit Price:
+            %h4.total
+              Total Price:
+            %h4.charity
+              Charity
+            %br
+          %div
+            %h4 Order more and save
+            %table.more{style:"margin:0;margin-left:-20px;"}
+              %thead
+                %tr.head
+                  %th QTY
+                  %th Price
+                  %th Donation
+        %div{style: "float:right;width:35%"}
+          %div{style:"float:left;width:30%"}
             .logo_place
               =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
-          %div{:style=>"float: right;"}
+          %div{style:"width:70%;margin-left: 45%;"}
             .title_place
               =Charity.first.name
             .desc_place
               =Charity.first.mission_statement
-      .row
-        .span4
-        .span4{:style=>"margin-left: 55px;"}
-          %a.request{style:"text-align:center"}
-            Request a Virtual Proof
-        .span4
+      %div{:style => "clear:both;margin-top:20px;text-align:center;padding-top: 30px;"}
+        %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
+          Request a Virtual Proof
 
 
 
