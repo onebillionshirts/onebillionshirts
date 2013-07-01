@@ -1,5 +1,9 @@
 %h1 Order Details
 .details-info-holder
+  %label Reference
+  .details-info
+    = @order.reference.name
+.details-info-holder
   %label Customer Name
   .details-info
     = @order.name
