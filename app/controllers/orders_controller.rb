@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    #render json: params
     order_params = JSON.parse(params[:extras])
     order_params.symbolize_keys![:order].symbolize_keys!
     order = Order.new(order_params[:order])

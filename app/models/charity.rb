@@ -31,4 +31,8 @@ class Charity < ActiveRecord::Base
     all.select { |charity| charity.is_top_ten == true }
   end
 
+  def self.default
+    all.select { |charity| charity.is_default == true }
+  end
+
 end

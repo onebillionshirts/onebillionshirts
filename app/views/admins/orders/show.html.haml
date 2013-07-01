@@ -8,6 +8,14 @@
   .details-info
     = @order.email
 .details-info-holder
+  %label Phone
+  .details-info
+    = @order.phone
+.details-info-holder
+  %label Zip Code
+  .details-info
+    = @order.zip
+.details-info-holder
   %label Quantity
   .details-info
     = @order.quantity
@@ -26,7 +34,7 @@
 .details-info-holder
   %label Color
   .details-info
-    %div{style:"width:20px;height:20px;background-color:##{@order.shirt_color.code}"}
+    %div{style:"width:20px;height:20px;background-color:##{@order.shirt_color.code unless @order.shirt_color.blank?}"}
 .details-info-holder
   %label Front Colors
   .details-info

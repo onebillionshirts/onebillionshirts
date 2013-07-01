@@ -23,7 +23,7 @@
       %td=order.charity.name
       %td=order.style.name
       %td
-        %div{style:"width:20px;height:20px;background-color:##{order.shirt_color.code}"}
+        %div{style:"width:20px;height:20px;background-color:##{order.shirt_color.code unless order.shirt_color.blank?}"}
       %td=order.f_c
       %td=order.b_c
       %td=link_to "Details", admins_order_path(order)

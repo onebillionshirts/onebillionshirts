@@ -1,6 +1,7 @@
 class Style < ActiveRecord::Base
   attr_accessible :name, :style_sub_category_id, :photo, :price_white, :price_color, :m_24, :m_48, :m_72, :m_144, :m_288, :m_576, :m_1000, :m_2000, :cost_level, :material
 
+  after_commit :add_white_color
 
   belongs_to :style_sub_category
 
@@ -52,6 +53,11 @@ class Style < ActiveRecord::Base
     end
     final = arr[i]
     return self.send("m_#{final}".to_sym)
+  end
+
+  def add_white_color
+    self.style_colors.where(code: "ffffff").destroy_all
+    self.style_colors.create(code: "ffffff", name:"white")
   end
 
 end

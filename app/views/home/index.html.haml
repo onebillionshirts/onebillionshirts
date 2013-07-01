@@ -30,9 +30,11 @@
   / our_idea ends
 / wrapper ends
 .wrapper
-  .top-charity
+  .top-charity{style:"position:relative"}
+    .featured_banner
     .col
-      %img{src:"/assets/dummy.png"}
+      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
+      -#%img{src:"/assets/dummy.png"}
     .col
       %h3
         love our concept because
@@ -41,8 +43,10 @@
       %a Learn More
   .featured-area
     %ul.bxslider
-      -Charity.all.each do |char|
-        %li=image_tag char.logo.image(:thumb), style:"width:100px;"
+      -Charity.featured.each do |char|
+        %li
+          =link_to (image_tag char.logo.image(:thumb),  style:"width:100px;"), charity_path(char) unless char.logo.blank?
+
 
   / our_idea ends
 / wrapper ends
@@ -78,14 +82,16 @@
 .wrapper{style:"clear:both;"}
   .final-area{style:"float:left;margin-bottom:40px;"}
     %ul.bxbig
-      -Charity.all.each do |char|
+      -ClientSpotlight.all.each do |char|
         %li
           .single_charity
             .col{style:"width:50%;padding:0px 40px;"}
               %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
-                =char.mission_statement
+                =char.description.html_safe
             .col{style:"width:30%"}
-              =image_tag char.logo.image(:thumb), style:"float: right;padding-right: 45px;"
+              -unless char.client_spotlight_images.first.blank?
+                =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"), ""
+
   / our_idea ends
 / wrapper ends
 .wrapper{style:"clear:both;"}

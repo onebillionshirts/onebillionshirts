@@ -46,13 +46,14 @@
     text-align: center;
   }
   div#results h4{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
     margin-bottom: 10px;
   }
   a#calculate{
     background-color: #ed6430;
     width: 150px;
+
     margin-left: auto;
     margin-right: auto;
     height: 39px;
@@ -126,6 +127,11 @@
     margin:10px;
   }
 
+  .ui-widget-content {
+  border: 1px solid #02AEFF;
+  background: #FFF ;
+  }
+
 :javascript
   $(function() {
       $( document ).tooltip();
@@ -160,6 +166,10 @@
 
       f_color = $("#front").val()
       b_color = $("#back").val()
+      email = $("#email").val()
+      name  = $("#name").val()
+      phone = $("#phone").val()
+      zip   = $("#zip").val()
 
       color = $(".color_box_div.chosen").attr("id")
       params = { 
@@ -169,8 +179,10 @@
           n_l: n_l, 
           n_xl: n_xl, 
           n_xxl: n_xxl, 
-          email: $("#email").val(), 
-          name: $("#name").val(), 
+          email: email,
+          name: name,
+          phone: phone,
+          zip: zip,
           quantity: total, 
           style_id: style_id, 
           f_c: f_color, 
@@ -262,6 +274,7 @@
       n_xl = toZero(parseInt($("#n_xl").val()))
       n_xxl = toZero(parseInt($("#n_xxl").val()))
 
+
       total = n_s + n_m + n_l + n_xl + n_xxl
 
       style_id = $("#style_id").val()
@@ -294,18 +307,20 @@
 
     })
   })
-%div{:style => "padding:40px 170px;"}
+%div{:style => "margin-left: auto; margin-right: auto; width: 1000px;"}
   %br/
-  %h2 Quick Quote Order Form
-  .padded{style:"padding-left:100px;"}
+  %h2{:style=>"padding-top: 15px;padding-bottom: 10px;"} Quick Quote Order Form
+  .padded
     %div{:style => "clear:both;margin-top:20px"}
       %div{:style => "width:20%; float:left;"}
         %h3 Charity:
+        %a.order-help{title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
       %div.move
         = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
         =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
         -@charities.each do |charity|
-          %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement}}
+          -unless charity.logo.blank?
+            %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement }}
     %div{:style => "clear:both;margin-top:20px"}
       %div{:style => "width:20%; float:left;"}
         %h3 Style:
@@ -370,76 +385,40 @@
         %label{style:"margin-left:15px;"} Back
         = select_tag :back, options_for_select((1..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
 
-    -#%div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
-    -#  =link_to "Calculate", "", id:"calculate"
-    -#.after_section{style:"display:none;"}
-    -#  .row{:style=>"margin-bottom:50px"}
-    -#    .span4#results
-    -#      %h4.unit
-    -#        Unit Price:
-    -#      %h4.total
-    -#        Total Price:
-    -#      %h4.charity
-    -#        Charity
-    -#      %br
-    -#    .span4
-    -#      %h4{style:"text-align: center;font-size: 16px;"} Order more and save
-    -#      %br
-    -#      %table.more
-    -#        %thead
-    -#          %tr.head
-    -#            %th QTY
-    -#            %th Price
-    -#            %th Donation
-    -#    .span4
-    -#      %div{:style=>"margin-left: 40px; float: left;"}
-    -#        .logo_place
-    -#          =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
-    -#      %div{:style=>"float: right;"}
-    -#        .title_place
-    -#          =Charity.first.name
-    -#        .desc_place
-    -#          =Charity.first.mission_statement
-    -#  .row
-    -#    .span4
-    -#    .span4{:style=>"margin-left: 55px;"}
-    -#      %a.request{style:"text-align:center"}
-    -#        Request a Virtual Proof
-    -#    .span4
 
     %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
       =link_to "Calculate", "", id:"calculate"
-    .after_section{style:"display:none;"}
-      %div{:style => "clear:both;margin-top:20px;min-width: 1000px;"}
-        %div{style: "float:left;width:65%"}
-          %div#results{style: "float:left;width:50%"}
-            %h4.unit
-              Unit Price:
-            %h4.total
-              Total Price:
-            %h4.charity
-              Charity
-            %br
-          %div
-            %h4 Order more and save
-            %table.more{style:"margin:0;margin-left:-20px;"}
-              %thead
-                %tr.head
-                  %th QTY
-                  %th Price
-                  %th Donation
-        %div{style: "float:right;width:35%"}
-          %div{style:"float:left;width:30%"}
-            .logo_place
-              =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
-          %div{style:"width:70%;margin-left: 45%;"}
-            .title_place
-              =Charity.first.name
-            .desc_place
-              =Charity.first.mission_statement
-      %div{:style => "clear:both;margin-top:20px;text-align:center;padding-top: 30px;"}
-        %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
-          Request a Virtual Proof
+  .after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;"}
+    %div
+      %div{style: "float:left;width:65%"}
+        %div#results{style: "float:left;width:50%"}
+          %h4.unit
+            Unit Price:
+          %h4.total
+            Total Price:
+          %h4.charity
+            Charity
+          %br
+        %div
+          %h4 Order more and save
+          %table.more
+            %thead
+              %tr.head
+                %th QTY
+                %th Price
+                %th Donation
+      %div{style: "float:right;width:35%"}
+        %div{style:"float:left;width:30%"}
+          .logo_place
+            =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
+        %div{style:"width:70%;text-align: left; margin-left: 164px;"}
+          .title_place
+            =Charity.first.name
+          .desc_place
+            =Charity.first.mission_statement
+  %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
+    %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
+      Request a Virtual Proof
 
 
 
@@ -490,13 +469,17 @@
 
 
 
-%div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:330px;background-color:white;padding:20px;border:2px #ccc"}
+%div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:500px;background-color:white;padding:20px;border:2px #ccc"}
   =form_tag "/orders/", method: :post, multipart: true do
     =hidden_field_tag :extras
     =label_tag "Email"
     =text_field_tag "email"
     =label_tag "Full Name"
     =text_field_tag "name"
+    =label_tag "Phone Number"
+    =text_field_tag "phone"
+    =label_tag "Zip Code"
+    =text_field_tag "zip"
     =label_tag "Front Art Work"
     =file_field_tag :front_art
     =label_tag "Back Art Work"

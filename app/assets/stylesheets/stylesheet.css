@@ -3512,7 +3512,7 @@ h2 {
 
 .inner_wrapper_div h1 {
     font-family: Arial !important;
-    font-size: 40px;
+    font-size: 44px;
     font-weight: bold;
     margin: 30px auto;
     text-align: center;
@@ -4120,7 +4120,7 @@ div.all:hover{
 }
 .col h3{
   font-family: myriad-pro !important;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: normal;
   text-align: left;
 }
@@ -4149,4 +4149,19 @@ div.all:hover{
 }
 .span4 {
     width: 300px;
+}
+
+
+.order-help{
+    width: 24px;
+    height: 22px;
+    background: url("/assets/question_img.png") no-repeat;
+}
+
+.featured_banner{
+    background: url("/assets/featured_banner.png") no-repeat;
+    position:absolute;
+    width: 130px;
+    height: 130px;
+    z-index:999;
 }
