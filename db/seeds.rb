@@ -48,14 +48,14 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 
 
-puts "Deleting existing charity categories.."
-cgs = CharityCategory.all
-cgs.each { |cg| cg.destroy } if cgs.present?
-
-puts "Creating default Charity Categories...."
-%w(Advocacy Arts Education Environment Health International Religion SocialService Youth).each do |name|
-  CharityCategory.create!(:name => name)
-end
+#puts "Deleting existing charity categories.."
+#cgs = CharityCategory.all
+#cgs.each { |cg| cg.destroy } if cgs.present?
+#
+#puts "Creating default Charity Categories...."
+#%w(Advocacy Arts Education Environment Health International Religion SocialService Youth).each do |name|
+#  CharityCategory.create!(:name => name)
+#end
 
 
 

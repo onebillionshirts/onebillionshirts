@@ -4050,8 +4050,10 @@ ul.bxbig li{
 } 
 
 .single_charity{
-  margin: auto;
-  width: 960px;
+    margin: auto;
+    height: 210px;
+    width: 960px;
+    overflow: hidden;
 }
 .single_charity .col{
   display: inline;

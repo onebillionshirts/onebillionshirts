@@ -15,7 +15,7 @@
         %p
           %span
             or
-          %a.inline
+          %a.inline{href: "/orders/quick_quote"}
             Learn More
 .wrapper
   .our_idea
@@ -37,10 +37,10 @@
       -#%img{src:"/assets/dummy.png"}
     .col
       %h3
-        love our concept because
+        =Charity.default.first.name
       %span
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu vulputate nulla, ac vulputate leo. Ut aliquet neque eget tempor euismod. Sed venenatis bibendum velit ut venenatis. Duis hendrerit ac urna quis
-      %a Learn More
+        =Charity.default.first.mission_statement.html_safe
+      %a{href:"#{charity_path(Charity.default.first)}"} Learn More
   .featured-area
     %ul.bxslider
       -Charity.featured.each do |char|
