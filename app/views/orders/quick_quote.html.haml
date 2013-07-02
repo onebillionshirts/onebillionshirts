@@ -410,7 +410,7 @@
     %div{style: "float: right;width: 300px;margin-left: 25px;"}
       %div{style:"float:left;"}
         .logo_place
-          =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg"), charity_path(Charity.first) unless Charity.first.logo.blank?
+          =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
 
       %div{style:"width:70%;text-align: left; margin-left: 164px;"}
         .title_place

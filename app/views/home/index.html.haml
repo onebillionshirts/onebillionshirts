@@ -33,7 +33,7 @@
   .top-charity{style:"position:relative"}
     .featured_banner
     .col
-      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
+      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;border:1px solid #ccc"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
       -#%img{src:"/assets/dummy.png"}
     .col
       %h3
