@@ -410,12 +410,13 @@
     %div{style: "float: right;width: 300px;margin-left: 25px;"}
       %div{style:"float:left;"}
         .logo_place
-          =image_tag Charity.first.logo.image(:thumb), class:"logoimg"
+          =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg"), charity_path(Charity.first) unless Charity.first.logo.blank?
+
       %div{style:"width:70%;text-align: left; margin-left: 164px;"}
         .title_place
           =Charity.first.name
         .desc_place
-          =Charity.first.mission_statement
+          =Charity.first.mission_statement.html_safe
   %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
     %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
       Request a Virtual Proof
