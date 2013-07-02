@@ -25,6 +25,10 @@ class HomeController < ApplicationController
     @page_content = Page.find_by_page_name('how_it_works').page_content
   end
 
+  def participate
+    @page_content = Page.find_by_page_name('Participate').page_content
+  end
+
   def top_ten_reasons
     @page_content = Page.find_by_page_name('top_ten_reasons').page_content
   end

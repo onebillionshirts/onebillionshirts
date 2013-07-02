@@ -9,6 +9,7 @@ OneBS::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   match "/how_it_works", :to => "home#how_it_works"
+  match "/participate", :to => "home#participate"
   match "/about", :to => "home#about"
   match "/charities", :to => "charities#index"
   match "/contact", :to => "home#contact"
@@ -90,7 +91,7 @@ OneBS::Application.routes.draw do
 
   resources :home do
     collection do
-      get :how_it_works, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions
+      get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions
       post :send_email
     end
   end
