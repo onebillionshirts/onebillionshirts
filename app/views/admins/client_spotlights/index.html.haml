@@ -15,7 +15,7 @@
       %td= raw(client_spotlight.description)
       %td= client_spotlight.name
       %td= client_spotlight.client_spotlight_type
-      %td= image_tag client_spotlight.client_spotlight_images.first.asset.url(:original) if client_spotlight.client_spotlight_images.present?
+      %td= image_tag client_spotlight.client_spotlight_images.first.asset.url(:thumb) if client_spotlight.client_spotlight_images.present?
       %td
         = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_client_spotlight_path(client_spotlight)
         = link_to '<i class="icon-remove"></i>'.html_safe, admins_client_spotlight_path(client_spotlight), method: :delete, data: { confirm: 'Are you sure?' }
