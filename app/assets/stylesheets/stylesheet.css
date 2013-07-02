@@ -3933,10 +3933,13 @@ h2 {
   height: 80px;
 }
 .bottom_contain h4{
-  line-height:25px;
-  float: left;
-  width: 294px;
-  text-align: center;
+    line-height: 25px;
+    float: left;
+    width: 294px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
 }
 
 .bottom_contain img{
