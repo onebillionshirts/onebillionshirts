@@ -2,6 +2,10 @@
   .header-container
     .logo_quote
       = link_to '', root_path, class:"logo"
+      %div{:style => "float: right;width: 250px;background-color: #c1c1c1;text-align: center;color: white;height: 24px;padding-top: 7px;"}
+        %a{href:"/charities/new",:style => "display: inline;color: white;font-size: 14px;font-weight: normal;cursor: pointer;"} Suggest a Charity
+        |
+        %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
       / logo ends
       /
         div class="quote_req">
