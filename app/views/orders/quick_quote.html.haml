@@ -119,7 +119,7 @@
   }
   .final_form input[type='text']{
     border: 1px solid #ccc;
-    width: 370px;
+    width: 410px;
     height: 30px;
     font-size: 18px;
     padding: 4px;
@@ -129,6 +129,12 @@
   .ui-widget-content {
   border: 1px solid #02AEFF;
   background: #FFF ;
+  }
+
+  .desc_place p
+  {
+  font-size:14px;
+  line-height:16px;
   }
 
 :javascript
@@ -250,7 +256,7 @@
       $el = $(el)
       $(".logo_place img.logoimg").attr("src", $el.data("logo"))
       $(".title_place").text($el.data("name"))
-      $(".desc_place").text($el.data("desc"))
+      $(".desc_place").html($el.data("desc"))
     })
 
     $(".color_box_div").click(function(){
@@ -321,7 +327,7 @@
         =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
         -@charities.each do |charity|
           -unless charity.logo.blank?
-            %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement }}
+            %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
     %div{:style => "clear:both;margin-top:20px"}
       %div{:style => "width:20%; float:left;"}
         %h3 Style:
@@ -389,8 +395,8 @@
 
     %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
       =link_to "Calculate", "", id:"calculate"
-  .after_section{style:"display:none;padding-top: 30px;clear:both;margin-top:20px;text-align:center;width:960px;"}
-    %div{style: "float:left;width: 150px;margin-left: 140px;"}
+  .after_section{style:"display:none;border-top: 2px solid #ccc;padding-top: 30px;clear:both;margin-top:20px;text-align:center;width:960px;"}
+    %div{style: "float:left;width: 150px;margin-left:0px;"}
       %div#results{style: "float:left;"}
         %h4.unit
           Unit Price:
@@ -407,13 +413,13 @@
             %th QTY
             %th Price
             %th Donation
-    %div{style: "float: right;width: 300px;margin-left: 25px;"}
+    %div{style: "float: right;width: 380px;margin-left: 25px;"}
       %div{style:"float:left;"}
         .logo_place
           =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
 
       %div{style:"width:70%;text-align: left; margin-left: 164px;"}
-        .title_place
+        .title_place{style:"font-weight:bold;font-size:16px"}
           =Charity.first.name
         .desc_place
           =Charity.first.mission_statement.html_safe
@@ -483,7 +489,7 @@
     =text_field_tag "zip"
     =label_tag "Reference"
     %br
-    = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 90%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;"
+    = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 94%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;"
     =label_tag "Front Art Work"
     =file_field_tag :front_art
     =label_tag "Back Art Work"
