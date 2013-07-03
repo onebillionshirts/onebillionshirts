@@ -1,6 +1,16 @@
 :javascript
   $(function() {
       $( document ).tooltip();
+
+      var group_id = $("#style_color_group_id").val();
+      $(".color_boxes").hide();
+      $("#color"+group_id).show();
+
+      $('#style_color_group_id').change(function() {
+        var g_id = $(this).val();
+        $(".color_boxes").hide();
+        $("#color"+g_id).show();
+      });
   });
 
   $(document).ready(function(){
@@ -81,12 +91,12 @@
     = f.text_field :m_2000, value: @style.m_2000|| 18, class:"span1"
 
     = f.label "Color Group"
-    = f.select :color_group, options_from_collection_for_select(ColorGroup.all, :id, :name, @style.color_group.present? ? @style.color_group.id : nil)
+    = f.select :color_group_id, options_from_collection_for_select(ColorGroup.all, :id, :name, @style.color_group.present? ? @style.color_group.id : nil)
     = f.label "Available Colors"
 
     -ColorGroup.all.each do |gp|
       -gp.shirt_colors.all.each do |color|
-        .color_boxes
+        .color_boxes{id:"color#{color.color_group_id}", style:"display:none;"}
           -if @style.style_colors.exists?(shirt_color_id: color.id)
             -claz = "selected"
           -else
