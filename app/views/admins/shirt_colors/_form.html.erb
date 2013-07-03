@@ -16,6 +16,11 @@
     <% end %>
 
     <div class="field">
+      <%= f.label "Color Group" %>
+      <%= f.select :color_group_id, options_from_collection_for_select(ColorGroup.all, :id, :name, @shirt_color.color_group.present? ? @shirt_color.color_group.id : nil) %>
+    </div>
+
+    <div class="field">
       <%= f.label :code %>
       <%= f.text_field :code %>
     </div>

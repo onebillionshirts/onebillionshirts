@@ -1,4 +1,8 @@
 :javascript
+  $(function() {
+      $( document ).tooltip();
+  });
+
   $(document).ready(function(){
 
    /* ids = $("#color_ids").val().split(",")
@@ -74,20 +78,26 @@
     = f.text_field :m_1000, value: @style.m_1000 || 19, class:"span1", style: "float: left;"
     = f.label "2000", style:"float:left;"
     = f.text_field :m_2000, value: @style.m_2000|| 18, class:"span1"
+    = f.text_field :m_2000, value: @style.m_2000|| 18, class:"span1"
+
+    = f.label "Color Group"
+    = f.select :color_group, options_from_collection_for_select(ColorGroup.all, :id, :name, @style.color_group.present? ? @style.color_group.id : nil)
     = f.label "Available Colors"
-    .color_boxes
-      -ShirtColor.all.each do |color|
-        -if @style.style_colors.exists?(shirt_color_id: color.id)
-          -claz = "selected"
-        -else
-          -claz = ""
-        .color_box_div
-          .color_box{class: "#{claz}", data: {id: "#{color.id}"}, :style => "background: ##{color.code}"}
-            .color_code_div{id:"#{color.id}", "data-title" => "#{color.name}"}
-              -if @style.style_colors.exists?(shirt_color_id: color.id)
-                ✔
-                
-          / color_box ends
+
+    -ColorGroup.all.each do |gp|
+      -gp.shirt_colors.all.each do |color|
+        .color_boxes
+          -if @style.style_colors.exists?(shirt_color_id: color.id)
+            -claz = "selected"
+          -else
+            -claz = ""
+          .color_box_div
+            %a.color_box{class: "#{claz}", data: {id: "#{color.id}"}, :href=>"#", :style => "background: ##{color.code}", 'title'=>"#{color.name}"}
+              .color_code_div{id:"#{color.id}", "data-title" => "#{color.name}", "title" => "#{color.name}"}
+                -if @style.style_colors.exists?(shirt_color_id: color.id)
+                  ✔
+
+            / color_box ends
 
   .actions{style:"float: left;width: 100%;"}
     = f.submit "Save", :class => "smallBtn"

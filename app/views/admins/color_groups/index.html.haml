@@ -1,0 +1,15 @@
+.row
+  .span6
+    %h2 Color Groups
+  .span5
+    = link_to 'New Color Group', new_admins_color_group_path, class:"btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th
+  - @color_groups.each do |color_group|
+    %tr
+      %td= color_group.name
+      %td
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_color_group_path(color_group)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_color_group_path(color_group), method: :delete, data: { confirm: 'Are you sure?' }

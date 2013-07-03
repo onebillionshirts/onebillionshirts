@@ -87,6 +87,7 @@ OneBS::Application.routes.draw do
     resources :style_sub_categories
     resources :styles
     resources :shirt_colors
+    resources :color_groups
   end
 
   resources :home do

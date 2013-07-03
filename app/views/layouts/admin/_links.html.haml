@@ -12,8 +12,15 @@
             =link_to "Orders" , admins_orders_path
           %li
             =link_to "Cost Matrix" , admins_cost_matrix_path
-          %li
-            =link_to "Colors" , admins_shirt_colors_path
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Colors
+              %b.caret
+            %ul#swatch-menu.dropdown-menu
+              %li
+                =link_to "Color Group" , admins_color_groups_path
+              %li
+                =link_to "Colors" , admins_shirt_colors_path
           %li
             =link_to "Banners" , admins_banners_path
           %li.dropdown

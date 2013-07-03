@@ -1,5 +1,6 @@
 class Style < ActiveRecord::Base
-  attr_accessible :name, :style_sub_category_id, :photo, :price_white, :price_color, :m_24, :m_48, :m_72, :m_144, :m_288, :m_576, :m_1000, :m_2000, :cost_level, :material
+  attr_accessible :name, :style_sub_category_id, :photo, :price_white, :price_color, :m_24, :m_48, :m_72, :m_144, :m_288, :m_576, :m_1000, :m_2000,
+                  :cost_level, :material, :color_group_id
 
   after_commit :add_white_color
 
@@ -7,6 +8,8 @@ class Style < ActiveRecord::Base
 
   validates :name, presence: true
   validates :style_sub_category_id, presence: true
+
+  belongs_to :color_group
 
   has_many :style_colors
   has_many :shirt_colors, through: :style_colors
