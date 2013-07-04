@@ -59,9 +59,9 @@ class Style < ActiveRecord::Base
   end
 
   def add_white_color
-    white = ShirtColor.where(code: "ffffff")
+    white = ShirtColor.where(code: "ffffff").first
     white = ShirtColor.create(code: "ffffff", name:"white", color_group_id: self.color_group_id) if white.blank?
-    self.style_colors.where(shirt_color_id: white.id).destory
+    self.style_colors.where(shirt_color_id: white.id).first.destory   if self.style_colors.where(shirt_color_id: white.id).first
     self.style_colors.create(shirt_color_id: white.id)
   end
 
