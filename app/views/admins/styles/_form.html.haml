@@ -1,19 +1,4 @@
 :javascript
-  $(function() {
-      $( document ).tooltip();
-      $("a").tooltip()
-
-      var group_id = $("#style_color_group_id").val();
-      $(".color_boxes").hide();
-      $("#color"+group_id).show();
-
-      $('#style_color_group_id').change(function() {
-        var g_id = $(this).val();
-        $(".color_boxes").hide();
-        $("#color"+g_id).show();
-      });
-  });
-
   $(document).ready(function(){
 
    /* ids = $("#color_ids").val().split(",")
@@ -23,19 +8,49 @@
         el.text("✔")
       }
     }*/
+    $( document ).tooltip();
+    $("a").tooltip()
 
     window.selectedColors = $("#color_ids").val().split(",")
+
+    var group_id = $("#style_color_group_id").val();
+    $(".color_box_div").hide();
+    $(".color"+group_id).show();
+    //if($("form#new_style")){
+    //  $(".color"+group_id).find("div.color_code_div").text("✔")
+    //  $(".color"+group_id).find(".color_box").addClass("selected")
+    //  index = selectedColors.indexOf($(".color_box").data("id"))
+    //  selectedColors.splice(index,1)
+    //}
+
+    $('#style_color_group_id').change(function() {
+      var g_id = $(this).val();
+      $(".color_box_div").hide();
+
+      $(".color"+g_id).show();
+
+      $(".color_box").find("div.color_code_div").text("")
+      $(".color_box").removeClass("selected");
+      window.selectedColors = [];
+
+      $(".color"+g_id).find("div.color_code_div").text("✔")
+      $(".color"+g_id).find(".color_box").addClass("selected")
+      $(".color"+g_id).find(".color_box").each(function(item){
+        selectedColors.push($(this).data("id").toString())
+      })
+    });
+
     $(".color_box").click(function(){
       if ($(this).hasClass("selected")){
         $(this).find("div.color_code_div").text("")
         $(this).removeClass("selected")
-        index = selectedColors.indexOf($(this).data("id"))
+        index = selectedColors.indexOf($(this).data("id").toString())
         selectedColors.splice(index,1)
       }
       else{
         $(this).find("div.color_code_div").text("✔")
         $(this).addClass("selected")
-        selectedColors.push($(this).data("id"))
+        selectedColors.push($(this).data("id").toString())
       }
     })
 
@@ -92,18 +107,18 @@
     = f.text_field :m_2000, value: @style.m_2000|| 18, class:"span1"
 
     = f.label "Color Group"
-    = f.select :color_group_id, options_from_collection_for_select(ColorGroup.all, :id, :name, @style.color_group.present? ? @style.color_group.id : nil)
+    = f.select :color_group_id, options_from_collection_for_select(ColorGroup.all, :id, :name, @style.color_group.present? ? @style.color_group.id : nil), :prompt => "Select Color Group"
     = f.label "Available Colors"
 
     -ColorGroup.all.each do |gp|
-      -gp.shirt_colors.all.each do |color|
-        .color_boxes{id:"color#{color.color_group_id}", style:"display:none;"}
+      .color_boxes
+        -gp.shirt_colors.all.each do |color|
           -if @style.style_colors.exists?(shirt_color_id: color.id)
             -claz = "selected"
           -else
             -claz = ""
-          .color_box_div
-            %a.color_box{class: "#{claz}", data: {id: "#{color.id}"}, :href=>"#", :style => "background: ##{color.code}", 'title'=>"#{color.name}"}
+          .color_box_div{class:"color#{color.color_group_id}", style:"display:none;"}
+            %a.color_box{class: "#{claz}", data: {id: "#{color.id}"}, :style => "background: ##{color.code}", 'title'=>"#{color.name}"}
               .color_code_div{id:"#{color.id}", "data-title" => "#{color.name}", "title" => "#{color.name}"}
                 -if @style.style_colors.exists?(shirt_color_id: color.id)
                   ✔
