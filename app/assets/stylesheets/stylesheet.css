@@ -3770,7 +3770,7 @@ h2 {
 
 /************************  FAQ page styling start ****************************************/
 .faq_text { float:left; width:100%; text-align:center;}
-.faq_text h1 { clear: both; width:625px; text-align:center; margin:69px auto 0 auto; font-weight:normal; font-size:55px;text-shadow: 0px 6px 9px rgba(3, 0, 0, 0.79);}
+.faq_text h1 { clear: both; width:625px; text-align:center; margin:69px auto 0 auto; font-weight:normal; font-size:55px;}
 
 .faq_info{ float:left; width:100%; margin-top: 60px;}
 .faq_lft { float:left; width:45%; border-right:1px solid #7d7d7d;min-height: 450px;margin-bottom: 30px;}
@@ -4172,6 +4172,11 @@ div.all:hover{
 }
 
 .answer p{
+  margin:0;
+  padding:0;
+}
+
+.col p{
   margin:0;
   padding:0;
 }

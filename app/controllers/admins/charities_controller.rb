@@ -73,7 +73,9 @@ class Admins::CharitiesController < Admins::HomeController
     @charity = Charity.unscoped.find(params[:id])
     if params[:charity][:is_default] == "1"
       c = Charity.find_by_is_default("1")
-      c.update_attribute("is_default", nil) unless c.blank?
+      if !c.blank? &&c.id!=@charity.id
+        c.update_attribute("is_default", nil)
+      end
     end
 
     respond_to do |format|

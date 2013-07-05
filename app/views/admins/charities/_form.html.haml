@@ -37,6 +37,11 @@
             = f.text_area :mission_statement, :rows=>"4"
       %fieldset
         .control-group
+          = f.label :description, class:"control-label"
+          .controls
+            = f.text_area :description, :rows=>"4"
+      %fieldset
+        .control-group
           = f.label "YouTube Video URL", class:"control-label"
           .controls
             = f.text_field :video_url
@@ -116,6 +121,10 @@
 
 / wrapper ends
 :javascript
+  tinyMCE.init({
+      mode:'textareas',
+      theme:'advanced'
+  });
   $(".add-link").click(function () {
       $.get($(this).attr("href"), function (response) {
           $('#image-form-holder').append(response.html);
