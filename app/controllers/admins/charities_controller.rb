@@ -1,6 +1,12 @@
 class Admins::CharitiesController < Admins::HomeController
   # GET /admins/charities
   # GET /admins/charities.json
+  #
+  
+  def pending
+    @charities = Charity.unscoped.where(approved: false)
+  end
+
   def index
     @charities = Charity.find(:all, :order => "name")
 
@@ -11,9 +17,16 @@ class Admins::CharitiesController < Admins::HomeController
     end
   end
 
+  def approve
+    @charity = Charity.unscoped.find_by_slug(params[:id])
+    @charity.update_attribute(:approved, true)
+    flash[:notice] = "Approved"
+    redirect_to pending_admins_charities_path
+  end
+
   # GET /admins/charities/1
   def show
-    @charity = Charity.find(params[:id])
+    @charity = Charity.unscoped.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # _details.html.erb
@@ -34,13 +47,14 @@ class Admins::CharitiesController < Admins::HomeController
 
   # GET /admins/charities/1/edit
   def edit
-    @charity = Charity.find(params[:id])
+    @charity = Charity.unscoped.find(params[:id])
   end
 
   # POST /admins/charities
   # POST /admins/charities.json
   def create
     @charity = Charity.new(params[:charity])
+    @charity.approved = true
 
     respond_to do |format|
       if @charity.save
@@ -56,7 +70,7 @@ class Admins::CharitiesController < Admins::HomeController
   # PUT /admins/charities/1
   # PUT /admins/charities/1.json
   def update
-    @charity = Charity.find(params[:id])
+    @charity = Charity.unscoped.find(params[:id])
     if params[:charity][:is_default] == "1"
       c = Charity.find_by_is_default("1")
       c.update_attribute("is_default", nil) unless c.blank?
@@ -76,7 +90,7 @@ class Admins::CharitiesController < Admins::HomeController
   # DELETE /admins/charities/1
   # DELETE /admins/charities/1.json
   def destroy
-    @charity = Charity.find(params[:id])
+    @charity = Charity.unscoped.find(params[:id])
     @charity.destroy
 
     respond_to do |format|

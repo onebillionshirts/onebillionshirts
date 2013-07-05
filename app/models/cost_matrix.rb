@@ -12,6 +12,7 @@ class CostMatrix < ActiveRecord::Base
   end
 
   def self.cost(colors, quan)
+    return 0 if (colors.to_i == 0)
     arr = self.quantities
     closest = arr.detect{|v| quan<v}
     i = arr.find_index(closest)

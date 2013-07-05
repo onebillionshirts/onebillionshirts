@@ -1,0 +1,21 @@
+%h1 Style Details
+.details-info-holder
+  %label Name
+  .details-info
+    = @style.name
+.details-info-holder
+  %label Main Category
+  .details-info
+    = @style.style_category.name
+.details-info-holder
+  %label Sub Category
+  .details-info
+    = @style.style_sub_category.name
+.details-info-holder
+  %label Price White
+  .details-info
+    = @style.price_white
+.details-info-holder
+  %label Price Color
+  .details-info
+    = @style.price_color

@@ -3512,11 +3512,11 @@ h2 {
 
 .inner_wrapper_div h1 {
     font-family: Arial !important;
-    font-size: 44px;
+    font-size: 60px;
     font-weight: bold;
     margin: 30px auto;
     text-align: center;
-    width: 73%;
+    width: 93%;
     color: white;
 }
 
@@ -4090,7 +4090,7 @@ ul.bxbig li{
 }
 
 div.all:hover{
-    background-color:#ccc;
+    background-color:#f9f9f9;
 }
 
 .footer_second_portion a.tw{
@@ -4169,4 +4169,9 @@ div.all:hover{
     width: 130px;
     height: 130px;
     z-index:999;
+}
+
+.answer p{
+  margin:0;
+  padding:0;
 }

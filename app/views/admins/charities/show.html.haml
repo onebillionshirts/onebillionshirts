@@ -1,4 +1,7 @@
 %h1 Charity Details
+
+-unless @charity.approved?
+  =link_to "Approve", approve_admins_charity_path(@charity), method: :put, class: "btn btn-large btn-primary"
 .details-info-holder
   %label Name
   .details-info

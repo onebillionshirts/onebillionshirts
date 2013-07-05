@@ -24,5 +24,8 @@
           = f.text_area :answer , :rows=>"4"
     .span2.offset2
       = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"
-
-
+:javascript
+  tinyMCE.init({
+      mode:'textareas',
+      theme:'advanced'
+  });

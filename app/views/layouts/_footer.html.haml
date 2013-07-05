@@ -4,8 +4,8 @@
       .footer_first_div
         %h2 Company
         .footer_first_left
-          =link_to "Story"
-          =link_to "Mission"
+          =link_to "Story", "/our_story"
+          =link_to "Mission", "/about"
           =link_to "How it Works", "/how_it_works"
       .footer_first_div
         %h2 Customers
@@ -17,13 +17,13 @@
         %h2 Charities
         .footer_second_portion
           =link_to "Participate", "/participate"
-          =link_to "The Benefits"
-          =link_to "Suggest Charity"
+          =link_to "The Benefits", "/top_ten_reasons"
+          =link_to "Suggest Charity", "/charities/new"
 
       .footer_third_div
         .footer_second_portion
           .socialz_list{:style => "margin-left: 25px;"}
-            %a.fb{:href => "http://twitter.com/1billionshirts", :target => "_blank"}
-            %a.tw{:href => "http://www.facebook.com/pages/Onebillionshirtsorg/537223036310715", :target => "_blank"}
-            %a.em{:href => "https://www.youtube.com/user/OneBillionShirts", :target => "_blank"}
+            %a.fb{:href => "http://www.facebook.com/pages/Onebillionshirtsorg/537223036310715", :target => "_blank"}
+            %a.tw{:href => "http://twitter.com/1billionshirts", :target => "_blank"}
+            =mail_to "Tell Your Friends", "", subject: "Need T-shirts?  Save & Share™", body: " Hey, check out this site I found.  You will save on your T-shirt prices & the company will donate money on your behalf to a charity of your choice.  Pay it forward!", class: "em"
             %a.ln{:href => "http://www.linkedin.com/company/2983736?trk=tyah", :target => "_blank"}

@@ -149,7 +149,7 @@
   $(document).ready(function () {
       min = setInterval("refresh_name()", 2000);
       $(".bxslider").bxSlider({nextText: "", prevText:"", auto: true, slideWidth: 100, moveSlides: 1, minSlides: 8, maxSlides: 8, pager: false})
-      $(".bxbig").bxSlider({nextText: "", prevText:"", auto: true, slideWidth: 960, moveSlides: 1, minSlides: 1, maxSlides: 1, pager: false})
+      $(".bxbig").bxSlider({nextText: "", prevText:"", auto: false, slideWidth: 960, moveSlides: 1, minSlides: 1, maxSlides: 1, pager: false})
   });
   function refresh_name() {
       var myArray = ['Event', 'Promo', 'RACE', "League", "Game", "Corporate", "Volunteer", "School", "Party", "Reunion"];

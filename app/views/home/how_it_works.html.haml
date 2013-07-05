@@ -3,8 +3,6 @@
   = @title
 - if @page_content.present?
   = raw(@page_content)
-- else
-.wrapper= render :partial => "home/calculate_input_field", :locals => {:val => nil}
 :css
   .calc_btn {
       float: left;

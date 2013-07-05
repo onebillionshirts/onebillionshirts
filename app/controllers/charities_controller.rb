@@ -62,6 +62,7 @@ class CharitiesController < ApplicationController
 
   def add_charity
     @charity = Charity.new(params[:charity])
+    @charity.approved = false
     if @charity.save
       flash[:notice] = 'Charity was successfully created.'
       redirect_to charities_url

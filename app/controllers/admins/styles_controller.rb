@@ -5,6 +5,10 @@ class Admins::StylesController< Admins::HomeController
     @styles = Style.all
   end
 
+  def show
+    @style = Style.find(params[:id])
+  end
+
   def create
     @style = Style.new(params[:style])
     if @style.save

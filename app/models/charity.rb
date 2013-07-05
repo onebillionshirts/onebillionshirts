@@ -20,6 +20,8 @@ class Charity < ActiveRecord::Base
   accepts_nested_attributes_for :pictures, :allow_destroy => true
   accepts_nested_attributes_for :logo, :allow_destroy => true
 
+  default_scope where(approved: true)
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

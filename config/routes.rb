@@ -75,8 +75,12 @@ OneBS::Application.routes.draw do
     resources :questions_categories
     resources :posts
     resources :charities do
+      member do
+        put :approve
+      end
       collection do
         get :image_form
+        get :pending
       end
     end
     resources :charity_categories

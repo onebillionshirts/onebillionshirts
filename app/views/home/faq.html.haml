@@ -17,7 +17,7 @@
               %a{:href => "#"}= questions_category.category
               %ul.questions{:style => "display:none;"}
                 - questions_category.questions.each do |question|
-                  %li.question_title{"data-answer" => question.answer, "data-title" => question.question}
+                  %li.question_title{"data-answer" => question.answer.html_safe, "data-title" => question.question}
                     = question.question
     .faq_rit
       .title{:style=>"font-family: Arial; font-size: 24px; font-weight: normal; height: 28px;margin-bottom: 25px;"}
@@ -36,14 +36,14 @@
     answer = first_q.data("answer")
 
     $(".faq_rit .title").text(question)
-    $(".faq_rit .answer").text(answer)
+    $(".faq_rit .answer").html(answer)
 
     $(".question_title").click(function(){
       question = $(this).data("title")
       answer = $(this).data("answer")
 
       $(".faq_rit .title").text(question)
-      $(".faq_rit .answer").text(answer)
+      $(".faq_rit .answer").html(answer)
     })
 
     $("#accordion > li > a").click(function(){
@@ -52,4 +52,6 @@
       $(this).parent().find("ul.questions").slideToggle(150);
       return false;
     });
+
+    $("#accordion > li > a:first").trigger("click")
   });

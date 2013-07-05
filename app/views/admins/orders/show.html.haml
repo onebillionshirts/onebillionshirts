@@ -2,7 +2,7 @@
 .details-info-holder
   %label Reference
   .details-info
-    = @order.reference.name
+    = @order.reference.name unless @order.reference.blank?
 .details-info-holder
   %label Customer Name
   .details-info
@@ -34,11 +34,16 @@
 .details-info-holder
   %label Shirt Style
   .details-info
-    = @order.style.name
+    = link_to @order.style.name, admins_style_path(@order.style)
+.details-info-holder
+  %label Category
+  .details-info
+    = [@order.style.style_category.name, @order.style.style_sub_category.name].join(",")
 .details-info-holder
   %label Color
   .details-info
-    %div{style:"width:20px;height:20px;background-color:##{@order.shirt_color.code unless @order.shirt_color.blank?}"}
+    %div{style:"outline:1px solid #ccc;width:20px;height:20px;background-color:##{@order.shirt_color.code unless @order.shirt_color.blank?}"}
+    %span=@order.shirt_color.name
 .details-info-holder
   %label Front Colors
   .details-info
