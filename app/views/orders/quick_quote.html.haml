@@ -179,6 +179,7 @@
       reference = $("#reference_id").val();
 
       color = $(".color_box_div.chosen").attr("id")
+      later = $("#later").is(":checked")
       params = { 
         order: {
           n_s: n_s, 
@@ -197,7 +198,7 @@
           shirt_color_id: color,
           charity_id: $("#charity_id").val(),
           reference_id: reference,
-          later: $("#later").val()
+          later: later
         }
         }
 
