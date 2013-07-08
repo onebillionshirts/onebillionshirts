@@ -71,7 +71,7 @@
     / img_slider ends
   / charity_list ends
 .selected_btn_b
-  %a.select-link{:href => "/charities/request_quote?id=#{@charity.id}"} Choose This Charity
+  %a.select-link{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} Choose This Charity
 / selected_btn_b ends
 :javascript
       $(document).ready(function () {
