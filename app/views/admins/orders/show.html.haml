@@ -52,12 +52,16 @@
   %label Back Colors
   .details-info
     = @order.b_c
-.details-info-holder
-  %label Front Art Work
-  .details-info
-    = link_to "Download File", @order.front_art.url, class:"btn btn-primary", target: "_blank"
-.details-info-holder
-  %label Back Art Work
+-unless @order.later
+  .details-info-holder
+    %label Front Art Work
+    .details-info
+      = link_to "Download File", @order.front_art.url, class:"btn btn-primary", target: "_blank"
+  .details-info-holder
+    %label Back Art Work
   .details-info
     = link_to "Download File", @order.back_art.url, class: "btn btn-primary", target: "_blank"
+-else
+  .details-info-holder
+    %label Will Submit Artwork Later
 = link_to 'Delete Order', admins_order_path(@order), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"

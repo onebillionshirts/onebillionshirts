@@ -19,10 +19,10 @@
             Learn More
 .wrapper
   .our_idea
-    %h3
-      “Being saved from a war gave me a deep appreciation
-      for the work done by charities, now it is my mission to make
-      sure every custom t-shirt printed has a direct impact on others”
+    %h3{style:"margin:0 auto; width:880px;"}
+      “I was saved from War at age 14 with the help of charities.
+      My mission is to turn every t-shirt into a donation 
+      and every customer into a philanthropist!”
     .testi
       %img{src:"/assets/testimonial-person-thumb.png"}
       %h4
@@ -59,12 +59,10 @@
         %h3
           %span
             Charities 
-          love our concept because
-          for every t-shirt we print there is a
-          minimum of 25¢ being redirected
-          back to a non-profit organization
-          creating a brand new multi-million
-          dollar fundraising stream!
+          love us because we are
+          tapping into a brand new multi-million 
+          dollar fundraising stream that was not 
+          available yesterday.
         %a{href:"/participate"} Participate
       .col{style:"border-left:1px solid #ccc;"}
         %h3
@@ -72,10 +70,8 @@
             Customers
           love us because we save
           96% of clients money compared to
-          their current vendor but also donate
-          directly from our pockets to a charity
-          of their choice allowing them to save
-          money and help others!
+          their last vendor and also donaie to a
+          charity of their choice.
         %a{href:"how_it_works"} How It Works
   / our_idea ends
 / wrapper ends
@@ -87,7 +83,7 @@
           .single_charity
             .col{style:"width:50%;padding:0px 40px;"}
               %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
-                =char.description.html_safe
+                =truncate_html(char.description, length: 340).html_safe
             .col{style:"width:30%"}
               -unless char.client_spotlight_images.first.blank?
                 =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"), ""

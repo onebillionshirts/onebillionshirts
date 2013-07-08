@@ -101,8 +101,9 @@
     margin-right: auto;
   }
   .final_form a.place{
+    clear: both;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 18px;
     margin-left: auto;
     margin-right: auto;
@@ -195,7 +196,8 @@
           b_c: b_color, 
           shirt_color_id: color,
           charity_id: $("#charity_id").val(),
-          reference_id: reference
+          reference_id: reference,
+          later: $("#later").val()
         }
         }
 
@@ -258,6 +260,9 @@
       $(".title_place").text($el.data("name"))
       $(".desc_place").html($el.data("desc"))
     })
+
+    //for first time on load
+    $("#charity_id").trigger("change")
 
     $(".color_box_div").click(function(){
       $(".color_box_div").removeClass("chosen");
@@ -457,7 +462,7 @@
           %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
             =image_tag st.photo(:thumb), :style => "max-width: 150px;"
           %div{style:"float:left;margin-left:15px;max-width: 185px;margin-top: 13px;"}
-            %div{style:"float:left;margin-bottom:10px;"}
+            %div{style:"margin-bottom:10px;"}
               =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(",").to_s, name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
             -unless st.cost_level.blank?
               -if st.cost_level.to_s == "1"
@@ -497,5 +502,7 @@
     =file_field_tag :front_art
     =label_tag "Back Art Work"
     =file_field_tag :back_art
+    =check_box_tag :later, 1, false, style:"clear:both;width:13px;float:left;margin-top:15px;margin-left:10px;"
+    =label_tag "later", "Submit Artwork Later", style:"width:200px; margin-top:9px;margin-left:0px"
   %a.place
     Place Order

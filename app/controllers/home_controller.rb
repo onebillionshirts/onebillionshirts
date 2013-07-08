@@ -56,7 +56,7 @@ class HomeController < ApplicationController
   end
 
   def download
-    send_file 'public/OneBillionShirts_Media_Kit.pdf', :type => "application/pdf", :x_sendfile => true
+    send_file "#{Rails.root}/public/OneBillionShirts_Media_Kit.pdf", :type => "application/pdf", :x_sendfile => true
   end
 
   def calculated_value_popup

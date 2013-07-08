@@ -17,7 +17,7 @@
     / c_list_img_n ends
     .c_list_txt_n
       .selected_btn_b
-        %a.select-link{:href => "/charities/request_quote?id=#{@charity.id}"} Choose This Charity
+        %a.select-link{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} Choose This Charity
       .list_txt_det
         %h2= @charity.name
         %p= @charity.address
@@ -74,22 +74,6 @@
   %a.select-link{:href => "/charities/request_quote?id=#{@charity.id}"} Choose This Charity
 / selected_btn_b ends
 :javascript
-  $(".select-link").click(function () {
-          $(this).closest(".selected_btn_b").addClass("selected-active");
-          $(this).html("Charity Selected");
-          $.get($(this).attr("href"), function (response) {
-              $('#request-quote').bPopup({
-                  closeClass: 'bot_it',
-                  onClose: function () {
-                      $(".selected_btn_b").removeClass("selected-active");
-                      $(".select-link").html("Choose This Charity");
-                  }
-              });
-              $('#request-quote').html(response.html);
-          });
-          return false;
-      });
-
       $(document).ready(function () {
           $('#bxslider3').bxSlider({
               minSlides: 2,

@@ -47,7 +47,7 @@
             %a{:href => "/#{charity.slug}"} Learn more
             .selected_btn_holder
               .selected_btn
-                %a.select-link{:href => "/charities/request_quote?id=#{charity.id}"}
+                %a.select-link{:href => "/orders/quick_quote?charity_id=#{charity.id}"}
                   Choose This
                   Charity
             / selected_btn_holder ends
@@ -62,26 +62,6 @@
   $(".sort-key").click(function () {
       $.get($(this).attr("href"), function (response) {
           $('#charities').html(response.html);
-      });
-      return false;
-  });
-
-  $(".select-link").click(function () {
-      $(".selected-active").each(function () {
-          $(this).children("a").html("Choose This Charity");
-          $(this).removeClass("selected-active");
-      });
-      $(this).closest(".selected_btn").addClass("selected-active");
-      $(this).html("Charity Selected");
-      $.get($(this).attr("href"), function (response) {
-          $('#request-quote').bPopup({
-              closeClass: 'bot_it',
-              onClose: function () {
-                  $(".selected_btn").removeClass("selected-active");
-                  $(".select-link").html("Choose This Charity");
-              }
-          });
-          $('#request-quote').html(response.html);
       });
       return false;
   });
