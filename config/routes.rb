@@ -20,6 +20,7 @@ OneBS::Application.routes.draw do
   match "/brand", :to => "home#brand"
   match "/client_spotlight", :to => "home#client_spotlight"
   match "/faq", :to => "home#faq"
+  match "/impact", :to => "home#impact"
 
 
   devise_for :admins, :controllers => {
@@ -98,6 +99,7 @@ OneBS::Application.routes.draw do
     collection do
       get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions
       post :send_email
+      post :calculate_impact
     end
   end
 

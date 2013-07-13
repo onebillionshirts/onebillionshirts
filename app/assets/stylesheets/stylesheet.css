@@ -808,6 +808,87 @@ h2 {
     text-align: center;
 }
 
+
+.imapct_size_input {
+    float: left;
+    width: 110px;
+    height: 30px;
+    margin-right: 55px;
+}
+
+.impact_sizes_hold {
+    width: 660px;
+    margin: 0 auto;
+}
+
+.impact_youth_sizes{
+    float: left;
+    width: 100%;
+    margin: 0px 0 5px;
+}
+
+.impact_youth_sizes p {
+    text-align: center;
+    font-size: 9px;
+    margin: 0;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.size_input_mid .impact {
+    background: none;
+    border: 2px solid rgb(231, 231, 231);
+    width: 100px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#calculate_impact{
+    background-color: #E1E2E1;
+    width: 250px;
+    margin-top: 8px;
+    height: 39px;
+    line-height: 39px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #E1E2E1;
+    font-weight: bold;
+    letter-spacing: 1px;
+    float: right;
+}
+
+#calculate_impact_img{
+    background: url(/assets/cal.png) no-repeat center;
+    width: 70px;
+    margin-left: 20px;
+    height: 58px;
+    float: right;
+    margin-right: 430px;
+}
+
+.email_img{
+    background: url(/assets/email.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.fb_img{
+    background: url(/assets/fb.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.tw_img{
+    background: url(/assets/tw.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.work_img{
+    background: url(/assets/work.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+
 .front_back_info {
     float: left;
     margin: 10px 0 10px 40px;

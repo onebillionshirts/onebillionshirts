@@ -108,6 +108,27 @@ class HomeController < ApplicationController
     render :partial => "home/category_questions", :locals => {:questions_category => @question_category}
   end
 
+
+  def impact
+
+  end
+
+  def calculate_impact
+    @email = params[:email].to_i * 0.1
+    @fb = params[:fb].to_i * 0.05
+    @tw = params[:twitter].to_i * 0.04
+    @emp = params[:emp].to_i  * 10 * 0.15
+    @total_o = @email + @fb + @tw + @emp
+    @total_s = @total_o * 144
+    @total_m = @total_s * 25
+    @para = @total_o * 0.3 * 144
+
+    render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para  }
+  end
+
+
+
+
   private
   def get_default_charity
     @default_charity = Charity.find_by_is_default(true)
@@ -119,5 +140,6 @@ class HomeController < ApplicationController
   def thank_you
 
   end
+
 
 end

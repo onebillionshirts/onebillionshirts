@@ -1,0 +1,52 @@
+.slider_hold_contact
+  .slider_text
+    %h1.wid_im
+      Calculate Your
+      %span Impact
+      !
+    .row{style:"margin: 20px auto 35px auto;"}
+      Enter your charities’ total 'network' numbers and  calculate the amount
+      %br
+      of money we can raise with your influence and our concept...
+
+=form_tag '/home/calculate_impact', method: :post do
+  %div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
+    .padded{style:"width:60%;margin:0 auto"}
+      %div{:style => "clear:both;margin-top :20px"}
+        %div.move
+          .shirt_sizes
+            .impact_sizes_hold
+              .youth_sizes
+                .imapct_size_input
+                  .size_input_mid
+                    %input.impact{:name => "email", :type => "text"}/
+                .imapct_size_input
+                  .size_input_mid
+                    %input.impact{:name => "fb", :type => "text"}/
+                .imapct_size_input
+                  .size_input_mid
+                    %input.impact{:name => "twitter", :type => "text"}/
+                .imapct_size_input
+                  .size_input_mid
+                    %input.impact{:name => "emp", :type => "text"}/
+              .impact_youth_sizes
+                .imapct_size_input
+                  %p email addresses
+                .imapct_size_input
+                  %p facebook friends
+                .imapct_size_input
+                  %p twitter followers
+                .imapct_size_input
+                  %p employees / coworkers
+              .youth_sizes{style:"margin-bottom: 30px;"}
+                .imapct_size_input{style:"height: 75px;"}
+                  .email_img
+                .imapct_size_input{style:"height: 75px;"}
+                  .fb_img
+                .imapct_size_input{style:"height: 75px;"}
+                  .tw_img
+                .imapct_size_input{style:"height: 75px;"}
+                  .work_img
+  %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;margin-bottom:150px;"}
+    =link_to "", "#", id:"calculate_impact_img", :onclick => "$('form').submit()"
+    =link_to "Calculate Impact", "#", id:"calculate_impact", :onclick => "$('form').submit()"
