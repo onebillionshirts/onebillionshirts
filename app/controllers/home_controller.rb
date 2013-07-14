@@ -108,6 +108,11 @@ class HomeController < ApplicationController
     render :partial => "home/category_questions", :locals => {:questions_category => @question_category}
   end
 
+  def calendar
+    @events = Event.all
+    @event =  Event.new
+  end
+
   private
   def get_default_charity
     @default_charity = Charity.find_by_is_default(true)

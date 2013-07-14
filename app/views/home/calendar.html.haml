@@ -1,0 +1,82 @@
+:javascript
+  $(document).ready(function(){
+    $(".add_event").click(function(){
+      $("#new_event").bPopup({closeClass: "popClose"});
+      return false;
+     });
+   });
+
+.slider_hold{:style => "height:auto;"}
+  .slider_text
+    %h1{:style => "width:634px;"}
+      Event Schedule
+
+
+.wrapper
+  .img_det_txt
+    .abt_list.m_top_75
+      %h1
+        = text_field_tag :email , '', class:"green", placeholder:"email ..."
+        = text_field_tag :zip , '',class:"green", placeholder:"zip code"
+        %i.icon-pencil
+        %a.add_event{href: "#"}
+          + ADD EVENT
+        %a.cal_submit{href: "#"}
+          SUBMIT
+
+    .cal
+      = calendar @events do |event|
+        = link_to event.name, "", class:"jp"
+
+
+
+
+
+%div#new_event{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:800px;height:auto;display:none;"}
+  %h2
+    Add New Event
+    = form_for(@event, :url => '', :html=>{class:"form form-horizontal"}) do |f|
+      - if @event.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@event.errors.count, "error")
+            prohibited this event from being saved:
+          %ul
+            - @event.errors.full_messages.each do |msg|
+              %li= msg
+      %fieldset
+        .control-group
+          = f.label :name, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_field :name
+      %fieldset
+        .control-group
+          = f.label "Date", class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_field :start_time
+      %fieldset
+        .control-group
+          = f.label :time, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_field :time
+      %fieldset
+        .control-group
+          = f.label :website, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_field :website
+      %fieldset
+        .control-group
+          = f.label :location, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_field :location
+      %fieldset
+        .control-group
+          = f.label :description, class:"control-label",:style=>"padding-right:30px"
+          .control
+            = f.text_area :description, rows:"4"
+      .span2.offset4
+        = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"
+
+  %div{style:"display: block;clear: both;float: right;"}
+    %a.popClose.popBtn
+      Cancel

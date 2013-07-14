@@ -20,6 +20,7 @@ OneBS::Application.routes.draw do
   match "/brand", :to => "home#brand"
   match "/client_spotlight", :to => "home#client_spotlight"
   match "/faq", :to => "home#faq"
+  match "/calendar", :to => "home#calendar"
 
 
   devise_for :admins, :controllers => {
