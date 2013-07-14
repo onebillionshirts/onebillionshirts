@@ -51,6 +51,26 @@
                   Choose This
                   Charity
             / selected_btn_holder ends
+
+          .sharethis_div{style:"margin: 20px 0 20px 0;"}
+            .socialz
+              %span.st_sharethis_large{:displaytext => "ShareThis"}
+              %span.st_facebook_large{:displaytext => "Facebook"}
+              %span.st_twitter_large{:st_via => ""}
+              %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
+              %span.st_pinterest_large{:displaytext => "Pinterest"}
+              %span.st_email_large{:displaytext => "Email"}
+            .sharethis_img
+              %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
+            .sharethis_text
+              %p
+                Every share helps this charity raise more money through our charity
+                %span contests.
+            :javascript
+                  stButtons.getCount("#{charity.slug}key=#{@get_key}", "sharethis", $(".st_sharethis_hcount"));
+                  stButtons.getCount("#{charity.slug}key=#{@get_key}", "facebook", $(".st_facebook_hcount"));
+                  stButtons.getCount("#{charity.slug}key=#{@get_key}", "twitter", $(".st_twitter_hcount"));
+                  stButtons.getCount("#{charity.slug}key=#{@get_key}", "LinkedIn", $(".st_linkedin_hcount"));
           / c_list_txt ends
           .border_bot
           / border_bot ends

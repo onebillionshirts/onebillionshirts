@@ -9,12 +9,16 @@
               text: 'Top Shared Charities'
           },
           xAxis: {
-              categories: ["#{@charities.first.name}",
-                  "#{@charities.second.name}",
-                  "#{@charities.third.name}",
-                  "#{@charities.fourth.name}",
-                  "#{@charities.fifth.name}",
-                  "#{@charities.fifth.name}"
+              categories: ["#{@charities.first.name if @charities.first}",
+                  "#{@charities.second.name if @charities.second}",
+                  "#{@charities.third.name if @charities.third}",
+                  "#{@charities.fourth.name if @charities.fourth}",
+                  "#{@charities.fifth.name if @charities.fifth}",
+                  "#{@charities[6].name if @charities[6]}",
+                  "#{@charities[7].name if @charities[7]}",
+                  "#{@charities[8].name if @charities[8]}",
+                  "#{@charities[9].name if @charities[9]}",
+                  "#{@charities[10].name if @charities[10]}"
               ],
               labels: {
                   rotation: -45,
@@ -37,13 +41,13 @@
           tooltip: {
               formatter: function() {
                   return '<b>'+ this.x +'</b><br/>'+
-                          'Population in 2008: '+ Highcharts.numberFormat(this.y, 1) +
-                          ' millions';
+                          'No of shares: '+ Highcharts.numberFormat(this.y, 1) +
+                          ' ';
               }
           },
           series: [{
-              name: 'Population',
-              data: [16, 15, 14, 13, 12],
+              name: 'No of shares',
+              data: [16, 15, 14, 13, 12 , 11 , 10 , 9 , 8 , 7 ],
               dataLabels: {
                   enabled: true,
                   rotation: -90,
