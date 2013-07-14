@@ -1,0 +1,85 @@
+.slider_hold_contact
+  .slider_text
+    %h1.wid_im
+      Calculate Your
+      %span Impact
+      !
+    .row{style:"margin: 20px auto 35px auto;"}
+      Enter your charities’ total 'network' numbers and  calculate the amount
+      %br
+      of money we can raise with your influence and our concept...
+
+
+
+%div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
+  .padded{style:"width:65%;margin:0 auto"}
+    %div{:style => "clear:both;margin-top :20px"}
+      %div.move
+        .row
+          .email_img{style:"width: 15%;float:left"}
+          .tring
+            Send
+            %span #{(@email * 10).to_i}
+            emails x 10% conversion =
+            %span #{@email.to_i}
+            shirts
+        .row
+          .fb_img{style:"width: 15%;float:left"}
+          .tring
+            Post to Facebook page x 5% conversion =
+            %span #{@fb.to_i}
+            shirts
+        .row
+          .tw_img{style:"width: 15%;float:left"}
+          .tring
+            Tweet to followers x 4% conversion =
+            %span #{@tw.to_i}
+            shirts
+        .row
+          .work_img{style:"width: 15%;float:left"}
+          .tring
+            %span #{(@emp / 10 / 0.15).to_i}
+            employess tell 10 friends each x 15% conversion =
+            %span #{@emp.to_i}
+            shirts
+
+        %div{style:"font-size: 18px; width: 350px; float: right; line-height: 35px;margin-top:30px;margin-bottom: 25px;"}
+          #calculate_impact_img{style:"float: left; margin-right: 25px; margin-top: 55px;"}
+          %table{style:"border:none"}
+            %tr
+              %td{style:"width: 170px;"} Orders:
+              %td #{@total_o.to_i}
+            %tr
+              %td Avg Order:
+              %td 144 pc
+            %tr
+              %td Total Shirts:
+              %td #{@total_s.to_i}
+            %tr.order_orange
+              %td{style:"border-bottom: 2px solid #000000"}
+                %strong{style:"float:left"} Money Raised:
+              %td{style:"border-bottom: 2px solid #000000"}
+                %strong $ #{@total_m.to_i}
+
+        %div{:style => "clear:both;margin-top :20px"}
+        %p{style:"padding-bottom: 55px; border-bottom: 5px dotted #ccc; margin-bottom: 50px;"}
+          Once those #{@total_s.to_i} shirts are distributed, assuming 3% of those customers
+
+          learn about the concept and need t-shirts, that is another #{@para.to_i} shirts that are
+
+          distributed and the snowball continues to grow and charities such as yours
+
+          untap a brand new fundraising stream that will change the world!
+
+        %div{:style => "width:50%; float:left;"}
+          1. Select Your Charity:
+        %div
+          = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name"), class:"charity_id"
+        %div{:style => "width:50%; float:left;margin-top:30px"}
+          2. Spread the Word:
+        %div{:style => "clear:both;padding-top: 20px;padding-bottom: 110px;"}
+          = mail_to " (Enter Your Contacts Here)", "", class:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
+                  body:"I wanted to share this with you.<br> Help Support {Charity Name}! <br>Need custom T-shirts for your company, event, school, charity, race, etc.?<br> This company will print your shirts, save you money, and also donates a minimum of 25¢ per shirt to charity.<br>Check it out here: <br> {Charity Link}<br> ----- <br> <h2>About the company:</h2>OneBillionShirts.org is a print company dedicated to raising money and awareness for charities to help them do what they do best, help others!".html_safe
+          .fb_img{style:"width:30%;margin-left:20px;float:left;"}
+          .tw_img{style:"width:30%;margin-left:20px;float:left;"}
+

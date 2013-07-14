@@ -120,10 +120,12 @@ class HomeController < ApplicationController
     @emp = params[:emp].to_i  * 10 * 0.15
     @total_o = @email + @fb + @tw + @emp
     @total_s = @total_o * 144
-    @total_m = @total_s * 25
-    @para = @total_o * 0.3 * 144
+    @total_m = (@total_s * 25) / 100
+    @para = (@total_s * 0.03) * 144
+    @charities = Charity.all
 
-    render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para  }
+
+    #render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para.to_i  }
   end
 
 
