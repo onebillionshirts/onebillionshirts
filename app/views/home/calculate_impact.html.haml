@@ -1,3 +1,28 @@
+:javascript
+  $(document).ready(function(){
+    var val = $( ".charity_id option:selected" ).val();
+    var txt = $( ".charity_id option:selected" ).text();
+
+    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.%20Help%20Support%20"+txt+"%20%20%21%20Need%20custom%20T-shirts%20for%20your%20company%2C%20event%2C%20school%2C%20charity%2C%20race%2C%20etc.%3F%20%20This%20company%20will%20print%20your%20shirts%2C%20save%20you%20money%2C%20and%20also%20donates%20a%20minimum%20of%2025%C2%A2%20per%20shirt%20to%20charity.Check%20it%20out%20here%3A%20https://www.onebillionshirts.org/"+val+"%20About%20the%20company%3A%20OneBillionShirts.org%20is%20a%20print%20company%20dedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20what%20they%20do%20best%2C%20help%20others%21&subject=Need%20Custom%20T-shirts%3F%20Help%20Us%20Fundraise%21"
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us fund raise! Click here @ 1BillionShirts&url=http://onebillionshirts.org/"+val ;
+    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u=http://onebillionshirts.org/"+val;
+    var f_select = $("#fb_img").attr("href",fb);
+    var t_select = $("#tw_img").attr("href",tw);
+    var e_select = $("#email_img").attr("href",email);
+
+    $(".charity_id").change(function () {
+    var val = $( ".charity_id option:selected" ).val();
+    var txt = $( ".charity_id option:selected" ).text();
+
+    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.%20Help%20Support%20"+txt+"%20%20%21%20Need%20custom%20T-shirts%20for%20your%20company%2C%20event%2C%20school%2C%20charity%2C%20race%2C%20etc.%3F%20%20This%20company%20will%20print%20your%20shirts%2C%20save%20you%20money%2C%20and%20also%20donates%20a%20minimum%20of%2025%C2%A2%20per%20shirt%20to%20charity.Check%20it%20out%20here%3A%20https://www.onebillionshirts.org/"+val+"%20About%20the%20company%3A%20OneBillionShirts.org%20is%20a%20print%20company%20dedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20what%20they%20do%20best%2C%20help%20others%21&subject=Need%20Custom%20T-shirts%3F%20Help%20Us%20Fundraise%21"
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us fund raise! Click here @ 1BillionShirts&url=http://onebillionshirts.org/"+val ;
+    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fundraise!'&u=http://onebillionshirts.org/"+val;
+    var f_select = $("#fb_img").attr("href",fb);
+    var t_select = $("#tw_img").attr("href",tw);
+    var e_select = $("#email_img").attr("href",email);
+    })
+  })
+
 .slider_hold_contact
   .slider_text
     %h1.wid_im
@@ -74,12 +99,15 @@
         %div{:style => "width:50%; float:left;"}
           1. Select Your Charity:
         %div
-          = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name"), class:"charity_id"
+          = select_tag "charity_id", options_from_collection_for_select(@charities, "slug", "name"), class:"charity_id"
         %div{:style => "width:50%; float:left;margin-top:30px"}
           2. Spread the Word:
         %div{:style => "clear:both;padding-top: 20px;padding-bottom: 110px;"}
-          = mail_to " (Enter Your Contacts Here)", "", class:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
-                  body:"I wanted to share this with you.<br> Help Support {Charity Name}! <br>Need custom T-shirts for your company, event, school, charity, race, etc.?<br> This company will print your shirts, save you money, and also donates a minimum of 25¢ per shirt to charity.<br>Check it out here: <br> {Charity Link}<br> ----- <br> <h2>About the company:</h2>OneBillionShirts.org is a print company dedicated to raising money and awareness for charities to help them do what they do best, help others!".html_safe
-          .fb_img{style:"width:30%;margin-left:20px;float:left;"}
-          .tw_img{style:"width:30%;margin-left:20px;float:left;"}
+          = mail_to "Enter Your Contacts Here . . .", "", class:"email_img", id:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
+                    body:""
+          %a.fb_img#fb_img{style:"width:30%;margin-left:20px;float:left;",:href => "#",  target:"_blank"}
+          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank"}
+
+
+
 
