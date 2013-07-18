@@ -1,22 +1,24 @@
 :javascript
   $(document).ready(function(){
-    var val = $( ".charity_id option:selected" ).val();
+    var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
     var txt = $( ".charity_id option:selected" ).text();
 
-    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.%20Help%20Support%20"+txt+"%20%20%21%20Need%20custom%20T-shirts%20for%20your%20company%2C%20event%2C%20school%2C%20charity%2C%20race%2C%20etc.%3F%20%20This%20company%20will%20print%20your%20shirts%2C%20save%20you%20money%2C%20and%20also%20donates%20a%20minimum%20of%2025%C2%A2%20per%20shirt%20to%20charity.Check%20it%20out%20here%3A%20https://www.onebillionshirts.org/"+val+"%20About%20the%20company%3A%20OneBillionShirts.org%20is%20a%20print%20company%20dedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20what%20they%20do%20best%2C%20help%20others%21&subject=Need%20Custom%20T-shirts%3F%20Help%20Us%20Fundraise%21"
-    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us fund raise! Click here @ 1BillionShirts&url=http://onebillionshirts.org/"+val ;
-    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u=http://onebillionshirts.org/"+val;
+    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.Help%20Support%20"+txt+"...%0A%20Do%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%20%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20%0Acompared%20to%20your%20%0A%20last%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%20%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%20Check%20it%20out%20here:%20%0A%20"+val+"%20%0A%20About%20the%20company:%20%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20%0Adedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20%0A%20what%20they%20do%20best,%20help%20others!"
+ 
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n "+ val ;
+    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
     var f_select = $("#fb_img").attr("href",fb);
     var t_select = $("#tw_img").attr("href",tw);
     var e_select = $("#email_img").attr("href",email);
 
     $(".charity_id").change(function () {
-    var val = $( ".charity_id option:selected" ).val();
+    var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
     var txt = $( ".charity_id option:selected" ).text();
 
-    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.%20Help%20Support%20"+txt+"%20%20%21%20Need%20custom%20T-shirts%20for%20your%20company%2C%20event%2C%20school%2C%20charity%2C%20race%2C%20etc.%3F%20%20This%20company%20will%20print%20your%20shirts%2C%20save%20you%20money%2C%20and%20also%20donates%20a%20minimum%20of%2025%C2%A2%20per%20shirt%20to%20charity.Check%20it%20out%20here%3A%20https://www.onebillionshirts.org/"+val+"%20About%20the%20company%3A%20OneBillionShirts.org%20is%20a%20print%20company%20dedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20what%20they%20do%20best%2C%20help%20others%21&subject=Need%20Custom%20T-shirts%3F%20Help%20Us%20Fundraise%21"
-    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us fund raise! Click here @ 1BillionShirts&url=http://onebillionshirts.org/"+val ;
-    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fundraise!'&u=http://onebillionshirts.org/"+val;
+    var email = "mailto:Enter Your Contacts Here . . .?body=I%20wanted%20to%20share%20this%20with%20you.Help%20Support%20"+txt+"...%0A%20Do%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%20%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20%0Acompared%20to%20your%20%0A%20last%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%20%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%20Check%20it%20out%20here:%20%0A%20"+val+"%20%0A%20About%20the%20company:%20%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20%0Adedicated%20to%20raising%20money%20and%20awareness%20for%20charities%20to%20help%20them%20do%20%0A%20what%20they%20do%20best,%20help%20others!"
+
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n "+ val ;
+    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
     var f_select = $("#fb_img").attr("href",fb);
     var t_select = $("#tw_img").attr("href",tw);
     var e_select = $("#email_img").attr("href",email);
@@ -26,13 +28,9 @@
 .slider_hold_contact
   .slider_text
     %h1.wid_im
-      Calculate Your
+      Your Potential
       %span Impact
-      !
     .row{style:"margin: 20px auto 35px auto;"}
-      Enter your charities’ total 'network' numbers and  calculate the amount
-      %br
-      of money we can raise with your influence and our concept...
 
 
 
@@ -47,30 +45,30 @@
             %span #{(@email * 10).to_i}
             emails x 10% conversion =
             %span #{@email.to_i}
-            shirts
+            orders
         .row
           .fb_img{style:"width: 15%;float:left"}
           .tring
             Post to Facebook page x 5% conversion =
             %span #{@fb.to_i}
-            shirts
+            orders
         .row
           .tw_img{style:"width: 15%;float:left"}
           .tring
             Tweet to followers x 4% conversion =
             %span #{@tw.to_i}
-            shirts
+            orders
         .row
           .work_img{style:"width: 15%;float:left"}
           .tring
             %span #{(@emp / 10 / 0.15).to_i}
             employess tell 10 friends each x 15% conversion =
             %span #{@emp.to_i}
-            shirts
+            orders
 
-        %div{style:"font-size: 18px; width: 350px; float: right; line-height: 35px;margin-top:30px;margin-bottom: 25px;"}
+        %div{style:"font-size: 18px; width: 380px; float: right; line-height: 35px;margin-top:30px;margin-bottom: 25px;"}
           #calculate_impact_img{style:"float: left; margin-right: 25px; margin-top: 55px;"}
-          %table{style:"border:none"}
+          %table{style:"border:none; width: 265px"}
             %tr
               %td{style:"width: 170px;"} Orders:
               %td #{@total_o.to_i}
@@ -79,21 +77,22 @@
               %td 144 pc
             %tr
               %td Total Shirts:
-              %td #{@total_s.to_i}
+              %td #{@total_s}
             %tr.order_orange
               %td{style:"border-bottom: 2px solid #000000"}
                 %strong{style:"float:left"} Money Raised:
               %td{style:"border-bottom: 2px solid #000000"}
-                %strong $ #{@total_m.to_i}
+                %strong #{@total_m}
 
         %div{:style => "clear:both;margin-top :20px"}
         %p{style:"padding-bottom: 55px; border-bottom: 5px dotted #ccc; margin-bottom: 50px;"}
-          Once those #{@total_s.to_i} shirts are distributed, assuming 3% of those customers
-
-          learn about the concept and need t-shirts, that is another #{@para.to_i} shirts that are
-
+          Once those
+          %span{style:"color: #f18d34;display: inline;"} #{@total_s}
+          shirts are distributed, assuming 3% of those customers
+          learn about the concept and need t-shirts, that is another
+          %span{style:"color: #f18d34;display: inline;"} #{@para}
+          shirts that are
           distributed and the snowball continues to grow and charities such as yours
-
           untap a brand new fundraising stream that will change the world!
 
         %div{:style => "width:50%; float:left;"}

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+
 
   def index
     @banners = Banner.all
@@ -124,7 +126,9 @@ class HomeController < ApplicationController
     @para = (@total_s * 0.03) * 144
     @charities = Charity.all
 
-
+    @total_m = number_to_currency @total_m.to_i
+    @para = number_with_delimiter @para.to_i
+    @total_s = number_with_delimiter @total_s.to_i
     #render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para.to_i  }
   end
 
