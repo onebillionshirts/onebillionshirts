@@ -1,5 +1,7 @@
 :javascript
   $(document).ready(function(){
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
     var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
     var txt = $( ".charity_id option:selected" ).text();
     console.log(val);
@@ -108,7 +110,7 @@
           = mail_to "Enter Your Contacts Here . . .", "", class:"email_img", id:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
                     body:""
           %a.fb_img#fb_img{style:"width:30%;margin-left:20px;float:left;",:href => "#",  target:"_blank"}
-          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank"}
+          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank", "data-via"=>""}
 
 
 
