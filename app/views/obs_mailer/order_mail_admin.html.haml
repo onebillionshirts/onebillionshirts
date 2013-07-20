@@ -34,7 +34,7 @@
 .details-info-holder
   %label Shirt Style
   .details-info
-    = link_to @order.style.name, admins_style_path(@order.style)
+    = @order.style.name
 .details-info-holder
   %label Category
   .details-info
@@ -60,12 +60,11 @@
   .details-info-holder
     %label Front Art Work
     .details-info
-      = link_to "Download File", @order.front_art.url, class:"btn btn-primary", target: "_blank"
+      =@order.front_art
   .details-info-holder
     %label Back Art Work
   .details-info
-    = link_to "Download File", @order.back_art.url, class: "btn btn-primary", target: "_blank"
+    = @order.back_art.url
 -else
   .details-info-holder{style:"height: 30px;"}
     %label Will Submit Artwork Later
-= link_to 'Delete Order', admins_order_path(@order), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"

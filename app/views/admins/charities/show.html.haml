@@ -50,18 +50,31 @@
   %label Facebook Page
   .details-info
     = @charity.facebook_page
-.details-info-holder
+.details-info-holder{style:"height:30px"}
   %label Is Featured ?
   .details-info
     = @charity.is_featured
-.details-info-holder
+.details-info-holder{style:"height:30px"}
   %label Is Top 10 ?
   .details-info
     = @charity.is_top_ten
-.details-info-holder
+.details-info-holder{style:"height:30px"}
   %label Is Default ?
   .details-info
     = @charity.is_default
+-unless @charity.approved?
+  .details-info-holder{style:"height:30px"}
+    %label Suggester Name
+    .details-info
+      = @charity.your_name
+  .details-info-holder{style:"height:30px"}
+    %label Suggester Phone
+    .details-info
+      = @charity.your_phone
+  .details-info-holder{style:"height:30px"}
+    %label Suggester Email
+    .details-info
+      = @charity.your_email
 .images-holder
   %h2 Images
   - if @charity.logo.present?

@@ -31,12 +31,12 @@
         %p Boston MA, 02108
       / cnt_lft ends
       .cnt_rit
-        %p (617) 276-2295
+        %p (800) 489-2605
         %p info@onebillionshirts.org
       / cnt_rit ends
     / cnt_lft_rit ends
     = form_tag "/home/send_email" do
-      #errors
+      #errors{style:"color:red; font-weight:bold"}
       .cnt_field_lft_rit
         .cnt_field_lft
           .cnt_inputs
@@ -80,14 +80,28 @@
 :javascript
   $("#send").click(function () {
       var form = $(this).closest('form');
-      $.post(form.attr("action"), form.serialize(), function (response) {
-          if (response.success) {
-              window.location.href = '/home/thank_you';
-          } else {
-              $("#errors").html(response.html);
-          }
-      }, "json");
-      return false;
+      msg = "";
+      var name = $("#name");
+      var email = $("#email");
+      var inquiry = $("#inquiry");
+      if (name.val() == "") {msg = "Please enter your name <br>"}
+      if (email.val() == "") {msg += "Please enter the email address<br>"}
+      if (inquiry.val() == "") {msg += "Please enter any Inquiry <br>"}
+      if (msg == "")
+      {
+        $.post(form.attr("action"), form.serialize(), function (response) {
+            if (response.success) {
+                window.location.href = '/home/thank_you';
+
+            } else {
+                $("#errors").html(response.html);
+            }
+        }, "json");
+        return false;
+      }
+      else{
+        $("#errors").html(msg);
+      }
   });
 
   $(".mark").hover(function () {

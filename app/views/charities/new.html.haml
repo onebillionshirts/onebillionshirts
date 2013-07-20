@@ -71,6 +71,18 @@
           = f.text_field :facebook_page
         / c_input ends
         .c_input
+          %label Your Name
+          = f.text_field :your_name
+        / c_input ends
+        .c_input
+          %label Your Phone:
+          = f.text_field :your_phone
+        / c_input ends
+        .c_input
+          %label Your email:
+          = f.text_field :your_email
+        / c_input ends
+        .c_input
           %label Add Logo (ideal: 250px x 250px)
           - f.object.logo ||= Logo.new
           = f.fields_for :logo do |logo|

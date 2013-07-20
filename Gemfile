@@ -47,3 +47,5 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem "friendly_id", "~> 4.0.9"
+
+gem "letter_opener", :group => :development

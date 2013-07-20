@@ -22,6 +22,10 @@ class HomeController < ApplicationController
     @client_spotlights = ClientSpotlight.all
   end
 
+  def client_slight
+    @client_spotlights = ClientSpotlight.find(params[:id])
+  end
+
 
   def how_it_works
     @page_content = Page.find_by_page_name('how_it_works').page_content
@@ -45,10 +49,12 @@ class HomeController < ApplicationController
       render :json => {:success => true}.to_json
     else
       @errors = []
-      @errors << "Please enter the correct answer." if !params[:answer].present? || !params[:answer] == "8"
-      @errors << "Please enter the email address." if !params[:email].present?
-      @errors << "Please enter the valid email address." if !params[:email].match(/\A[^@]+@[^@]+\z/)
-      render :json => {:success => false, :html => render_to_string(:partial => "/orders/form_errors")}.to_json
+      @errors << "Please enter the correct answer.<br>" if !params[:answer].present? || !params[:answer] == "8"
+      @errors << "Please enter the email address.<br>" if !params[:email].present?
+      @errors << "Please enter the valid email address.<br>" if !params[:email].match(/\A[^@]+@[^@]+\z/)
+      @errors << "Please enter the name.<br>" if !params[:name].present?
+      @errors << "Please enter the any inquiry." if !params[:inquiry].present?
+      render :json => {:success => false, html: @errors}.to_json
     end
   end
 
