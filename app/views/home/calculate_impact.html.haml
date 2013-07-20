@@ -1,14 +1,12 @@
 :javascript
   $(document).ready(function(){
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
     var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
     var txt = $( ".charity_id option:selected" ).text();
     console.log(val);
 
     var email = "mailto:Enter Your Contacts Here . . .?body=Hello,%0A%0AI%20wanted%20to%20share%20this%20with%20you.%0A%0AHelp%20support%20"+txt+"...%0A%0ADo%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%0A%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20compared%20to%20your%0Alast%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%0ACheck%20it%20out%20here:%0A%20"+val+"%20%0A%0A%0AAbout%20the%20company:%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20dedicated%20to%0Araising%20money%20and%20awareness%20for%0Acharities%20to%20help%20them%20do%20what%20they%20do%0Abest,%20help%20others!%0A%0A%20"+val;
 
-    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n"+val ;
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n&url="+val;
     var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
     var f_select = $("#fb_img").attr("href",fb);
     var t_select = $("#tw_img").attr("href",tw);
@@ -21,7 +19,7 @@
 
       var email = "mailto:Enter Your Contacts Here . . .?body=Hello,%0A%0AI%20wanted%20to%20share%20this%20with%20you.%0A%0AHelp%20support%20"+txt+"...%0A%0ADo%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%0A%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20compared%20to%20your%0Alast%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%0ACheck%20it%20out%20here:%0A%20"+val+"%20%0A%0A%0AAbout%20the%20company:%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20dedicated%20to%0Araising%20money%20and%20awareness%20for%0Acharities%20to%20help%20them%20do%20what%20they%20do%0Abest,%20help%20others!%0A%0A%20"+val;
 
-      var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n "+ val ;
+      var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n &url="+val;
       var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
 
       var f_select = $("#fb_img").attr("href",fb);
@@ -110,7 +108,7 @@
           = mail_to "Enter Your Contacts Here . . .", "", class:"email_img", id:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
                     body:""
           %a.fb_img#fb_img{style:"width:30%;margin-left:20px;float:left;",:href => "#",  target:"_blank"}
-          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank", "data-via"=>""}
+          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank"}
 
 
 
