@@ -45,26 +45,30 @@
           .email_img{style:"width: 15%;float:left"}
           .tring
             Send
-            %span #{(@email * 10).to_i}
+            %span #{(params[:email]).to_i}
             emails x 10% conversion =
             %span #{@email.to_i}
             orders
         .row
           .fb_img{style:"width: 15%;float:left"}
           .tring
-            Post to Facebook page x 5% conversion =
+            Post
+            %span #{(params[:fb]).to_i}
+            to Facebook page x 5% conversion =
             %span #{@fb.to_i}
             orders
         .row
           .tw_img{style:"width: 15%;float:left"}
           .tring
-            Tweet to followers x 4% conversion =
+            Tweet
+            %span #{(params[:twitter]).to_i}
+            to followers x 4% conversion =
             %span #{@tw.to_i}
             orders
         .row
           .work_img{style:"width: 15%;float:left"}
           .tring
-            %span #{(@emp / 10 / 0.15).to_i}
+            %span #{(params[:emp]).to_i}
             employess tell 10 friends each x 15% conversion =
             %span #{@emp.to_i}
             orders

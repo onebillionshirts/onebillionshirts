@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   include ActionView::Helpers::NumberHelper
 
-
   def index
     @banners = Banner.all
     @charities = Charity.featured
@@ -127,9 +126,9 @@ class HomeController < ApplicationController
     @tw = params[:twitter].to_i * 0.04
     @emp = params[:emp].to_i  * 10 * 0.15
     @total_o = @email + @fb + @tw + @emp
-    @total_s = @total_o * 144
-    @total_m = (@total_s * 25) / 100
-    @para = (@total_s * 0.03) * 144
+    @total_s = @total_o.to_i * 144
+    @total_m = (@total_s.to_i * 25) / 100
+    @para = (@total_s.to_i * 0.03) * 144
     @charities = Charity.all
 
     @total_m = number_to_currency @total_m.to_i
