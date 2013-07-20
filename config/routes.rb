@@ -19,6 +19,7 @@ OneBS::Application.routes.draw do
   match "/share_contest", :to => "home#share_contest"
   match "/brand", :to => "home#brand"
   match "/client_spotlight", :to => "home#client_spotlight"
+  match "/client_slight", :to => "home#client_slight"
   match "/faq", :to => "home#faq"
 
 

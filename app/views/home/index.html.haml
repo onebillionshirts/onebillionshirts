@@ -24,10 +24,11 @@
       My mission is to turn every t-shirt into a donation
       %br
       and every customer into a philanthropist!”
-    .testi
+    .testi{style:"height: 86px;"}
       %img{src:"/assets/testimonial-person-thumb.png"}
-      %h4
-        Albion Calaj, CEO
+      %div{style:"line-height: 44px;"}
+        %h4 Albion Calaj, CEO
+        %a{href:"/our_story", style:"font-style: normal;margin-right: 35px; color: rgb(0, 133, 255); cursor: pointer;text-decoration: underline"} Read our story
   / our_idea ends
 / wrapper ends
 .wrapper
@@ -87,7 +88,7 @@
                 =truncate_html(char.description, length: 340).html_safe
             .col{style:"width:30%"}
               -unless char.client_spotlight_images.first.blank?
-                =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"), ""
+                =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{char.id}"
 
   / our_idea ends
 / wrapper ends
