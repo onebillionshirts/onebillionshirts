@@ -105,6 +105,8 @@ OneBS::Application.routes.draw do
     end
   end
 
+  resource :events
+
   resources :charities do
     collection do
       get :get_charities, :sort_charities, :details, :request_quote, :image_form, :suggest_charity, :go_to_charity, :count_share

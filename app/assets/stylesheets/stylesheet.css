@@ -4288,23 +4288,13 @@ div.all:hover{
   padding:0;
 }
 
-.calendar {
-    width: 850px;
-    margin-top: 30px;
-}
-.calendar td {
-    height: 100px;
-    width: 14.28%;
-    text-align: center;
-}
-
 input.green{
     font-size: 14px;
     color: #000;
     width: 204px;
     height: 48px;
     float: left;
-    background-color: #aeff00;
+    border: 1px solid #ccc;
     padding-left: 10px;
     margin-left: 38px;
 }
@@ -4330,22 +4320,4 @@ input.green{
     padding: 9px 8px 9px 30px;
     width: 131px;
     float: right;
-}
-
-.previous-month{
-    background: url("/assets/arrow-left.png") no-repeat;
-    width: 20px;
-    height: 24px;
-    float: left;
-
-}
-.next-month{
-    background: url("/assets/arrow-right.png") no-repeat;
-    width: 20px;
-    height: 24px;
-    float: right;
-}
-
-.cal h2{
-    text-align: center;
 }

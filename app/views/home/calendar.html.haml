@@ -1,10 +1,218 @@
+:css
+  .final_form input[type='text']{
+      border: 1px solid #ccc;
+      width: 410px;
+      height: 30px;
+      font-size: 18px;
+      padding: 4px;
+      margin:10px;
+    }
+
+  .final_form textarea {
+    border: 1px solid #ccc;
+    font-size: 18px;
+    padding: 4px;
+    margin: 10px;
+    width: 409px;
+  }
+
+  .final_form label{
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    display: block;
+    width: 130px;
+    text-align: left;
+  }
+
+  .final_form .place {
+    clear: both;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-left: 135px;
+    margin-right: 135px;
+    border: 1px solid;
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    line-height: 40px;
+    background-color: orange;
+    color: white;
+  }
+
+
+  .calendar {
+      width: 670px;
+      background-color: #EBEBEB;
+  }
+  .calendar td {
+      height: 100px;
+      width: 14.28%;
+      text-align: center;
+  }
+
+  .day_cal{
+    background-color:#F2F2F2;
+    height: 604px;
+    width: 282px;
+    float: right;
+  }
+
+  .selected_day {
+    text-align: center;
+    text-align: center;
+    background-color: rgba(182, 183, 184, 0.62);
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: white
+  }
+
+  .this_date {
+    text-align: center;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: #2D88BF
+  }
+
+  .this_month {
+    text-align: center;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    color: #8C8B8B;
+    border-bottom: 2px #DDDEDE solid;
+  }
+
+  .inline{
+    margin-top: 200px;
+    margin-bottom: 50px;
+    border: 4px #86A8B6 solid;
+    border-radius: 12px;
+  }
+
+  .cal{
+    width: 670px;
+  }
+
+  .cal h2{
+      text-align: center;
+      background-color: #B6B7B8;
+      text-align: center;
+      background-color: rgba(182, 183, 184, 0.62);
+      padding-top: 14px;
+      padding-bottom: 10px;
+  }
+
+
+  .previous-month{
+      background: url("/assets/arrow-left.png") no-repeat;
+      width: 20px;
+      height: 24px;
+      float: left;
+      margin-top: 5px;
+      margin-left: 85px;
+  }
+  .next-month{
+      background: url("/assets/arrow-right.png") no-repeat;
+      width: 20px;
+      height: 24px;
+      float: right;
+      margin-top: 5px;
+      margin-right: 85px;
+  }
+
+  .day_cal li{
+    background: url("/assets/calender.png") no-repeat ;
+    line-height: 40px;
+    padding-left: 46px;
+    background-position-y: 10px;
+    cursor: pointer;
+  }
+
+  .day_cal a{
+    font-size: 24px;
+  }
+
+  .day_cal ul{
+    margin-left: 15px;
+  }
+
+  .inline .show_div{
+    padding: 20px 30px 10px 40px;
+    font-weight: bold;
+    float: left;
+  }
+
+  .inline .detail{
+    padding: 20px 30px 10px 40px;
+  }
+
+
+
 :javascript
   $(document).ready(function(){
     $(".add_event").click(function(){
       $("#new_event").bPopup({closeClass: "popClose"});
       return false;
      });
-   });
+
+    $( "#event_start_time" ).datepicker();
+    $( "#event_start_time" ).datepicker( "option", "dateFormat", "yy/mm/dd" );
+
+
+    selected_day = $(".today").children().children(".day_number").html();
+    selected_month= $(".cal h2").text() ;
+    $(".today").css("background-color","#37ACD5;")
+    $(".today").children().children(".hide_event").each(function( ) {
+      var a = $(this).children("a")[0].outerHTML;
+      $("#event_list").append("<li> " + a + "</li>");
+      console.log( a );
+    });
+    $(".this_date").html( selected_day );
+    $(".this_month").html( selected_month );
+
+    var preload_event = $(".event_detail");
+    $(".e_name").html( preload_event.data("name") ) ;
+    $(".e_description").html( preload_event.data("description") ) ;
+    $(".e_date").html( preload_event.data("startTime") ) ;
+    $(".e_time").html( preload_event.data("time") ) ;
+    $(".e_website").html( preload_event.data("website") ) ;
+    $(".e_location").html( preload_event.data("location") ) ;
+
+    $(".day").on("click", function()
+    {
+      $(".day").css("background-color","#EBEBEB;")
+
+      $("#event_list").empty();
+      var that = $(this)
+      that.css("background-color","#37ACD5;")
+      selected_day = $(that).children().children(".day_number").html();
+
+      $(".this_date").html( selected_day );
+          $(that).children().children(".hide_event").each(function( ) {
+            var a = $(this).children("a")[0].outerHTML;
+            $("#event_list").append("<li> " + a + "</li>");
+            console.log( a );
+
+            $(".event_detail").on("click", function(){
+               console.log("singe event clicked", $(this) );
+               var preload_event = $(this);
+               $(".e_name").html( preload_event.data("name") ) ;
+               $(".e_description").html( preload_event.data("description") ) ;
+               $(".e_date").html( preload_event.data("startTime") ) ;
+               $(".e_time").html( preload_event.data("time") ) ;
+               $(".e_website").html( preload_event.data("website") ) ;
+               $(".e_location").html( preload_event.data("location") ) ;
+            })
+       });
+
+    })
+
+  });
+
 
 .slider_hold{:style => "height:auto;"}
   .slider_text
@@ -12,7 +220,7 @@
       Event Schedule
 
 
-.wrapper
+.wrapper{setyle:"width: 1100px;"}
   .img_det_txt
     .abt_list.m_top_75
       %h1
@@ -24,59 +232,56 @@
         %a.cal_submit{href: "#"}
           SUBMIT
 
+  .inline
+    .day_cal
+      %h2.selected_day Selected Day
+      %h1.this_date Today
+      %h2.this_month Month
+      %ul#event_list
+
     .cal
       = calendar @events do |event|
-        = link_to event.name, "", class:"jp"
+        .hide_event{style:"display:none"}
+          = link_to event.name, "#", class:"event_detail",  data:{name: event.name, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
+
+  .inline{style:"height:300px; margin-top:0; background-color: #EBEBEB;"}
+    %table
+      %tr
+        %td.show_div Name:
+        %td.detail.e_name
+      %tr
+        %td.show_div Date:
+        %td.detail.e_date
+      %tr
+        %td.show_div Time:
+        %td.detail.e_time
+      %tr
+        %td.show_div Website:
+        %td.detail.e_website
+      %tr
+      %td.show_div Location:
+      %td.detail.e_location
+      %tr
+        %td.show_div Description:
+        %td.detail.e_description
 
 
 
 
 
-%div#new_event{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:800px;height:auto;display:none;"}
+%div#new_event{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:440px;height:auto;display:none;"}
   %h2
-    Add New Event
-    = form_for(@event, :url => '', :html=>{class:"form form-horizontal"}) do |f|
-      - if @event.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@event.errors.count, "error")
-            prohibited this event from being saved:
-          %ul
-            - @event.errors.full_messages.each do |msg|
-              %li= msg
-      %fieldset
-        .control-group
-          = f.label :name, class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_field :name
-      %fieldset
-        .control-group
-          = f.label "Date", class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_field :start_time
-      %fieldset
-        .control-group
-          = f.label :time, class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_field :time
-      %fieldset
-        .control-group
-          = f.label :website, class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_field :website
-      %fieldset
-        .control-group
-          = f.label :location, class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_field :location
-      %fieldset
-        .control-group
-          = f.label :description, class:"control-label",:style=>"padding-right:30px"
-          .control
-            = f.text_area :description, rows:"4"
-      .span2.offset4
-        = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"
-
-  %div{style:"display: block;clear: both;float: right;"}
-    %a.popClose.popBtn
-      Cancel
+    = form_for(@event, :url => events_path, :method => "post", :html=>{class:"form form-horizontal final_form"}) do |f|
+      =label_tag "Name"
+      =text_field_tag "event[name]"
+      =label_tag "Date"
+      =text_field_tag "event[start_time]"
+      =label_tag "Time"
+      =text_field_tag "event[time]"
+      =label_tag "Website"
+      =text_field_tag 'event[website]'
+      =label_tag "Location"
+      =text_field_tag "event[location]"
+      =label_tag "Description"
+      =text_area_tag "event[description]",'', rows:"4"
+      =f.submit "Save", :class => "place"
