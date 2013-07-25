@@ -67,6 +67,7 @@ class CharitiesController < ApplicationController
       flash[:notice] = 'Charity was successfully created.'
       redirect_to charities_url
     else
+      flash[:notice] = 'Charity not created.'
       @charity_categories = CharityCategory.all
       render :action => :new
     end

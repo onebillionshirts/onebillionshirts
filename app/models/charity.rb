@@ -1,6 +1,8 @@
 class Charity < ActiveRecord::Base
   attr_accessible :name, :address, :city, :state, :zip, :website, :tax_id, :mission_statement, :is_default, :twitter_id, :facebook_page,
-                  :description, :video_url, :charity_category_id, :pictures_attributes, :logo_attributes, :is_featured, :is_top_ten
+                  :description, :video_url, :charity_category_id, :pictures_attributes, :logo_attributes, :is_featured, :is_top_ten,
+                  :your_name, :your_email, :your_phone
+
 
 
   validates :name, :presence => true

@@ -15,4 +15,9 @@ class ObsMailer < ActionMailer::Base
     mail(:to => order.client.email, :subject => "Successful Order Submission - OneBillionShirts.org")
   end
 
+  def order_mail_admin(order)
+    @order = order
+    mail(:to => "info@onebillionshirts.org", :subject => "NEW ORDER - OneBillionShirts.org")
+  end
+
 end

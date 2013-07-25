@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include ActionView::Helpers::NumberHelper
 
   def index
     @banners = Banner.all
@@ -18,6 +19,10 @@ class HomeController < ApplicationController
 
   def client_spotlight
     @client_spotlights = ClientSpotlight.all
+  end
+
+  def client_slight
+    @client_spotlights = ClientSpotlight.find(params[:id])
   end
 
 
@@ -43,10 +48,12 @@ class HomeController < ApplicationController
       render :json => {:success => true}.to_json
     else
       @errors = []
-      @errors << "Please enter the correct answer." if !params[:answer].present? || !params[:answer] == "8"
-      @errors << "Please enter the email address." if !params[:email].present?
-      @errors << "Please enter the valid email address." if !params[:email].match(/\A[^@]+@[^@]+\z/)
-      render :json => {:success => false, :html => render_to_string(:partial => "/orders/form_errors")}.to_json
+      @errors << "Please enter the correct answer.<br>" if !params[:answer].present? || !params[:answer] == "8"
+      @errors << "Please enter the email address.<br>" if !params[:email].present?
+      @errors << "Please enter the valid email address.<br>" if !params[:email].match(/\A[^@]+@[^@]+\z/)
+      @errors << "Please enter the name.<br>" if !params[:name].present?
+      @errors << "Please enter the any inquiry." if !params[:inquiry].present?
+      render :json => {:success => false, html: @errors}.to_json
     end
   end
 
@@ -108,10 +115,34 @@ class HomeController < ApplicationController
     render :partial => "home/category_questions", :locals => {:questions_category => @question_category}
   end
 
-  def calendar
+   def calendar
     @events = Event.all
     @event =  Event.new
   end
+
+
+  def impact
+
+  end
+
+  def calculate_impact
+    @email = params[:email].to_i * 0.1
+    @fb = params[:fb].to_i * 0.05
+    @tw = params[:twitter].to_i * 0.04
+    @emp = params[:emp].to_i  * 10 * 0.15
+    @total_o = @email + @fb + @tw + @emp
+    @total_s = @total_o.to_i * 144
+    @total_m = (@total_s.to_i * 25) / 100
+    @para = (@total_s.to_i * 0.03) * 144
+    @charities = Charity.all
+
+    @total_m = number_to_currency @total_m.to_i
+    @para = number_with_delimiter @para.to_i
+    @total_s = number_with_delimiter @total_s.to_i
+    #render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para.to_i  }
+  end
+
+
 
   private
   def get_default_charity
@@ -124,5 +155,6 @@ class HomeController < ApplicationController
   def thank_you
 
   end
+
 
 end

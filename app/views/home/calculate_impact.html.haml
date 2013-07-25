@@ -1,0 +1,119 @@
+:javascript
+  $(document).ready(function(){
+    var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
+    var txt = $( ".charity_id option:selected" ).text();
+    console.log(val);
+
+    var email = "mailto:Enter Your Contacts Here . . .?body=Hello,%0A%0AI%20wanted%20to%20share%20this%20with%20you.%0A%0AHelp%20support%20"+txt+"...%0A%0ADo%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%0A%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20compared%20to%20your%0Alast%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%0ACheck%20it%20out%20here:%0A%20"+val+"%20%0A%0A%0AAbout%20the%20company:%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20dedicated%20to%0Araising%20money%20and%20awareness%20for%0Acharities%20to%20help%20them%20do%20what%20they%20do%0Abest,%20help%20others!%0A%0A%20"+val;
+
+    var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n&url="+val;
+    var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
+    var f_select = $("#fb_img").attr("href",fb);
+    var t_select = $("#tw_img").attr("href",tw);
+    var e_select = $("#email_img").attr("href",email);
+
+    $(".charity_id").change(function () {
+      var val = "http://onebillionshirts.org/" + $( ".charity_id option:selected" ).val();
+      var txt = $( ".charity_id option:selected" ).text();
+      console.log(val);
+
+      var email = "mailto:Enter Your Contacts Here . . .?body=Hello,%0A%0AI%20wanted%20to%20share%20this%20with%20you.%0A%0AHelp%20support%20"+txt+"...%0A%0ADo%20you%20need%20custom%20T-shirts%20for%20your%20company,%20event,%20school,%20charity,%0Arace,%20etc.?%0A%0AWith%20their%20Save%20n%20Share%E2%84%A2%20concept%20you%20can%20save%20money%20compared%20to%20your%0Alast%20order%20and%20also%20leverage%20your%20order%20as%20they%20will%20donate%20a%20minimum%0Aof%2025%C2%A2%20per%20shirt%20to%20a%20charity%20of%20your%20choice.%0A%0ACheck%20it%20out%20here:%0A%20"+val+"%20%0A%0A%0AAbout%20the%20company:%0AOneBillionShirts.org%20is%20a%20innovative%20print%20company%20dedicated%20to%0Araising%20money%20and%20awareness%20for%0Acharities%20to%20help%20them%20do%20what%20they%20do%0Abest,%20help%20others!%0A%0A%20"+val;
+
+      var tw = "https://twitter.com/share?text=Need custom t-shirts? Save money on your order and help us \nfund raise with @1BillionShirts -\n &url="+val;
+      var fb = "https://www.facebook.com/sharer/sharer.php?t='Need custom t-shirts? Save money on your order and help us fund raise!'&u="+val;
+
+      var f_select = $("#fb_img").attr("href",fb);
+      var t_select = $("#tw_img").attr("href",tw);
+      var e_select = $("#email_img").attr("href",email);
+    })
+  })
+
+.slider_hold_contact
+  .slider_text
+    %h1.wid_im
+      Your Potential
+      %span Impact
+    .row{style:"margin: 20px auto 35px auto;"}
+
+
+
+%div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
+  .padded{style:"width:65%;margin:0 auto"}
+    %div{:style => "clear:both;margin-top :20px"}
+      %div.move
+        .row
+          .email_img{style:"width: 15%;float:left"}
+          .tring
+            Send
+            %span #{(params[:email]).to_i}
+            emails x 10% conversion =
+            %span #{@email.to_i}
+            orders
+        .row
+          .fb_img{style:"width: 15%;float:left"}
+          .tring
+            Post
+            %span #{(params[:fb]).to_i}
+            to Facebook page x 5% conversion =
+            %span #{@fb.to_i}
+            orders
+        .row
+          .tw_img{style:"width: 15%;float:left"}
+          .tring
+            Tweet
+            %span #{(params[:twitter]).to_i}
+            to followers x 4% conversion =
+            %span #{@tw.to_i}
+            orders
+        .row
+          .work_img{style:"width: 15%;float:left"}
+          .tring
+            %span #{(params[:emp]).to_i}
+            employess tell 10 friends each x 15% conversion =
+            %span #{@emp.to_i}
+            orders
+
+        %div{style:"font-size: 18px; width: 380px; float: right; line-height: 35px;margin-top:30px;margin-bottom: 25px;"}
+          #calculate_impact_img{style:"float: left; margin-right: 25px; margin-top: 55px;"}
+          %table{style:"border:none; width: 265px"}
+            %tr
+              %td{style:"width: 170px;"} Orders:
+              %td #{@total_o.to_i}
+            %tr
+              %td Avg Order:
+              %td 144 pc
+            %tr
+              %td Total Shirts:
+              %td #{@total_s}
+            %tr.order_orange
+              %td{style:"border-bottom: 2px solid #000000"}
+                %strong{style:"float:left"} Money Raised:
+              %td{style:"border-bottom: 2px solid #000000"}
+                %strong #{@total_m}
+
+        %div{:style => "clear:both;margin-top :20px"}
+        %p{style:"padding-bottom: 55px; border-bottom: 5px dotted #ccc; margin-bottom: 50px;"}
+          Once those
+          %span{style:"color: #f18d34;display: inline;"} #{@total_s}
+          shirts are distributed, assuming 3% of those customers
+          learn about the concept and need t-shirts, that is another
+          %span{style:"color: #f18d34;display: inline;"} #{@para}
+          shirts that are
+          distributed and the snowball continues to grow and charities such as yours
+          untap a brand new fundraising stream that will change the world!
+
+        %div{:style => "width:50%; float:left;"}
+          1. Select Your Charity:
+        %div
+          = select_tag "charity_id", options_from_collection_for_select(@charities, "slug", "name"), class:"charity_id"
+        %div{:style => "width:50%; float:left;margin-top:30px"}
+          2. Spread the Word:
+        %div{:style => "clear:both;padding-top: 20px;padding-bottom: 110px;"}
+          = mail_to "Enter Your Contacts Here . . .", "", class:"email_img", id:"email_img", style:"width:30%;margin-left:20px;float:left;", :subject => "Need Custom T-shirts? Help Us Fundraise!",
+                    body:""
+          %a.fb_img#fb_img{style:"width:30%;margin-left:20px;float:left;",:href => "#",  target:"_blank"}
+          %a.tw_img#tw_img{style:"width:30%;margin-left:20px;float:left;", href:"", target:"_blank"}
+
+
+
+
