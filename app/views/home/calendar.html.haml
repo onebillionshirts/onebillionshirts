@@ -58,6 +58,7 @@
     height: 603px;
     width: 282px;
     float: right;
+    position: relative;
   }
 
   .selected_day {
@@ -127,13 +128,13 @@
   .day_cal li{
     background: url("/assets/calender.png") no-repeat ;
     line-height: 40px;
-    padding-left: 46px;
-    background-position-y: 10px;
+    padding-left: 28px;
+    background-position-y: 14px;
     cursor: pointer;
   }
 
   .day_cal a{
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .day_cal ul{
@@ -150,6 +151,39 @@
     padding: 20px 30px 10px 40px;
   }
 
+  .day_number{
+    font-size: 26px;
+  }
+
+  .not-current-month{
+    color: grey;
+  }
+
+  .event_detail{
+    display: inline-block;
+    width: 112px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+
+  .show_more{
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+    font-size: 18px;
+    color: gray;
+    background: url("/assets/arrow-right.png") no-repeat ;
+    cursor: pointer;
+    background-position-x: 115px;
+    cursor: pointer;
+    width: 140px;
+  }
+
+  #event_list{
+    max-height: 293px;
+    overflow: hidden;
+  }
 
 
 :javascript
@@ -163,9 +197,11 @@
     $( "#event_start_time" ).datepicker( "option", "dateFormat", "yy/mm/dd" );
 
 
+    $(".hide_event").parents('td').css("background-color", "#F1F1F1");
+
     selected_day = $(".today").children().children(".day_number").html();
     selected_month= $(".cal h2").text() ;
-    $(".today").css("background-color","#37ACD5;")
+    $(".today").css("background-color","#37ACD5;");
     $(".today").children().children(".hide_event").each(function( ) {
       var a = $(this).children("a")[0].outerHTML;
       $("#event_list").append("<li> " + a + "</li>");
@@ -175,6 +211,9 @@
     $(".this_month").html( selected_month );
 
     var preload_event = $(".event_detail");
+    var id = preload_event.attr("href");
+    id = id.substr(1);
+    $(".e_name").attr("id",id);
     $(".e_name").html( preload_event.data("name") ) ;
     $(".e_description").html( preload_event.data("description") ) ;
     $(".e_date").html( preload_event.data("startTime") ) ;
@@ -183,17 +222,50 @@
     $(".e_website").attr("href", preload_event.data("website") ) ;
     $(".e_location").html( preload_event.data("location") ) ;
 
+    $(".event_detail").on("click", function(){
+       console.log("singe event clicked", $(this) );
+       var preload_event = $(this);
+       var id = preload_event.attr("href");
+       id = id.substr(1);
+       $(".e_name").attr("id",id);
+       $(".e_name").html( preload_event.data("name") ) ;
+       $(".e_description").html( preload_event.data("description") ) ;
+       $(".e_date").html( preload_event.data("startTime") ) ;
+       $(".e_time").html( preload_event.data("time") ) ;
+       $(".e_website").html( preload_event.data("website") ) ;
+       $(".e_website").attr("href", preload_event.data("website") ) ;
+       $(".e_location").html( preload_event.data("location") ) ;
+    })
+
+
+
+    //show more logic
+    console.log('$("#event_list").children("li").length', $("#event_list").children("li").length );
+    if( $("#event_list").children("li").length > 7 ){
+      $(".show_more").css("display","inline");
+    }else{
+      $(".show_more").css("display","none");
+      $("#event_list").css("overflow-y","none");
+    }
+
+
+    //for days click
     $(".day").on("click", function()
     {
-      $(".day").css("background-color","#EBEBEB;")
 
+      //days having events background color light grey
+      $(".day").css("background-color","#EBEBEB;");
+      $(".hide_event").parents('td').css("background-color", "#F1F1F1");
+
+      //empty previous list and set selected day bg
       $("#event_list").empty();
       var that = $(this)
       that.css("background-color","#37ACD5;")
       selected_day = $(that).children().children(".day_number").html();
-
       $(".this_date").html( selected_day );
-          $(that).children().children(".hide_event").each(function( ) {
+
+      //get events for selected day and add trigggers
+      $(that).children().children(".hide_event").each(function( ) {
             var a = $(this).children("a")[0].outerHTML;
             $("#event_list").append("<li> " + a + "</li>");
             console.log( a );
@@ -201,6 +273,9 @@
             $(".event_detail").on("click", function(){
                console.log("singe event clicked", $(this) );
                var preload_event = $(this);
+               var id = preload_event.attr("href");
+               id = id.substr(1);
+               $(".e_name").attr("id",id);
                $(".e_name").html( preload_event.data("name") ) ;
                $(".e_description").html( preload_event.data("description") ) ;
                $(".e_date").html( preload_event.data("startTime") ) ;
@@ -211,8 +286,22 @@
             })
        });
 
-    })
+      //show more logic
+        $("#event_list").css("overflow-y","hidden");
 
+      console.log('$("#event_list").children("li").length', $("#event_list").children("li").length );
+      if( $("#event_list").children("li").length > 7 ){
+        $(".show_more").css("display","inline");
+      }else{
+        $(".show_more").css("display","none");
+        $("#event_list").css("overflow-y","none");
+      }
+
+    }) ;
+
+    $(".show_more").on("click", function(){
+        $("#event_list").css("overflow-y","scroll");
+    })
   });
 
 
@@ -222,33 +311,33 @@
       Event Schedule
 
 
-.wrapper{setyle:"width: 1100px;"}
-  .img_det_txt
+.wrapper
+  .img_det_txt{style:"width: 100%;"}
     .abt_list.m_top_75
       = form_for(@sub, :url => subscribers_events_path, :method => "post") do |f|
         %h1{style:"color:black;"}
           Stay up to date...
           %br
-          = text_field_tag 'event_subscriber[email]' , '', class:"green", placeholder:"email ..."
+          = text_field_tag 'event_subscriber[email]' , '', class:"green", placeholder:"email ...", style:"margin-left: 0;"
           = text_field_tag "event_subscriber[zip]" , '',class:"green", placeholder:"zip code .. "
-          %i.icon-pencil
           %a.add_event{href: "#"}
             + ADD EVENT
-          = f.submit "Save", class:"cal_submit"
+          = f.submit "Save", class:"cal_submit", style:"margin-right: 200px;"
 
   .inline
     .day_cal
       %h2.selected_day Selected Day
-      %h1.this_date Today
+      %h1.this_date 1
       %h2.this_month Month
       %ul#event_list
+      %span.show_more{style:"display:none"} More Events
 
     .cal
       = calendar @events do |event|
         .hide_event{style:"display:none"}
-          = link_to event.name, "#", class:"event_detail",  data:{name: event.name, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
+          = link_to event.name, "#jump"+event.id.to_s , class:"event_detail",  data:{name: event.name, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
 
-  .inline{style:"height:300px; margin-top:0; background-color: #EBEBEB;"}
+  .inline{style:"height:350px; margin-top:0; background-color: #EBEBEB;"}
     %table
       %tr
         %td.show_div Name:
