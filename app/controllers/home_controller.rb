@@ -118,6 +118,7 @@ class HomeController < ApplicationController
    def calendar
     @events = Event.all
     @event =  Event.new
+    @sub =  EventSubscriber.new
    end
 
   def impact

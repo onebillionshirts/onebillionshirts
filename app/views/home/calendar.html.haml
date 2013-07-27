@@ -180,6 +180,7 @@
     $(".e_date").html( preload_event.data("startTime") ) ;
     $(".e_time").html( preload_event.data("time") ) ;
     $(".e_website").html( preload_event.data("website") ) ;
+    $(".e_website").attr("href", preload_event.data("website") ) ;
     $(".e_location").html( preload_event.data("location") ) ;
 
     $(".day").on("click", function()
@@ -205,6 +206,7 @@
                $(".e_date").html( preload_event.data("startTime") ) ;
                $(".e_time").html( preload_event.data("time") ) ;
                $(".e_website").html( preload_event.data("website") ) ;
+               $(".e_website").attr("href", preload_event.data("website") ) ;
                $(".e_location").html( preload_event.data("location") ) ;
             })
        });
@@ -223,14 +225,16 @@
 .wrapper{setyle:"width: 1100px;"}
   .img_det_txt
     .abt_list.m_top_75
-      %h1
-        = text_field_tag :email , '', class:"green", placeholder:"email ..."
-        = text_field_tag :zip , '',class:"green", placeholder:"zip code"
-        %i.icon-pencil
-        %a.add_event{href: "#"}
-          + ADD EVENT
-        %a.cal_submit{href: "#"}
-          SUBMIT
+      = form_for(@sub, :url => subscribers_events_path, :method => "post") do |f|
+        %h1{style:"color:black;"}
+          Stay up to date...
+          %br
+          = text_field_tag 'event_subscriber[email]' , '', class:"green", placeholder:"email ..."
+          = text_field_tag "event_subscriber[zip]" , '',class:"green", placeholder:"zip code .. "
+          %i.icon-pencil
+          %a.add_event{href: "#"}
+            + ADD EVENT
+          = f.submit "Save", class:"cal_submit"
 
   .inline
     .day_cal
@@ -257,7 +261,8 @@
         %td.detail.e_time
       %tr
         %td.show_div Website:
-        %td.detail.e_website
+        %td.detail
+          = link_to "","", class:"e_website", target: "_blank"
       %tr
       %td.show_div Location:
       %td.detail.e_location
@@ -284,4 +289,5 @@
       =text_field_tag "event[location]"
       =label_tag "Description"
       =text_area_tag "event[description]",'', rows:"4"
+      =hidden_field_tag "event[is_approved]", false
       =f.submit "Save", :class => "place"

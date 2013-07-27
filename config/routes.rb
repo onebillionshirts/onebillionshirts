@@ -71,6 +71,10 @@ OneBS::Application.routes.draw do
 
   namespace :admins do
     resources :orders
+    resources :site_events  do
+      get :subscribers, :on => :collection
+      put :approve, :on => :member
+    end
     resource :cost_matrix
     resources :banners
     resources :client_spotlights
@@ -105,7 +109,10 @@ OneBS::Application.routes.draw do
     end
   end
 
-  resource :events
+  resource :events do
+    post :subscribers, :on => :collection
+    get :thanks, :on => :member
+  end
 
   resources :charities do
     collection do

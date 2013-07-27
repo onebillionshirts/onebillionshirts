@@ -4306,7 +4306,7 @@ input.green{
     font-size: 20px;
     color: white;
     background-color: #ed6430;
-    padding: 9px 8px 9px 30px;
+    padding: 9px 8px 9px 8px;
     width: 100px;
     float: right;
 }

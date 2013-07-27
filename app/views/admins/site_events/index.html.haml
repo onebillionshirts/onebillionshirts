@@ -1,0 +1,29 @@
+.row
+  .span6
+    %h2 Listing Pending Events
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Date
+    %th Location
+    %th Time
+    %th Website
+    %th{style:"100px"} Description
+    %th
+  - @events.each do |e|
+    %tr
+      %td{style:"line-height: 40px;"}
+        = e.name
+      %td{style:"line-height: 40px;"}
+        = e.start_time.strftime("%B %d, %Y")
+      %td{style:"line-height: 40px;"}
+        = e.location
+      %td{style:"line-height: 40px;"}
+        = e.time
+      %td{style:"line-height: 40px;"}
+        = e.website
+      %td{style:"line-height: 40px;"}
+        = e.description
+      %td{style:"line-height: 40px;"}
+        =link_to "Approve", approve_admins_site_event_path(e), method: :put, class: "btn btn-large btn-primary"
+

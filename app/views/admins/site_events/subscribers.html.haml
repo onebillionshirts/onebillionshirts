@@ -1,0 +1,13 @@
+.row
+  .span6
+    %h2 Listing Events Subscribers
+%table.table-striped.table.table-bordered
+  %tr
+    %th Email
+    %th Zip
+  - @sub.each do |e|
+    %tr
+      %td
+        = e.email
+      %td
+        = e.zip
