@@ -55,10 +55,12 @@
 
   .day_cal{
     background-color:#F2F2F2;
-    height: 603px;
-    width: 282px;
+    max-height: 623px;
+    min-height: 592px;
+    width: 30%;
     float: right;
     position: relative;
+    border-bottom-right-radius: 7px;
   }
 
   .selected_day {
@@ -95,7 +97,7 @@
   }
 
   .cal{
-    width: 670px;
+    width: 70%;
   }
 
   .cal h2{
@@ -161,7 +163,7 @@
 
   .event_detail{
     display: inline-block;
-    width: 112px;
+    width: 220px;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
@@ -197,7 +199,7 @@
     $( "#event_start_time" ).datepicker( "option", "dateFormat", "yy/mm/dd" );
 
 
-    $(".hide_event").parents('td').css("background-color", "#F1F1F1");
+    $(".hide_event").parents('td').css("background-color", "rgb(202, 202, 202)");
 
     selected_day = $(".today").children().children(".day_number").html();
     selected_month= $(".cal h2").text() ;
@@ -216,11 +218,16 @@
     $(".e_name").attr("id",id);
     $(".e_name").html( preload_event.data("name") ) ;
     $(".e_description").html( preload_event.data("description") ) ;
+    $(".e_zip").html( preload_event.data("zip") ) ;
     $(".e_date").html( preload_event.data("startTime") ) ;
     $(".e_time").html( preload_event.data("time") ) ;
-    $(".e_website").html( preload_event.data("website") ) ;
-    $(".e_website").attr("href", preload_event.data("website") ) ;
     $(".e_location").html( preload_event.data("location") ) ;
+    $(".e_website").html( preload_event.data("website")) ;
+    var href = preload_event.data("website")
+    if(href.toString().indexOf("http") == -1){
+      href = ("http://") + href
+    }
+    $(".e_website").attr("href", href ) ;
 
     $(".event_detail").on("click", function(){
        console.log("singe event clicked", $(this) );
@@ -230,10 +237,15 @@
        $(".e_name").attr("id",id);
        $(".e_name").html( preload_event.data("name") ) ;
        $(".e_description").html( preload_event.data("description") ) ;
+       $(".e_zip").html( preload_event.data("zip") ) ;
        $(".e_date").html( preload_event.data("startTime") ) ;
        $(".e_time").html( preload_event.data("time") ) ;
        $(".e_website").html( preload_event.data("website") ) ;
-       $(".e_website").attr("href", preload_event.data("website") ) ;
+       var href = preload_event.data("website")
+       if(href.toString().indexOf("http") == -1){
+          href = ("http://") + href
+       }
+       $(".e_website").attr("href", href ) ;
        $(".e_location").html( preload_event.data("location") ) ;
     })
 
@@ -255,7 +267,7 @@
 
       //days having events background color light grey
       $(".day").css("background-color","#EBEBEB;");
-      $(".hide_event").parents('td').css("background-color", "#F1F1F1");
+      $(".hide_event").parents('td').css("background-color", "rgb(202, 202, 202)");
 
       //empty previous list and set selected day bg
       $("#event_list").empty();
@@ -278,16 +290,22 @@
                $(".e_name").attr("id",id);
                $(".e_name").html( preload_event.data("name") ) ;
                $(".e_description").html( preload_event.data("description") ) ;
+               $(".e_zip").html( preload_event.data("zip") ) ;
                $(".e_date").html( preload_event.data("startTime") ) ;
                $(".e_time").html( preload_event.data("time") ) ;
                $(".e_website").html( preload_event.data("website") ) ;
-               $(".e_website").attr("href", preload_event.data("website") ) ;
+               var href = preload_event.data("website")
+               if(href.toString().indexOf("http") == -1){
+                  href = ("http://") + href
+               }
+               $(".e_website").attr("href", href ) ;
                $(".e_location").html( preload_event.data("location") ) ;
             })
        });
 
       //show more logic
         $("#event_list").css("overflow-y","hidden");
+        $("#event_list").scrollTop(0);
 
       console.log('$("#event_list").children("li").length', $("#event_list").children("li").length );
       if( $("#event_list").children("li").length > 7 ){
@@ -301,6 +319,7 @@
 
     $(".show_more").on("click", function(){
         $("#event_list").css("overflow-y","scroll");
+        $("#event_list").animate({ scrollTop: 300 }, 1500);
     })
   });
 
@@ -324,7 +343,7 @@
             + ADD EVENT
           = f.submit "Save", class:"cal_submit", style:"margin-right: 200px;"
 
-  .inline
+  .inline{style:"clear:both;background-color: #F2F2F2;"}
     .day_cal
       %h2.selected_day Selected Day
       %h1.this_date 1
@@ -335,9 +354,9 @@
     .cal
       = calendar @events do |event|
         .hide_event{style:"display:none"}
-          = link_to event.name, "#jump"+event.id.to_s , class:"event_detail",  data:{name: event.name, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
+          = link_to event.name, "#jump"+event.id.to_s , class:"event_detail",  data:{name: event.name, zip: event.zip, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
 
-  .inline{style:"height:350px; margin-top:0; background-color: #EBEBEB;"}
+  .inline{style:"min-height: 350px; margin-top:0; background-color: #EBEBEB;"}
     %table
       %tr
         %td.show_div Name:
@@ -355,6 +374,9 @@
       %tr
       %td.show_div Location:
       %td.detail.e_location
+      %tr
+      %td.show_div ZIP Code:
+      %td.detail.e_zip
       %tr
         %td.show_div Description:
         %td.detail.e_description
@@ -374,6 +396,8 @@
       =text_field_tag "event[time]"
       =label_tag "Website"
       =text_field_tag 'event[website]'
+      =label_tag "ZIP Code"
+      =text_field_tag "event[zip]"
       =label_tag "Location"
       =text_field_tag "event[location]"
       =label_tag "Description"

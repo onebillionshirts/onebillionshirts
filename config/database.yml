@@ -15,7 +15,7 @@ development:
   database: oneb_dev
   pool: 5
   username: root
-  password: racpakistan47
+  password: root
   socket: /var/run/mysqld/mysqld.sock
 
 production:

@@ -6,6 +6,7 @@
     %th Name
     %th Date
     %th Location
+    %th ZIP
     %th Time
     %th Website
     %th{style:"100px"} Description
@@ -18,6 +19,8 @@
         = e.start_time.strftime("%B %d, %Y")
       %td{style:"line-height: 40px;"}
         = e.location
+      %td{style:"line-height: 40px;"}
+        = e.zip
       %td{style:"line-height: 40px;"}
         = e.time
       %td{style:"line-height: 40px;"}
