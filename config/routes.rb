@@ -19,7 +19,10 @@ OneBS::Application.routes.draw do
   match "/share_contest", :to => "home#share_contest"
   match "/brand", :to => "home#brand"
   match "/client_spotlight", :to => "home#client_spotlight"
+  match "/client_slight", :to => "home#client_slight"
   match "/faq", :to => "home#faq"
+  match "/calendar", :to => "home#calendar"
+  match "/impact", :to => "home#impact"
 
 
   devise_for :admins, :controllers => {
@@ -68,6 +71,10 @@ OneBS::Application.routes.draw do
 
   namespace :admins do
     resources :orders
+    resources :site_events  do
+      get :subscribers, :on => :collection
+      put :approve, :on => :member
+    end
     resource :cost_matrix
     resources :banners
     resources :client_spotlights
@@ -98,7 +105,13 @@ OneBS::Application.routes.draw do
     collection do
       get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions
       post :send_email
+      post :calculate_impact
     end
+  end
+
+  resource :events do
+    post :subscribers, :on => :collection
+    get :thanks, :on => :member
   end
 
   resources :charities do

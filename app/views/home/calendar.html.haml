@@ -1,0 +1,406 @@
+:css
+  .final_form input[type='text']{
+      border: 1px solid #ccc;
+      width: 410px;
+      height: 30px;
+      font-size: 18px;
+      padding: 4px;
+      margin:10px;
+    }
+
+  .final_form textarea {
+    border: 1px solid #ccc;
+    font-size: 18px;
+    padding: 4px;
+    margin: 10px;
+    width: 409px;
+  }
+
+  .final_form label{
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    display: block;
+    width: 130px;
+    text-align: left;
+  }
+
+  .final_form .place {
+    clear: both;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-left: 135px;
+    margin-right: 135px;
+    border: 1px solid;
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    line-height: 40px;
+    background-color: orange;
+    color: white;
+  }
+
+
+  .calendar {
+      width: 670px;
+      background-color: #EBEBEB;
+  }
+  .calendar td {
+      height: 100px;
+      width: 14.28%;
+      text-align: center;
+  }
+
+  .day_cal{
+    background-color:#F2F2F2;
+    max-height: 623px;
+    min-height: 592px;
+    width: 30%;
+    float: right;
+    position: relative;
+    border-bottom-right-radius: 7px;
+  }
+
+  .selected_day {
+    text-align: center;
+    text-align: center;
+    background-color: rgba(182, 183, 184, 0.62);
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: white
+  }
+
+  .this_date {
+    text-align: center;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: #2D88BF
+  }
+
+  .this_month {
+    text-align: center;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    color: #8C8B8B;
+    border-bottom: 2px #DDDEDE solid;
+  }
+
+  .inline{
+    margin-top: 200px;
+    margin-bottom: 50px;
+    border: 4px #86A8B6 solid;
+    border-radius: 12px;
+  }
+
+  .cal{
+    width: 70%;
+  }
+
+  .cal h2{
+      text-align: center;
+      background-color: #B6B7B8;
+      text-align: center;
+      background-color: rgba(182, 183, 184, 0.62);
+      padding-top: 14px;
+      padding-bottom: 10px;
+  }
+
+
+  .previous-month{
+      background: url("/assets/arrow-left.png") no-repeat;
+      width: 20px;
+      height: 24px;
+      float: left;
+      margin-top: 5px;
+      margin-left: 85px;
+  }
+  .next-month{
+      background: url("/assets/arrow-right.png") no-repeat;
+      width: 20px;
+      height: 24px;
+      float: right;
+      margin-top: 5px;
+      margin-right: 85px;
+  }
+
+  .day_cal li{
+    background: url("/assets/calender.png") no-repeat ;
+    line-height: 40px;
+    padding-left: 28px;
+    background-position-y: 14px;
+    cursor: pointer;
+  }
+
+  .day_cal a{
+    font-size: 22px;
+  }
+
+  .day_cal ul{
+    margin-left: 15px;
+  }
+
+  .inline .show_div{
+    padding: 20px 30px 10px 40px;
+    font-weight: bold;
+    float: left;
+  }
+
+  .inline .detail{
+    padding: 20px 30px 10px 40px;
+  }
+
+  .day_number{
+    font-size: 26px;
+  }
+
+  .not-current-month{
+    color: grey;
+  }
+
+  .event_detail{
+    display: inline-block;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+
+  .show_more{
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+    font-size: 18px;
+    color: gray;
+    background: url("/assets/arrow-right.png") no-repeat ;
+    cursor: pointer;
+    background-position-x: 115px;
+    cursor: pointer;
+    width: 140px;
+  }
+
+  #event_list{
+    max-height: 293px;
+    overflow: hidden;
+  }
+
+
+:javascript
+  $(document).ready(function(){
+    $(".add_event").click(function(){
+      $("#new_event").bPopup({closeClass: "popClose"});
+      return false;
+     });
+
+    $( "#event_start_time" ).datepicker();
+    $( "#event_start_time" ).datepicker( "option", "dateFormat", "yy/mm/dd" );
+
+
+    $(".hide_event").parents('td').css("background-color", "rgb(202, 202, 202)");
+
+    selected_day = $(".today").children().children(".day_number").html();
+    selected_month= $(".cal h2").text() ;
+    $(".today").css("background-color","#37ACD5;");
+    $(".today").children().children(".hide_event").each(function( ) {
+      var a = $(this).children("a")[0].outerHTML;
+      $("#event_list").append("<li> " + a + "</li>");
+      console.log( a );
+    });
+    $(".this_date").html( selected_day );
+    $(".this_month").html( selected_month );
+
+    var preload_event = $(".event_detail");
+    var id = preload_event.attr("href");
+    id = id.substr(1);
+    $(".e_name").attr("id",id);
+    $(".e_name").html( preload_event.data("name") ) ;
+    $(".e_description").html( preload_event.data("description") ) ;
+    $(".e_zip").html( preload_event.data("zip") ) ;
+    $(".e_date").html( preload_event.data("startTime") ) ;
+    $(".e_time").html( preload_event.data("time") ) ;
+    $(".e_location").html( preload_event.data("location") ) ;
+    $(".e_website").html( preload_event.data("website")) ;
+    var href = preload_event.data("website")
+    if(href.toString().indexOf("http") == -1){
+      href = ("http://") + href
+    }
+    $(".e_website").attr("href", href ) ;
+
+    $(".event_detail").on("click", function(){
+       console.log("singe event clicked", $(this) );
+       var preload_event = $(this);
+       var id = preload_event.attr("href");
+       id = id.substr(1);
+       $(".e_name").attr("id",id);
+       $(".e_name").html( preload_event.data("name") ) ;
+       $(".e_description").html( preload_event.data("description") ) ;
+       $(".e_zip").html( preload_event.data("zip") ) ;
+       $(".e_date").html( preload_event.data("startTime") ) ;
+       $(".e_time").html( preload_event.data("time") ) ;
+       $(".e_website").html( preload_event.data("website") ) ;
+       var href = preload_event.data("website")
+       if(href.toString().indexOf("http") == -1){
+          href = ("http://") + href
+       }
+       $(".e_website").attr("href", href ) ;
+       $(".e_location").html( preload_event.data("location") ) ;
+    })
+
+
+
+    //show more logic
+    console.log('$("#event_list").children("li").length', $("#event_list").children("li").length );
+    if( $("#event_list").children("li").length > 7 ){
+      $(".show_more").css("display","inline");
+    }else{
+      $(".show_more").css("display","none");
+      $("#event_list").css("overflow-y","none");
+    }
+
+
+    //for days click
+    $(".day").on("click", function()
+    {
+
+      //days having events background color light grey
+      $(".day").css("background-color","#EBEBEB;");
+      $(".hide_event").parents('td').css("background-color", "rgb(202, 202, 202)");
+
+      //empty previous list and set selected day bg
+      $("#event_list").empty();
+      var that = $(this)
+      that.css("background-color","#37ACD5;")
+      selected_day = $(that).children().children(".day_number").html();
+      $(".this_date").html( selected_day );
+
+      //get events for selected day and add trigggers
+      $(that).children().children(".hide_event").each(function( ) {
+            var a = $(this).children("a")[0].outerHTML;
+            $("#event_list").append("<li> " + a + "</li>");
+            console.log( a );
+
+            $(".event_detail").on("click", function(){
+               console.log("singe event clicked", $(this) );
+               var preload_event = $(this);
+               var id = preload_event.attr("href");
+               id = id.substr(1);
+               $(".e_name").attr("id",id);
+               $(".e_name").html( preload_event.data("name") ) ;
+               $(".e_description").html( preload_event.data("description") ) ;
+               $(".e_zip").html( preload_event.data("zip") ) ;
+               $(".e_date").html( preload_event.data("startTime") ) ;
+               $(".e_time").html( preload_event.data("time") ) ;
+               $(".e_website").html( preload_event.data("website") ) ;
+               var href = preload_event.data("website")
+               if(href.toString().indexOf("http") == -1){
+                  href = ("http://") + href
+               }
+               $(".e_website").attr("href", href ) ;
+               $(".e_location").html( preload_event.data("location") ) ;
+            })
+       });
+
+      //show more logic
+        $("#event_list").css("overflow-y","hidden");
+        $("#event_list").scrollTop(0);
+
+      console.log('$("#event_list").children("li").length', $("#event_list").children("li").length );
+      if( $("#event_list").children("li").length > 7 ){
+        $(".show_more").css("display","inline");
+      }else{
+        $(".show_more").css("display","none");
+        $("#event_list").css("overflow-y","none");
+      }
+
+    }) ;
+
+    $(".show_more").on("click", function(){
+        $("#event_list").css("overflow-y","scroll");
+        $("#event_list").animate({ scrollTop: 300 }, 1500);
+    })
+  });
+
+
+.slider_hold{:style => "height:auto;"}
+  .slider_text
+    %h1{:style => "width:634px;"}
+      Event Schedule
+
+
+.wrapper
+  .img_det_txt{style:"width: 100%;"}
+    .abt_list.m_top_75
+      = form_for(@sub, :url => subscribers_events_path, :method => "post") do |f|
+        %h1{style:"color:black;"}
+          Stay up to date...
+          %br
+          = text_field_tag 'event_subscriber[email]' , '', class:"green", placeholder:"email ...", style:"margin-left: 0;"
+          = text_field_tag "event_subscriber[zip]" , '',class:"green", placeholder:"zip code .. "
+          %a.add_event{href: "#"}
+            + ADD EVENT
+          = f.submit "Save", class:"cal_submit", style:"margin-right: 200px;"
+
+  .inline{style:"clear:both;background-color: #F2F2F2;"}
+    .day_cal
+      %h2.selected_day Selected Day
+      %h1.this_date 1
+      %h2.this_month Month
+      %ul#event_list
+      %span.show_more{style:"display:none"} More Events
+
+    .cal
+      = calendar @events do |event|
+        .hide_event{style:"display:none"}
+          = link_to event.name, "#jump"+event.id.to_s , class:"event_detail",  data:{name: event.name, zip: event.zip, description: event.description, location: event.location, start_time: event.start_time.strftime("%B %d, %Y"), time: event.time, website: event.website}
+
+  .inline{style:"min-height: 350px; margin-top:0; background-color: #EBEBEB;"}
+    %table
+      %tr
+        %td.show_div Name:
+        %td.detail.e_name
+      %tr
+        %td.show_div Date:
+        %td.detail.e_date
+      %tr
+        %td.show_div Time:
+        %td.detail.e_time
+      %tr
+        %td.show_div Website:
+        %td.detail
+          = link_to "","", class:"e_website", target: "_blank"
+      %tr
+      %td.show_div Location:
+      %td.detail.e_location
+      %tr
+      %td.show_div ZIP Code:
+      %td.detail.e_zip
+      %tr
+        %td.show_div Description:
+        %td.detail.e_description
+
+
+
+
+
+%div#new_event{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:440px;height:auto;display:none;"}
+  %h2
+    = form_for(@event, :url => events_path, :method => "post", :html=>{class:"form form-horizontal final_form"}) do |f|
+      =label_tag "Name"
+      =text_field_tag "event[name]"
+      =label_tag "Date"
+      =text_field_tag "event[start_time]"
+      =label_tag "Time"
+      =text_field_tag "event[time]"
+      =label_tag "Website"
+      =text_field_tag 'event[website]'
+      =label_tag "ZIP Code"
+      =text_field_tag "event[zip]"
+      =label_tag "Location"
+      =text_field_tag "event[location]"
+      =label_tag "Description"
+      =text_area_tag "event[description]",'', rows:"4"
+      =hidden_field_tag "event[is_approved]", false
+      =f.submit "Save", :class => "place"

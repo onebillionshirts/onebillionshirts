@@ -1,0 +1,70 @@
+%h1 Order Details
+.details-info-holder
+  %label Reference
+  .details-info
+    = @order.reference.name unless @order.reference.blank?
+.details-info-holder
+  %label Customer Name
+  .details-info
+    = @order.name
+.details-info-holder
+  %label Email
+  .details-info
+    = @order.email
+.details-info-holder
+  %label Phone
+  .details-info
+    = @order.phone
+.details-info-holder
+  %label Zip Code
+  .details-info
+    = @order.zip
+.details-info-holder
+  %label Quantity
+  .details-info
+    = @order.quantity
+.details-info-holder
+  %label Sizes
+  .details-info
+    =[@order.n_s, @order.n_m, @order.n_l, @order.n_xl, @order.n_xxl].join(",")
+.details-info-holder
+  %label Charity
+  .details-info
+    = @order.charity.name
+.details-info-holder
+  %label Shirt Style
+  .details-info
+    = @order.style.name
+.details-info-holder
+  %label Category
+  .details-info
+    = [@order.style.style_category.name, @order.style.style_sub_category.name].join(",")
+.details-info-holder
+  %label Color
+  .details-info
+    %div{style:"outline:1px solid #ccc;width:20px;height:20px;background-color:##{@order.shirt_color.code unless @order.shirt_color.blank?}"}
+    %span=@order.shirt_color.name
+.details-info-holder
+  %label Front Colors
+  .details-info
+    = @order.f_c
+.details-info-holder
+  %label Back Colors
+  .details-info
+    = @order.b_c
+.details-info-holder
+  %label Instructions for our designers
+  .details-info
+    = @order.instructions
+-unless @order.later
+  .details-info-holder
+    %label Front Art Work
+    .details-info
+      =@order.front_art
+  .details-info-holder
+    %label Back Art Work
+  .details-info
+    = @order.back_art.url
+-else
+  .details-info-holder{style:"height: 30px;"}
+    %label Will Submit Artwork Later

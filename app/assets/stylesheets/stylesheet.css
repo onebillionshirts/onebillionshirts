@@ -808,6 +808,87 @@ h2 {
     text-align: center;
 }
 
+
+.imapct_size_input {
+    float: left;
+    width: 110px;
+    height: 30px;
+    margin-right: 55px;
+}
+
+.impact_sizes_hold {
+    width: 660px;
+    margin: 0 auto;
+}
+
+.impact_youth_sizes{
+    float: left;
+    width: 100%;
+    margin: 0px 0 5px;
+}
+
+.impact_youth_sizes p {
+    text-align: center;
+    font-size: 9px;
+    margin: 0;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.size_input_mid .impact {
+    background: none;
+    border: 2px solid rgb(231, 231, 231);
+    width: 100px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#calculate_impact{
+    background-color: #E1E2E1;
+    width: 250px;
+    margin-top: 8px;
+    height: 39px;
+    line-height: 39px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #E1E2E1;
+    font-weight: bold;
+    letter-spacing: 1px;
+    float: right;
+}
+
+#calculate_impact_img{
+    background: url(/assets/cal.png) no-repeat center;
+    width: 70px;
+    margin-left: 20px;
+    height: 58px;
+    float: right;
+    margin-right: 430px;
+}
+
+.email_img{
+    background: url(/assets/email.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.fb_img{
+    background: url(/assets/fb.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.tw_img{
+    background: url(/assets/tw.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+.work_img{
+    background: url(/assets/work.png) no-repeat center;
+    width: 100%;
+    height: 70px;
+}
+
 .front_back_info {
     float: left;
     margin: 10px 0 10px 40px;
@@ -925,6 +1006,32 @@ h2 {
     color: #000000;
     display: inline;
     font-size: 16px;
+}
+
+.order_orange{
+    color: #f18d34;
+    border-bottom: 2px solid #000000;
+}
+
+.tring span {
+    color: #00a651;
+    display: inline;
+    font-size: 20px;
+}
+
+.tring{
+    width: 85%;
+    float: right;
+    line-height: 70px;
+    font-size: 18px;
+}
+
+.charity_id {
+    width: 220px;
+    height: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    float: left;
 }
 
 .skip_step p {
@@ -4041,7 +4148,7 @@ h2 {
 .featured-area ul.bxslider li{
   float: left;
   margin:0px 10px;
-} 
+}
 ul.bxbig{
   float: left;
   margin-bottom: 20px;
@@ -4050,7 +4157,7 @@ ul.bxbig{
 ul.bxbig li{
   float: left;
   margin:0px 10px;
-} 
+}
 
 .single_charity{
     margin: auto;
@@ -4179,4 +4286,38 @@ div.all:hover{
 .col p{
   margin:0;
   padding:0;
+}
+
+input.green{
+    font-size: 14px;
+    color: #000;
+    width: 204px;
+    height: 48px;
+    float: left;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    margin-left: 38px;
+}
+
+.cal_submit{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #ed6430;
+    padding: 9px 8px 9px 8px;
+    width: 100px;
+    float: right;
+}
+.add_event{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #000000;
+    background-color: white;
+    padding: 9px 8px 9px 30px;
+    width: 131px;
+    float: right;
 }
