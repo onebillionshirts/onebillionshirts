@@ -83,19 +83,23 @@ h2 {
 }
 
 .logo {
-    background-image: url("/assets/new_logo_s.1.png");
-    width: 334px;
-    height: 56px;
+    background-image: url("/assets/new-logo.png");
+    width: 319px;
+    height: 87px;
     float: left;
-    margin: 30px 0 0 0px;
+    margin: 22px 0 0 0px;
+    z-index: 999;
+    position: relative;
 }
-.logo:hover{
-    background-image: url("/assets/new_logo_h.1.png");
-    width: 334px;
-    height: 56px;
-    float: left;
-    margin: 30px 0 0 0px;
-}
+/*.logo:hover{*/
+    /*background-image: url("/assets/new-logo.png");*/
+    /*width: 319px;*/
+    /*height: 87px;*/
+    /*float: left;*/
+    /*margin: 30px 0 0 0px;*/
+    /*z-index: 999;*/
+    /*position: relative;*/
+/*}*/
 
 .quote_req {
     float: right;
@@ -4181,7 +4185,7 @@ ul.bxbig li{
 }
 .final-area a.bx-next{
   position: absolute;
-  right: -40px;
+  right: 30px;
   top: 70px;
   background-image: url("/assets/bx-next.png");
   height: 24px;

@@ -4,12 +4,12 @@
  */
 
 Highcharts.theme = {
-	colors: ["#514F78", "#42A07B", "#9B5E4A", "#72727F", "#1F949A", "#82914E", "#86777F", "#42A07B"],
+	colors: ["#00A657", "#42A07B", "#9B5E4A", "#72727F", "#1F949A", "#82914E", "#86777F", "#42A07B"],
 	chart: {
 		className: 'skies',
 		borderWidth: 0,
 		plotShadow: true,
-		plotBackgroundImage: '/demo/gfx/skies.jpg',
+		plotBackgroundImage: '',
 		plotBackgroundColor: {
 			linearGradient: [0, 0, 250, 500],
 			stops: [
