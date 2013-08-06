@@ -83,13 +83,13 @@ h2 {
 }
 
 .logo {
-    background-image: url("/assets/new-logo.png");
-    width: 319px;
-    height: 87px;
-    float: left;
-    margin: 22px 0 0 0px;
-    z-index: 999;
-    position: relative;
+		background-image: url("/assets/new-logo.png");
+		width: 326px;
+		height: 98px;
+		float: left;
+		margin: 16px 0 0 0px;
+		z-index: 999;
+		position: relative;
 }
 /*.logo:hover{*/
     /*background-image: url("/assets/new-logo.png");*/
