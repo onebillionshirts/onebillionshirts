@@ -83,13 +83,23 @@ h2 {
 }
 
 .logo {
-		background-image: url("/assets/new-logo.png");
-		width: 326px;
-		height: 98px;
-		float: left;
-		margin: 16px 0 0 0px;
-		z-index: 999;
-		position: relative;
+    background-image: url("/assets/new-logo.png");
+    width: 278px;
+    height: 84px;
+    float: left;
+    margin: 28px 0 0 0px;
+    z-index: 999;
+    position: relative;
+}
+
+.save_n_share {
+    background-image: url("/assets/img_share.png");
+    width: 82px;
+    height: 56px;
+    z-index: 999;
+    position: relative;
+    left: 155px;
+    top: -100px;
 }
 /*.logo:hover{*/
     /*background-image: url("/assets/new-logo.png");*/
@@ -3891,7 +3901,7 @@ h2 {
 .faq_rit a.see_us{color: #ED6430;display:inline;}
 
 
-.faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:100px;}
+.faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:60px;}
 .faq_list a { font-size:20px; display:inline-block; color:#000; font-family:Arial, Helvetica, sans-serif;background: url(/assets/drop_down_img.png) no-repeat center left;padding-left: 38px;}
 .faq_list span { font-size:16px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin:8px 0 0 20px; width:100%; clear:both; font-weight:bold; }
 .faq_list ul.questions {padding-left:10px;color:#ED6430;}
