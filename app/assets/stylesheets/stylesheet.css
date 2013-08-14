@@ -3901,7 +3901,7 @@ h2 {
 .faq_rit a.see_us{color: #ED6430;display:inline;}
 
 
-.faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:60px;}
+.faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:250px;}
 .faq_list a { font-size:20px; display:inline-block; color:#000; font-family:Arial, Helvetica, sans-serif;background: url(/assets/drop_down_img.png) no-repeat center left;padding-left: 38px;}
 .faq_list span { font-size:16px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin:8px 0 0 20px; width:100%; clear:both; font-weight:bold; }
 .faq_list ul.questions {padding-left:10px;color:#ED6430;}
