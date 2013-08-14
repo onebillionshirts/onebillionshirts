@@ -2,7 +2,7 @@
   - @title = "Client SpotLights - OneBillionShirts"
   = @title
 .wrapper
-  .contentslider{:style => "width: 100%; height: 400px; margin-top: 50px;"}
+  .contentslider{:style => "width: 100%; height: 400px; margin-top: 10px;"}
     -#%a.cs_leftBtn
     -#  %img{:src => "/assets/left_img.png", :style => "top: 200px; padding: 0px;"}/
     .cs_wrapper
@@ -21,7 +21,7 @@
                   %p.txt_info= raw(client_spotlight.description)
                 / client_txt ends
               / client_lft ends
-              .client_rit
+              .client_rit{style:"width: 535px;"}
                 = image_tag client_spotlight.client_spotlight_images.first.asset(:original) if client_spotlight.client_spotlight_images.present?
               / client_rit ends
             / End cs_article
@@ -90,7 +90,8 @@
           display:block;
           width:900px;
           height:410px;
-          margin:0 auto;
+          margin-left: 50px;
+          margin-right: 50px;
           padding:0;
       }
 
@@ -135,13 +136,13 @@
         height: 72px;
         width: 73px;
         bottom: 26px;
-        right: 270px;
+        right: 350px;
       }
       .cs_wrapper a.bx-prev{
         position: absolute;
         height: 70px;
         width: 70px;
         bottom: 26px;
-        left: 336px;
+        left: 350px;
         background-image: url("/assets/left_img.png");
       }
