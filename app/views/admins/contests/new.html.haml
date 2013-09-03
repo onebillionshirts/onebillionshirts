@@ -1,0 +1,5 @@
+.row
+  .span12
+    %h2 New Contest
+- url = admins_contests_path
+= render :partial => 'form', :locals => { :url => url }

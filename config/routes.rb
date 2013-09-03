@@ -99,6 +99,7 @@ OneBS::Application.routes.draw do
     resources :styles
     resources :shirt_colors
     resources :color_groups
+    resources :contests
   end
 
   resources :home do
@@ -112,6 +113,10 @@ OneBS::Application.routes.draw do
   resource :events do
     post :subscribers, :on => :collection
     get :thanks, :on => :member
+  end
+
+  resources :contests  do
+    get :vote, :on => :member
   end
 
   resources :charities do
@@ -131,6 +136,7 @@ OneBS::Application.routes.draw do
   end
 
   match "/:id", :to => "charities#show"
+  match "/contests/:id", :to => "contests#show"
 
   root :to => 'home#index'
 

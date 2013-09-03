@@ -1,0 +1,55 @@
+.row
+  = nested_form_for(@contest, :url => url, :html=>{class:"form form-horizontal"}) do |f|
+    - if @contest.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@contest.errors.count, "error")
+          prohibited this charity from being saved:
+        %ul
+          - @contest.errors.full_messages.each do |msg|
+            %li.alert.alert-error
+              = msg
+    .span12
+      %fieldset
+        .control-group
+          = f.label :title, class:"control-label"
+          .controls
+            = f.text_field :title
+      %fieldset
+        .control-group
+          = f.label :start_date, class:"control-label"
+          .controls
+            = f.text_field :start_date
+      %fieldset
+        .control-group
+          = f.label :end_date, class:"control-label"
+          .controls
+            = f.text_field :end_date
+      = f.fields_for :contest_entries do |c|
+        %fieldset
+          .control-group
+            = c.label :title, class:"control-label"
+            .controls
+              = c.text_field :title
+        %fieldset
+          .control-group
+            = c.label :description, class:"control-label"
+            .controls
+              = c.text_field :description
+        %fieldset
+          .control-group{style:"margin-bottom: 0px;"}
+            = c.label :image, class:"control-label"
+            .controls
+              = c.file_field :image
+        %fieldset
+          .control-group
+          .controls
+            = c.link_to_remove '<i class="icon-remove"></i> Remove this entry'.html_safe
+      = f.link_to_add '<i class="icon-plus"></i>  Add an entry'.html_safe, :contest_entries
+
+
+
+    .row
+      .span4.offset2
+        .action
+          = f.submit "Save", :class => "btn btn-primary btn-large", style:"width: 200px; margin-left: 20px;"

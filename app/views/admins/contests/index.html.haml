@@ -1,0 +1,17 @@
+.row
+  .span6
+    %h2 Listing Contests
+  .span5
+    = link_to 'New Contest', new_admins_contest_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Name
+    %th Time Frame
+    %th
+  - @contests.each do |c|
+    %tr
+      %td= link_to c.title, admins_contest_path(c)
+      %td= c.end_date
+      %td 
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_contest_path(c)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_contest_path(c), method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,158 @@
+:css
+  .selected_btn {
+    width: 200px;
+    height: 36px;
+    background: #a6a6a6;
+    text-align: center;
+    width: 165px;
+    border-radius: 9px;
+    float: left;
+    margin-left:125px;
+  }
+  .hover {
+    background: #D6D6D6;
+  }
+
+  a.vote{
+    background-color: #ed6430;
+    width: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 39px;
+    line-height: 39px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #c6bebb;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+  }
+
+:javascript
+  $(document).ready(function(){
+    $(".image_entity").hover(function(event){
+       $( event.target ).siblings("a").css("display","block");
+       $(this).css("opacity","0.3");
+       },function(event){
+       $( event.target ).siblings("a").css("display","none");
+       $(this).css("opacity","1");
+     });
+
+    $(".vote").hover(function(event){
+       $( event.target ).siblings(".image_entity").css("opacity","0.3");
+       $(this).css("background-color","#D6D6D6");
+       $(this).css("display","block");
+       },function(event){
+       $( event.target ).siblings(".image_entity").css("opacity","1");
+       $(this).css("background-color","#ed6430");
+       $(this).css("display","none");
+     });
+
+    $(".design").click(function(){
+      $(".selected_btn").removeClass("hover");
+      $(this).addClass("hover");
+      $("#design").css("display","block");
+      $("#leaderboard").css("display","none");
+    });
+
+    $(".design").trigger("click");
+
+    $(".leaderboard").click(function(){
+      $(".selected_btn").removeClass("hover");
+      $(this).addClass("hover");
+      $("#design").css("display","none");
+      $("#leaderboard").css("display","block");
+    });
+
+    name_collection = [];
+    vote_collection = [];
+    name_collection.push( #{@contest_votes.collect{|c| c[:title]}.each{|v| v} } );
+    vote_collection.push( #{@contest_votes.collect{|c| c[:vote]}.each{|v| v} } );
+
+    $('#container').highcharts({
+        chart: {
+            type: 'column',
+            margin: [ 50, 50, 100, 80]
+        },
+        title: {
+            text: 'Leader-Board '
+        },
+        xAxis: {
+            categories: name_collection[0] ,
+            labels: {
+                rotation: -45,
+                align: 'right',
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number Of Votes'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.x +'</b><br/>'+
+                        'No of shares: '+ Highcharts.numberFormat(this.y, 1) +
+                        ' ';
+            }
+        },
+        series: [{
+            name: 'No of shares',
+            data: vote_collection[0],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                x: 4,
+                y: 10,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+
+
+  });
+.wrapper
+  .charity_holder
+    .main_content
+      %h1{style:"margin-bottom:40px;"}=@contest.title
+
+      %div{style:"width:960px; height:70px;"}
+        .selected_btn.design
+          =link_to "View Designs", "#"
+        .selected_btn.leaderboard
+          =link_to  "View Leader-board", "#"
+
+      #design
+        -@contest.contest_entries.each_slice(3) do |slice|
+          %div{style:"width:960px; height:300px;"}
+            -slice.each do |e|
+              %div{style:"width: 30%;height:100%; float:left; position: relative;"}
+                =image_tag e.image.url(:medium), style:"width: 200px; height: 200px;", class:"image_entity"
+                %strong=e.title
+                %span=e.description
+                =link_to "Vote", vote_contest_path(e.id), class:"vote", style:"display: none"
+      #leaderboard{style:"width:960px; height:900px; display: none;"}
+        #container{:style => "min-width: 400px;width:960px; height: 500px; margin: 0 auto;"}
+        %ul{style:"margin-top: 30px; margin-left: 40px; color: gray;"}
+          -@contest_votes.collect{|c| c[:title]}.each_with_index do |n,i|
+            %li
+              %strong=(i+1).to_s+ ".  " + n
+
