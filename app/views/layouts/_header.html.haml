@@ -2,69 +2,34 @@
   .header-container
     .logo_quote
       = link_to '', root_path, class:"logo"
-      %div{:style => "float: right;text-align: center;-webkit-border-radius: 6px;   font-size: 20px; color: white; background-color: #ed6430; padding: 10px 45px; top: -7px;position: relative;"}
-        %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
-      / logo ends
-      /
-        div class="quote_req">
-        <a href="/charities">ORDER NOW</a>
-        </div>
-        <!--quote_req ends
-    / logo_quote ends
-    .navigation{:style => "position: relative"}
+      -#%div{:style => "float: right;text-align: center;-webkit-border-radius: 6px;   font-size: 20px; color: white; background-color: #ed6430; padding: 10px 45px; top: -7px;position: relative;"}
+      -#  %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
+
+    .navigation
       %ul#nav1
+        %li.active_state
+          %a{:href => "/"} LEARN MORE
         %li
-          %a{:href => "/"} Home
+          %a{:href => "/charities"} BROWSE CHARITIES
+          -#%ul
+          -#  %li
+          -#    %a{:href => "/about"} About
+          -#  / <li><a href="#">Mission</a></li>
+          -#  %li
+          -#    %a{:href => "/our_story"} Our Story
+          -#  %li
+          -#    %a{:href => "/how_it_works"} How It Works
+          -#  %li
+          -#    %a{:href => "/brand"} Products
+          -#  %li
+          -#    %a{:href => "/top_ten_reasons"} Top 10 Reasons
         %li
-          %a{:href => "/about"} Info
-          %ul
-            %li
-              %a{:href => "/about"} About
-            / <li><a href="#">Mission</a></li>
-            %li
-              %a{:href => "/our_story"} Our Story
-            %li
-              %a{:href => "/how_it_works"} How It Works
-            %li
-              %a{:href => "/brand"} Products
-            %li
-              %a{:href => "/top_ten_reasons"} Top 10 Reasons
-          / <li><a href="/" onmouseout="mclosetime('info_details')" onmouseover="mopen('info_details')">Info</a>
-          / &amp;lt;!&amp;ndash;drop-top ends&amp;ndash;&amp;gt;
-          / <div id="info_details" style="display: none;">
-          / <div class="drop-mid">
-          / <ul>
-          / <li><a href="/about">About</a></li>
-          / <li><a href="/about">Mission</a></li>
-          / <li><a href="/our_story">Our Story</a></li>
-          / <li><a href="/how_it_works">How It Works</a></li>
-          / <li><a href="/how_it_works">Top 10 Reasons</a></li>
-          / </ul>
-          / </div>
-          / </div>
+          %a{:href => "/client_spotlight"} CONTESTS
         %li
-          %a{:href => "/client_spotlight"} Clients
-        %li
-          %a{:href => "/faq"} FAQs
-        %li
-          %a{:href => "/charities"} Charities
-        %li
-          %a{:href => "/contact"} Contact
+          %a{:href => "/orders/quick_quote"} QUICK QUOTE
+        -#%li
+        -#  %a{:href => "/charities"} Charities
+        -#%li
+        -#  %a{:href => "/contact"} Contact
     / nav1igation ends
   / wrapper ends
-:javascript
-  $(document).ready(function () {
-
-      $('#nav1 li').hover(
-              function () {
-                  //show its submenu
-                  $('ul', this).stop().slideDown(100);
-
-              },
-              function () {
-                  //hide its submenu
-                  $('ul', this).stop().slideUp(100);
-              }
-      );
-
-  });

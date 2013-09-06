@@ -79,15 +79,15 @@ h2 {
 .logo_quote {
     clear: both;
     width: 100%;
-    height: 70px;
+    height: 45px;
 }
 
 .logo {
     background-image: url("/assets/new-logo.png");
-    width: 278px;
+    width: 88px;
     height: 84px;
     float: left;
-    margin: 28px 0 0 0px;
+    margin: 7px 0 0 0px;
     z-index: 999;
     position: relative;
 }
@@ -141,13 +141,17 @@ h2 {
 }
 
 .navigation {
-    float: right;
+    /*float: right;*/
+    margin-left: 170px;
+    position: relative;
+    bottom: 20px;
 }
 
 .navigation li {
     float: left;
     list-style-type: none;
     padding: 0 15px;
+
 }
 
 .navigation li a {
@@ -365,11 +369,12 @@ h2 {
 
 .foot {
   float:left;
-  height: 160px;
+  height: 200px;
   width: 100%;
   background: none repeat scroll 0 0 #ffffff;
   border-top: 7px solid #ed6430;
   font-family: myriad-pro !important;
+  background: url("/assets/footer_slice.png");
 }
 
 .foot .footer_subdiv {
@@ -3582,11 +3587,22 @@ h2 {
     display: block;
     position: relative;
     z-index: 500;
-
     float: left;
     list-style-type: none;
-    padding: 0 15px;
+    background: white;
+    padding: 7px 15px 7px 15px;
+    margin-right: 10px;
 }
+
+#nav1 li:hover {
+    background: #ececec;
+    border-radius: 6px;
+}
+
+/*#nav1 li.active_state {*/
+    /*border-radius: 6px;*/
+    /*background-color: #ed6430;*/
+/*}*/
 
 #nav1 ul {
     position: absolute;
@@ -3917,10 +3933,15 @@ h2 {
 }
 .header-wrapper{
   background-color: white;
-  height: 89px;
-  border-bottom: 7px solid #ed6430;
+  height: 70px;
+  /*border-bottom: 7px solid #ed6430;*/
   width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
 }
+
 
 .header-container{
   width: 960px;
@@ -3928,10 +3949,21 @@ h2 {
 }
 
 .featured-section{
-  background-image: url("/assets/featured-bg.jpg");
-  height: 519px;
+  background-image: url("/assets/home_main.png");
+  height: 569px;
   width: 100%;
-  background-position: center -90px;
+  background-position-y: 70px;
+  position: relative;
+  /*background-position: center -90px;*/
+}
+
+.progress_bar{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: #2f8756;
 }
 .process-images{
   background-image: url("/assets/shirt-process-img.png");
