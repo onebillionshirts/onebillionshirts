@@ -77,6 +77,43 @@
 
   .pagination{
     float: right;
+    width: 500px;
+  }
+
+  .apple_pagination {
+    background: #f1f1f1;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 1em;
+    cursor: default;
+  }
+
+  .apple_pagination .disabled {
+    color: #aaaaaa;
+  }
+
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  }
+
+  .apple_pagination a {
+  text-decoration: none;
+  color: black;
+  }
+
+  .apple_pagination a, .apple_pagination span , .apple_pagination em {
+    padding: 0.2em 0.3em;
+    display: inline;
   }
 
 :javascript
@@ -200,7 +237,8 @@
                   =link_to vote_contest_path(e.id), class:"vote", style:"display: none" do
                     %i.icon-heart Vote
           .pagination
-            = will_paginate @contest_entries
+            = will_paginate @contest_entries , class:"apple_pagination"
+
         #leaderboard{style:"width:960px; height:900px; display: none;"}
           #container{:style => "min-width: 400px;width:960px; height: 500px; margin: 0 auto;"}
           %ul{style:"margin-top: 30px; margin-left: 40px; color: gray;"}
