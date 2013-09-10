@@ -28,6 +28,7 @@ class HomeController < ApplicationController
 
   def how_it_works
     @page_content = Page.find_by_page_name('how_it_works').page_content
+    render layout: nil
   end
 
   def participate
