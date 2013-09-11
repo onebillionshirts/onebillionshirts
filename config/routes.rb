@@ -23,6 +23,8 @@ OneBS::Application.routes.draw do
   match "/faq", :to => "home#faq"
   match "/calendar", :to => "home#calendar"
   match "/impact", :to => "home#impact"
+  match "/socialize", :to => "home#socialize"
+  match "/channel", :to => "home#channel"
 
 
   devise_for :admins, :controllers => {
@@ -104,7 +106,7 @@ OneBS::Application.routes.draw do
 
   resources :home do
     collection do
-      get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions
+      get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions, :socialize, :channel
       post :send_email
       post :calculate_impact
     end

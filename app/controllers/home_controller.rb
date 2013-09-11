@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   def faq
     @questions = Question.all
     @questions_categories = QuestionsCategory.all
-
+    render layout: nil
   end
 
   def client_spotlight
@@ -41,6 +41,7 @@ class HomeController < ApplicationController
 
   def share_contest
     @charities = Charity.find(:all, :limit => 10)
+    render layout: nil
   end
 
   def send_email
@@ -143,7 +144,13 @@ class HomeController < ApplicationController
     #render json: {params: params, email: @email, fb: @fb, tw: @tw, emp: @emp, order: @total_o, shirts: @total_s, money: @total_m, para: @para.to_i  }
   end
 
+  def socialize
+    render layout: nil
+  end
 
+  def channel
+    @src = "//connect.facebook.net/en_US/all.js"
+  end
 
   private
   def get_default_charity
@@ -156,6 +163,8 @@ class HomeController < ApplicationController
   def thank_you
 
   end
+
+
 
 
 end

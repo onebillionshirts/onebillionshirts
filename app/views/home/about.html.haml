@@ -4,8 +4,7 @@
         beforeLoad: function( event, ui ) {
           ui.jqXHR.error(function() {
             ui.panel.html(
-              "Couldn't load this tab. We'll try to fix this as soon as possible. " +
-              "If this wouldn't be a demo." );
+              "Couldn't load this tab. We'll try to fix this as soon as possible. " );
           });
         }
       });
@@ -30,9 +29,11 @@
       %li
         %a{:href => "ajax/content3-slow.php"} Our Facility
       %li
+        %a{:href => "/faq"} FAQ
+      %li
         %a{:href => "/share_contest"} Contests
       %li
-        %a{:href => "ajax/content4-broken.php"} Socialize
+        %a{:href => "/socialize"} Socialize
       %li
         %a{:href => "ajax/content4-broken.php"} Manifesto
     #tabs-1
@@ -47,13 +48,13 @@
       %li
         %a{:href => "ajax/content1.html"} Our Mission
       %li
-        %a{:href => "ajax/content2.html"} How It Works
+        %a{:href => "/how_it_works"} How It Works
       %li
         %a{:href => "ajax/content3-slow.php"} Our Facility
       %li
-        %a{:href => "ajax/content4-broken.php"} Contests
+        %a{:href => "/share_contest"} Contests
       %li
-        %a{:href => "ajax/content4-broken.php"} Socialize
+        %a{:href => "/socialize"} Socialize
       %li
         %a{:href => "ajax/content4-broken.php"} Manifesto
     #tabs-1
