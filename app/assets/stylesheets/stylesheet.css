@@ -4034,41 +4034,45 @@ h2 {
   background: #666;
 }
 .quick_quote a.quick{
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  font-size: 20px;
-  color: white;
-  /*background-color: #ed6430;*/
-  padding: 15px 45px;
-  border: 2px solid #2f8756;
+    width: 140px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    /*background-color: #ed6430;*/
+    padding: 15px 45px;
+    border: 2px solid #2f8756;
+    float: left;
 }
 .quick_quote a.inline{
-  color: white;
-  font-size: 15px;
-  text-decoration: underline;
-  float: left;
-  margin-left: 12px;
-  border-bottom: 2px dotted white;
+    color: white;
+    font-size: 15px;
+    /*text-decoration: underline;*/
+    float: left;
+    margin-left: 12px;
+    border-bottom: 2px dotted white;
 }
 .quick_quote{
-  width: 260px;
-  position: absolute;
-  left: 355px;
-  top: 400px;
-  cursor: pointer;
+    width: 440px;
+    position: absolute;
+    left: 257px;
+    top: 430px;
+    cursor: pointer;
 }
 
 .quick_quote p{
-  width: 120px;
-  font-size: 15px;
-  float: left;
-  margin: 0 0 0 80px;
+    width: 150px;
+    font-size: 15px;
+    float: right;
+    line-height: 18px;
+    /*margin: 0 0 0 80px;*/
 }
 
 .quick_quote p span{
-  float: left;
-  color: #ccc;
+    float: left;
+    color: #ccc;
+    margin-right: 35px
 }
 
 .our_idea h3{
