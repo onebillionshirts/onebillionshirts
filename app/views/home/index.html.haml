@@ -6,111 +6,132 @@
     .inner_wrapper_div
       %br
       %br
-      %h1
-        Your Custom T-shirts Can
-        %br
-        Change The World!
-      .process-images
-      .quick_quote
-        %a.quick{href: "/orders/quick_quote"}
-          Quick Quote
-        %p
-          %span
-            or
-          %a.inline{href: "/faq"}
-            Learn More
-    .progress_bar
-.wrapper
-  .our_idea
-    %h3{style:"margin:0 auto; width:880px;"}
-      “I was saved from War at age 14 with the help of charities.
-      My mission is to turn every t-shirt into a donation
       %br
-      and every customer into a philanthropist!”
-    .testi{style:"height: 86px;"}
-      %img{src:"/assets/testimonial-person-thumb.png"}
-      %div{style:"line-height: 44px;"}
-        %h4 Albion Calaj, CEO
-        %a{href:"/our_story", style:"font-style: normal;margin-right: 35px; color: rgb(0, 133, 255); cursor: pointer;text-decoration: underline"} Read our story
-  / our_idea ends
-/ wrapper ends
-.wrapper
-  .top-charity{style:"position:relative"}
-    .featured_banner
-    .col
-      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;border:1px solid #ccc"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
-      -#%img{src:"/assets/dummy.png"}
-    .col
-      %h3
-        =Charity.default.first.name
-      %span
-        !=Charity.default.first.mission_statement.html_safe
-      %a{href:"#{charity_path(Charity.default.first)}"} Learn More
-  .featured-area
-    %ul.bxslider
-      -Charity.featured.each do |char|
-        %li
-          =link_to (image_tag char.logo.image(:thumb),  style:"width:100px;"), charity_path(char) unless char.logo.blank?
-
-
-  / our_idea ends
-/ wrapper ends
-.wrapper{style:"clear:both;"}
-  .how_it_works
-    .how_img
-      %img{src:"/assets/how-it-works.png"}
-    .how_bottom
-      .col
-        %h3
-          %span
-            Charities 
-          love us because we are
-          tapping into a brand new multi-million 
-          dollar fundraising stream that was not 
-          available yesterday.
-        %a{href:"/impact", style:"width: 140px;"} Calculate Impact
-      .col{style:"border-left:1px solid #ccc;"}
-        %h3
-          %span
-            Customers
-          love us because we save
-          96% of clients money compared to
-          their last vendor and also donate to a
-          charity of their choice.
-        %a{href:"how_it_works"} How It Works
-  / our_idea ends
-/ wrapper ends
-.wrapper{style:"clear:both;"}
-  %h1{style:"text-align:center;color: grey;margin-bottom: 20px;font-size: 38px;"} Testimonials
-  .final-area{style:"float:left;margin-bottom:40px;"}
-    %ul.bxbig
-      -ClientSpotlight.all.each do |char|
-        %li
-          .single_charity
-            .col{style:"width:50%;padding:0px 40px;"}
-              %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
-                =truncate_html(char.description, length: 340).html_safe
-            .col{style:"width:30%"}
-              -unless char.client_spotlight_images.first.blank?
-                =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{char.id}"
-
-  / our_idea ends
-/ wrapper ends
-.wrapper{style:"clear:both;"}
-  .bottom_contain
-    .bottom_quote
-      %a.quick{href: "/orders/quick_quote"}
-        Quick Quote
+      %br
+      %h1
+        Custom T-shirts
+      %h2
+        That Help Others!
+      .process-images
+      -#.quick_quote
+      -#  %a.quick{href: "/orders/quick_quote"}
+      -#    Quick Quote
+      -#  %p
+      -#    %span
+      -#      or
+      -#    %a.inline{href: "/faq"}
+      -#      Learn More
+    .progress_bar
+.wrapper{style:"height: 280px;"}
+  .our_idea
+    .area_33
+      %h4 Need T-Shirts?
       %p
-        %span
-          or
-        %a.inline{href:"/faq"}
-          Learn More
-    %h4 
-      We will beat your current price
-      & donate in your name from our profit.
-      Now, that is a win-win!
-    %img{src:"/assets/sketchy-arrow.png"}
+        We save our customers up to 50% on their custom t-shirts and also donate a mandatory 25¢ per shirt to a charity of their choice.
+        %span.orange Check our real time prices
+        and see if working with us makes sense!
+    .area_33
+      %h4 Suggest a Charity.
+      %p
+        Our mission is to help charities help others, just as our CEO was helped in his time of need.  If not in our database already,
+        %span.orange suggest a charity
+        and begin reaping the benefits today!
+    .area_33
+      %h4 Help Out For Free!
+      %p
+        If you are like us, sometimes you're just in the giving mood!  If you don't need t-shirts printed at the moment you can still
+        %span.orange lend your social influence
+        and help your favorite charity!
+-#    %h3{style:"margin:0 auto; width:880px;"}
+-#      “I was saved from War at age 14 with the help of charities.
+-#      My mission is to turn every t-shirt into a donation
+-#      %br
+-#      and every customer into a philanthropist!”
+-#    .testi{style:"height: 86px;"}
+-#      %img{src:"/assets/testimonial-person-thumb.png"}
+-#      %div{style:"line-height: 44px;"}
+-#        %h4 Albion Calaj, CEO
+-#        %a{href:"/our_story", style:"font-style: normal;margin-right: 35px; color: rgb(0, 133, 255); cursor: pointer;text-decoration: underline"} Read our story
+-#  / our_idea ends
+-#/ wrapper ends
+-#.wrapper
+-#  .top-charity{style:"position:relative"}
+-#    .featured_banner
+-#    .col
+-#      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;border:1px solid #ccc"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
+-#      -#%img{src:"/assets/dummy.png"}
+-#    .col
+-#      %h3
+-#        =Charity.default.first.name
+-#      %span
+-#        !=Charity.default.first.mission_statement.html_safe
+-#      %a{href:"#{charity_path(Charity.default.first)}"} Learn More
+-#  .featured-area
+-#    %ul.bxslider
+-#      -Charity.featured.each do |char|
+-#        %li
+-#          =link_to (image_tag char.logo.image(:thumb),  style:"width:100px;"), charity_path(char) unless char.logo.blank?
+-#
+-#
+-#  / our_idea ends
+-#/ wrapper ends
+-#.wrapper{style:"clear:both;"}
+-#  .how_it_works
+-#    .how_img
+-#      %img{src:"/assets/how-it-works.png"}
+-#    .how_bottom
+-#      .col
+-#        %h3
+-#          %span
+-#            Charities
+-#          love us because we are
+-#          tapping into a brand new multi-million
+-#          dollar fundraising stream that was not
+-#          available yesterday.
+-#        %a{href:"/impact", style:"width: 140px;"} Calculate Impact
+-#      .col{style:"border-left:1px solid #ccc;"}
+-#        %h3
+-#          %span
+-#            Customers
+-#          love us because we save
+-#          96% of clients money compared to
+-#          their last vendor and also donate to a
+-#          charity of their choice.
+-#        %a{href:"how_it_works"} How It Works
+  / our_idea ends
+/ wrapper ends
+.light_grey_area
+  .wrapper{style:"clear:both;"}
+    -#%h1{style:"text-align:center;color: grey;margin-bottom: 20px;font-size: 38px;"} Testimonials
+    .final-area{style:"float:left;margin-bottom:40px;"}
+      %ul.bxbig
+        -ClientSpotlight.all.each do |char|
+          %li
+            .single_charity
+              .col{style:"width:50%;padding:0px 40px;"}
+                %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
+                  =truncate_html(char.description, length: 340).html_safe
+              .col{style:"width:30%"}
+                -unless char.client_spotlight_images.first.blank?
+                  =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{char.id}"
+
+  / our_idea ends
+/ wrapper ends
+-#.wrapper{style:"clear:both;"}
+-#  .bottom_contain
+-#    .bottom_quote
+-#      %a.quick{href: "/orders/quick_quote"}
+-#        Quick Quote
+-#      %p
+-#        %span
+-#          or
+-#        %a.inline{href:"/faq"}
+-#          Learn More
+-#    %h4
+-#      We will beat your current price
+-#      & donate in your name from our profit.
+-#      Now, that is a win-win!
+-#    %img{src:"/assets/sketchy-arrow.png"}
 
 :javascript
   var _gaq = _gaq || [];
