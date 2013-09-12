@@ -1,4 +1,114 @@
 @charset "utf-8";
+/*     fonts      */
+@font-face {
+    font-family: 'GothamRnd-BoldIta';
+    src: url('/assets/GothamRnd-BoldIta.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'GothamRnd-Bold';
+    src: url('/assets/GothamRnd-Bold.otf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'GothamRnd-MedIta';
+    src: url('/assets/GothamRnd-MedIta.otf');
+    font-style: italic;
+    font-size:medium;
+}
+@font-face {
+    font-family: 'GothamRnd-BookIta';
+    src: url('/assets/GothamRnd-BookIta.otf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'GothamRnd-Book';
+    src: url('/assets/GothamRnd-Book.otf');
+}
+@font-face {
+    font-family: 'GothamRnd-LightIta';
+    src: url('/assets/GothamRnd-LightIta.otf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'GothamRnd-Light';
+    src: url('/assets/GothamRnd-Light.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-Black';
+    src: url('/assets/ProximaNova-Black.otf');
+    color: white;
+}
+@font-face {
+    font-family: 'ProximaNova-RegItalic';
+    src: url('/assets/ProximaNova-RegItalic.otf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'ProximaNova-BoldIt';
+    src: url('/assets/ProximaNova-BoldIt.otf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'ProximaNova-RegularItalic';
+    src: url('/assets/ProximaNova-RegularItalic.otf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'ProximaNova-Light';
+    src: url('/assets/ProximaNova-Light.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-Bold';
+    src: url('/assets/ProximaNova-Bold.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-Regular';
+    src: url('/assets/ProximaNova-Regular.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-Extrabold';
+    src: url('/assets/ProximaNova-Extrabold.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-SemiboldItalic';
+    src: url('/assets/ProximaNova-SemiboldItalic.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-LightItalic';
+    src: url('/assets/ProximaNova-LightItalic.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-Semibold';
+    src: url('/assets/ProximaNova-Semibold.otf');
+}
+@font-face {
+    font-family: 'Musket bold italic';
+    src: url('/assets/Musket bold italic.otf');
+}
+@font-face {
+    font-family: 'Musket bold';
+    src: url('/assets/Musket bold.otf');
+}
+@font-face {
+    font-family: 'Musket regular italic';
+    src: url('/assets/Musket regular italic.otf');
+}
+@font-face {
+    font-family: 'Musket regular';
+    src: url('/assets/Musket regular');
+}
+
+
+
+
+
+
+
+
+
+
 /* CSS Document */
 
 html, body, div, span, ul, li, a, h1, h2, h3, h4, h5, h6, img, form, fieldset, input[type=text], input[type=button], textarea, select {
@@ -3688,7 +3798,7 @@ h2 {
 }
 
 .inner_wrapper_div h1 {
-    font-family: Arial !important;
+    font-family: GothamRnd-Book !important;
     font-size: 60px;
     font-weight: bold;
     margin: 30px auto;
@@ -3698,7 +3808,7 @@ h2 {
 }
 
 .inner_wrapper_div h2 {
-    font-family: Arial !important;
+    font-family: GothamRnd-Light !important;
     font-size: 58px;
     font-weight: bold;
     margin: 30px auto;
