@@ -4,6 +4,7 @@
     width: 400px;
     color: white;
     margin: 0 auto;
+    font-family: ProximaNova-SemiboldItalic !important;
   }
   .active_btn {
     color: black;
@@ -43,7 +44,10 @@
     border-bottom: 1px solid white;
     width: 400px;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 55px;
+    font-family: GothamRnd-BoldIta !important;
+    font-weight: bold;
+    font-size: 54px;
   }
 
   .featured-section h5{
@@ -51,10 +55,17 @@
      color: white;
      width: 400px;
      margin: 0 auto;
+     font-family: GothamRnd-Book !important;
+     font-weight: bold;
+     font-size: 13px;
+     margin-top: 10px;
+
   }
 
   .featured-section{
     height: 250px;
+    background: url("/assets/contest.png") no-repeat;
+    margin-top: 66px;
   }
 
   .charity_holder{
@@ -77,7 +88,6 @@
 
   .pagination{
     float: right;
-    width: 500px;
   }
 
   .apple_pagination {
@@ -116,6 +126,22 @@
     display: inline;
   }
 
+  .leaderboard_btn{
+    float: right;
+    border: 1px solid lightgray;
+    padding: 18px;
+    border-radius: 4px;
+    margin-left: 30px;
+    cursor: pointer;
+    width: 180px;
+    position: relative;
+  }
+  .leaderboard_btn > img{
+    position: absolute;
+    top: 20px;
+    right: 22px;
+  }
+
 :javascript
   $(document).ready(function(){
     $(".image_entity").hover(function(event){
@@ -151,6 +177,10 @@
       $("#design").css("display","none");
       $("#leaderboard").css("display","block");
     });
+
+    $(".leaderboard_btn").click(function(){
+      $(".leaderboard").trigger("click");
+    })
 
     name_collection = [];
     vote_collection = [];
@@ -236,6 +266,10 @@
                   %span=e.description
                   =link_to vote_contest_path(e.id), class:"vote", style:"display: none" do
                     %i.icon-heart Vote
+          %div.leaderboard_btn
+            View the
+            %strong Leaderboard
+            =image_tag "btn_arrow.png"
           .pagination
             = will_paginate @contest_entries , class:"apple_pagination"
 
