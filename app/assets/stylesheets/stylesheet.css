@@ -613,6 +613,9 @@ h2 {
 .calculate_hold {
     clear: both;
     width: 100%;
+    height: 1020px;
+    margin-top: -360px;
+    position: relative;
 }
 
 .calculate_det {
@@ -3797,7 +3800,7 @@ h2 {
     width: 92%;
 }
 
-.inner_wrapper_div h1 {
+.inner_wrapper_div h1, .faq_text h1{
     font-family: GothamRnd-Book !important;
     font-size: 60px;
     font-weight: bold;
@@ -3807,7 +3810,17 @@ h2 {
     color: white;
 }
 
-.inner_wrapper_div h2 {
+.faq_text h3{
+    font-family: GothamRnd-Book !important;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 30px auto;
+    text-align: center;
+    width: 93%;
+    color: #e4e4e5;
+}
+
+.inner_wrapper_div h2, .faq_text h2 {
     font-family: GothamRnd-Light !important;
     font-size: 58px;
     font-weight: bold;
@@ -3816,6 +3829,12 @@ h2 {
     width: 93%;
     color: white;
     border-bottom: 1px solid gray;
+}
+
+.faq_text h2{
+    color: #7a7a7c;
+    font-size: 48px;
+    margin: 0 auto;
 }
 
 .inner_wrapper_div p {
@@ -4070,19 +4089,19 @@ h2 {
 .faq_text { float:left; width:100%; text-align:center;}
 .faq_text h1 { clear: both; width:625px; text-align:center; margin:69px auto 0 auto; font-weight:normal; font-size:55px;}
 
-.faq_info{ float:left; width:100%; margin-top: 60px;}
+.faq_info{ float:left; width:100%; margin-top: 100px;padding-bottom: 90px;}
 .faq_lft { float:left; width:45%; border-right:1px solid #7d7d7d;min-height: 450px;margin-bottom: 30px;}
 .faq_rit {float:left; width:48%;min-height: 450px;margin-bottom: 30px;padding-left:62px;}
-.faq_rit .title{margin-bottom: 20px; font-size: 16px; color: #ED6430;font-weight: bold;text-transform: uppercase;}
+.faq_rit .title{margin-bottom: 20px; font-size: 16px; /*color: #ED6430;*/font-weight: bold;text-transform: uppercase;}
 .faq_rit .answer{width:80%;margin: 0px 0px 40px;font-size: 16px;}
-.faq_rit a.see_us{color: #ED6430;display:inline;}
+.faq_rit a.see_us{color: #2f8756;display:inline;}
 
 
 .faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:250px;}
 .faq_list a { font-size:20px; display:inline-block; color:#000; font-family:Arial, Helvetica, sans-serif;background: url(/assets/drop_down_img.png) no-repeat center left;padding-left: 38px;}
 .faq_list span { font-size:16px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin:8px 0 0 20px; width:100%; clear:both; font-weight:bold; }
-.faq_list ul.questions {padding-left:10px;color:#ED6430;}
-.faq_list ul.questions li {padding:5px;color:#ED6430; font-size:15px;cursor:pointer;}
+.faq_list ul.questions {padding-left:10px;/*color:#ED6430;*/}
+.faq_list ul.questions li {padding:5px;/*color:#ED6430;*/ font-size:15px;cursor:pointer;}
 
 .faq_abt { clear:both; width:100%; margin-bottom:40px;}
 .faq_abt h2 { font-size:20px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin-bottom:15px; }
@@ -4563,6 +4582,7 @@ input.green{
 .ui-tabs .ui-tabs-nav {
     padding-left: 27%;
     width: 100%;
+    position: relative;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
@@ -4620,4 +4640,58 @@ input.green{
 
 .margin_left{
     margin-left: 250px;
+}
+
+.featured-section_about{
+    background-image: url("/assets/contest_header.png");
+    height: 343px;
+    width: 100%;
+    background-position-y: 70px;
+    position: relative;
+}
+
+hr.style-left {
+    float: left;
+    border: 0;
+    width: 300px;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+hr.style-right {
+    float: right;
+    border: 0;
+    width: 300px;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+.my_heading{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.my_heading h3{
+    float: left;
+    margin-left: 32px;
+    line-height: 16px;
+}
+
+.learn_more_about_contest{
+    height: 40px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
 }

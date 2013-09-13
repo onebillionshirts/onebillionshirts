@@ -5,10 +5,16 @@
   .faq_text
     %h1
       Got Questions?
-      %br/
+    %h2{style:"width: 50%;"}
       We Have Answers...
+    %h3
+      Get high quality shirts, save money, and helo change the world!
   / faq_text ends
   .faq_info
+    .my_heading
+      %hr.style-left
+      %h3 Frequently Asked Questions
+      %hr.style-right
     .faq_lft
       .faq_list
         %ul#accordion
@@ -27,9 +33,17 @@
       %div
         Need more info?
         %a.see_us{:href => "/contact"} Contact Us
+
+    .learn_more_about_contest
+      =image_tag "learn_contest.png"
+
 / wrapper ends
 :javascript
   jQuery(function($) {
+
+    $(".learn_more_about_contest").click(function(){
+       $(".contests_tab").trigger("click")
+    });
 
     first_q = $(".question_title").first()
     question = first_q.data("title")

@@ -17,7 +17,7 @@
   = @title
 - @page_content = Page.find_by_page_name('about').page_content
 - if @page_content.present?
-  .featured-section{style:"height: 240px;"}
+  .featured-section_about
   #tabs
     %ul
       %li
@@ -31,7 +31,7 @@
       %li
         %a{:href => "/faq"} FAQ
       %li
-        %a{:href => "/share_contest"} Contests
+        %a.contests_tab{:href => "/share_contest"} Contests
       %li
         %a{:href => "/socialize"} Socialize
       %li
