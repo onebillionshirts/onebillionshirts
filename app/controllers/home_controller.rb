@@ -106,6 +106,10 @@ class HomeController < ApplicationController
     render :partial => "/home/calculated_value_popup"
   end
 
+  def our_story
+    render layout: nil
+  end
+
   def view_all_charities
     @charities = Charity.all
     render :partial => "home/view_all_charities"
