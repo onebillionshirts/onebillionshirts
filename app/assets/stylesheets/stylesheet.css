@@ -4635,13 +4635,13 @@ input.green{
     margin-top:30px;
     margin-right: auto;
     margin-left: auto;
-    width: 100%;
+    width: 1100px;
     height: 800px;
     background: #ececec;
 }
 
 .margin_left{
-    margin-left: 250px;
+    margin-left: 10%;
 }
 
 .featured-section_about{
