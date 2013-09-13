@@ -4128,13 +4128,12 @@ h2 {
   margin: 0 auto;
 }
 
-.featured-section{
-  background-image: url("/assets/home_main.png");
-  height: 569px;
-  width: 100%;
-  background-position-y: 70px;
-  position: relative;
-  /*background-position: center -90px;*/
+.featured-section {
+    background: url("/assets/home_main.png") no-repeat;
+    height: 519px;
+    background-position: center center;
+    margin-top: 35px;
+    position: relative;
 }
 
 .progress_bar{
@@ -4580,9 +4579,12 @@ input.green{
 }
 
 .ui-tabs .ui-tabs-nav {
-    padding-left: 27%;
-    width: 100%;
+    margin-left: auto;
+    width: 825px;
     position: relative;
+    margin-right: auto;
+    padding-right: 22.5%;
+    padding-left: 22.5%;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
@@ -4643,10 +4645,12 @@ input.green{
 }
 
 .featured-section_about{
-    background-image: url("/assets/contest_header.png");
-    height: 343px;
+    background: url("/assets/contest_header.png") no-repeat;
+    height: 272px;
     width: 100%;
-    background-position-y: 70px;
+    background-position: center center;
+    position: relative;
+    margin-top: 35px;
     position: relative;
 }
 
