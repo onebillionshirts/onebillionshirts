@@ -4564,3 +4564,60 @@ input.green{
     padding-left: 27%;
     width: 100%;
 }
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: none;
+    background: white;
+    font-weight: bold;
+    color: #000000;
+    width: 100px;
+    text-align: center;
+}
+
+.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: none;
+    background: white;
+    font-weight: bold;
+    color: #c77405;
+    width: 100px;
+    text-align: center;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none;
+    background: white;
+    font-weight: bold;
+    color: #1c94c4;
+    width: 100px;
+    text-align: center;
+}
+.ui-tabs .ui-tabs-nav li a {
+    float: none;
+    padding: .5em 1em;
+    text-decoration: none;
+}
+
+.ui-state-active:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 25px 0 0 -14px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 14px solid white;
+}
+
+
+.socialize{
+    margin-top:30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 800px;
+    background: #ececec;
+}
+
+.margin_left{
+    margin-left: 250px;
+}
