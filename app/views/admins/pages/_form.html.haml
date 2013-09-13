@@ -9,6 +9,8 @@
           %li= msg
   %h1= @page.page_name
   .field
+    = f.label :header_content
+    = f.text_area :header_content
     = f.label :page_content
     = f.text_area :page_content
   .span2.offset4

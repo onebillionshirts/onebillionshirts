@@ -2,6 +2,8 @@
   - @title = "How it works - OneBillionShirts"
   = @title
 - if @page_content.present?
+  -content_for(:about_head) do
+    =raw(@header_content)
   = raw(@page_content)
 :css
   .calc_btn {

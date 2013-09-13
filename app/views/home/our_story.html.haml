@@ -2,7 +2,11 @@
   - @title = "Our Story - OneBillionShirts"
   = @title
 - @page_content = Page.find_by_page_name('our_story').page_content
+- @header_content = Page.find_by_page_name('our_story').header_content
+
 - if @page_content.present?
+  -content_for(:about_head) do
+    =raw(@header_content)
   = raw(@page_content)
 - else
   .slider_hold{:style => "height:auto;"}

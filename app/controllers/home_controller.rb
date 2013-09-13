@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   def faq
     @questions = Question.all
     @questions_categories = QuestionsCategory.all
-    render layout: nil
+    render layout: "about"
   end
 
   def client_spotlight
@@ -28,7 +28,8 @@ class HomeController < ApplicationController
 
   def how_it_works
     @page_content = Page.find_by_page_name('how_it_works').page_content
-    render layout: nil
+    @header_content = Page.find_by_page_name('how_it_works').header_content
+    render layout: "about"
   end
 
   def participate
@@ -41,7 +42,7 @@ class HomeController < ApplicationController
 
   def share_contest
     @charities = Charity.find(:all, :limit => 10)
-    render layout: nil
+    render layout: "about"
   end
 
   def send_email
@@ -107,7 +108,7 @@ class HomeController < ApplicationController
   end
 
   def our_story
-    render layout: nil
+    render layout: "about"
   end
 
   def view_all_charities
@@ -149,7 +150,7 @@ class HomeController < ApplicationController
   end
 
   def socialize
-    render layout: nil
+    render layout: "about"
   end
 
   def channel
