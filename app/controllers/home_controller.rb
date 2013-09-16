@@ -31,6 +31,11 @@ class HomeController < ApplicationController
     render layout: nil
   end
 
+  def facility
+    @page_content = Page.find_by_page_name('Facility').page_content
+    render layout: nil
+  end
+
   def participate
     @page_content = Page.find_by_page_name('Participate').page_content
   end
