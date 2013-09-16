@@ -193,11 +193,10 @@ h2 {
 }
 
 .logo {
-    background-image: url("/assets/new-logo.png");
-    width: 88px;
-    height: 84px;
+    background: url("/assets/header_logo_2.png") no-repeat;
+    width: 162px;
+    height: 158px;
     float: left;
-    margin: 7px 0 0 0px;
     z-index: 999;
     position: relative;
 }
@@ -252,9 +251,9 @@ h2 {
 
 .navigation {
     /*float: right;*/
-    margin-left: 170px;
+    margin-left: 200px;
     position: relative;
-    bottom: 20px;
+    top: 4px;
 }
 
 .navigation li {
@@ -267,9 +266,9 @@ h2 {
 .navigation li a {
     text-transform: uppercase;
     color: #969696;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
 }
 
 .navigation li:hover a {
@@ -3743,7 +3742,7 @@ h2 {
     float: left;
     list-style-type: none;
     background: white;
-    padding: 7px 15px 7px 15px;
+    padding: 14px 20px 14px 20px;
     margin-right: 10px;
 }
 
@@ -4113,7 +4112,7 @@ h2 {
 }
 .header-wrapper{
   background-color: white;
-  height: 70px;
+  height: 121px;
   /*border-bottom: 7px solid #ed6430;*/
   width: 100%;
   position: fixed;
