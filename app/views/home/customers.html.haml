@@ -1,0 +1,208 @@
+:css
+  .my_selected_btn {
+    text-align: center;
+    width: 400px;
+    color: white;
+    margin: 0 auto;
+    font-family: ProximaNova-SemiboldItalic !important;
+  }
+  .active_btn {
+    color: black;
+  }
+
+  .section{
+    font-size: 15px;
+    padding-top: 8px;
+    float: left;
+    margin-left: 80px;
+    border-bottom: 1px dotted white;
+  }
+
+  a.vote{
+    background-color: #009345;
+    width: 45px;
+    border-radius: 30px;
+    height: 45px;
+    line-height: 53px;
+    border: 1px solid #c6bebb;
+    position: absolute;
+    top: 25%;
+    left: 23%;
+  }
+
+  .featured-section h1{
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid white;
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 55px;
+    font-family: GothamRnd-BoldIta !important;
+    font-weight: bold;
+    font-size: 54px;
+  }
+
+  .featured-section h5{
+     text-align: center;
+     color: white;
+     width: 400px;
+     margin: 0 auto;
+     font-family: GothamRnd-Book !important;
+     font-weight: bold;
+     font-size: 13px;
+     margin-top: 10px;
+
+  }
+
+  .featured-section{
+    height: 250px;
+    background: url("/assets/contest.png") no-repeat;
+    margin-top: 66px;
+  }
+
+  .charity_holder{
+    margin-top: 20px;
+  }
+
+  .img3{
+    width: 33%;
+    height: 100%;
+    float: left;
+    position: relative;
+  }
+
+  .bg{
+    background: #eeeeee;
+    height: 100%;
+    overflow-y: hidden;
+    padding-bottom: 50px;
+  }
+
+  .pagination{
+    float: right;
+  }
+
+  .apple_pagination {
+    background: #f1f1f1;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 1em;
+    cursor: default;
+  }
+
+  .apple_pagination .disabled {
+    color: #aaaaaa;
+  }
+
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  }
+
+  .apple_pagination a {
+  text-decoration: none;
+  color: black;
+  }
+
+  .apple_pagination a, .apple_pagination span , .apple_pagination em {
+    padding: 0.2em 0.3em;
+    display: inline;
+  }
+
+  .leaderboard_btn{
+    float: right;
+    border: 1px solid lightgray;
+    padding: 18px;
+    border-radius: 4px;
+    margin-left: 30px;
+    cursor: pointer;
+    width: 180px;
+    position: relative;
+  }
+  .leaderboard_btn > img{
+    position: absolute;
+    top: 20px;
+    right: 22px;
+  }
+
+:javascript
+  $(document).ready(function(){
+    $(".image_entity").hover(function(event){
+       $( event.target ).siblings("a").css("display","block");
+       $(this).css("opacity","0.3");
+       },function(event){
+       $( event.target ).siblings("a").css("display","none");
+       $(this).css("opacity","1");
+     });
+
+    $(".vote").hover(function(event){
+       $( event.target ).siblings(".image_entity").css("opacity","0.3");
+       $(this).css("background-color","#009345");
+       $(this).css("display","block");
+       },function(event){
+       $( event.target ).siblings(".image_entity").css("opacity","1");
+       $(this).css("background-color","#009345");
+       $(this).css("display","none");
+     });
+
+    $(".plus_btn").click(function(){
+      id = $(this).data("popid");
+      console.log(id);
+      $("#style_picker-"+id).bPopup();
+      return false;
+    })
+
+
+  });
+
+.featured-section
+  %h1{style:"width: 550px;"} Customers That Care!
+  %h5{style:"width: 550px;"} Choose some of our customers that choose the smarter way to print
+  %h5 their custom apparel ...
+  .progress_bar
+
+.bg
+  .wrapper
+    .my_heading
+      %hr.style-left
+      %h3{style:"margin-left: 100px;"} Client Showcase
+      %hr.style-right
+    .charity_holder
+      .main_content
+        #design
+          -@customers.each_slice(3) do |slice|
+            %div{style:"width:960px; height:300px; padding-left: 75px;"}
+              -slice.each do |e|
+                .img3
+                  =image_tag e.logo.url(:medium), style:"width: 200px; height: 200px;", class:"image_entity"
+                  %strong{style:"color: #f18d34;"}=e.text
+                  -#%span=e.description
+                  =link_to "#", class:"vote plus_btn", data: {popid: "#{e.id}"}, style:"display: none" do
+                    %i.icon-plus.icon-2x{style:"color: white;margin-left: 12px;"}
+
+
+-@customers.each do |e|
+  %div{style:"padding:25px;background-color:white;width:500px;height:auto;display:none;", id:"style_picker-#{e.id}"}
+    %div{style:"width:100%; height:100px; text-align:center; color:green;font-size: 55px;"} Thank you!
+    %div{style:"width:100%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;"} Customer That Care!
+    %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 40px;"}
+      =image_tag e.logo.url(:medium)
+    %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 40px;margin-bottom: 40px;"}
+      =image_tag e.main_logo.url(:medium)
+    .sharethis_div
+      .socialz{style:"margin-left: auto; margin-right: auto; width: 230px; float: none;"}
+        %span.st_sharethis_large{:displaytext => "ShareThis"}
+        %span.st_facebook_large{:displaytext => "Facebook"}
+        %span.st_twitter_large{:st_via => ""}
+        %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
+        %span.st_pinterest_large{:displaytext => "Pinterest"}
+        %span.st_email_large{:displaytext => "Email"}

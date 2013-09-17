@@ -1,0 +1,36 @@
+.row
+  = nested_form_for(@customer, :url => url, :html=>{class:"form form-horizontal"}) do |f|
+    - if @customer.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@customer.errors.count, "error")
+          prohibited this charity from being saved:
+        %ul
+          - @customer.errors.full_messages.each do |msg|
+            %li.alert.alert-error
+              = msg
+    .span12
+      %fieldset
+        .control-group
+          = f.label :text, class:"control-label"
+          .controls
+            = f.text_area :text
+      %fieldset
+        .control-group
+          = f.label :charity_name, class:"control-label"
+          .controls
+            = select_tag(:charity_name, options_for_select(Charity.all.collect{|d| [d.name, d.name]}) )
+      %fieldset
+        .control-group
+          = f.label "Main logo (250 x 250)", class:"control-label"
+          .controls
+            = f.file_field :main_logo
+      %fieldset
+        .control-group
+          = f.label "Logo for customer & charity", class:"control-label"
+          .controls
+            = f.file_field :logo
+    .row
+      .span4.offset2
+        .action
+          = f.submit "Save", :class => "btn btn-primary btn-large", style:"width: 200px; margin-left: 20px;"

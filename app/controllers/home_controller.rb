@@ -115,6 +115,10 @@ class HomeController < ApplicationController
     render layout: nil
   end
 
+  def customers
+    @customers = Customer.all
+  end
+
   def view_all_charities
     @charities = Charity.all
     render :partial => "home/view_all_charities"
