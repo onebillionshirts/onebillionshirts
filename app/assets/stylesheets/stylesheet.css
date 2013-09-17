@@ -136,7 +136,7 @@ a {
     text-decoration: none;
     font-size: 12px;
     font-weight: bold;
-    color: #969696;
+    color: #676767;
 }
 
 p {
@@ -266,7 +266,7 @@ h2 {
 .navigation li a {
     text-transform: uppercase;
     color: #969696;
-    font-size: 14px;
+    font-size: 16px;
     /*font-weight: bold;*/
     /*font-family: Arial, Helvetica, sans-serif;*/
 }
@@ -530,9 +530,9 @@ h2 {
 
 .foot span {
     font-size: 14px;
-    font-weight: normal;
-    color: #666666;
+    font-weight: bold;
     text-align: center;
+    color: #9f9f9f;
 }
 
 .foot ul {
@@ -544,9 +544,10 @@ h2 {
 }
 
 .foot h2 {
-  color: #818285;
-  font-weight: normal;
-  font-size: 20px;
+    color: #9f9f9f;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
 .foot ul li a {
@@ -2507,7 +2508,7 @@ h2 {
 
 .our_idea {
   text-align: center;
-  margin: 100px auto 24px auto;
+  margin: 55px auto 24px auto;
   width: 925px;
   /*border-bottom: 1px solid #ccc;*/
   padding-bottom:20px;
@@ -2528,8 +2529,13 @@ h2 {
     float: left;
 }
 
-.area_33 > p, .area_33 > h4{
+.area_33 > p{
     text-align: left;
+    font-size: 15px;
+}
+.area_33 > h4{
+    text-align: left;
+    font-size: 23px;
 }
 
 .area_33 > p > .orange{
@@ -4123,7 +4129,7 @@ h2 {
 
 
 .header-container{
-  width: 960px;
+  width: 1060px;
   margin: 0 auto;
 }
 
@@ -4158,10 +4164,11 @@ h2 {
   height: 519px;
 }
 .quick_quote a.quick:hover{
-  background: #666;
+    background: white;
+    color: rgba(0, 0, 0, 0.5);
 }
 .quick_quote a.quick{
-    width: 140px;
+    width: 170px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -4169,19 +4176,21 @@ h2 {
     color: white;
     /*background-color: #ed6430;*/
     padding: 15px 45px;
-    border: 2px solid #2f8756;
+    border: 1px solid #2f8756;
     float: left;
 }
 .quick_quote a.inline{
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     /*text-decoration: underline;*/
     float: left;
-    margin-left: 12px;
+    /*margin-left: 12px;*/
     border-bottom: 2px dotted white;
+    letter-spacing: 3px;
+    padding-bottom: 3px;
 }
 .quick_quote{
-    width: 440px;
+    width: 500px;
     position: absolute;
     left: 257px;
     top: 430px;
@@ -4189,7 +4198,7 @@ h2 {
 }
 
 .quick_quote p{
-    width: 150px;
+    width: 190px;
     font-size: 15px;
     float: right;
     line-height: 18px;
