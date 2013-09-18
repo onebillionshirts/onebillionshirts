@@ -9,7 +9,7 @@
     %th
   - @customers.each do |c|
     %tr
-      %td= link_to c.charity_name, "customers_path(c)"
+      %td=c.text
       %td 
         = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_customer_path(c)
         = link_to '<i class="icon-remove"></i>'.html_safe, admins_customer_path(c), method: :delete, data: { confirm: 'Are you sure?' }

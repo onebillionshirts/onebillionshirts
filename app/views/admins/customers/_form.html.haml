@@ -14,23 +14,46 @@
         .control-group
           = f.label :text, class:"control-label"
           .controls
-            = f.text_area :text
+            = f.text_area :text, rows:"4"
       %fieldset
         .control-group
-          = f.label :charity_name, class:"control-label"
-          .controls
-            = select_tag(:charity_name, options_for_select(Charity.all.collect{|d| [d.name, d.name]}) )
-      %fieldset
-        .control-group
-          = f.label "Main logo (250 x 250)", class:"control-label"
-          .controls
-            = f.file_field :main_logo
-      %fieldset
-        .control-group
-          = f.label "Logo for customer & charity", class:"control-label"
+          = f.label "Customer logo", class:"control-label"
           .controls
             = f.file_field :logo
+      %fieldset
+        .control-group
+          = f.label "Select Existing Charity", class:"control-label"
+          .controls
+            = f.select :charity_id, options_for_select(Charity.all.collect{|d| [d.name, d.id]}, f.object.charity_id), include_blank: true
+      %fieldset.charity_new{style:"display:none;"}
+        .control-group
+          = f.label "Add new Charity", class:"control-label"
+          .controls
+            = f.text_field :charity_name
+      %fieldset
+        .control-group
+          = f.label "Charity logo (250 x 250)", class:"control-label"
+          .controls
+            = f.file_field :charity_logo
     .row
       .span4.offset2
         .action
           = f.submit "Save", :class => "btn btn-primary btn-large", style:"width: 200px; margin-left: 20px;"
+
+:javascript
+  $(document).ready(function () {
+
+    $("#customer_charity_id").change(function(){
+      console.log($(this).val());
+      if( $(this).val() ){
+        $(".charity_new").hide();
+      }
+      else{
+        $(".charity_new").show();
+      }
+    })
+
+    $("#customer_charity_id").trigger("change");
+
+
+  });
