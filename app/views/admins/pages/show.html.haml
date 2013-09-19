@@ -2,6 +2,8 @@
 - unless @page.blank?
   %h1= @page.page_name.capitalize
   %p
+    = raw(@page.header_content)
+  %p
     = raw(@page.page_content)
 = link_to 'Edit', edit_admins_page_path(@page)
 |

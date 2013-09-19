@@ -68,14 +68,15 @@
 - content_for :head do
   - @title = "Share Contest - OneBillionShirts"
   = @title
-.slider_hold{:style => "height:auto;"}
-  .share_contest_containor_div{style:"font-family: museo_500regular;"}
-    %h1
-      Sharing is
-      %span Caring
-      Contest
-  / slider_text ends
-/ slider_hold ends
+-content_for(:about_head) do
+  .slider_hold{:style => "height:auto;"}
+    .share_contest_containor_div{style:"font-family: museo_500regular;"}
+      %h1
+        Sharing is
+        %span Caring
+        Contest
+    / slider_text ends
+  / slider_hold ends
 .wrapper
   .img_det_txt{style:"padding-top: 10px;padding-bottom: 25px;"}
     %p

@@ -9,14 +9,15 @@
     =raw(@header_content)
   = raw(@page_content)
 - else
-  .slider_hold{:style => "height:auto;"}
-    .slider_text
-      %h1{:style => "width:634px;"}
-        %span Together
-        we can impact the lives of millions.
-      %p Let's work together to make our world a better place
-    / slider_text ends
-  / slider_hold ends
+  -content_for(:about_head) do
+    .slider_hold{:style => "height:auto;"}
+      .slider_text
+        %h1{:style => "width:634px;"}
+          %span Together
+          we can impact the lives of millions.
+        %p Let's work together to make our world a better place
+      / slider_text ends
+    / slider_hold ends
   .wrapper
     .img_det_txt
       .abt_img_t
@@ -28,11 +29,11 @@
           In 2011, Greg and Jill, a newly married couple living in Connecticut decided to move to Boston to pursue
           something bigger. This is where they met Albion, a refugee from Kosovo who was saved from war and moved to
           America at age 14 with the help of others.
-          
+
           While talking about their passion for business and giving back, they decide to start a business together
           that
           will allow them to do business and help change the world in the process.
-          
+
           With Greg's established custom goods businesses and connections, Jill's organization skills and passion for
           giving, and Albion's finance and operations background, the three set off to change the world through custom
           t-shirts.

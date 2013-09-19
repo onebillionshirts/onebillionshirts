@@ -1,7 +1,7 @@
 - content_for :head do
   - @title = "FAQ'S' - OneBillionShirts"
   = @title
-.calculate_hold
+-content_for(:about_head) do
   .faq_text
     %h1
       Got Questions?
@@ -10,32 +10,32 @@
     %h3
       Get high quality shirts, save money, and helo change the world!
   / faq_text ends
-  .faq_info
-    .my_heading
-      %hr.style-left
-      %h3 Frequently Asked Questions
-      %hr.style-right
-    .faq_lft
-      .faq_list
-        %ul#accordion
-          - @questions_categories.each do |questions_category|
-            %li
-              %a{:href => "#"}= questions_category.category
-              %ul.questions{:style => "display:none;"}
-                - questions_category.questions.each do |question|
-                  %li.question_title{"data-answer" => question.answer.html_safe, "data-title" => question.question}
-                    = question.question
-    .faq_rit
-      .title{:style=>"font-family: Arial; font-size: 24px; font-weight: normal; height: 28px;margin-bottom: 25px;"}
-        Here goes the title
-      .answer{:style=>"font-family: Arial; font-size: 18px;line-height: 30px;"}
-        For every friend you successfully refer you get $5 of DSC Credits. These DSC Credits will be applied first before any charges for your monthly subscription or extras each month. To refer a friend just copy your unique referral link from your account page, share with a friend, make sure they click on your link to sign up… and Bam! $5 of DSC Credits gets added to your account.
-      %div
-        Need more info?
-        %a.see_us{:href => "/contact"} Contact Us
+.faq_info
+  .my_heading
+    %hr.style-left
+    %h3 Frequently Asked Questions
+    %hr.style-right
+  .faq_lft
+    .faq_list
+      %ul#accordion
+        - @questions_categories.each do |questions_category|
+          %li
+            %a{:href => "#"}= questions_category.category
+            %ul.questions{:style => "display:none;"}
+              - questions_category.questions.each do |question|
+                %li.question_title{"data-answer" => question.answer.html_safe, "data-title" => question.question}
+                  = question.question
+  .faq_rit
+    .title{:style=>"font-family: Arial; font-size: 24px; font-weight: normal; height: 28px;margin-bottom: 25px;"}
+      Here goes the title
+    .answer{:style=>"font-family: Arial; font-size: 18px;line-height: 30px;"}
+      For every friend you successfully refer you get $5 of DSC Credits. These DSC Credits will be applied first before any charges for your monthly subscription or extras each month. To refer a friend just copy your unique referral link from your account page, share with a friend, make sure they click on your link to sign up… and Bam! $5 of DSC Credits gets added to your account.
+    %div
+      Need more info?
+      %a.see_us{:href => "/contact"} Contact Us
 
-    .learn_more_about_contest
-      =image_tag "learn_contest.png"
+  .learn_more_about_contest
+    =image_tag "learn_contest.png"
 
 / wrapper ends
 :javascript

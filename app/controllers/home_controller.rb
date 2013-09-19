@@ -10,6 +10,13 @@ class HomeController < ApplicationController
   def brand
   end
 
+  def about
+    @page = Page.find_by_page_name('about')
+    @page_content = @page.page_content
+    @header_content = @page.header_content
+    render layout: "about"
+  end
+
 
   def faq
     @questions = Question.all
@@ -37,7 +44,10 @@ class HomeController < ApplicationController
   end
 
   def top_ten_reasons
-    @page_content = Page.find_by_page_name('top_ten_reasons').page_content
+    @page = Page.find_by_page_name('top_ten_reasons')
+    @page_content =  @page.page_content
+    @header_content =  @page.header_content
+    render layout: "about"
   end
 
   def share_contest

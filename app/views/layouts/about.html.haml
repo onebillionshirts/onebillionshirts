@@ -33,27 +33,26 @@
     = render :partial => "/layouts/header"
     .featured-section_about
       =yield :about_head
+    .second_header
+      %span
+        %a{:href => "/our_story"} Company Info
+      %span
+        %a{:href => "/about"} Our Mission
+      %span
+        %a{:href => "/how_it_works"} How It Works
+      %span
+        %a{:href => "/facility"} Our Facility
+      %span
+        %a{:href => "/faq"} FAQ
+      %span
+        %a{:href => "/share_contest"} Contests
+      %span
+        %a{:href => "/socialize"} Socialize
+      %span
+        %a{:href => "/top_ten_reasons"} Manifesto
     = yield
-    #tabs
-      %ul
-        %li
-          %a{:href => "/our_story"} Company Info
-        %li
-          %a{:href => "#tabs-1"} Our Mission
-        %li
-          %a{:href => "/how_it_works"} How It Works
-        %li
-          %a{:href => "ajax/content3-slow.php"} Our Facility
-        %li
-          %a{:href => "/faq"} FAQ
-        %li
-          %a.contests_tab{:href => "/share_contest"} Contests
-        %li
-          %a{:href => "/socialize"} Socialize
-        %li
-          %a{:href => "ajax/content4-broken.php"} Manifesto
-    = render :partial => "/layouts/footer"
-    #request-quote.dropdown.clearfix{:style => "display: none;"}
+  = render :partial => "/layouts/footer"
+  #request-quote.dropdown.clearfix{:style => "display: none;"}
 
 :javascript
   function set_active(key) {

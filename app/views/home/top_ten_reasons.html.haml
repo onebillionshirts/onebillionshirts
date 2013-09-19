@@ -2,14 +2,17 @@
   - @title = "Top 10 Reasons - OneBillionShirts"
   = @title
 - if @page_content.present?
+  -content_for(:about_head) do
+    =raw(@header_content)
   = raw(@page_content)
 - else
-  .slider_hold{:style => "height:auto;"}
-    .slider_text
-      %h1{:style => "font-size: 46px; width: 700px;"} Top 10 reasons to work with us.
-      %p Our mission is much larger then t-shirts!
-    / slider_text ends
-  / slider_hold ends
+  -content_for(:about_head) do
+    .slider_hold{:style => "height:auto;"}
+      .slider_text
+        %h1{:style => "font-size: 46px; width: 700px;"} Top 10 reasons to work with us.
+        %p Our mission is much larger then t-shirts!
+      / slider_text ends
+    / slider_hold ends
   .wrapper
     .img_det_txt
       .abt_list.m_top_75
