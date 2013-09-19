@@ -130,6 +130,15 @@ class HomeController < ApplicationController
     @customers = Customer.all
   end
 
+  def download_thank_you_card
+    @customer = Customer.find( params[:id] )
+    render layout: nil
+    html_content = render_to_string
+    kit = IMGKit.new(html_content, height: 900, transparent:true, quality:10)
+    file = kit.to_file(Rails.root + "public/ThankYouCards" + "screenshot.png")
+    send_file("#{Rails.root}/public/ThankYouCards/screenshot.png", :filename => "screenshot.png", :type => "image/png",:disposition => 'attachment',:streaming=> 'true')
+  end
+
   def view_all_charities
     @charities = Charity.all
     render :partial => "home/view_all_charities"

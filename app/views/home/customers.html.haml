@@ -209,6 +209,6 @@
       %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
       %span.st_pinterest_large{:displaytext => "Pinterest"}
       %span.st_email_large{:displaytext => "Email"}
-      %span{style:"float: right;line-height: 35px;margin-right: 10px;"} PRINT
+      %span{style:"float: right;line-height: 35px;margin-right: 10px;"}=link_to  "PRINT", download_thank_you_card_path(id: e.id)
       %span{style:"float: right;line-height: 35px;"} ::
       %span{style:"float: right;line-height: 35px;"} DOWNLOAD
