@@ -160,9 +160,13 @@
       $("#style_picker-"+id).bPopup();
       return false;
     })
-
-
   });
+
+  function printpage()
+  {
+    console.log("printing")
+    window.print()
+  }
 
 .featured-section
   %h1{style:"width: 550px;"} Customers That Care!
@@ -209,6 +213,6 @@
       %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
       %span.st_pinterest_large{:displaytext => "Pinterest"}
       %span.st_email_large{:displaytext => "Email"}
-      %span{style:"float: right;line-height: 35px;margin-right: 10px;"}=link_to  "PRINT", download_thank_you_card_path(id: e.id)
+      %span{style:"float: right;line-height: 35px;margin-right: 10px;"}=link_to  "PRINT", "#", onclick:"printpage()"
       %span{style:"float: right;line-height: 35px;"} ::
-      %span{style:"float: right;line-height: 35px;"} DOWNLOAD
+      %span{style:"float: right;line-height: 35px;"}=link_to  "Download", download_thank_you_card_path(id: e.id)
