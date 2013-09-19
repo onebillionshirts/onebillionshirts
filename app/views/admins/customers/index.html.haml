@@ -1,0 +1,15 @@
+.row
+  .span6
+    %h2 Listing Customers That Care
+  .span5
+    = link_to 'New Customers That Care !', new_admins_customer_path, class: "btn btn-primary new_btn"
+%table.table-striped.table.table-bordered
+  %tr
+    %th Charity Name
+    %th
+  - @customers.each do |c|
+    %tr
+      %td=c.text
+      %td 
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_customer_path(c)
+        = link_to '<i class="icon-remove"></i>'.html_safe, admins_customer_path(c), method: :delete, data: { confirm: 'Are you sure?' }

@@ -25,6 +25,8 @@ OneBS::Application.routes.draw do
   match "/impact", :to => "home#impact"
   match "/socialize", :to => "home#socialize"
   match "/channel", :to => "home#channel"
+  match "/facility", :to => "home#facility"
+  match "/customers", :to => "home#customers"
 
 
   devise_for :admins, :controllers => {
@@ -102,11 +104,12 @@ OneBS::Application.routes.draw do
     resources :shirt_colors
     resources :color_groups
     resources :contests
+    resources :customers
   end
 
   resources :home do
     collection do
-      get :how_it_works, :participate, :contact, :about, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions, :socialize, :channel
+      get :how_it_works, :customers, :participate, :contact, :about, :facility, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you, :view_all_charities, :get_questions, :socialize, :channel
       post :send_email
       post :calculate_impact
     end
@@ -123,7 +126,7 @@ OneBS::Application.routes.draw do
 
   resources :charities do
     collection do
-      get :get_charities, :sort_charities, :details, :request_quote, :image_form, :suggest_charity, :go_to_charity, :count_share
+      get :get_charities, :sort_charities, :details,:request_quote, :image_form, :suggest_charity, :go_to_charity, :count_share
       post :search_charities, :add_charity
     end
   end

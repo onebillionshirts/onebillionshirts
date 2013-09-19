@@ -23,7 +23,7 @@
         this simple idea can change the world!
       .quick_quote
         %a.quick{href: "/orders/quick_quote"}
-          Quick Quote
+          Request a Quote
         %p
           %span
             or
@@ -116,12 +116,12 @@
         -ClientSpotlight.all.each do |char|
           %li
             .single_charity
-              .col{style:"width:50%;padding:0px 40px;"}
-                %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
-                  =truncate_html(char.description, length: 340).html_safe
               .col{style:"width:30%"}
                 -unless char.client_spotlight_images.first.blank?
                   =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{char.id}"
+              .col{style:"width:50%;padding:0px 40px;"}
+                %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
+                  =truncate_html(char.description, length: 340).html_safe
 
   / our_idea ends
 / wrapper ends

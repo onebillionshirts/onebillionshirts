@@ -39,6 +39,11 @@ class HomeController < ApplicationController
     render layout: "about"
   end
 
+  def facility
+    @page_content = Page.find_by_page_name('Facility').page_content
+    render layout: "about"
+  end
+
   def participate
     @page_content = Page.find_by_page_name('Participate').page_content
   end
@@ -119,6 +124,10 @@ class HomeController < ApplicationController
 
   def our_story
     render layout: "about"
+  end
+
+  def customers
+    @customers = Customer.all
   end
 
   def view_all_charities

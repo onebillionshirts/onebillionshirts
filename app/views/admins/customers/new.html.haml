@@ -1,0 +1,5 @@
+.row
+  .span12
+    %h2 New Customer
+- url = admins_customers_path
+= render :partial => 'form', :locals => { :url => url }
