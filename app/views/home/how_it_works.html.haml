@@ -5,6 +5,14 @@
   -content_for(:about_head) do
     =raw(@header_content)
   = raw(@page_content)
+  %div.leaderboard_btn.right
+    =link_to "/facility" do
+      %strong Our Facility
+      =image_tag "btn_arrow.png", class:"right"
+  %div.leaderboard_btn.left
+    =link_to "/about" do
+      %strong Our Mission
+      =image_tag "btn_arrow.png", class:"left"
 :css
   .calc_btn {
       float: left;

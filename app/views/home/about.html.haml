@@ -19,6 +19,15 @@
   -content_for(:about_head) do
     =raw(@header_content)
   = raw(@page_content)
+  %div.leaderboard_btn.right
+    =link_to "/how_it_works" do
+      Learn
+      %strong How It Works
+      =image_tag "btn_arrow.png",class:"right"
+  %div.leaderboard_btn.left
+    =link_to "/our_story" do
+      =image_tag "btn_arrow.png", class:"left"
+      %strong Our Story
 
 -else
   -content_for(:about_head) do
@@ -88,5 +97,13 @@
           facility. Once printed, the shirts undergo quality control and once passed are shipped to you before the
           deadline!
         %p You now have your shirts, saved money on your order, and donated to charity. That is a win-win!
-      / abt_list_im1 ends
-/ img_det_txt ends
+
+  %div.leaderboard_btn.right
+    =link_to "/how_it_works" do
+      Learn
+      %strong How It Works
+      =image_tag "btn_arrow.png" ,class:"right"
+  %div.leaderboard_btn.left
+    =link_to "/our_story" do
+      =image_tag "btn_arrow.png" , class:"left"
+      %strong Our Story

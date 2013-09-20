@@ -34,16 +34,22 @@
       Need more info?
       %a.see_us{:href => "/contact"} Contact Us
 
-  .learn_more_about_contest
-    =image_tag "learn_contest.png"
+%div.leaderboard_btn.right
+  =link_to "/share_contest" do
+    %strong Learn more about Contests
+    =image_tag "btn_arrow.png", class:"right"
+%div.leaderboard_btn.left
+  =link_to "/facility" do
+    =image_tag "btn_arrow.png", class:"left"
+    %strong Our Facility
+  -#.learn_more_about_contest
+  -#  =link_to "/share_contest" do
+  -#    =image_tag "learn_contest.png"
 
 / wrapper ends
 :javascript
   jQuery(function($) {
 
-    $(".learn_more_about_contest").click(function(){
-       $(".contests_tab").trigger("click")
-    });
 
     first_q = $(".question_title").first()
     question = first_q.data("title")

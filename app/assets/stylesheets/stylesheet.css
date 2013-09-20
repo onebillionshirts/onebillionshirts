@@ -4695,3 +4695,44 @@ hr.style-right {
     background-color: #ececec;
     overflow: inherit;
 }
+
+.leaderboard_btn{
+    border: 1px solid lightgray;
+    padding: 18px;
+    border-radius: 4px;
+    margin-left: 30px;
+    cursor: pointer;
+    /*width: 180px;*/
+    position: relative;
+    margin-bottom: 40px;
+}
+.leaderboard_btn.right{
+    float: right;
+    clear: both;
+    margin-right: 200px;
+}
+.leaderboard_btn.left{
+    float: left;
+    margin-left: 200px;
+}
+
+.leaderboard_btn > a > img.right{
+    position: absolute;
+    top: 20px;
+    right: 22px;
+}
+
+.leaderboard_btn.left > a > strong{
+    margin-left: 40px;
+}
+.leaderboard_btn.right > a > strong{
+    margin-right: 40px;
+}
+
+.leaderboard_btn > a > img.left{
+    position: absolute;
+    top: 20px;
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); /* IE 9 */
+    -webkit-transform:rotate(180deg); /* Safari and Chrome */
+}

@@ -1,1 +1,9 @@
 %p=raw(@page_content)
+%div.leaderboard_btn.right
+  =link_to "/faq" do
+    %strong FAQ
+    =image_tag "btn_arrow.png", class:"right"
+%div.leaderboard_btn.left
+  =link_to "/how_it_works" do
+    =image_tag "btn_arrow.png", class:"left"
+    %strong Learn How It Works

@@ -5,6 +5,10 @@
   -content_for(:about_head) do
     =raw(@header_content)
   = raw(@page_content)
+  %div.leaderboard_btn.left{style:"clear: both;"}
+    =link_to "/share_contest" do
+      =image_tag "btn_arrow.png" , class:"left"
+      %strong Socialize
 - else
   -content_for(:about_head) do
     .slider_hold{:style => "height:auto;"}
@@ -83,3 +87,7 @@
       / abt_list_im1 ends
     / img_det_txt ends
   / wrapper ends
+  %div.leaderboard_btn.left{style:"clear: both;"}
+    =link_to "/share_contest" do
+      =image_tag "btn_arrow.png", class:"left"
+      %strong Socialize
