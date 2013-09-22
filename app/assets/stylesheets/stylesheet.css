@@ -288,10 +288,18 @@ h2 {
 
 .slider_text h1 {
     clear: both;
-    width: 625px;
+    /*width: 625px;*/
+    /*text-align: center;*/
+    /*margin: 70px auto 0 auto;*/
+    /*font-weight: normal;*/
+    font-family: GothamRnd-Book !important;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 30px auto;
     text-align: center;
-    margin: 70px auto 0 auto;
-    font-weight: normal;
+    width: 50% !important;
+    color: white;
+    border-bottom: 2px solid grey;
 }
 
 .slider_text span {
@@ -300,11 +308,15 @@ h2 {
 }
 
 .slider_text p {
-    color: #000000;
-    font-size: 18px;
-    line-height: 24px;
+    /*color: #000000;*/
+    /*font-size: 18px;*/
+    /*line-height: 24px;*/
+    /*margin: 0 auto;*/
+    /*width: 58%;*/
+    color: white;
+    width: 50%;
     margin: 0 auto;
-    width: 58%;
+    font-size: 22px;
 }
 
 .slider_img {
@@ -687,22 +699,34 @@ h2 {
 }
 
 .order_text p {
-    clear: both;
-    width: 670px;
-    margin: 25px auto;
+    /*clear: both;*/
+    /*width: 670px;*/
+    /*margin: 25px auto;*/
+    color: white;
+    width: 800px;
+    margin: 0 auto;
+    font-size: 22px;
 }
 
 .order_head {
     clear: both;
-    width: 550px;
+    width: 90% !important;
     text-align: center;
-    margin: 63px auto 0 auto;
+    margin: 30px auto 0 auto;
     font-weight: normal;
 }
 
 .order_head h1 {
-    display: inline;
-    font-weight: normal;
+    /*display: inline;*/
+    /*font-weight: normal;*/
+    font-family: GothamRnd-Book !important;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 30px auto;
+    text-align: center;
+    width: 65% !important;
+    color: white;
+    border-bottom: 2px solid grey;
 }
 
 .order_head span {
@@ -4003,11 +4027,19 @@ h2 {
 }
 
 .share_contest_containor_div h1 {
-    width: 680px;
-    clear: both;
-    font-weight: normal;
-    margin: 70px auto 0;
+    /*width: 680px;*/
+    /*clear: both;*/
+    /*font-weight: normal;*/
+    /*margin: 70px auto 0;*/
+    /*text-align: center;*/
+    font-family: GothamRnd-Book !important;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 30px auto;
     text-align: center;
+    width: 49%;
+    color: white;
+    border-bottom: 2px solid #808080;
 }
 
 .share_contest_containor_div span {
@@ -4096,7 +4128,7 @@ h2 {
 
 /************************  FAQ page styling start ****************************************/
 .faq_text { float:left; width:100%; text-align:center;}
-.faq_text h1 { clear: both; width:625px; text-align:center; margin:69px auto 0 auto; font-weight:normal; font-size:55px;}
+.faq_text h1 { clear: both; width:625px; text-align:center; margin:30px auto 0 auto; font-weight:normal; font-size:55px;}
 
 .faq_info{ float:left; width:100%; margin-top: 100px;padding-bottom: 90px;}
 .faq_lft { float:left; width:45%; border-right:1px solid #7d7d7d;min-height: 450px;margin-bottom: 30px;}
