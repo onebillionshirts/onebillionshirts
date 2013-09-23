@@ -50,7 +50,7 @@
     margin-bottom: 10px;
   }
   a#calculate{
-    background-color: #ed6430;
+    background-color: #527f2e;
     width: 150px;
 
     margin-left: auto;
@@ -86,7 +86,7 @@
     margin-left:250px;
     }
   .padded h3{
-    color: #ed6430;
+    color: black;
     font-size:20px;
   }
   .padded > div{
@@ -112,7 +112,7 @@
     height: 40px;
     padding: 5px;
     line-height: 40px;
-    background-color: orange;
+    background-color: #60b4d9;
     color: white;
   }
   .final_form input[type='file']{
@@ -143,6 +143,21 @@
   {
   font-size:14px;
   line-height:16px;
+  }
+
+  .white:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0px 49% 0 49%;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 14px solid #ececec;
+  }
+
+  .order-help{
+    margin-right: 7px;
   }
 
 :javascript
@@ -329,198 +344,207 @@
 
     })
   })
-%div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
-  %br/
-  %h2{:style=>"padding-top: 15px;padding-bottom: 10px;margin: 0 auto; width: 60%;"} Quick Quote Order Form
-  .padded{style:"width:60%;margin:0 auto"}
-    %div{:style => "clear:both;margin-top:20px"}
-      %div{:style => "width:20%; float:left;"}
-        %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
-        %h3{:style=>"float:left"} Charity:
-      %div.move
-        = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
-        =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
-        -@charities.each do |charity|
-          -unless charity.logo.blank?
-            %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
-    %div{:style => "clear:both;margin-top:20px"}
-      %div{:style => "width:20%; float:left;"}
-        %h3 Style:
-      %div.move
-        %span.selected_style_name= Style.first.name
-        =hidden_field_tag :style_id, Style.first.id
-        %a.change_style{style:"color:#00afeb;cursor:pointer;"}
-          Change
-    %div{:style => "clear:both;margin-top:20px;height:auto;"}
-      %div{:style => "width:20%; float:left;"}
-        %h3 Color:
-      %div.move
-        .color_boxes
-          -ShirtColor.all.each do |color|
-            .color_box_div{id:color.id}
-              %a.color_box{:href=>"#", :style => "background: ##{color.code}", 'title'=>"#{color.name}"}
-                .color_code_div{"title" => "#{color.name}"}
-    %div{:style => "clear:both;margin-top:20px"}
-      %div{:style => "width:20%; float:left;"}
-        %h3 Sizes:
-      %div.move
-        .shirt_sizes
-          .sizes_hold
-            .youth_sizes{style:"margin: 0;"}
-              .size_input
-                %p S
-              .size_input
-                %p M
-              .size_input
-                %p L
-              .size_input
-                %p XL
-              .size_input
-                %p XXL+
-            .youth_sizes
-              .size_input
-                .size_input_mid
-                  %input#n_s{:name => "1_1_values[]", :type => "text"}/
-                / size_input_mid ends
-              .size_input
-                .size_input_mid
-                  %input#n_m{:name => "1_2_values[]", :type => "text"}/
-                / size_input_mid ends
-              .size_input
-                .size_input_mid
-                  %input#n_l{:name => "1_3_values[]", :type => "text"}/
-                / size_input_mid ends
-              .size_input
-                .size_input_mid
-                  %input#n_xl{:name => "1_4_values[]", :type => "text"}/
-                / size_input_mid ends
-              .size_input
-                .size_input_mid
-                  %input#n_xxl{:name => "1_5_values[]", :type => "text"}/
-                / size_input_mid ends
-    %div{:style => "clear:both;margin-top:20px"}
-      %div{:style => "width:30%; float:left;"}
-        %h3 Ink Colors:
-      %div.move
-        %label Front
-        = select_tag :front, options_for_select((0..6).step(1).to_a.map{|s| ["#{s}", s]}, selected: "1"), style: "display:inline;"
-        %label{style:"margin-left:15px;"} Back
-        = select_tag :back, options_for_select((0..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
+.featured-section_about{style:"background: #404945; height: 148px;"}
+  .slider_hold{:style => "height:auto;"}
+    .slider_text
+      %h1 Quick Quote Order Form
+.my_wrapper
+  %div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
+    .padded{style:"width:60%;margin:0 auto"}
+      %div{:style => "clear:both;margin-top:20px"}
+        %div{:style => "width:20%; float:left;"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %h3{:style=>"float:left"} Charity:
+        %div.move
+          = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
+          =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
+          -@charities.each do |charity|
+            -unless charity.logo.blank?
+              %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
+      %div{:style => "clear:both;margin-top:20px"}
+        %div{:style => "width:30%; float:left;"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %h3 Style:
+        %div.move
+          %span.selected_style_name= Style.first.name
+          =hidden_field_tag :style_id, Style.first.id
+          %a.change_style{style:"color:#00afeb;cursor:pointer;"}
+            Change
+      %div{:style => "clear:both;margin-top:20px;height:auto;"}
+        %div{:style => "width:20%; float:left;"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %h3 Color:
+        %div.move
+          .color_boxes
+            -ShirtColor.all.each do |color|
+              .color_box_div{id:color.id}
+                %a.color_box{:href=>"#", :style => "background: ##{color.code}", 'title'=>"#{color.name}"}
+                  .color_code_div{"title" => "#{color.name}"}
+      %div{:style => "clear:both;margin-top:20px"}
+        %div{:style => "width:20%; float:left;"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %h3 Sizes:
+        %div.move
+          .shirt_sizes
+            .sizes_hold
+              .youth_sizes{style:"margin: 0;"}
+                .size_input
+                  %p S
+                .size_input
+                  %p M
+                .size_input
+                  %p L
+                .size_input
+                  %p XL
+                .size_input
+                  %p XXL+
+              .youth_sizes
+                .size_input
+                  .size_input_mid
+                    %input#n_s{:name => "1_1_values[]", :type => "text"}/
+                  / size_input_mid ends
+                .size_input
+                  .size_input_mid
+                    %input#n_m{:name => "1_2_values[]", :type => "text"}/
+                  / size_input_mid ends
+                .size_input
+                  .size_input_mid
+                    %input#n_l{:name => "1_3_values[]", :type => "text"}/
+                  / size_input_mid ends
+                .size_input
+                  .size_input_mid
+                    %input#n_xl{:name => "1_4_values[]", :type => "text"}/
+                  / size_input_mid ends
+                .size_input
+                  .size_input_mid
+                    %input#n_xxl{:name => "1_5_values[]", :type => "text"}/
+                  / size_input_mid ends
+      %div{:style => "clear:both;margin-top:20px"}
+        %div{:style => "width:30%; float:left;"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %h3 Ink Colors:
+        %div.move
+          %label Front
+          = select_tag :front, options_for_select((0..6).step(1).to_a.map{|s| ["#{s}", s]}, selected: "1"), style: "display:inline;"
+          %label{style:"margin-left:15px;"} Back
+          = select_tag :back, options_for_select((0..6).step(1).to_a.map{|s| ["#{s}", s]}), style: "display:inline;"
 
 
-    %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
-      =link_to "Calculate", "", id:"calculate"
-  .after_section{style:"display:none;border-top: 2px solid #ccc;padding-top: 30px;clear:both;margin-top:20px;text-align:center;width:960px;"}
-    %div{style: "float:left;width: 150px;margin-left:0px;"}
-      %div#results{style: "float:left;text-align: left;"}
-        %h4
-          %strong Unit Price:
-          %span.unit{style:"float: right;"}
-        %h4
-          %strong Total Price:
-          %span.total{style:"float: right;"}
-        %h4
-          %strong Charity
-          %span.charity{style:"float: right;"}
-        .save_n_share
-        %br
-        %p{style:"font-size: 14px;"}
-          *XXL+ = extra charge to be determined upon estimate
-    %div{style: "float:left;width: 204px;margin-left: 88px;"}
-      %h4 Order more and save
-      %table.more
-        %thead
-          %tr.head
-            %th QTY
-            %th Price
-            %th Donation
-    %div{style: "float: right;width: 380px;margin-left: 25px;"}
-      %div{style:"float:left;"}
-        .logo_place
-          =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
+      %div{:style => "clear:both;margin-top:20px;text-align:center;width:100%;"}
+        =link_to "Calculate", "", id:"calculate"
 
-      %div{style:"width:70%;text-align: left; margin-left: 164px;"}
-        .title_place{style:"font-weight:bold;font-size:16px"}
-          =Charity.first.name
-        .desc_place
-          =Charity.first.mission_statement.html_safe
-  %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
-    %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
-      Request a Virtual Proof
+  .white{style:"position: relative;clear: both; width: 100%;  background: white;"}
+    .after_section{style:"margin-left: auto; margin-right: auto;display:none;clear:both;padding-top: 30px;margin-top:20px;text-align:center;width:960px;"}
+      %div{style: "float:left;width: 150px;margin-left:0px;"}
+        %div#results{style: "float:left;text-align: left;"}
+          %h4
+            %strong Unit Price:
+            %span.unit{style:"float: right;"}
+          %h4
+            %strong Total Price:
+            %span.total{style:"float: right;"}
+          %h4
+            %strong Charity
+            %span.charity{style:"float: right;"}
+          .save_n_share
+          %br
+          %p{style:"font-size: 14px;"}
+            *XXL+ = extra charge to be determined upon estimate
+      %div{style: "float:left;width: 204px;margin-left: 88px; border-left: 1px solid #ececec; min-height: 250px;"}
+        %h4 Order more and save
+        %table.more
+          %thead
+            %tr.head
+              %th QTY
+              %th Price
+              %th Donation
+      %div{style: "float: right;width: 380px;margin-left: 25px; padding-left: 10px; border-left: 1px solid #ececec; min-height: 250px;"}
+        %div{style:"float:left;"}
+          .logo_place
+            =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
+
+        %div{style:"width:70%;text-align: left; margin-left: 164px;"}
+          .title_place{style:"font-weight:bold;font-size:16px"}
+            =Charity.first.name
+          .desc_place
+            =Charity.first.mission_statement.html_safe
+    %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
+      %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
+        Request a Virtual Proof
 
 
 
 
-%div#style_picker{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:800px;height:auto;display:none;"}
-  %h2
-    Pick A Style
-  -@style_categories.each do |sc|
-    %div{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;"}
-      %h3{style:"color:rgb(43, 102, 226);"}=sc.name
-      %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
-        =image_tag sc.photo(:thumb) , :style => "max-width: 150px;"
-      %div{style:"float:left;margin-left:15px;max-width: 185px;"}
-        %ul{style:"margin-top:10px;"}
-          -sc.style_sub_categories.each do |ssc|
-            %li{style:"display:list-item;"}
-              =link_to ssc.name, "", style:"color:rgb(74, 187, 240);", id: "#{ssc.id}", class:"sub_cat"
-  %div{style:"display: block;clear: both;float: right;"}
-    %a.popClose.popBtn
-      Cancel
-
-- @sub_cats.each do |sc|
-  %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;outline: rgb(204, 204, 204) solid 15px;", id:"dialog_#{sc.id}"}
+  %div#style_picker{style:"outline: rgb(204, 204, 204) solid 15px;padding:25px;background-color:white;width:800px;height:auto;display:none;"}
     %h2
-      = "Pick A Style"
-    -sc.styles.each do |st|
-      -unless st.shirt_colors.empty?
-        %div.all{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;cursor: pointer;"}
-          %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
-            =image_tag st.photo(:thumb), :style => "max-width: 150px;"
-          %div{style:"float:left;margin-left:15px;max-width: 185px;margin-top: 13px;"}
-            %div{style:"margin-bottom:10px;"}
-              =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(",").to_s, name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
-            -unless st.cost_level.blank?
-              -if st.cost_level.to_s == "1"
-                %div $
-              -if st.cost_level.to_s == "2"
-                %div $$
-              -if st.cost_level.to_s == "3"
-                %div $$$
-            %div
-              %ul{style:"margin-left:15px;margin-top:10px;"}
-                - unless st.material.nil?
-                  -st.material.split(",").each do |mat|
-                    %li{style:"display:list-item;"}=mat
+      Pick A Style
+    -@style_categories.each do |sc|
+      %div{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;"}
+        %h3{style:"color:rgb(43, 102, 226);"}=sc.name
+        %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
+          =image_tag sc.photo(:thumb) , :style => "max-width: 150px;"
+        %div{style:"float:left;margin-left:15px;max-width: 185px;"}
+          %ul{style:"margin-top:10px;"}
+            -sc.style_sub_categories.each do |ssc|
+              %li{style:"display:list-item;"}
+                =link_to ssc.name, "", style:"color:rgb(74, 187, 240);", id: "#{ssc.id}", class:"sub_cat"
     %div{style:"display: block;clear: both;float: right;"}
       %a.popClose.popBtn
         Cancel
-      %a#back.popBtn
-        Back
+
+  - @sub_cats.each do |sc|
+    %div{style:"padding:40px;background-color:white;width:800px;height:auto;display:none;outline: rgb(204, 204, 204) solid 15px;", id:"dialog_#{sc.id}"}
+      %h2
+        = "Pick A Style"
+      -sc.styles.each do |st|
+        -unless st.shirt_colors.empty?
+          %div.all{style:"float:left;width:350px;margin:10px;padding:10px;height:110px;cursor: pointer;"}
+            %div{style:"float: left;margin-right: 15px;margin-top: 13px;"}
+              =image_tag st.photo(:thumb), :style => "max-width: 150px;"
+            %div{style:"float:left;margin-left:15px;max-width: 185px;margin-top: 13px;"}
+              %div{style:"margin-bottom:10px;"}
+                =link_to st.name, "", style:"color:blue", data: {colors: st.shirt_colors.collect(&:id).join(",").to_s, name: "#{st.name}"}, id:"#{st.id}", class:"final_style"
+              -unless st.cost_level.blank?
+                -if st.cost_level.to_s == "1"
+                  %div $
+                -if st.cost_level.to_s == "2"
+                  %div $$
+                -if st.cost_level.to_s == "3"
+                  %div $$$
+              %div
+                %ul{style:"margin-left:15px;margin-top:10px;"}
+                  - unless st.material.nil?
+                    -st.material.split(",").each do |mat|
+                      %li{style:"display:list-item;"}=mat
+      %div{style:"display: block;clear: both;float: right;"}
+        %a.popClose.popBtn
+          Cancel
+        %a#back.popBtn
+          Back
 
 
 
-%div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:580px;background-color:white;padding:20px;border:2px #ccc"}
-  =form_tag "/orders/", method: :post, multipart: true do
-    =hidden_field_tag :extras
-    =label_tag "Full Name"
-    =text_field_tag "name"
-    =label_tag "Email"
-    =text_field_tag "email"
-    =label_tag "Phone Number"
-    =text_field_tag "phone"
-    =label_tag "Zip Code"
-    =text_field_tag "zip"
-    =label_tag "Reference"
-    %br
-    = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 94%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;"
-    =label_tag "Front Art Work"
-    =file_field_tag :front_art
-    =label_tag "Back Art Work"
-    =file_field_tag :back_art
-    =label_tag "Instructions for our designers", nil , style:"margin-right: 35px; padding-top: 22px;"
-    =text_area_tag "instructions", '', rows:"3"
-    =check_box_tag :later, 1, false, style:"clear:both;width:13px;float:left;margin-top:15px;margin-left:10px;"
-    =label_tag "later", "Submit Artwork Later", style:"width:200px; margin-top:9px;margin-left:0px"
-  %a.place
-    Place Order
+  %div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:580px;background-color:white;padding:20px;border:2px #ccc"}
+    =form_tag "/orders/", method: :post, multipart: true do
+      =hidden_field_tag :extras
+      =label_tag "Full Name"
+      =text_field_tag "name"
+      =label_tag "Email"
+      =text_field_tag "email"
+      =label_tag "Phone Number"
+      =text_field_tag "phone"
+      =label_tag "Zip Code"
+      =text_field_tag "zip"
+      =label_tag "Reference"
+      %br
+      = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 94%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;"
+      =label_tag "Front Art Work"
+      =file_field_tag :front_art
+      =label_tag "Back Art Work"
+      =file_field_tag :back_art
+      =label_tag "Instructions for our designers", nil , style:"margin-right: 35px; padding-top: 22px;"
+      =text_area_tag "instructions", '', rows:"3"
+      =check_box_tag :later, 1, false, style:"clear:both;width:13px;float:left;margin-top:15px;margin-left:10px;"
+      =label_tag "later", "Submit Artwork Later", style:"width:200px; margin-top:9px;margin-left:0px"
+    %a.place
+      Place Order
