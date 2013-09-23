@@ -1,5 +1,7 @@
 class CharitiesController < ApplicationController
 
+  layout "charity"
+
   def index
     $search_key= nil
     cookies[:key] = nil
