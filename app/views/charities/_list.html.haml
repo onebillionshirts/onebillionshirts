@@ -18,56 +18,62 @@
   / navigation holder
   / item container
   %ul#itemContainer
-    - @charities.each do |charity|
-      %li
-        .charity_list
-          .c_list_img
-            %a{:href => "/#{charity.slug}"}
-              - cookies[:key] =   $get_key
-              - if charity.logo.present?
-                = image_tag charity.logo.image.url(:thumb)
-              - else
-                %img{:height => "150", :src => "/assets/no_logo.jpg", :width => "150"}/
-          / c_list_img ends
-          .c_list_txt
-            .list_txt_det
-              %h2= charity.name
-              %span
-                = charity.city
-                , #{charity.state} #{charity.zip}
-              %p= raw charity.mission_statement
-            / list_txt_det ends
-            %a{:href => "/#{charity.slug}"} Learn more
-            .selected_btn_holder
-              .selected_btn
-                %a.select-link{:href => "/orders/quick_quote?charity_id=#{charity.id}"}
-                  Choose This
-                  Charity
-            / selected_btn_holder ends
+    - @charities.each_slice(3) do |slice|
+      -slice.each do |charity|
+        %li{style:"float: left; width: 27%;margin-left:30px;border-right: 2px solid rgba(255, 255, 255, 0.28);padding-right: 18px;"}
+          .charity_list
+            .c_list_img
+              %a{:href => "/#{charity.slug}"}
+                - cookies[:key] =   $get_key
+                - if charity.logo.present?
+                  = image_tag charity.logo.image.url(:thumb)
+                - else
+                  %img{:height => "150", :src => "/assets/no_logo.jpg", :width => "150"}/
+            / c_list_img ends
+            .c_list_txt
+              .list_txt_det
+                %h2= charity.name
+                %span
+                  = charity.city
+                  , #{charity.state} #{charity.zip}
+                %p{style:"word-wrap: break-word"}= raw charity.mission_statement
+              / list_txt_det ends
+              %a{:href => "/#{charity.slug}"} Learn more
+              .selected_btn_holder
+                .selected_btn
+                  %a.select-link{:href => "/orders/quick_quote?charity_id=#{charity.id}"}
+                    Choose This
+                    Charity
+      .clear{style:"padding-top: 60px;"}
 
-          -#.sharethis_div{style:"margin: 20px 0 20px 0;"}
-          -#  .socialz
-          -#    %span.st_sharethis_large{:displaytext => "ShareThis"}
-          -#    %span.st_facebook_large{:displaytext => "Facebook"}
-          -#    %span.st_twitter_large{:st_via => ""}
-          -#    %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
-          -#    %span.st_pinterest_large{:displaytext => "Pinterest"}
-          -#    %span.st_email_large{:displaytext => "Email"}
-          -#  .sharethis_img
-          -#    %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
-          -#  .sharethis_text
-          -#    %p
-          -#      Every share helps this charity raise more money through our charity
-          -#      %span contests.
-          -#  :javascript
-          -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "sharethis", $(".st_sharethis_hcount"));
-          -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "facebook", $(".st_facebook_hcount"));
-          -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "twitter", $(".st_twitter_hcount"));
-          -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "LinkedIn", $(".st_linkedin_hcount"));
-          -#/ c_list_txt ends
-          .border_bot
-          / border_bot ends
-  %br/
+      / selected_btn_holder ends
+
+      -#.sharethis_div{style:"margin: 20px 0 20px 0;"}
+      -#  .socialz
+      -#    %span.st_sharethis_large{:displaytext => "ShareThis"}
+      -#    %span.st_facebook_large{:displaytext => "Facebook"}
+      -#    %span.st_twitter_large{:st_via => ""}
+      -#    %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
+      -#    %span.st_pinterest_large{:displaytext => "Pinterest"}
+      -#    %span.st_email_large{:displaytext => "Email"}
+      -#  .sharethis_img
+      -#    %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
+      -#  .sharethis_text
+      -#    %p
+      -#      Every share helps this charity raise more money through our charity
+      -#      %span contests.
+      -#  :javascript
+      -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "sharethis", $(".st_sharethis_hcount"));
+      -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "facebook", $(".st_facebook_hcount"));
+      -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "twitter", $(".st_twitter_hcount"));
+      -#        stButtons.getCount("#{charity.slug}key=#{@get_key}", "LinkedIn", $(".st_linkedin_hcount"));
+      -#/ c_list_txt ends
+
+
+      -#.border_bot
+      / border_bot ends
+
+  .clear
   / navigation holder
   .holder
   / charity_list ends

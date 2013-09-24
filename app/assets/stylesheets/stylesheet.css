@@ -2092,7 +2092,7 @@ h2 {
 
 .rit_content {
     margin-left: auto;
-    width: 800px;
+    width: 980px;
     margin-right: auto;
 }
 
@@ -2133,7 +2133,7 @@ h2 {
 .c_list_img {
     float: left;
     width: 190px;
-    height: 190px;
+    height: 165px;
 }
 
 .c_list_img img {
@@ -2142,7 +2142,7 @@ h2 {
 
 .c_list_txt {
     float: left;
-    width: 435px;
+    width: 100%;
 }
 
 .c_list_txt a {
@@ -2196,7 +2196,7 @@ h2 {
 
 .selected_btn {
     background: none repeat scroll 0 0 #A1A1A1;
-    float: right;
+    /*float: right;*/
     width: 165px;
     height: 36px;
     background: #a6a6a6;
