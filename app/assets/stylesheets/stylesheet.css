@@ -2091,34 +2091,37 @@ h2 {
 }
 
 .rit_content {
-    float: right;
-    width: 625px;
+    margin-left: auto;
+    width: 800px;
+    margin-right: auto;
 }
 
 .rit_sort_heads {
-    background: #c1c1c1;
     float: left;
-    width: 100%;
+    width: 370px;
     height: 31px;
-    line-height: 34px;
+    line-height: 42px;
+    margin-left: 100px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .rit_sort_heads p {
     float: left;
-    width: 82px;
-    color: #fff;
+    color: black;
     font-size: 14px;
     margin: 0 0 0 5px;
+    line-height: 48px;
+    text-decoration: underline;
 }
 
 .rit_sort_heads a {
     float: left;
-    color: #fff;
+    color: black;
     font-size: 14px;
     background: url(/assets/nav_seprator.png) no-repeat center right;
     font-weight: normal;
     padding: 0 10px 0;
+    line-height: 48px;
 }
 
 .charity_list {
@@ -2244,7 +2247,7 @@ h2 {
     font-size: 18px;
     line-height: 8px;
     font-weight: normal;
-    margin: 20px 0 0 328px;
+    margin: 20px 0 0 228px;
     text-decoration: underline;
 }
 

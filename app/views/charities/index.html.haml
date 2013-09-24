@@ -1,10 +1,3 @@
-:css
-  .second_header > span {
-    margin-left: 20px;
-    margin-right: 25px;
-    width: auto;
-  }
-
 -content_for(:about_head) do
   .slider_hold{:style => "height:auto;"}
     .slider_text
@@ -12,9 +5,9 @@
 .wrapper
   .charity_holder
     .main_content
-      .lft_content_bar
-        = render :partial => "/charities/side_bar"
-      / lft_content_bar ends
+      -#.lft_content_bar
+      -#  = render :partial => "/charities/side_bar"
+      -#/ lft_content_bar ends
       .rit_content
         #charities
           = render :partial => "/charities/list"

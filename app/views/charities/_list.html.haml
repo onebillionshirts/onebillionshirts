@@ -12,12 +12,6 @@
           perPage: 25
       });
   });
-.rit_sort_heads
-  %p Sort by:
-  %a.sort-key{:href => "/charities/sort_charities?sort_key=name"} Name
-  %a.sort-key{:href => "/charities/sort_charities?sort_key=created_at"} Recently Added
-  %a.sort-key{:href => "/charities/sort_charities?sort_key=city"} City
-  %a.sort-key{:href => "/charities/sort_charities?sort_key=state"} State
 / rit_sort_heads ends
 - if @charities.present?
   / ! end of #sidebar
@@ -77,10 +71,4 @@
   / navigation holder
   .holder
   / charity_list ends
-:javascript
-  $(".sort-key").click(function () {
-      $.get($(this).attr("href"), function (response) {
-          $('#charities').html(response.html);
-      });
-      return false;
-  });
+
