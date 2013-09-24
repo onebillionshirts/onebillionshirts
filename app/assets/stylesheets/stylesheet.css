@@ -2132,8 +2132,11 @@ h2 {
 
 .c_list_img {
     float: left;
-    width: 190px;
+    width: 100%;
     height: 165px;
+    border: 2px solid rgba(213, 211, 211, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .c_list_img img {
@@ -2148,10 +2151,10 @@ h2 {
 .c_list_txt a {
     float: left;
     width: 100%;
-    color: #0000ff;
+    color: #00A651;
     font-size: 14px;
-    text-decoration: underline;
-    font-style: italic;
+    /*text-decoration: underline;*/
+    /*font-style: italic;*/
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
 }
@@ -2273,7 +2276,7 @@ h2 {
     float: right;
     width: 281px;
     height: 50px;
-    background: #bababa;
+    background: #00a651;
     text-align: center;
 
 }
@@ -2295,9 +2298,8 @@ h2 {
 .c_list_img_n {
     float: left;
     width: 250px;
-    height: 250px;
+    height: 360px;
     margin-right: 20px;
-
 }
 
 .c_list_img_n img {
@@ -3943,8 +3945,8 @@ h2 {
 }
 
 .sharethis_div {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 2px solid #CCCCCC;
+    /*background: none repeat scroll 0 0 #FFFFFF;*/
+    /*border: 2px solid #CCCCCC;*/
     float: left;
     height: 71px;
     width: 100%;
@@ -3952,7 +3954,7 @@ h2 {
 }
 .socialz {
     float:left;
-    margin: 20px 5px 0 10px;
+    margin: 20px 5px 0 -3px;
     }
 
 .sharethis_img  {
@@ -3968,7 +3970,7 @@ h2 {
 }
 
 .sharethis_text{
-    background: none repeat scroll 0 0 #FFFFFF;
+    /*background: none repeat scroll 0 0 #FFFFFF;*/
     float: left;
     width:182px;
     margin-top: 0px;

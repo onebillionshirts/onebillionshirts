@@ -14,11 +14,11 @@
         = image_tag(@charity.logo.image.url(:medium))
       - else
         %img{:src => "/assets/no_logo.jpg"}/
-    / c_list_img_n ends
-    .c_list_txt_n
-      .selected_btn_b
+      .selected_btn_b{style:" width: 250px;  margin: 40px 0 40px 0;"}
         %a.select-link{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} Choose This Charity
-      .list_txt_det
+    / c_list_img_n ends
+    .c_list_txt_n{style:"border-right: 2px solid rgba(255, 255, 255, 0.278431); width: 300px;  margin-right: 50px;"}
+      .list_txt_det{style:"margin-top: 0px;"}
         %h2= @charity.name
         %p= @charity.address
         %span
@@ -31,7 +31,7 @@
         %p
           Tax ID: #{@charity.tax_id}
       / list_txt_det ends
-    .sharethis_div
+    .sharethis_div{style:"width: 250px;clear: none;"}
       .socialz
         %span.st_sharethis_large{:displaytext => "ShareThis"}
         %span.st_facebook_large{:displaytext => "Facebook"}
@@ -39,8 +39,8 @@
         %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
         %span.st_pinterest_large{:displaytext => "Pinterest"}
         %span.st_email_large{:displaytext => "Email"}
-      .sharethis_img
-        %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
+      -#.sharethis_img
+      -#  %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
       .sharethis_text
         %p
           Every share helps this charity raise more money through our charity
@@ -58,20 +58,20 @@
       .video_hold
         = raw youtube_embed(@charity.video_url)
       / video_hold ends
-    .img_slider
-      - if @charity.pictures.present?
-        %ul{:class => @charity.pictures.size > 4 ? 'bxslider' : '', :id => @charity.pictures.size > 4 ? 'bxslider3' : ''}
-          - @charity.pictures.each do |charity_image|
-            %li
-              - picture1 = charity_image.image.url.split("pictures")
-              - unless @charity.logo.image.url == "#{picture1[0]}logos#{picture1[1]}"
-                = image_tag charity_image.image.url(:thumb) unless charity_image.image.blank?
-              - else
-                = image_tag @charity.logo.image.url(:thumb) unless @charity.logo.image.blank?
-    / img_slider ends
-  / charity_list ends
-.selected_btn_b
-  %a.select-link{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} Choose This Charity
+-#    .img_slider
+-#      - if @charity.pictures.present?
+-#        %ul{:class => @charity.pictures.size > 4 ? 'bxslider' : '', :id => @charity.pictures.size > 4 ? 'bxslider3' : ''}
+-#          - @charity.pictures.each do |charity_image|
+-#            %li
+-#              - picture1 = charity_image.image.url.split("pictures")
+-#              - unless @charity.logo.image.url == "#{picture1[0]}logos#{picture1[1]}"
+-#                = image_tag charity_image.image.url(:thumb) unless charity_image.image.blank?
+-#              - else
+-#                = image_tag @charity.logo.image.url(:thumb) unless @charity.logo.image.blank?
+-#    / img_slider ends
+-#  / charity_list ends
+-#.selected_btn_b
+-#  %a.select-link{:href => "/orders/quick_quote?charity_id=#{@charity.id}"} Choose This Charity
 / selected_btn_b ends
 :javascript
       $(document).ready(function () {
