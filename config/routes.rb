@@ -28,6 +28,7 @@ OneBS::Application.routes.draw do
   match "/facility", :to => "home#facility"
   match "/customers", :to => "home#customers"
   match "/download_thank_you_card", :to => "home#download_thank_you_card"
+  match "/print_thank_you_card", :to => "home#print_thank_you_card"
 
 
   devise_for :admins, :controllers => {
@@ -111,7 +112,7 @@ OneBS::Application.routes.draw do
   resources :home do
     collection do
       get :how_it_works, :customers, :participate, :contact, :about, :facility, :download, :calculate_value, :calculated_value_popup, :top_ten_reasons, :share_contest, :thank_you,
-          :view_all_charities, :get_questions, :socialize, :channel, :download_thank_you_card
+          :view_all_charities, :get_questions, :socialize, :channel, :download_thank_you_card, :print_thank_you_card
       post :send_email
       post :calculate_impact
     end

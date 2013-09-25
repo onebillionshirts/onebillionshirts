@@ -130,11 +130,16 @@ class HomeController < ApplicationController
     @customers = Customer.all
   end
 
+  def print_thank_you_card
+    @customer = Customer.find(params[:id] )
+    render layout: nil
+  end
+
   def download_thank_you_card
     @customer = Customer.find(params[:id] )
     render layout: nil
-    html_content = render_to_string
-    kit = IMGKit.new(html_content, height: 900, transparent:true, quality:10)
+    html_content = render_to_string(:layout => false)
+    kit = IMGKit.new(html_content, height: (params[:height].to_i - 20), transparent:true, quality:10, width: 500)
     file = kit.to_file(Rails.root + "public" + "screenshot.png")
     send_file("#{Rails.root}/public/screenshot.png", :filename => "screenshot.png", :type => "image/png",:disposition => 'attachment',:streaming=> 'true')
   end

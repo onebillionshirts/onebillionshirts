@@ -1,3 +1,10 @@
+:javascript
+  window.onload = function()
+  {
+    console.log("printing")
+    window.print()
+  }
+
 :css
   body{
    width: 500px;
@@ -9,12 +16,12 @@
   %div{style:"width:100%; height:100px; text-align:center; color:green;font-size: 55px;"} Thank you!
   %div{style:"width:100%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;"} Customer That Care!
   %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;"}
-    =image_tag e.logo.path(:medium)
+    =image_tag e.logo.url(:medium)
   %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 0px;"}
     %strong=e.text
     %span=e.charity ? e.charity.name : e.charity_name
   %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 40px;"}
-    =image_tag e.charity_logo ? e.charity_logo.path(:medium) : (e.charity ? e.charity.logo.image.path(:medium) : "/assets/images/no_logo.jpg")
+    =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg")
   .socialz{style:"margin-left: auto; margin-right: auto; width: 100%; float: none;background: #eaeaea;height: 40px; padding-top: 10px;"}
     %strong{style:"float: left;margin: 8px;"} SHARE CARD:
     %span.st_sharethis_large{:displaytext => "ShareThis"}
