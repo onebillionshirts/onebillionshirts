@@ -34,7 +34,7 @@
     .featured-section_about{style:"height: 150px;"}
       =yield :about_head
     .nested_header{style:"height: 40px;"}
-      %a.c_style{:href => "/charities/new"} Suggest a Charity
+      =link_to "Suggest a Charity", new_charity_path(format: :js), class:"c_style", remote:true
 
       .rit_sort_heads
         %p Sort by:

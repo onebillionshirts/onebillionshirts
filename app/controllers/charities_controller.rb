@@ -60,6 +60,9 @@ class CharitiesController < ApplicationController
   def new
     @charity = Charity.new
     @charity_categories = CharityCategory.all
+    respond_to do |format|
+      format.js {render layout: nil}
+    end
   end
 
   def add_charity
