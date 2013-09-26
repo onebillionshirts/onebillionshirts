@@ -11,7 +11,7 @@
   }); */
 
 
-
+- @page_content = nil
 - content_for :head do
   - @title = "About - OneBillionShirts"
   = @title
@@ -40,18 +40,13 @@
         %p Get high quality shirts, save money, and help change the world!
       / slider_text ends
   .wrapper
+    .my_heading
+      %hr.style-left
+      %h3{style:"margin-left: 105px;"} Our Mission
+      %hr.style-right
     .img_det_txt
-      .abt_list.m_top_75
-        %h1 Our Mission:
-        %p
-          Create a socially conscious way for customers to purchase t-shirts by donating 25¢ from our profit a
-          charity of
-          the customers choice. Through this slight shift we will create an industry standard that will redirect
-          millions
-          to charities and change the world forever!
-      / abt_list ends
       .abt_list
-        %h1 Why T-shirts?
+        %h1 Why ?
         %p
           The scope of this industry is massive and the product is becoming commoditized. With 1 Billion units per
           year,
@@ -59,44 +54,22 @@
           techniques. The only difference is the profit margin.
       / abt_list ends
       .abt_list
-        %h1 How Can We Do It?
-        %p
+        .right{style:"color:#aa8366;"} How ?
+        .left
           We run an industry leading screen print company and through technology, strategic partnerships, and
           experience,
           we can print your t-shirts and save you money while providing a fast turnaround and
           quality product. Once customers are aware of this, they will begin pushing other screen print
           companies to join this movement which will create a tidal wave of wealth to charity.
       / abt_list ends
-      .abt_list_im
-        %h1 Why Work With Us?
+      .abt_list
+        %h1{style:"color:#807aa0"} What ?
         %p
           The big secret is that there is no secret. We will print your shirts the same way using the same shirt and
           the
           same ink as your current vendor. We will give you the best price and when printing with us you will have the
           opportunity to choose your favorite charity and we will donate money to them on your behalf.
-        %p
-          The donation comes from our profit and we will beat or match your
-          current price, allowing you to simply leverage your order to help
-          redirect money to those that need it most!
-        %img{:src => "/assets/about_img.png"}/
-      / abt_list_im ends
-      .abt_list_im1
-        %h1 How It Works:
-        %p
-          Your need to order t-shirts and you visit our website. First you choose the charity which you want to donate
-          to.
-          You then fill out our Order Form and we review your order and provide the best possible price and send you
-          back
-          a quote. If it makes sense to work with you, we go
-          forward with your order. Once paid for, we take 25¢ per shirt from our profit and donate to your charity of
-          choice on your behalf. We will send you the receipt and most charities will send you their own Thank You
-          note.
-        %p
-          Once order is placed and deadline is set, we order the blank shirts and print them in our 150,000 square
-          foot
-          facility. Once printed, the shirts undergo quality control and once passed are shipped to you before the
-          deadline!
-        %p You now have your shirts, saved money on your order, and donated to charity. That is a win-win!
+
 
   %div.leaderboard_btn.right
     =link_to "/how_it_works" do

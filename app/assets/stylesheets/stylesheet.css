@@ -3092,16 +3092,53 @@ h2 {
 }
 
 .abt_list h1 {
-    font-size: 24px;
+    font-size: 64px;
     color: #00a651;
     margin-bottom: 25px;
     font-weight: normal;
+    float: left;
+    height: 150px;
+    margin-right: 100px;
+    padding-right: 50px;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: rgba(255, 255, 255, 0.278431);
+    padding-top: 48px;
+}
+
+.abt_list .right {
+    font-size: 64px;
+    color: #00a651;
+    margin-bottom: 25px;
+    font-weight: normal;
+    float: right;
+    height: 150px;
+    margin-left: 100px;
+    padding-left: 50px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: rgba(255, 255, 255, 0.278431);
+    padding-top: 48px;
 }
 
 .abt_list p {
     font-size: 18px;
     color: #000;
     margin: 0;
+    float: right;
+    width: 56%;
+    line-height: 32px;
+}
+
+.abt_list .left {
+    font-size: 18px;
+    color: #000;
+    margin: 0;
+    float: left;
+    width: 56%;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 32px;
 }
 
 .abt_list_im {
@@ -4135,7 +4172,7 @@ h2 {
 .faq_text { float:left; width:100%; text-align:center;}
 .faq_text h1 { clear: both; width:625px; text-align:center; margin:30px auto 0 auto; font-weight:normal; font-size:55px;}
 
-.faq_info{ float:left; width:100%; margin-top: 100px;padding-bottom: 90px;}
+.faq_info{ float:left; width:100%; margin-top: 40px;padding-bottom: 90px;}
 .faq_lft { float:left; width:45%; border-right:1px solid #7d7d7d;min-height: 450px;margin-bottom: 30px;}
 .faq_rit {float:left; width:48%;min-height: 450px;margin-bottom: 30px;padding-left:62px;}
 .faq_rit .title{margin-bottom: 20px; font-size: 16px; /*color: #ED6430;*/font-weight: bold;text-transform: uppercase;}
@@ -4672,8 +4709,9 @@ hr.style-right {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-bottom: 55px;
-    margin-top: 25px;
+    margin-bottom: 90px;
+    margin-top: 45px;
+    padding-bottom: 1px;
 }
 
 .my_heading h3{
