@@ -8,10 +8,17 @@
   -content_for(:about_head) do
     =raw(@header_content)
   = raw(@page_content)
+
   %div.leaderboard_btn.right
+    =link_to "/how_it_works" do
+      %strong How It Works
+      =image_tag "btn_arrow.png", class:"right"
+  %div.leaderboard_btn.left
     =link_to "/about" do
       %strong Our Mission
-      =image_tag "btn_arrow.png", class:"right"
+      =image_tag "btn_arrow.png", class:"left"
+
+
 - else
   -content_for(:about_head) do
     .slider_hold{:style => "height:auto;"}
@@ -23,107 +30,87 @@
       / slider_text ends
     / slider_hold ends
   .wrapper
+    .my_heading
+      %hr.style-left
+      %h3{style:"margin-left: 105px;"} Our Story
+      %hr.style-right
     .img_det_txt
-      .abt_img_t
-        %img{:src => "/assets/abt_img.png"}/
-      / abt_img_t ends
-      .abt_sto_txt
-        %h1 Our Story:
-        %p
-          In 2011, Greg and Jill, a newly married couple living in Connecticut decided to move to Boston to pursue
-          something bigger. This is where they met Albion, a refugee from Kosovo who was saved from war and moved to
-          America at age 14 with the help of others.
+      %p
+        Our CEO, Albion Calaj, grew up in Ferizaj, Kosovo and had a normal life until one day it became quite abnormal, to say the least.  The Kosovo War broke out right before his eyes and in ’99 at age 14 he was rescued and brought to the USA with the help of a group of charities.  Many of his people were not so lucky.  At a young age he was exposed to atrocities no adult should see.
+        %br
+        %br
+        Here is an article we found of young Albi being interviewed his first weeks at Fort Dix, New Jersey.
+        %br
+        %br
+        Provided with a second chance at life, he vowed that one day he would somehow pay back all of the people that saved him.  After working hard and putting himself through college, Albi ended up at Morgan Stanley.  He was living the real life American Dream until the echos of his promise were getting too loud to ignore.
+        %br
+        %br
+        He meets Greg, an entrepreneur working in the custom apparel industry.  After hearing Albi’s heart-wrenching story and personal mission they decide to start a business together with the intentions of providing the platform needed to honor those that saved his life and pay it forward on a grand scale.  Their mission is to offer as many people the same opportunity Albi was blessed with, hope when it seems there is none.
+        %br
+        %br
+        Onebillionshirts.org is one man’s pursuit to pay it forward.  Albi has a very real and personal experience with charity and its benefits and it is our mission to raise money and awareness for charities to allow them to continue doing what they do best, helping others!
+        %br
+        %br
+        Need T-shirts?  Save money, help others, and pay it forward!
+        %br
+        %br
+      .albi
+        = image_tag "Albi_Final.png"
+        %ul
+          %strong Albion Calaj
+          %li - From Ferizaj, Kosovo
+          %li -  Speaks 4 languages
+          %li -  Loves Formula 1 racing
+          %li -  Was offered job by C.I.A.
+          %li -  Stands six foot three and three quarters
+          %li -  Graduated Northeastern University
+          %li -  Strong non-profit background
+          %li -  Oversees operations & production
+      .greg
+        = image_tag "Greg_Final.png"
+        %ul
+          %strong Gregory Berry
+          %li -  From Waterbury, CT
+          %li -  Plays pickup basketball daily
+          %li -  Claims he brought Whalers back to Hartford (just ask)
+          %li -  Started national food distribution company in college
+          %li -  Lives in Boston with wife & son
+          %li -  Does not own a television
+          %li -  Created first custom apparel company in 2006
+          %li -  In charge of marketing & company vision
 
-          While talking about their passion for business and giving back, they decide to start a business together
-          that
-          will allow them to do business and help change the world in the process.
 
-          With Greg's established custom goods businesses and connections, Jill's organization skills and passion for
-          giving, and Albion's finance and operations background, the three set off to change the world through custom
-          t-shirts.
-      / abt_sto_txt ends
-      .abt_sto_txt
-        %h1 Our Team:
-        %span Gregory Berry
-        %p
-          As a serial entrepreneur, Greg knows what it is like to start with no resources, connections, or capital.
-          Starting a national Italian food company at age 21 to selling T-shirts outside of stadiums and concerts, and
-          everything in between, he always knew hard work and persistence is the key to success.
-          Born and raised in Waterbury, CT which Forbes describes as a
-          %a{:href => "http://www.forbes.com/forbes/2008/0407/103.html", :target => "_blank"} 29 square mile junk pile,
-          success
-          and opportunity were not prevalent. Through creativity, ingenuity, and resourcefulness, he developed many
-          concepts which can be run from a laptop and began his ascent to the top of the business world, which he
-          compares
-          to driving in unknown land with a faulty GPS unit.
-          In 2012, after building a successful custom apparel business, he decided it was time to give back and
-          develop a
-          socially responsible concept that would help make the world a better place. Through his current ventures and
-          business relationships, he knew the t-shirt business would be a great avenue.
-          He asked others: how many t-shirts do you own? This led him to research how many blank shirts are sold each
-          year
-          to be screen printed, which to his amazement was around 1 billion. This was the start of
-          OneBillionShirts.org
-      / abt_sto_txt ends
-      .abt_sto_txt
-        %span Albion Calaj
-        %p
-          Growing up in Kosovo, Albion and his older brother learned quickly the value of entrepreneurship. At age
-          10, he
-          and his brother recognized an unfulfilled niche, selling VCR's to others with families living in abroad.
-          Soon
-          they began making profit and helping other reunite with their loved ones.
-          In 1999, Albion came to America with the help of a charity, which he would never forget. This provided an
-          opportunity to start a new life and chase the American Dream. Working multiple jobs during high school and
-          beyond, he was able to bring money home and purchase both commercial and residential real estate and
-          eventually
-          start a trucking business which he sold.
-          Never forgetting how others impacted his life, Albion devoted many years to charity with MAASBESA, a non
-          profit
-          organization devoted to the well-being of the Albanian-American community in Massachusetts and KSB (Kosovo
-          Society Boston), which helps
-          bring children from Kosovo to USA for medical treatment.
-          After graduating Northeastern University, Albion entered the world of high finance joining Morgan Stanley as
-          a
-          wealth adviser. In late 2011, he met Greg & Jill and his penchant for entrepreneurism was sparked again.
-      / abt_sto_txt ends
-      .abt_sto_txt
-        %span Jill Berry
-        %p
-          After graduating Secret Heart University and receiving her Masters in Education from University of
-          Bridgeport,
-          Jill began a fulfilling career as a public school teacher in Waterbury, CT.
-          Working with inner city youths in a school system plagued with high poverty rates, she loved having an
-          impact on
-          the lives of others. Supplying her own teaching materials and selling candy to raise funds for school
-          activities, she loved the challenge.
-          In 2011 after getting married that summer, she decided to take a leap of faith and move to Boston with her
-          new
-          husband. Without a Massachusetts teaching certificate, Jill knew that she would find a new career and hoped
-          it
-          would be just as fulfilling. Taking a year off and working with Greg, she began to get the entrepreneurial
-          bug.
-          While looking into local non-profits, she was intrigued at the mention of a new venture with Greg & Albion
-          and
-          starting as the Director of Giving.
-          From working in impoverished schools, she understands the value of resourcefulness, passion and frugality,
-          which
-          are the cornerstone of this social startup.
-      / abt_sto_txt ends
-    / img_det_txt ends
-    / <div class="btn_align">
-    / <div class="choose_btn_2">
-    / <a href="/charities">Choose Your Charity</a></div>
-    / </div>
-  / wrapper ends
+
+
   %div.leaderboard_btn.right
+    =link_to "/how_it_works" do
+      %strong How It Works
+      =image_tag "btn_arrow.png", class:"right"
+  %div.leaderboard_btn.left
     =link_to "/about" do
       %strong Our Mission
-      =image_tag "btn_arrow.png", class:"right"
+      =image_tag "btn_arrow.png", class:"left"
 :css
   .calc_btn {
       float: left;
       margin: 0 auto 0 122px;
       padding: 12px 0 10px;
       width: 550px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #645D5D;
+  }
+  .albi{
+    float: left;
+    margin-bottom: 100px;
+  }
+  .greg{
+    float: right;
+    margin-bottom: 100px;
+  }
+  .greg > ul , .albi > ul{
+    line-height: 30px
   }

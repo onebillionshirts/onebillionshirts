@@ -1,17 +1,3 @@
-:javascript
-  /*$(function() {
-      $( "#tabs" ).tabs({
-        beforeLoad: function( event, ui ) {
-          ui.jqXHR.error(function() {
-            ui.panel.html(
-              "Couldn't load this tab. We'll try to fix this as soon as possible. " );
-          });
-        }
-      });
-  }); */
-
-
-- @page_content = nil
 - content_for :head do
   - @title = "About - OneBillionShirts"
   = @title
@@ -20,14 +6,10 @@
     =raw(@header_content)
   = raw(@page_content)
   %div.leaderboard_btn.right
-    =link_to "/how_it_works" do
-      Learn
-      %strong How It Works
-      =image_tag "btn_arrow.png",class:"right"
-  %div.leaderboard_btn.left
     =link_to "/our_story" do
-      =image_tag "btn_arrow.png", class:"left"
       %strong Our Story
+      =image_tag "btn_arrow.png",class:"right"
+
 
 -else
   -content_for(:about_head) do
@@ -48,35 +30,32 @@
       .abt_list
         %h1 Why ?
         %p
-          The scope of this industry is massive and the product is becoming commoditized. With 1 Billion units per
-          year,
-          a slight shift can create a huge impact. All print shops use the same blank shirts, same inks, and same
-          techniques. The only difference is the profit margin.
+          One day after meeting with a high paid branding consultant we sat down to create our mission statement.  After scores of useless jargon, days of confusion, and a few losing bouts with a Thesaurus, we had an epiphany.  Instead of a few abstract lines of wordy but meaningless text, we came up with a simple question that sums up our core offer. Why not?
+          %br
+          That’s it.  You may have missed it.  After all of the thinking and mind numbing word play, the phrase continued to be yelled out over and over again during our brainstorm sessions was “Why Not?”
       / abt_list ends
       .abt_list
         .right{style:"color:#aa8366;"} How ?
         .left
-          We run an industry leading screen print company and through technology, strategic partnerships, and
-          experience,
-          we can print your t-shirts and save you money while providing a fast turnaround and
-          quality product. Once customers are aware of this, they will begin pushing other screen print
-          companies to join this movement which will create a tidal wave of wealth to charity.
+          We were heading towards becoming an innovative and socially conscious company that would disrupt an industry and offer a valued added option to purchasing a commoditized product while providing an engaging solution to a large scale consumer pain point (ZZzzz)... thankfully we came to our senses and remembered our mission was to print t-shirts, not save humanity nor develop fancy mission statements.
+          %br
+          Our value proposition is quite simple and logical:
+          %br
+          There are over 1 billion shirts printed per year (more than cars, iphones, shoes, umbrellas, lamps, you get the point)....
       / abt_list ends
       .abt_list
         %h1{style:"color:#807aa0"} What ?
         %p
-          The big secret is that there is no secret. We will print your shirts the same way using the same shirt and
-          the
-          same ink as your current vendor. We will give you the best price and when printing with us you will have the
-          opportunity to choose your favorite charity and we will donate money to them on your behalf.
+          Along with high quality printing, better prices, and neighborly customer service, we donate 25¢ per shirt to a charity of your choice in your name.  Sounds good, right?
+          %br
+          Every time you need shirts printed you can save money and help your favorite charity, our little version of the ultimate win-win!
+          %br
+          Our t-shirts don’t aggregate, they don’t quite disrupt anything, and they are not very innovative.  They’re actually most likely the same as your last batch, as 97% of screen print shops use the same blank shirts, same ink, and the same print techniques. The only real difference is what we do with the profits (it’s true!).
+          %br
+          Work with us today and help us help you help others!  Why not, right?
 
 
   %div.leaderboard_btn.right
-    =link_to "/how_it_works" do
-      Learn
-      %strong How It Works
-      =image_tag "btn_arrow.png" ,class:"right"
-  %div.leaderboard_btn.left
     =link_to "/our_story" do
-      =image_tag "btn_arrow.png" , class:"left"
       %strong Our Story
+      =image_tag "btn_arrow.png" ,class:"right"

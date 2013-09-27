@@ -47,9 +47,9 @@
     .nested_header
       .second_header
         %span
-          %a.current{:href => "/charities"} BROWSE CHARITIES
+          %a{:href => "#", style:"color: #d0d0d0;font-size: 14px;"} BROWSE CHARITIES
         %span
-          %a#Featured_Charities.charity-link-featured{:href => "javascript:", :onclick => "set_active('featured');"} FEATURED CHARITIES
+          %a#Featured_Charities.charity-link-featured.current{:href => "javascript:", :onclick => "set_active('featured');"} FEATURED CHARITIES
         %span
           %a#All_Charities.charity-link-all{:href => "javascript:", :onclick => "set_active('all');"} ALL CHARITIES
         %span

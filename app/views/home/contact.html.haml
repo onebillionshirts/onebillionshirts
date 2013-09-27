@@ -2,16 +2,18 @@
 - content_for :head do
   - @title = "Contact - OneBillionShirts"
   = @title
-.slider_hold_contact
-  .slider_text
-    %h1.wid_im
-      We're located in the
-      %span heart
-      of Downtown Boston
-    %p Contact us today and we'll get right back to you.
-  / slider_text ends
-/ slider_hold ends
-/ wrapper ends
+.featured-section{style:"margin-top: 120px;height: 272px;background: url('/assets/contact_header.png') no-repeat;"}
+  .wrapper
+    .inner_wrapper_div{style:"height: 272px;"}
+      .slider_hold_contact
+        .slider_text
+          %h1.wid_im{style:"width: 100% !important;"}
+            We're located in the
+            %span heart
+            of Downtown Boston
+          %p Contact us today and we'll get right back to you.
+
+
 .map_hold
   - @marker = '[{"lng": "-71.061131","lat": "42.357281"},{"lng": "-71.061131", "lat": "42.357281" }]'
   = gmaps({ "map_options" => { "center_latitude"  => 42.357281,       |
