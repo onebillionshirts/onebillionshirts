@@ -2923,11 +2923,15 @@ h2 {
 .cnt_lft {
     float: left;
     width: 49%;
+    width: 30%;
+    border-right: 1px solid rgba(255, 255, 255, 0.55);
+    margin-left: -28px;
 }
 
 .cnt_rit {
     float: left;
-    width: 49%;
+    width: 56%;
+    margin-left: 40px;
 }
 
 .cnt_lft p {
@@ -2945,7 +2949,14 @@ h2 {
     font-size: 18px;
     line-height: 30px;
     margin: 0 auto;
-    width: 215px;
+    width: 550px;
+}
+
+.cnt_rit p.link {
+    display: inline-block;
+    background: url(/assets/left.png) no-repeat center left;
+    padding-left: 38px;
+    font-weight:bold;
 }
 
 .cnt_field_lft_rit {
