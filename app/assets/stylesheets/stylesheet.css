@@ -2999,6 +2999,8 @@ h2 {
     font-size: 18px;
     color: #000;
     font-family: museo_500regular, Arial, Helvetica, sans-serif !important;
+    border-radius: 10px;
+    background-color: #ececec;
 }
 
 .cnt_txtarea {
@@ -3039,6 +3041,8 @@ h2 {
     font-size: 18px;
     color: #000;
     font-family: museo_500regular, Arial, Helvetica, sans-serif !important;
+    border-radius: 10px;
+    background-color: #ececec;
 }
 
 .cnt_send_btn_add_hold {
@@ -3068,13 +3072,15 @@ h2 {
     font-size: 18px;
     color: #000;
     font-family: museo_500regular, Arial, Helvetica, sans-serif !important;
+    border-radius: 10px;
+    background-color: #ececec;
 }
 
 .send_btn_rit {
     float: right;
-    width: 188px;
+    width: 258px;
     height: 63px;
-    background: #ff6800;
+    background: #ed6430;
     text-align: center;
     -webkit-border-radius: 6px;
     border-radius: 6px;
