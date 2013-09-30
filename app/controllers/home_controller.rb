@@ -17,6 +17,10 @@ class HomeController < ApplicationController
     render layout: "about"
   end
 
+  def manifesto
+    render layout: "about"
+  end
+
 
   def faq
     @questions = Question.all

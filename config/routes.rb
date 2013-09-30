@@ -27,6 +27,7 @@ OneBS::Application.routes.draw do
   match "/channel", :to => "home#channel"
   match "/facility", :to => "home#facility"
   match "/customers", :to => "home#customers"
+  match "/manifesto", :to => "home#manifesto"
   match "/download_thank_you_card", :to => "home#download_thank_you_card"
   match "/print_thank_you_card", :to => "home#print_thank_you_card"
 

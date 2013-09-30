@@ -1,0 +1,22 @@
+- content_for :head do
+  - @title = "Manifesto - OneBillionShirts"
+
+-content_for(:about_head) do
+  .slider_hold{:style => "height:auto;"}
+    .slider_text
+      %h1 Our Manifesto
+.wrapper
+  = image_tag "Manifesto.jpg", style:"margin: 70px auto;"
+  .socialz{style:"margin-right: 80px; width: 370px; float: right;background: #eaeaea;"}
+    %strong{style:"float: left;margin: 8px;"} SHARE CARD:
+    %span.st_sharethis_large{:displaytext => "ShareThis"}
+    %span.st_facebook_large{:displaytext => "Facebook"}
+    %span.st_twitter_large{:st_via => ""}
+    %span#linkdcount.st_linkedin_large{:displaytext => "LinkedIn"}
+    %span.st_pinterest_large{:displaytext => "Pinterest"}
+    %span.st_email_large{:displaytext => "Email"}
+
+%div.leaderboard_btn.left{style:"clear: both;"}
+  =link_to "/share_contest" do
+    =image_tag "btn_arrow.png" , class:"left"
+    %strong Socialize
