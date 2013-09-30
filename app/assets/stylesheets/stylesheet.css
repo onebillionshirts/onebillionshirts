@@ -267,12 +267,13 @@ h2 {
     text-transform: uppercase;
     color: #969696;
     font-size: 16px;
+    font-weight: normal;
     /*font-weight: bold;*/
     /*font-family: Arial, Helvetica, sans-serif;*/
 }
 
 .navigation li:hover a {
-    color: #000;
+    /*color: #000;*/
 }
 
 .slider_hold {
@@ -4215,7 +4216,7 @@ h2 {
     background: url("/assets/home_main.png") no-repeat;
     height: 519px;
     background-position: center center;
-    margin-top: 35px;
+    margin-top: 115px;
     position: relative;
 }
 
@@ -4667,7 +4668,7 @@ input.green{
 }
 
 .margin_left{
-    margin-left: 10%;
+    margin-left: 40px;
 }
 
 .featured-section_about{
@@ -4810,4 +4811,16 @@ hr.style-right {
     transform:rotate(180deg);
     -ms-transform:rotate(180deg); /* IE 9 */
     -webkit-transform:rotate(180deg); /* Safari and Chrome */
+}
+
+
+h3.col1{
+    background: none repeat scroll 0 0 #E4E4E4;
+    color: #666666;
+    font-size: 14px;
+    height: 36px;
+    letter-spacing: 2px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
 }
