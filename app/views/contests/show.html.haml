@@ -250,10 +250,10 @@
                   %span=e.description
                   =link_to vote_contest_path(e.id), class:"vote", style:"display: none" do
                     %i.icon-heart Vote
-          %div.leaderboard_btn
+          %div.leaderboard_btn{style:"width: 185px;float: right;"}
             View the
             %strong Leaderboard
-            =image_tag "btn_arrow.png"
+            =image_tag "btn_arrow.png", style:"float: right; position: relative;bottom: -4px;"
           .pagination
             = will_paginate @contest_entries , class:"apple_pagination"
 

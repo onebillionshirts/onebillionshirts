@@ -14,4 +14,11 @@ class ContestsController < ApplicationController
     redirect_to contest_path(@contest_entry.contest.slug)
   end
 
+
+  def index
+    @contests = Contest.all
+    render layout: "about"
+  end
+
+
 end

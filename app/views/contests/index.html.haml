@@ -1,0 +1,41 @@
+-content_for(:about_head) do
+  .slider_hold{:style => "height:auto;"}
+    .slider_text
+      %h1
+        %span Together
+        we can impact the lives of millions.
+      %p Let's work together to make our world a better place
+    / slider_text ends
+  / slider_hold ends
+.wrapper
+  .my_heading
+    %hr.style-left
+    %h3{style:"margin-left: 105px;"} Current Contests
+    %hr.style-right
+  -@contests.each do |c|
+    .img_det_txt
+      %h2.orange=c.title
+      .selected_btn_b
+        =link_to "Join Contest", "/contests/"+c.slug
+      %span
+        %strong Start Date:
+        =c.start_date
+        %strong End Date:
+        =c.end_date
+
+
+:css
+  .orange{
+    color: #f18d34;
+  }
+
+  .img_det_txt{
+    border-bottom: 1px solid #dedede;
+    height: 100px;
+    margin-bottom: 22px;
+  }
+
+  .selected_btn_b{
+    position: relative;
+    bottom: 30px;
+  }

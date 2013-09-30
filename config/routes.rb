@@ -75,7 +75,7 @@ OneBS::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  namespace :admins do
+    namespace :admins do
     resources :orders
     resources :site_events  do
       get :subscribers, :on => :collection
