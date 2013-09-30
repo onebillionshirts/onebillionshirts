@@ -81,8 +81,8 @@
 
   .bg{
     background: #eeeeee;
-    height: 100%;
-    overflow-y: hidden;
+    height: auto;
+    overflow-y: auto;
     padding-bottom: 50px;
   }
 
@@ -124,6 +124,12 @@
   .apple_pagination a, .apple_pagination span , .apple_pagination em {
     padding: 0.2em 0.3em;
     display: inline;
+  }
+
+  .my_li{
+    line-height: 55px;
+    margin-left: 10px;
+    border-bottom: 1px solid #dedede;
   }
 
 :javascript
@@ -259,8 +265,8 @@
 
         #leaderboard{style:"width:960px; height:900px; display: none;"}
           #container{:style => "min-width: 400px;width:960px; height: 500px; margin: 0 auto;"}
-          %ul{style:"margin-top: 30px; margin-left: 40px; color: gray;"}
+          %ul{style:"margin-top: 30px; margin-left: 40px;"}
             -@contest_votes.collect{|c| c[:title]}.each_with_index do |n,i|
-              %li
-                %strong=(i+1).to_s+ ".  " + n
+              %li.my_li
+                %strong{style:" margin-left: 15px;"}=(i+1).to_s+ ".  " + n
 

@@ -4,10 +4,10 @@
       = link_to '', root_path, class:"logo"
       -#%div{:style => "float: right;text-align: center;-webkit-border-radius: 6px;   font-size: 20px; color: white; background-color: #ed6430; padding: 10px 45px; top: -7px;position: relative;"}
       -#  %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
-
+    -puts "******************************************************** #{params}"
     .navigation
       %ul#nav1
-        %li{class:"#{(params[:controller]=='home' && params[:action] !='customers' && params[:action] !='index' )? 'active_state' : 'none'}" }
+        %li{class:"#{(params[:controller]=='home' && params[:action] !='customers' && params[:action] !='index' ) || params[:controller]=='contests' ? 'active_state' : 'none'}" }
           %a{:href => "/about"} LEARN MORE
         %li{class:"#{params[:controller]=='charities' ? 'active_state' : 'none'}" }
           %a{:href => "/charities"} BROWSE CHARITIES
