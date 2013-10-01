@@ -42,35 +42,28 @@
     = form_tag "/home/send_email" do
       #errors{style:"color:red; font-weight:bold"}
       .cnt_field_lft_rit
+        %div{style:"margin-bottom:40px;font-weight:bold;"} Contact Form
         .cnt_field_lft
-          .cnt_inputs
-            %label Name:
-            = text_field_tag :name
-          / cnt_inputs
-          .cnt_inputs
-            %label Email:
-            = text_field_tag :email
-          / cnt_inputs
-        / cnt_field_lft ends
-        .cnt_field_rit
-          .cnt_inputs
-            %label Company / Organization:
+          .cnt_inputs{style:"width: 40%;"}
+            %label Full Name
+            = text_field_tag :name, "" ,style:"width: 210px"
+          .cnt_inputs{style:"width: 52%;"}
+            %label{style:"width: 195px;"} Company / Organization
             = text_field_tag :company
-          / cnt_inputs
           .cnt_inputs
-            %label Phone:
+            %label Email
+            = text_field_tag :email
+          .cnt_inputs
+            %label Phone
             = text_field_tag :phone
-          / cnt_inputs
-        / cnt_field_rit ends
         .cnt_txtarea
           .cnt_inputs_n
-            %label Inquiry:
+            %label Inquiry
             = text_area_tag :inquiry
-          / cnt_inputs_n
-        / cnt_txtarea ends
+
         .cnt_send_btn_add_hold
           .cnt_add
-            %label 4+4 =
+            %label Please answer: 4+4 =
             = text_field_tag :answer
           / cnt_add ends
           .send_btn_rit

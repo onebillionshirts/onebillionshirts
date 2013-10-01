@@ -2961,14 +2961,14 @@ h2 {
 
 .cnt_field_lft_rit {
     float: left;
-    width: 100%;
-    margin-top: 55px;
+    width: 1000px;
+    margin: 55px auto 5px auto;
 }
 
 .cnt_field_lft {
     float: left;
-    width: 360px;
-    margin-right: 50px;
+    width: 100%;
+    /*margin-right: 50px;*/
 }
 
 .cnt_field_rit {
@@ -2978,23 +2978,24 @@ h2 {
 
 .cnt_inputs {
     float: left;
-    width: 100%;
-    margin-bottom: 40px;
+    width: 50%;
+    margin-bottom: 20px;
 }
 
 .cnt_inputs label {
     font-size: 18px;
-    clear: both;
+    /*clear: both;*/
     margin-bottom: 10px;
+    margin-right: 10px;
     float: left;
-    width: 100%;
+    width: 100px;
+    line-height: 45px;
 }
 
 .cnt_inputs input {
-    width: 348px;
-    height: 56px;
-    clear: both;
-    border: 2px solid #cccccc;
+    width: 301px;
+    height: 45px;
+    border: 1px solid #cccccc;
     padding: 0 5px;
     font-size: 18px;
     color: #000;
@@ -3025,7 +3026,7 @@ h2 {
     width: 348px;
     height: 56px;
     clear: both;
-    border: 2px solid #cccccc;
+    border: 1px solid #cccccc;
     padding: 0 5px;
     font-size: 18px;
     color: #000;
@@ -3036,7 +3037,7 @@ h2 {
     width: 98.6%;
     height: 230px;
     clear: both;
-    border: 2px solid #cccccc;
+    border: 1px solid #cccccc;
     padding: 5px;
     font-size: 18px;
     color: #000;
@@ -3067,7 +3068,7 @@ h2 {
     width: 124px;
     height: 56px;
     float: left;
-    border: 2px solid #cccccc;
+    border: 1px solid #cccccc;
     padding: 0 5px;
     font-size: 18px;
     color: #000;
@@ -4701,29 +4702,29 @@ input.green{
 hr.style-left {
     float: left;
     border: 0;
-    width: 300px;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+    width: 200px;
+    height: 2px;
+    background: #d8d8d8;
+    background-image: -webkit-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #d8d8d8, #ccc);
 }
 
 hr.style-right {
     float: right;
     border: 0;
-    width: 300px;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
-    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+    width: 200px;
+    height: 2px;
+    background: #d8d8d8;
+    background-image: -webkit-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #d8d8d8, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #d8d8d8, #ccc);
 }
 
 .my_heading{
-    width: 900px;
+    width: 950px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -4736,6 +4737,7 @@ hr.style-right {
     float: left;
     margin-left: 32px;
     line-height: 16px;
+    font-size: 36px;
 }
 
 .learn_more_about_contest{
