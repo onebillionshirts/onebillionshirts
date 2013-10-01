@@ -3990,7 +3990,8 @@ h2 {
 .holder a.jp-disabled, a.jp-disabled:hover {
     cursor: default;
     background: none;
-    background-color: #202820;
+    background-color: #a2c09a;
+    color: white;
 }
 
 .holder span {

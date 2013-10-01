@@ -36,9 +36,9 @@
                 %span
                   = charity.city
                   , #{charity.state} #{charity.zip}
-                %p{style:"word-wrap: break-word"}= raw charity.mission_statement
+                %p{style:"word-wrap: break-word"}=raw truncate(charity.mission_statement, :length => 300, :omission => '...')
               / list_txt_det ends
-              %a{:href => "/#{charity.slug}"} Learn more
+              =link_to "Learn more", "/#{charity.slug}"
               .selected_btn_holder
                 .selected_btn
                   %a.select-link{:href => "/orders/quick_quote?charity_id=#{charity.id}"}
