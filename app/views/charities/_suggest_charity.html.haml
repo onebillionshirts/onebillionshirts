@@ -2,9 +2,9 @@
   .wrapper
     .notice
       %p= flash[:notice]
-%h2 Quick Suggest:
 .quick_suggest_div
   .quick_suggest_iner_div
+    %h2{style:"margin-left: 12px;color: black;"} Quick Suggest:
     %p Add a link to a website, we will review, and if accepted we will manually upload the charity.
     %i
       %input#charity_website_textfield{:placeholder => "Charity website here", :size => "30", :type => "text"}/

@@ -1597,7 +1597,7 @@ h2 {
 /********************* Charity Signup page styling start *****************************/
 .charity_hold {
     float: left;
-    width: 96.5%;
+    width: 100%;
     margin-top: 60px;
     padding-left: 30px;
     padding-bottom: 50px;
@@ -1742,8 +1742,11 @@ h2 {
 }
 
 .up_check_txt {
-    float: left;
+    float: right;
     width: 100%;
+    position: relative;
+    top: -45px;
+    left: 105px;
 }
 
 .up_check_txt a {
@@ -1763,16 +1766,17 @@ h2 {
     padding: 0 8px 20px;
     text-align: left;
     width: 340px;
+    border-left: 2px solid rgba(255, 255, 255, 0.43);
+    padding-left: 28px;
 }
 
 .charity_rit h2 {
     clear: both;
-    color: #000000;
+    color: black;
     font-size: 18px;
     font-weight: normal;
     line-height: 30px;
-
-    padding-top: 45px;
+    /*padding-top: 45px;*/
 }
 
 .charity_rit p {
@@ -1791,6 +1795,8 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     color: #000;
     font-size: 14px;
+    background: url(/assets/left.png) no-repeat center left;
+    padding-left: 38px;
 }
 
 .check_text {
@@ -2107,7 +2113,7 @@ h2 {
     width: 560px;
     height: 31px;
     line-height: 42px;
-    margin-left: 100px;
+    margin-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -2531,6 +2537,7 @@ h2 {
 
 .upload-field {
     float: left;
+    width: 100%;
 }
 
 /******************** New homepage styling start ***********************/
@@ -2746,24 +2753,24 @@ h2 {
 
 .choose_btn_2 {
     margin: 0 auto;
-    padding: 12px 0 10px;
-    width: 550px;
+    padding: 10px 0 44px;
+    width: 400px;
 }
 
 .choose_btn_2 a {
-    background: none repeat scroll 0 0 #F15D23;
+    padding-bottom: 10px;
     border: medium none;
     border-radius: 6px 6px 6px 6px;
     color: #FFFFFF;
     cursor: pointer;
-    display: block;
+    margin: 0 0 -49px;
     margin: 0 0 5px;
     text-align: center;
     text-decoration: none;
-    height: 120px;
-    font-size: 45px;
-    background: #ff6801;
-    line-height: 120px;
+    height: 70px;
+    font-size: 29px;
+    background: #ed6430;
+    line-height: 75px;
     font-weight: normal;
 }
 
@@ -3418,11 +3425,10 @@ h2 {
 /* Newly added CSS for new requirements */
 
 .quick_suggest_div {
-
-    background-color: rgb(0, 173, 239);
-
+    /*background-color: rgb(0, 173, 239);*/
+    background-color: #5294d0;
     float: left;
-    height: 160px;
+    height: 195px;
     width: 100%;
 }
 
@@ -3448,10 +3454,12 @@ h2 {
     margin-bottom: 8px;
     margin-left: 7px;
     width: 95.5%;
+    padding-left: 8px;
+    border-radius: 5px;
 }
 
 .quick_suggest_iner_div a {
-    background: none repeat scroll 0 0 #FF6801;
+    background: none repeat scroll 0 0 #296194;
     border: medium none;
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF;
