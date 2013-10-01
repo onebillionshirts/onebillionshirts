@@ -41,7 +41,7 @@
   }
 
   table.more th{
-    width: 60px;
+    width: 75px;
     text-align: center;
   }
   div#results h4{
@@ -64,8 +64,11 @@
     letter-spacing: 1px;
   }
   span.selected_style_name{
+    width: 220px;
+    height: 30px;
     font-size: 16px;
-    }
+    float: left;
+  }
   select#front, select#back{
     margin-left: 10px;
     display: inline;
@@ -84,7 +87,8 @@
   }
   .move{
     margin-left:250px;
-    }
+    width: 100%
+  }
   .padded h3{
     color: black;
     font-size:20px;
@@ -330,9 +334,9 @@
         success: function(data){
           $("#calculate").text("Calculate")
           $(".after_section").show();
-          $("span.unit").text("$"+parseFloat(data.unit).toFixed(2))
-          $("span.total").text("$"+parseFloat(data.total).toFixed(2))
-          $("span.charity").text("$"+data.charity.toFixed(2))
+          $("strong.unit").text("$"+parseFloat(data.unit).toFixed(2))
+          $("strong.total").text("$"+parseFloat(data.total).toFixed(2))
+          $("strong.charity").text("$"+data.charity.toFixed(2))
           $("table.more").find("tr.data").remove();
           $.each(data.more, function(i,item){
             $("table.more").append("<tr class='data'><td>"+item.num+"</td><td> $"+parseFloat(item.unit).toFixed(2)+"</td><td> $"+item.charity.toFixed(2)+"</td></tr>")
@@ -347,7 +351,7 @@
 .featured-section_about{style:"background: #404945; height: 148px;"}
   .slider_hold{:style => "height:auto;"}
     .slider_text
-      %h1 Quick Quote Order Form
+      %h1{style:"width:70% !important"} Quick Quote Order Form
 .my_wrapper
   %div{:style => "margin-left: auto; margin-right: auto; width: 960px;"}
     .padded{style:"width:60%;margin:0 auto"}
@@ -357,7 +361,7 @@
           %h3{:style=>"float:left"} Charity:
         %div.move
           = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
-          =link_to "Browse Charity Database", charities_path, style:"margin-top: 12px;float: left;margin-left: 10px;color: #00afeb;"
+          =link_to "Browse Charity Database", charities_path, style:"float: right; color: #ed6430; line-height: 30px;"
           -@charities.each do |charity|
             -unless charity.logo.blank?
               %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
@@ -368,7 +372,7 @@
         %div.move
           %span.selected_style_name= Style.first.name
           =hidden_field_tag :style_id, Style.first.id
-          %a.change_style{style:"color:#00afeb;cursor:pointer;"}
+          %a.change_style{style:"cursor:pointer;float: right; color: #ed6430; line-height: 30px;width: 147px;"}
             Change
       %div{:style => "clear:both;margin-top:20px;height:auto;"}
         %div{:style => "width:20%; float:left;"}
@@ -438,35 +442,38 @@
       %div{style: "float:left;width: 150px;margin-left:0px;"}
         %div#results{style: "float:left;text-align: left;"}
           %h4
-            %strong Unit Price:
-            %span.unit{style:"float: right;"}
+            Calculate Price:
           %h4
-            %strong Total Price:
-            %span.total{style:"float: right;"}
+            %span{style:"float: left;"} Unit Price:
+            %strong.unit{style:"float: right;"}
           %h4
-            %strong Charity
-            %span.charity{style:"float: right;"}
-          .save_n_share
-          %br
+            %span{style:"float: left;"} Total Price:
+            %strong.total{style:"float: right;"}
+          %h4
+            %span{style:"float: left;"} Charity
+            %strong.charity{style:"float: right;"}
+          -#.save_n_share
+          %br{style:"clear: both;"}
           %p{style:"font-size: 14px;"}
             *XXL+ = extra charge to be determined upon estimate
-      %div{style: "float:left;width: 204px;margin-left: 88px; border-left: 1px solid #ececec; min-height: 250px;"}
-        %h4 Order more and save
-        %table.more
+      %div{style: "float:left;width: 300px;margin-left: 88px; border-left: 1px solid #ececec; min-height: 250px;"}
+        %h4{style:"float: left;font-weight:normal; margin-left:35px"} Order more and save!
+        %h4{style:"float: right;color: #069edb;;"} Share & Save!
+        %table.more{style:"margin-top:35px;"}
           %thead
             %tr.head
-              %th QTY
-              %th Price
-              %th Donation
+              %th{style:"color:#517c2e"} QUANTITY
+              %th{style:"color:#517c2e"} Price
+              %th{style:"color:#517c2e"} Donation
       %div{style: "float: right;width: 380px;margin-left: 25px; padding-left: 10px; border-left: 1px solid #ececec; min-height: 250px;"}
-        %div{style:"float:left;"}
+        %div
           .logo_place
             =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
 
-        %div{style:"width:70%;text-align: left; margin-left: 164px;"}
+        %div{style:"width:70%;text-align: left;"}
           .title_place{style:"font-weight:bold;font-size:16px"}
             =Charity.first.name
-          .desc_place
+          .desc_place{style:"height: 140px;overflow: hidden;"}
             =Charity.first.mission_statement.html_safe
     %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
       %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
