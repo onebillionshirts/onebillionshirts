@@ -957,7 +957,7 @@ h2 {
 
 .size_input_mid input {
     background: none;
-    border: 1px solid;
+    border: 1px solid rgba(128, 128, 128, 0.4);
     width: 30px;
     height: 30px;
     font-size: 16px;

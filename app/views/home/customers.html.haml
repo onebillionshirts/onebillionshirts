@@ -192,21 +192,21 @@
               -slice.each do |e|
                 .img3
                   =image_tag e.logo.url(:medium), style:"width: 200px; height: 200px;", class:"image_entity"
-                  %strong{style:"color: #f18d34;"}=e.text
+                  %strong{style:"color: #4c4c4c;font-style: italic;padding-left: 25px;"}=truncate(e.text, :length => 20, :omission => '...')
                   -#%span=e.description
                   =link_to "#", class:"vote plus_btn", data: {popid: "#{e.id}"}, style:"display: none" do
                     %i.icon-plus.icon-2x{style:"color: white;margin-left: 12px;"}
 
 
 -@customers.each do |e|
-  %div{style:"background-color:white;width:500px;height:auto;display:none;", id:"style_picker-#{e.id}"}
+  %div{style:"background-color:white;width:650px;height:auto;display:none;", id:"style_picker-#{e.id}"}
     %div{style:"width:100%; height:100px; text-align:center; color:green;font-size: 55px;"} Thank you!
     %div{style:"width:100%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;"} Customer That Care!
     %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;"}
       =image_tag e.logo.url(:medium)
     %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 0px;"}
-      %strong=e.text
-      %span=e.charity ? e.charity.name : e.charity_name
+      %strong{style:"color: #4c4c4c;font-style: italic;"} For printing custom apparel that cares and leveraging your order for a charity donation to ..
+      -#%span=e.charity ? e.charity.name : e.charity_name
     %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 40px;"}
       =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg")
     .socialz{style:"margin-left: auto; margin-right: auto; width: 100%; float: none;background: #eaeaea;height: 40px; padding-top: 10px;"}
