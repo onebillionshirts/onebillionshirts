@@ -1,7 +1,6 @@
-= form_tag "/charities/search_charities" ,:id => "e_form", style:"float: right;margin-right: 250px;" do
+= form_tag "/charities/search_charities" ,:id => "e_form", style:"float: left;margin-left: 50px;" do
   .search_holder
     .srh_input
-      %label Search:
       = text_field_tag :search_key
       %a#search{:href => "javascript:void(0)"}
         %img{:src => "/assets/Search.png"}/

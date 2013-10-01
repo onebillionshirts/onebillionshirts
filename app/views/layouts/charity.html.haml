@@ -33,31 +33,32 @@
     = render :partial => "/layouts/header"
     .featured-section_about{style:"height: 150px;"}
       =yield :about_head
-    .nested_header{style:"height: 40px;"}
+    .nested_header{style:"height: 52px;background: #ececec;"}
       =link_to "Suggest a Charity", new_charity_path(format: :js), class:"c_style", remote:true
 
+      = render :partial => "/charities/search_form"
+
       .rit_sort_heads
-        %p Sort by:
+        %p Sort By
         %a.sort-key{:href => "/charities/sort_charities?sort_key=name"} Name
         %a.sort-key{:href => "/charities/sort_charities?sort_key=created_at"} Recently Added
         %a.sort-key{:href => "/charities/sort_charities?sort_key=city"} City
         %a.sort-key{:href => "/charities/sort_charities?sort_key=state"} State
 
-      = render :partial => "/charities/search_form"
-    .nested_header
+    .nested_header{style:"height: 42px;"}
       .second_header
         %span
-          %a{:href => "#", style:"color: #d0d0d0;font-size: 14px;"} BROWSE CHARITIES
-        %span
-          %a#Featured_Charities.charity-link-featured.current{:href => "javascript:", :onclick => "set_active('featured');"} FEATURED CHARITIES
-        %span
-          %a#All_Charities.charity-link-all{:href => "javascript:", :onclick => "set_active('all');"} ALL CHARITIES
-        %span
-          %a#Causes.charity-link-causes{:href => "javascript:", :onclick => "set_active('causes');"} CAUSES
+          %a#Top_10.charity-link-top_ten{:href => "javascript:", :onclick => "set_active('top_ten');"} TOP 10
         %span
           %a#Joined_Recently.charity-link-recent{:href => "javascript:", :onclick => "set_active('recent');"} JOINED RECENTLY
         %span
-          %a#Top_10.charity-link-top_ten{:href => "javascript:", :onclick => "set_active('top_ten');"} TOP 10
+          %a#Causes.charity-link-causes{:href => "javascript:", :onclick => "set_active('causes');"} CAUSES
+        %span
+          %a#All_Charities.charity-link-all{:href => "javascript:", :onclick => "set_active('all');"} ALL CHARITIES
+        %span
+          %a#Featured_Charities.charity-link-featured.current{:href => "javascript:", :onclick => "set_active('featured');"} FEATURED CHARITIES
+        %span
+          %a{:href => "#", style:"color: #d0d0d0;font-size: 14px;"} BROWSE CHARITIES
     .my_wrapper
       = yield
   = render :partial => "/layouts/footer"
@@ -98,4 +99,5 @@
     margin-left: 20px;
     margin-right: 25px;
     width: auto;
+    float: right;
   }
