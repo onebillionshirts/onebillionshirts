@@ -1656,9 +1656,8 @@ h2 {
 }
 
 .txt_area_mission {
-    height: 306px !important;
     overflow: hidden;
-    width: 535px !important;
+    width: 180% !important;
     padding-right: 5px;
 }
 
@@ -1703,8 +1702,7 @@ h2 {
 
 .upload_hold {
     float: left;
-    width: 100%;
-    margin-top: 30px;
+    width: 60%;
 }
 
 .upload_btn_holder {

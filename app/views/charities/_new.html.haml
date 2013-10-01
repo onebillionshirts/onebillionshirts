@@ -54,7 +54,7 @@
           %label Mission Statement (>100words):
           = f.text_area :mission_statement
         / c_input ends
-        .c_input.txt_area
+        .c_input.txt_area_mission
           %label Charity Description (Mission, Values, Etc):
           = f.text_area :description
         / c_input ends
@@ -71,18 +71,6 @@
           = f.text_field :facebook_page
         / c_input ends
         .c_input
-          %label Your Name
-          = f.text_field :your_name
-        / c_input ends
-        .c_input
-          %label Your Phone:
-          = f.text_field :your_phone
-        / c_input ends
-        .c_input
-          %label Your email:
-          = f.text_field :your_email
-        / c_input ends
-        .c_input
           %label Add Logo (ideal: 250px x 250px)
           - f.object.logo ||= Logo.new
           = f.fields_for :logo do |logo|
@@ -96,6 +84,20 @@
             %a.add-link{:href => "/charities/image_form"} + add another
           / upload_hold ends
         / c_input ends
+        .c_input{style:"font-weight:bold;margin-top:30px;border-top: 2px solid rgba(255, 255, 255, 0.47);width:600px;padding-top: 15px;"} Contact Details
+        .c_input
+          %label Your Name
+          = f.text_field :your_name
+        / c_input ends
+        .c_input
+          %label Your Phone:
+          = f.text_field :your_phone
+        / c_input ends
+        .c_input
+          %label Your email:
+          = f.text_field :your_email
+        / c_input ends
+
       / charity_lft ends
       .charity_rit
         #suggest_charity_div
@@ -148,7 +150,7 @@
   .c_input input {
     border: 2px solid #e0e0e0;
     float: left;
-    width: 99.5%;
+    width: 60.5%;
     background: white;
     height: 39px;
     font-size: 18px;
@@ -161,7 +163,7 @@
   .c_input textarea {
     border: 2px solid #e0e0e0;
     float: left;
-    width: 98%;
+    width:  75%;
     background: white;
     height: 239px;
     font-size: 18px;
@@ -190,4 +192,12 @@
      margin-top: 18px;
      position: relative;
      top: -12px;
+  }
+  .c_input label {
+    font-size: 18px;
+    line-height: 30px;
+    color: #000;
+    float: left;
+    width: 200px;
+    margin-bottom: 10px;
   }
