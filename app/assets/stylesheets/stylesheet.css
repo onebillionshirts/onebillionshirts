@@ -2544,10 +2544,11 @@ h2 {
     width: 606px;
     margin: 0 auto;
     font-size: 22px;
+    font-family: ProximaNova-Regular !important;
 }
 
 .header_text > span.green {
-    color: #00a651;
+    color: #57c183;
     display: inline;
 }
 
@@ -2572,7 +2573,7 @@ h2 {
 
 .light_grey_area{
     border-top: 2px solid #ccc;
-    background: #e7e7e7;
+    background: #e8e8e8;
     width: 100%;
     padding-top: 60px;
     height: 235px;
@@ -2588,15 +2589,19 @@ h2 {
 .area_33 > p{
     text-align: left;
     font-size: 15px;
+    font-family: ProximaNova-Regular !important;
 }
 .area_33 > h4{
     text-align: left;
     font-size: 23px;
+    font-family: ProximaNova-Semibold !important;
 }
 
 .area_33 > p > .orange{
-    color: #f18d34;
+    color: #ed6430;
     display: inline;
+    font-family: ProximaNova-Regular !important;
+    border-bottom:1px dotted #ed6430;
 }
 
 .idea_txt {
@@ -3923,7 +3928,7 @@ h2 {
 
 .inner_wrapper_div h1, .faq_text h1{
     font-family: GothamRnd-Book !important;
-    font-size: 60px;
+    font-size: 48px;
     font-weight: bold;
     margin: 30px auto;
     text-align: center;
@@ -3943,11 +3948,11 @@ h2 {
 
 .inner_wrapper_div h2, .faq_text h2 {
     font-family: GothamRnd-Light !important;
-    font-size: 58px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 500;
     margin: 30px auto;
     text-align: center;
-    width: 93%;
+    width: 80%;
     color: white;
     border-bottom: 1px solid gray;
 }
@@ -4524,7 +4529,7 @@ ul.bxbig li{
 
 .single_charity{
     margin: auto;
-    height: 192px;
+    height: 185px;
     width: 960px;
     overflow: hidden;
 }
@@ -4666,8 +4671,12 @@ div.all:hover{
 }
 
 .col p{
-  margin:0;
-  padding:0;
+    margin: 0;
+    padding: 0;
+    font-family: ProximaNova-Regular !important;
+    font-size: 20px;
+    color: #7c7c7c;
+    text-align: center
 }
 
 input.green{
