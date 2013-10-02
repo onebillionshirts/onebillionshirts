@@ -1,6 +1,8 @@
 - content_for :head do
   - @title = "About - OneBillionShirts"
   = @title
+
+-#- @page_content = ""
 - if @page_content.present?
   -content_for(:about_head) do
     =raw(@header_content)
@@ -24,7 +26,7 @@
   .wrapper
     .my_heading
       %hr.style-left{style:"width: 300px;"}
-      %h3{style:"margin-left: 72px;"} Our Mission
+      %h3{style:"margin-left: 80px;"} Our Mission
       %hr.style-right{style:"width: 300px;"}
     .img_det_txt
       .abt_list

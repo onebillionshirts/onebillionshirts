@@ -289,35 +289,27 @@ h2 {
 
 .slider_text h1 {
     clear: both;
-    /*width: 625px;*/
-    /*text-align: center;*/
-    /*margin: 70px auto 0 auto;*/
-    /*font-weight: normal;*/
     font-family: GothamRnd-Book !important;
-    font-size: 60px;
-    font-weight: bold;
+    font-size: 48px;
     margin: 30px auto;
     text-align: center;
     width: 55% !important;
     color: white;
     border-bottom: 2px solid grey;
+    font-weight: 400;
 }
 
 .slider_text span {
-    color: #00a651;
+    color: #5ab07e;
     display: inline;
 }
 
 .slider_text p {
-    /*color: #000000;*/
-    /*font-size: 18px;*/
-    /*line-height: 24px;*/
-    /*margin: 0 auto;*/
-    /*width: 58%;*/
     color: white;
     width: 50%;
     margin: 0 auto;
     font-size: 22px;
+    font-family: ProximaNova-Regular !important;
 }
 
 .slider_img {
@@ -700,13 +692,11 @@ h2 {
 }
 
 .order_text p {
-    /*clear: both;*/
-    /*width: 670px;*/
-    /*margin: 25px auto;*/
     color: white;
-    width: 800px;
+    width: 50%;
     margin: 0 auto;
     font-size: 22px;
+    font-family: ProximaNova-Regular !important;
 }
 
 .order_head {
@@ -718,20 +708,20 @@ h2 {
 }
 
 .order_head h1 {
-    /*display: inline;*/
-    /*font-weight: normal;*/
+    clear: both;
     font-family: GothamRnd-Book !important;
-    font-size: 60px;
-    font-weight: bold;
+    font-size: 48px;
     margin: 30px auto;
     text-align: center;
-    width: 65% !important;
+    width: 55% !important;
     color: white;
     border-bottom: 2px solid grey;
+    font-weight: 400;
 }
 
+
 .order_head span {
-    color: #00A651;
+    color: #5ab07e;
     display: inline;
     font-size: 55px;
 }
@@ -1418,6 +1408,7 @@ h2 {
 .works_imgs_holder {
     float: left;
     width: 100%;
+    font-family: ProximaNova-Regular !important;
 }
 
 .img_portion {
@@ -2198,7 +2189,6 @@ h2 {
     color: #000;
     clear: both;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .list_txt_det p {
@@ -2207,6 +2197,7 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     clear: both;
     width: 100%;
+    font-family: ProximaNova-Regular !important;
 }
 
 .selected_btn_holder {
@@ -2449,6 +2440,7 @@ h2 {
     width: 822px;
     clear: both;
     margin: 0 auto;
+    font-family: ProximaNova-Regular !important;
 }
 
 .img_text_list {
@@ -3139,6 +3131,7 @@ h2 {
     float: left;
     width: 100%;
     margin-bottom: 50px;
+    font-family: MyriadPro-Regular !important;
 }
 
 .abt_list h1 {
@@ -3172,16 +3165,17 @@ h2 {
 }
 
 .abt_list p {
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
     margin: 0;
     float: right;
     width: 56%;
     line-height: 32px;
+    font-family: ProximaNova-Regular !important;
 }
 
 .abt_list .left {
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
     margin: 0;
     float: left;
@@ -3189,6 +3183,8 @@ h2 {
     font-family: Arial;
     font-size: 18px;
     line-height: 32px;
+    font-family: ProximaNova-Regular !important;
+
 }
 
 .abt_list_im {
@@ -3937,13 +3933,12 @@ h2 {
 }
 
 .faq_text h3{
-    font-family: GothamRnd-Book !important;
+    color: white;
+    width: 50%;
+    margin: 0 auto;
     font-size: 22px;
-    font-weight: bold;
-    margin: 14px auto;
-    text-align: center;
-    width: 93%;
-    color: #e4e4e5;
+    font-family: ProximaNova-Regular !important;
+    margin-top: 36px;
 }
 
 .inner_wrapper_div h2, .faq_text h2 {
@@ -3958,7 +3953,7 @@ h2 {
 }
 
 .faq_text h2{
-    color: #7a7a7c;
+    color: #5ab07e;
     font-size: 48px;
     margin: 0 auto;
 }
@@ -4222,21 +4217,21 @@ h2 {
 
 /************************  FAQ page styling start ****************************************/
 .faq_text { float:left; width:100%; text-align:center;}
-.faq_text h1 { clear: both; width:625px; text-align:center; margin:30px auto 0 auto; font-weight:normal; font-size:55px;}
+.faq_text h1 { clear: both; width:625px; text-align:center; margin:30px auto 0 auto; font-weight:normal; font-size:48px;}
 
 .faq_info{ float:left; width:100%; margin-top: 40px;padding-bottom: 90px;}
 .faq_lft { float:left; width:45%; border-right:1px solid #7d7d7d;min-height: 450px;margin-bottom: 30px;}
 .faq_rit {float:left; width:48%;min-height: 450px;margin-bottom: 30px;padding-left:62px;}
-.faq_rit .title{margin-bottom: 20px; font-size: 16px; /*color: #ED6430;*/font-weight: bold;text-transform: uppercase;}
-.faq_rit .answer{width:80%;margin: 0px 0px 40px;font-size: 16px;}
+.faq_rit .title{margin-bottom: 20px; font-size: 16px; /*color: #ED6430;*/font-weight: bold;text-transform: uppercase;font-family: ProximaNova-Semibold !important;}
+.faq_rit .answer{width:80%;margin: 0px 0px 40px;font-size: 16px;font-family: ProximaNova-Regular !important;}
 .faq_rit a.see_us{color: #2f8756;display:inline;}
 
 
 .faq_list {  clear:both; margin-bottom:15px; padding:20px; margin-left:250px;}
-.faq_list a { font-size:20px; display:inline-block; color:#000; font-family:Arial, Helvetica, sans-serif;background: url(/assets/drop_down_img.png) no-repeat center left;padding-left: 38px;}
+.faq_list a { font-size:20px; display:inline-block; color:#4e913a; font-family:ProximaNova-Bold !important;font-weight: normal;background: url(/assets/drop_down_img.png) no-repeat center left;padding-left: 38px;}
 .faq_list span { font-size:16px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin:8px 0 0 20px; width:100%; clear:both; font-weight:bold; }
 .faq_list ul.questions {padding-left:10px;/*color:#ED6430;*/}
-.faq_list ul.questions li {padding:5px;/*color:#ED6430;*/ font-size:15px;cursor:pointer;}
+.faq_list ul.questions li {padding:5px;font-family: ProximaNova-Regular !important;font-weight: normal;font-size:15px;cursor:pointer;}
 
 .faq_abt { clear:both; width:100%; margin-bottom:40px;}
 .faq_abt h2 { font-size:20px; display:inline-block; color:#f76501; font-family:Arial, Helvetica, sans-serif; margin-bottom:15px; }
@@ -4772,9 +4767,10 @@ hr.style-right {
 
 .my_heading h3{
     float: left;
-    margin-left: 32px;
     line-height: 16px;
-    font-size: 36px;
+    font-size: 40px;
+    font-family: MyriadPro-Regular !important;
+    font-weight: 400;
 }
 
 .learn_more_about_contest{
@@ -4792,7 +4788,7 @@ hr.style-right {
 .second_header{
     margin-right: auto;
     margin-left: auto;
-    width: 60%;
+    width: 70%;
     height: 40px;
     color: #969696;
     line-height: 30px;
