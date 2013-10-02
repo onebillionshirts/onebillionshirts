@@ -535,9 +535,10 @@ h2 {
 
 .foot span {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 400;
     text-align: center;
     color: #9f9f9f;
+    font-family: ProximaNova-Regular !important;
 }
 
 .foot ul {
