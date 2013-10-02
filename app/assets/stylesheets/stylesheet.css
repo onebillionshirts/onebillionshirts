@@ -2919,6 +2919,11 @@ h2 {
     float: left;
     text-align: center;
     margin-top: -7px;
+    margin-bottom: -8px;
+}
+
+.map_container{
+    padding: 0 !important;
 }
 
 .map_hold img {
