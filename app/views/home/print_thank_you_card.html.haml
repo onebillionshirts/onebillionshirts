@@ -22,7 +22,7 @@
     %span{style:"color: white;font-weight: bold;padding-top: 15px;"} For printing custom apparel that cares and leveraging your order for a charity donation to ..
     -#%span=e.charity ? e.charity.name : e.charity_name
   %div{style:"margin-left: auto; margin-right: auto; width: 80%;margin-top: 20px;margin-bottom: 40px;"}
-    %span{style:"float: left;   font-size: 25px; color: gray; font-weight: bold;margin: 65px 90px;"} #{e.charity_name.present? ? e.charity_name : e.charity.name}
+    %span{style:"float: left;   font-size: 25px; color: gray; font-weight: bold;margin: 50px 90px;width: 140px;"} #{e.charity_name.present? ? e.charity_name : e.charity.name}
     =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg"), style:"width:175px; height:175px;"
   .socialz{style:"margin-left: auto; margin-right: auto; width: 100%; float: none;background: #eaeaea;height: 40px; padding-top: 10px;"}
     %strong{style:"float: left;margin: 8px;"} SHARE CARD:
