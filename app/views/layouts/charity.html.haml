@@ -34,17 +34,16 @@
     .featured-section_about{style:"height: 150px;background: url('/assets/CHARITY.png') no-repeat;"}
       =yield :about_head
     .nested_header{style:"height: 52px;background: #ececec;"}
-      =link_to "Suggest a Charity", new_charity_path(format: :js), class:"c_style", remote:true
-
-      = render :partial => "/charities/search_form"
-
-      .rit_sort_heads
-        %p Sort By
-        = select_tag "", '<option>Name</option><option>Recently Added</option><option>City</option><option>State</option>'.html_safe , class:"sort_select"
-        %a.sort-key#id-1{:href => "/charities/sort_charities?sort_key=name", style:"display:none"} Name
-        %a.sort-key#id-2{:href => "/charities/sort_charities?sort_key=created_at", style:"display:none"} Recently Added
-        %a.sort-key#id-3{:href => "/charities/sort_charities?sort_key=city", style:"display:none"} City
-        %a.sort-key#id-4{:href => "/charities/sort_charities?sort_key=state", style:"display:none"} State
+      %div{style:"width:1000px;margin-left:auto; margin-right: auto;height: 52px;"}
+        =link_to "Suggest a Charity", new_charity_path(format: :js), class:"c_style", remote:true
+        = render :partial => "/charities/search_form"
+        .rit_sort_heads
+          %p Sort By
+          = select_tag "", '<option>Name</option><option>Recently Added</option><option>City</option><option>State</option>'.html_safe , class:"sort_select"
+          %a.sort-key#id-1{:href => "/charities/sort_charities?sort_key=name", style:"display:none"} Name
+          %a.sort-key#id-2{:href => "/charities/sort_charities?sort_key=created_at", style:"display:none"} Recently Added
+          %a.sort-key#id-3{:href => "/charities/sort_charities?sort_key=city", style:"display:none"} City
+          %a.sort-key#id-4{:href => "/charities/sort_charities?sort_key=state", style:"display:none"} State
 
     .nested_header{style:"height: 42px;"}
       .second_header
