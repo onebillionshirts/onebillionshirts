@@ -43,14 +43,16 @@
   }
 
   table.more th{
-    width: 75px;
-    text-align: center;
+   width: 75px;
+   text-align: center;
+   font-size: 18px;
+   padding-left: 16px;
   }
   div#results h4{
     font-size: 17px;
     font-weight: normal;
     margin-bottom: 22px;
-    line-height: 30px;
+    line-height: 40px;
 
   }
   a#calculate{
@@ -468,7 +470,7 @@
             %strong.charity{style:"float: right;"}
           -#.save_n_share
           %br{style:"clear: both;"}
-          %p{style:"font-size: 14px;"}
+          %p{style:"font-size: 14px;margin-top: 30px;"}
             *XXL+ = extra charge to be determined upon estimate
       %div{style: "float:left;width: 300px;margin-left: 88px; border-left: 1px solid #ececec; min-height: 250px;"}
         %h4{style:"float: left;font-weight:normal; margin-left:35px"} Order more and save!
@@ -479,7 +481,7 @@
               %th{style:"color:#517c2e"} QUANTITY
               %th{style:"color:#517c2e"} Price
               %th{style:"color:#517c2e"} Donation
-      %div{style: "float: right;width: 380px;margin-left: 25px; padding-left: 10px; border-left: 1px solid #ececec; min-height: 250px;"}
+      %div{style: "float: right;width: 365px;margin-left: 25px; padding-left: 25px; border-left: 1px solid #ececec; min-height: 250px;"}
         %div
           .logo_place
             =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
