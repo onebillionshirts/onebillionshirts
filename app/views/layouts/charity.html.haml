@@ -40,10 +40,11 @@
 
       .rit_sort_heads
         %p Sort By
-        %a.sort-key{:href => "/charities/sort_charities?sort_key=name"} Name
-        %a.sort-key{:href => "/charities/sort_charities?sort_key=created_at"} Recently Added
-        %a.sort-key{:href => "/charities/sort_charities?sort_key=city"} City
-        %a.sort-key{:href => "/charities/sort_charities?sort_key=state"} State
+        = select_tag "", '<option>Name</option><option>Recently Added</option><option>City</option><option>State</option>'.html_safe , class:"sort_select"
+        %a.sort-key#id-1{:href => "/charities/sort_charities?sort_key=name", style:"display:none"} Name
+        %a.sort-key#id-2{:href => "/charities/sort_charities?sort_key=created_at", style:"display:none"} Recently Added
+        %a.sort-key#id-3{:href => "/charities/sort_charities?sort_key=city", style:"display:none"} City
+        %a.sort-key#id-4{:href => "/charities/sort_charities?sort_key=state", style:"display:none"} State
 
     .nested_header{style:"height: 42px;"}
       .second_header
@@ -92,6 +93,14 @@
               $('#charities').html(response.html);
           });
           return false;
+      });
+
+      $(".sort_select").change(function(){
+        console.log( $(this).val() );
+        if( $(this).val() == "Name"){ $("#id-1").trigger("click");}
+        if( $(this).val() == "Recently Added"){$("#id-2").trigger("click");}
+        if( $(this).val() == "City"){$("#id-3").trigger("click");}
+        if( $(this).val() == "State"){$("#id-4").trigger("click");}
       });
 
 :css

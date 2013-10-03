@@ -1,7 +1,7 @@
-= form_tag "/charities/search_charities" ,:id => "e_form", style:"float: left;margin-left: 50px;" do
+= form_tag "/charities/search_charities" ,:id => "e_form", style:"float: left;margin-left: 50px;height: 50px;" do
   .search_holder
     .srh_input
-      = text_field_tag :search_key
+      = text_field_tag :search_key, "", placeholder:"SEARCH CHARITY"
       %a#search{:href => "javascript:void(0)"}
         %img{:src => "/assets/Search.png"}/
     / srh_input ends
