@@ -31,7 +31,7 @@
         }
   %body
     = render :partial => "/layouts/header"
-    .featured-section_about{style:"height: 150px;"}
+    .featured-section_about{style:"height: 150px;background: url('/assets/CHARITY.png') no-repeat;"}
       =yield :about_head
     .nested_header{style:"height: 52px;background: #ececec;"}
       =link_to "Suggest a Charity", new_charity_path(format: :js), class:"c_style", remote:true
