@@ -23,17 +23,19 @@
     display: block;
     width: 130px;
     text-align: left;
+    font-family: ProximaNova-Regular !important;
   }
   a.request{
     cursor: pointer;
     font-size: 20px;
     width: 250px;
-    border: 1px solid #ccc;
+    border: 1px solid #00afeb;
     height: 50px;
     line-height: 50px;
     background-color: #00afeb;
     color: white;
     font-weight: normal;
+    border-radius: 7px;
   }
   table.more td{
     width: 60px;
@@ -45,23 +47,25 @@
     text-align: center;
   }
   div#results h4{
-    font-size: 14px;
+    font-size: 17px;
     font-weight: normal;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
+    line-height: 30px;
+
   }
   a#calculate{
     background-color: #527f2e;
-    width: 150px;
-
+    width: 160px;
     margin-left: auto;
     margin-right: auto;
-    height: 39px;
+    height: 42px;
     line-height: 39px;
     color: white;
     font-size: 16px;
-    border: 1px solid #c6bebb;
+    border: 1px solid #527f2e;
     font-weight: normal;
     letter-spacing: 1px;
+    border-radius: 7px;
   }
   span.selected_style_name{
     width: 220px;
@@ -71,8 +75,8 @@
   }
   select#front, select#back{
      margin-left: 10px;
-     width: 50px;
-     height: 34px;
+     width: 55px;
+     height: 36px;
      border: 1px solid #ccc;
      font-size: 16px;
      font-weight: bold;
@@ -81,7 +85,7 @@
      background: #ececec;
   }
   #charity_id{
-   width: 258px;
+   width: 300px;
    height: 45px;
    border: 1px solid #ccc;
    font-size: 16px;
@@ -110,30 +114,32 @@
     margin-right: auto;
   }
   .final_form a.place{
-    clear: both;
-    cursor: pointer;
-    margin-top: 40px;
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid;
-    width: 150px;
-    height: 40px;
-    padding: 5px;
-    line-height: 40px;
-    background-color: #60b4d9;
-    color: white;
+   clear: both;
+   cursor: pointer;
+   margin-top: 40px;
+   font-size: 18px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 1px solid;
+   width: 200px;
+   height: 40px;
+   padding: 5px;
+   line-height: 40px;
+   background-color: #60b4d9;
+   color: white;
+   border-radius: 5px;
   }
   .final_form input[type='file']{
     margin-top:3px;
   }
   .final_form input[type='text']{
     border: 1px solid #ccc;
-    width: 410px;
+    width: 290px;
     height: 30px;
     font-size: 18px;
     padding: 4px;
     margin:10px;
+    border-radius: 5px;
   }
 
   .final_form textarea {
@@ -151,9 +157,12 @@
   .desc_place p
   {
   font-size:14px;
-  line-height:16px;
+  line-height:22px;
   }
 
+  .data{
+    height: 30px;
+  }
   .white:before {
     content: "";
     position: absolute;
@@ -366,7 +375,7 @@
           %h3{:style=>"float:left"} Charity:
         %div.move
           = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
-          =link_to "Browse Charity Database", charities_path, style:"float: right; color: #ed6430; line-height: 30px;"
+          =link_to "Browse Charity Database", charities_path, style:"float: right; color: #ed6430; line-height: 30px;margin-right: 100px;line-height: 42px;"
           -@charities.each do |charity|
             -unless charity.logo.blank?
               %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
@@ -377,7 +386,7 @@
         %div.move
           %span.selected_style_name= Style.first.name
           =hidden_field_tag :style_id, Style.first.id
-          %a.change_style{style:"cursor:pointer;float: right; color: #ed6430; line-height: 30px;width: 147px;"}
+          %a.change_style{style:"cursor:pointer;float: right; color: #ed6430;width: 147px;margin-right: 100px;line-height: 42px;"}
             Change
       %div{:style => "clear:both;margin-top:20px;height:auto;"}
         %div{:style => "width:20%; float:left;"}
@@ -446,7 +455,7 @@
     .after_section{style:"margin-left: auto; margin-right: auto;display:none;clear:both;padding-top: 30px;margin-top:20px;text-align:center;width:960px;"}
       %div{style: "float:left;width: 150px;margin-left:0px;"}
         %div#results{style: "float:left;text-align: left;"}
-          %h4
+          %h4{style:"font-size: 15px;"}
             Calculate Price:
           %h4
             %span{style:"float: left;"} Unit Price:
@@ -476,7 +485,7 @@
             =link_to (image_tag Charity.first.logo.image(:thumb), class:"logoimg",style:"border:1px solid #ccc"), charity_path(Charity.first) unless Charity.first.logo.blank?
 
         %div{style:"width:70%;text-align: left;"}
-          .title_place{style:"font-weight:bold;font-size:16px"}
+          .title_place{style:"font-weight:bold;font-size:16px;margin-top: 18px;"}
             =Charity.first.name
           .desc_place{style:"height: 140px;overflow: hidden;"}
             =Charity.first.mission_statement.html_safe
@@ -535,8 +544,9 @@
           Back
 
 
-
-  %div.final_form{style:"outline: 15px solid #ccc;text-align:center;display:none;width:450px; height:580px;background-color:white;padding:20px;border:2px #ccc"}
+  -#outline: 15px solid #ccc;
+  %div.final_form{style:"text-align:center;display:none;width:450px; height:500px;background-color:white;padding:20px;border:2px #ccc"}
+    Request Virtual Proof
     =form_tag "/orders/", method: :post, multipart: true do
       =hidden_field_tag :extras
       =label_tag "Full Name"
@@ -548,8 +558,7 @@
       =label_tag "Zip Code"
       =text_field_tag "zip"
       =label_tag "Reference"
-      %br
-      = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 94%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;"
+      = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 67%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;border-radius: 5px;background: white;border: 1px solid #ccc;"
       =label_tag "Front Art Work"
       =file_field_tag :front_art
       =label_tag "Back Art Work"
