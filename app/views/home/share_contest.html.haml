@@ -94,15 +94,6 @@
     = render :partial => "home/view_all_charities"
   %a#top_cahrities.charity-link-all{:href => "javascript:;",style:"color: black; font-size: 15px; margin-left: 66px; margin-bottom: 20px; text-decoration: underline;"} View All
   / wrapper ends
-%div.leaderboard_btn.right
-  =link_to "/socialize" do
-    %strong Socialize
-    =image_tag "btn_arrow.png", class:"right"
-%div.leaderboard_btn.left
-  =link_to "/faq" do
-    =image_tag "btn_arrow.png", class:"left"
-    %strong FAQ
-
 
 :javascript
   $("#top_cahrities").click(function () {

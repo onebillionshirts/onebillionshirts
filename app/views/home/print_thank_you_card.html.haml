@@ -12,16 +12,18 @@
   }
 
 - e = @customer
-%div{style:"background-color:white;width:500px;height:auto;", id:"style_picker-#{e.id}"}
-  %div{style:"width:100%; height:100px; text-align:center; color:green;font-size: 55px;"} Thank you!
-  %div{style:"width:100%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;"} Customer That Care!
-  %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;"}
-    =image_tag e.logo.url(:medium)
-  %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 0px;"}
-    %strong=e.text
-    %span=e.charity ? e.charity.name : e.charity_name
-  %div{style:"margin-left: auto; margin-right: auto; width: 300px;margin-top: 20px;margin-bottom: 40px;"}
-    =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg")
+%div{style:"background-color:white;width:650px;height:auto;", id:"style_picker-#{e.id}"}
+  %div{style:"width:100%; height: 102px; padding-top: 5px;text-align:center; color:green;font-size: 90px;font-family: Hammer;"} Thank You!
+  %div{style:"width: 103%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;margin-left: -10px;font-weight: bolder;"} Customer That Care!
+  %div{style:"margin-left: auto; margin-right: auto; width: 80%;margin-top: 20px;"}
+    =image_tag e.logo.url(:medium), style:"width:175px; height:175px;;display:inline;"
+    %span{style:"font-size: 25px; color: gray; font-weight: bold;display: inline;float: right;margin-top: 75px;"}=truncate(e.text, :length => 25, :omission => '')
+  %div{style:"margin-left: auto; margin-right: auto; width: 100%;margin-top: 26px;margin-bottom: 26px;text-align: center;font-family: ProximaNova-Regular !important;font-size: 18px;background: #707070;height: 66px;"}
+    %span{style:"color: white;font-weight: bold;padding-top: 15px;"} For printing custom apparel that cares and leveraging your order for a charity donation to ..
+    -#%span=e.charity ? e.charity.name : e.charity_name
+  %div{style:"margin-left: auto; margin-right: auto; width: 80%;margin-top: 20px;margin-bottom: 40px;"}
+    %span{style:"float: left;   font-size: 25px; color: gray; font-weight: bold;margin: 65px 90px;"} #{e.charity_name.present? ? e.charity_name : e.charity.name}
+    =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg"), style:"width:175px; height:175px;"
   .socialz{style:"margin-left: auto; margin-right: auto; width: 100%; float: none;background: #eaeaea;height: 40px; padding-top: 10px;"}
     %strong{style:"float: left;margin: 8px;"} SHARE CARD:
     %span.st_sharethis_large{:displaytext => "ShareThis"}
@@ -32,4 +34,4 @@
     %span.st_email_large{:displaytext => "Email"}
     %span{style:"float: right;line-height: 35px;margin-right: 10px;"} PRINT
     %span{style:"float: right;line-height: 35px;"} ::
-    %span{style:"float: right;line-height: 35px;"} DOWNLOAD
+    %span{style:"float: right;line-height: 35px;"} Download

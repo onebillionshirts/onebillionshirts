@@ -210,12 +210,12 @@
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
-                        'No of shares: '+ Highcharts.numberFormat(this.y, 1) +
+                        ''+ Highcharts.numberFormat(this.y, 1) +
                         ' ';
             }
         },
         series: [{
-            name: 'No of shares',
+            name: '',
             data: vote_collection[0],
             dataLabels: {
                 enabled: true,
