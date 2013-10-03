@@ -143,7 +143,7 @@ class HomeController < ApplicationController
     @customer = Customer.find(params[:id] )
     render layout: nil
     html_content = render_to_string(:layout => false)
-    kit = IMGKit.new(html_content, height: (params[:height].to_i - 20), transparent:true, quality:10, width: 650)
+    kit = IMGKit.new(html_content, height: (params[:height].to_i ), transparent:true, quality:10, width: 650)
     file = kit.to_file(Rails.root + "public" + "screenshot.png")
     send_file("#{Rails.root}/public/screenshot.png", :filename => "screenshot.png", :type => "image/png",:disposition => 'attachment',:streaming=> 'true')
   end
