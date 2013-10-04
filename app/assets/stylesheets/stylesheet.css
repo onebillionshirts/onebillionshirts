@@ -493,12 +493,26 @@ h2 {
 
 .foot {
   float:left;
-  height: 200px;
+  height: 260px;
   width: 100%;
   background: none repeat scroll 0 0 #ffffff;
   border-top: 7px solid #ed6430;
   font-family: myriad-pro !important;
   background: url("/assets/footer_slice.png");
+}
+
+.contact_foot{
+    background: url("/assets/contact_s.png");
+    width: 309px;
+    height: 33px;
+    margin-left: 30px;
+}
+
+.contact_foot:hover{
+    background: url("/assets/contact_h.png");
+    width: 309px;
+    height: 33px;
+    margin-left: 30px;
 }
 
 .foot .footer_subdiv {
@@ -3422,9 +3436,25 @@ h2 {
 
 /******************************* Brand Page styling start ******************************/
 .brand_head { clear: both; text-align:center; margin:0 auto; font-weight:normal;}
-.brand_head h1 { display: inline; font-weight: normal;font-family: 'museo_500regular';}
+.brand_head h1 {
+    display: inline;
+    font-family: GothamRnd-Light !important;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 30px auto;
+    text-align: center;
+    width: 80%;
+    color: white;
+    border-bottom: 1px solid gray;
+}
 .brand_head span { color: #00A651; display: inline; margin:0 10px;}
-.brand_head p { color: #000; font-size:18px; font-family:Arial, Helvetica, sans-serif; margin:5px auto 0 auto;}
+.brand_head p {
+    color: white;
+    width: 606px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-family: ProximaNova-Regular !important;
+}
 
 .brands_carry { clear:both; width:100%; margin-top:50px; }
 .brands_carry h1 {font-family: 'museo_500regular'; font-size:24px; color:#000; clear:both;}

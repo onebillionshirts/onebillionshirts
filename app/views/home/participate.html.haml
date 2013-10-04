@@ -1,10 +1,15 @@
 - content_for :head do
   - @title = "Participate"
   = @title
-- if @page_content.present?
+  - @page_content = @page.page_content
+  - @header_content =@page.header_content
+
+- if @page.present?
+  -content_for(:about_head) do
+    =raw(@header_content)
   = raw(@page_content)
 - else
-.wrapper= render :partial => "home/calculate_input_field", :locals => {:val => nil}
+  .wrapper= render :partial => "home/calculate_input_field", :locals => {:val => nil}
 :css
   .calc_btn {
       float: left;

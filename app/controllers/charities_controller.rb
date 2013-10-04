@@ -62,6 +62,7 @@ class CharitiesController < ApplicationController
     @charity_categories = CharityCategory.all
     respond_to do |format|
       format.js {render layout: nil}
+      format.html {render layout: "charity"}
     end
   end
 

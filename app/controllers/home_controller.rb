@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def brand
+    render layout: "about"
   end
 
   def about
@@ -49,7 +50,8 @@ class HomeController < ApplicationController
   end
 
   def participate
-    @page_content = Page.find_by_page_name('Participate').page_content
+    @page = Page.find_by_page_name('Participate')
+    render layout: "about"
   end
 
   def top_ten_reasons
