@@ -2610,8 +2610,8 @@ h2 {
     border-top: 2px solid #ccc;
     background: #e8e8e8;
     width: 100%;
-    padding-top: 60px;
-    height: 235px;
+    padding-top: 35px;
+    height: 300px;
 }
 
 .area_33{
@@ -4788,7 +4788,7 @@ input.green{
 }
 
 .featured-section_about{
-    background: url("/assets/contest_header.png") no-repeat;
+    background: url("/assets/inside_header.jpg") no-repeat;
     height: 272px;
     width: 100%;
     background-position: center center;

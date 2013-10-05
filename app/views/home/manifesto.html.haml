@@ -4,7 +4,8 @@
 -content_for(:about_head) do
   .slider_hold{:style => "height:auto;"}
     .slider_text
-      %h1{style:"width: 35% !important;"} Our Manifesto
+      %h1{style:"width: 35% !important;padding-top: 40px;"} Our Manifesto
+      %p In life you have simple choices.  Why Not?
 .wrapper
   = image_tag "Manifesto.jpg", style:"margin: 70px auto;"
   .socialz{style:"margin-right: 80px; width: 370px; float: right;background: #eaeaea;"}
@@ -16,7 +17,13 @@
     %span.st_pinterest_large{:displaytext => "Pinterest"}
     %span.st_email_large{:displaytext => "Email"}
 
-%div.leaderboard_btn.left{style:"clear: both;"}
-  =link_to "/share_contest" do
+
+%div.leaderboard_btn.right
+  =link_to "/contests" do
+    =image_tag "btn_arrow.png", class:"right"
+    %strong Learn more about Contests
+
+%div.leaderboard_btn.left
+  =link_to "/socialize" do
     =image_tag "btn_arrow.png" , class:"left"
     %strong Socialize

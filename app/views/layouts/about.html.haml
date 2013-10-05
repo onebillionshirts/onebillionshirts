@@ -46,11 +46,11 @@
         %span
           %a{:href => "/faq", class:"#{params[:action]=='faq' ? 'current' : 'none' }"} FAQ
         %span
-          %a{:href => "/contests", class:"#{params[:controller]=='contests' ? 'current' : 'none' }"} Contests
-        %span
           %a{:href => "/socialize", class:"#{params[:action]=='socialize' ? 'current' : 'none' }"} Socialize
         %span
           %a{:href => "/manifesto", class:"#{params[:action]=='manifesto' ? 'current' : 'none' }"} Manifesto
+        %span
+          %a{:href => "/contests", class:"#{params[:controller]=='contests' ? 'current' : 'none' }"} Contests
     .my_wrapper
       = yield
   = render :partial => "/layouts/footer"

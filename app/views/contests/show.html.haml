@@ -201,7 +201,7 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Number Of Votes'
+                text: ''
             }
         },
         legend: {
@@ -210,7 +210,7 @@
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
-                        ''+ Highcharts.numberFormat(this.y, 1) +
+                        '' +
                         ' ';
             }
         },
@@ -218,7 +218,7 @@
             name: '',
             data: vote_collection[0],
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 rotation: -90,
                 color: '#FFFFFF',
                 align: 'right',

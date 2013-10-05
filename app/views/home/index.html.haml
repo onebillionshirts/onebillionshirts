@@ -111,17 +111,17 @@
 .light_grey_area
   .wrapper{style:"clear:both;"}
     -#%h1{style:"text-align:center;color: grey;margin-bottom: 20px;font-size: 38px;"} Testimonials
+    .final-area{style:"margin-bottom:25px;"}
+      =image_tag "Our_Customers_Care.png", style:"margin-left: auto; margin-right: auto;"
     .final-area{style:"float:left;margin-bottom:40px;"}
       %ul.bxbig
-        -ClientSpotlight.all.each do |char|
+        -ClientSpotlight.all.each_slice(3) do |char|
           %li
             .single_charity
-              .col{style:"width:30%"}
-                -unless char.client_spotlight_images.first.blank?
-                  =link_to (image_tag char.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{char.id}"
-              .col{style:"width:50%;padding:0px 40px;"}
-                %h3{style:"text-align: justify;font-weight: normal;font-size: 14px;"}
-                  =truncate_html(char.description, length: 340).html_safe
+              -char.each do |c|
+                .col{style:"width:30%"}
+                  -unless c.client_spotlight_images.first.blank?
+                    =link_to (image_tag c.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{c.id}"
 
   / our_idea ends
 / wrapper ends

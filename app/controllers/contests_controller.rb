@@ -2,7 +2,7 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find_by_slug(params[:id])
-    @contest_entries = @contest.contest_entries.paginate(:page => params[:page], :per_page => 4)
+    @contest_entries = @contest.contest_entries.paginate(:page => params[:page], :per_page => 18)
     @contest_votes = @contest.contest_entries.collect{|c| {title: c.title, vote: c.votes.count}}.sort_by{|e| -e[:vote]}
 
   end

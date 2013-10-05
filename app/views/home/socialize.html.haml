@@ -1,3 +1,11 @@
+-content_for(:about_head) do
+  .slider_hold{:style => "height:auto;"}
+    .slider_text
+      %h1{style:"width: 38% !important; padding-top: 50px;"}
+        Socialize With Us
+      %p See what we're up to and be our friend!
+    / slider_text ends
+  / slider_hold ends
 .socialize
   .float-left.margin_left
     %h3.col1 FACEBOOK
@@ -12,10 +20,11 @@
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 %div.leaderboard_btn.right
-  =link_to "/top_ten_reasons" do
+  =link_to "/manifesto" do
     %strong Manifesto
     =image_tag "btn_arrow.png", class:"right"
+
 %div.leaderboard_btn.left
-  =link_to "/share_contest" do
+  =link_to "/faq" do
+    %strong FAQ
     =image_tag "btn_arrow.png", class:"left"
-    %strong Learn more about Contests
