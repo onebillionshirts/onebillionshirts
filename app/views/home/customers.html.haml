@@ -58,6 +58,7 @@
     height: 282px;
     background: url("/assets/Client Showcase.png") no-repeat;
     margin-top: 118px;
+    background-size: cover;
   }
 
   .charity_holder{
@@ -221,4 +222,4 @@
       %span.st_email_large{:displaytext => "Email"}
       %span{style:"float: right;line-height: 35px;margin-right: 10px;"}=link_to  "PRINT", print_thank_you_card_path(id: e.id), target:"_blank"
       %span{style:"float: right;line-height: 35px;"} ::
-      %span{style:"float: right;line-height: 35px;"}=link_to  "Download", download_thank_you_card_path(id: e.id, height: 800), id: "download-#{e.id}"
+      %span{style:"float: right;line-height: 35px;"}=link_to  "DOWNLOAD", download_thank_you_card_path(id: e.id, height: 800), id: "download-#{e.id}"

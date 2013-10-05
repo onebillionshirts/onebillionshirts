@@ -31,7 +31,7 @@
         }
   %body
     = render :partial => "/layouts/header"
-    .featured-section_about{style:"height: 150px;background: url('/assets/CHARITY.png') no-repeat;"}
+    .featured-section_about{style:"height: 150px;background: url('/assets/CHARITY.png') no-repeat;    background-size: cover;"}
       =yield :about_head
     .nested_header{style:"height: 52px;background: #ececec;"}
       %div{style:"width:1000px;margin-left:auto; margin-right: auto;height: 52px;"}
@@ -48,17 +48,19 @@
     .nested_header{style:"height: 50px;"}
       .second_header
         %span
-          %a#Top_10.charity-link-top_ten{:href => "javascript:", :onclick => "set_active('top_ten');"} TOP 10
-        %span
-          %a#Joined_Recently.charity-link-recent{:href => "javascript:", :onclick => "set_active('recent');"} JOINED RECENTLY
-        %span
-          %a#Causes.charity-link-causes{:href => "javascript:", :onclick => "set_active('causes');"} CAUSES
-        %span
-          %a#All_Charities.charity-link-all{:href => "javascript:", :onclick => "set_active('all');"} ALL CHARITIES
+          %a{:href => "#", style:"color: #d0d0d0;font-size: 14px;"} BROWSE CHARITIES
         %span
           %a#Featured_Charities.charity-link-featured.current{:href => "javascript:", :onclick => "set_active('featured');"} FEATURED CHARITIES
         %span
-          %a{:href => "#", style:"color: #d0d0d0;font-size: 14px;"} BROWSE CHARITIES
+          %a#All_Charities.charity-link-all{:href => "javascript:", :onclick => "set_active('all');"} ALL CHARITIES
+        %span
+          %a#Causes.charity-link-causes{:href => "javascript:", :onclick => "set_active('causes');"} CAUSES
+        %span
+          %a#Joined_Recently.charity-link-recent{:href => "javascript:", :onclick => "set_active('recent');"} JOINED RECENTLY
+        %span
+          %a#Top_10.charity-link-top_ten{:href => "javascript:", :onclick => "set_active('top_ten');"} TOP 10
+
+
     .my_wrapper
       = yield
   = render :partial => "/layouts/footer"
@@ -107,5 +109,5 @@
     margin-left: 22px;
     margin-right: 35px;
     width: auto;
-    float: right;
+    float: left;
   }
