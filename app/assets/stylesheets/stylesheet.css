@@ -706,6 +706,7 @@ h2 {
 }
 
 .order_form_hold {
+    padding-top: 130px;
     float: left;
     width: 100%;
 }
@@ -2846,6 +2847,8 @@ h2 {
     line-height: 30px;
     margin: 25px auto;
     width: 458px;
+    font-family: GothamRnd-Light !important;
+    font-size: 25px;
 }
 
 .thankyou_img {
