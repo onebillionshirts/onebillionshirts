@@ -2636,11 +2636,13 @@ h2 {
     font-family: ProximaNova-Semibold !important;
 }
 
-.area_33 > p > .orange{
-    color: #ed6430;
-    display: inline;
+.area_33 > p > .orange, .area_33 > p > .orange > a {
+    color: #ed6430 ;
+    display: inline ;
     font-family: ProximaNova-Regular !important;
-    border-bottom:1px dotted #ed6430;
+    border-bottom:1px dotted #ed6430 ;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 .idea_txt {
