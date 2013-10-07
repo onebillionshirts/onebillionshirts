@@ -30,7 +30,7 @@
 .details-info-holder
   %label Charity
   .details-info
-    = @order.charity.name
+    = @order.charity ? @order.charity.name : "select later"
 .details-info-holder
   %label Shirt Style
   .details-info

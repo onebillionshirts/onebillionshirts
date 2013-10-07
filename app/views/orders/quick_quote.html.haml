@@ -53,6 +53,7 @@
     font-weight: normal;
     margin-bottom: 22px;
     line-height: 40px;
+    clear: both;
 
   }
   a#calculate{
@@ -301,9 +302,19 @@
       id = $(this).val()
       el = "#charity_"+id
       $el = $(el)
-      $(".logo_place img.logoimg").attr("src", $el.data("logo"))
-      $(".title_place").text($el.data("name"))
-      $(".desc_place").html($el.data("desc"))
+      console.log(  $el.data("slug")  )
+      if($el.data("slug")!= null)
+      {
+        $(".logo_place img.logoimg").attr("src", $el.data("logo"))
+        $(".logo_place > a").attr("href", "/charities/"+$el.data("slug"))
+        $(".title_place").text($el.data("name"))
+        $(".desc_place").html($el.data("desc"))
+      }else{
+          $(".logo_place img.logoimg").attr("src", "/assets/no_img.jpg")
+          $(".logo_place > a").attr("href", "#")
+          $(".title_place").text("No charity selected ..")
+          $(".desc_place").html("Can select charity later ..")
+      }
     })
 
     //for first time on load
@@ -324,6 +335,8 @@
     }
 
     $("#calculate").click(function(){
+      total = 0 ;
+
       $("#calculate").text("Calculating...")
       n_s = toZero(parseInt($("#n_s").val()))
       n_m = toZero(parseInt($("#n_m").val()))
@@ -350,6 +363,7 @@
         success: function(data){
           $("#calculate").text("Calculate")
           $(".after_section").show();
+          $("strong.total_unit").text(total);
           $("strong.unit").text("$"+parseFloat(data.unit).toFixed(2))
           $("strong.total").text("$"+parseFloat(data.total).toFixed(2))
           $("strong.charity").text("$"+data.charity.toFixed(2))
@@ -373,17 +387,17 @@
     .padded{style:"width:60%;margin:0 auto"}
       %div{:style => "clear:both;margin-top:20px"}
         %div{:style => "width:20%; float:left;"}
-          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %a.order-help{:style=>"float:left",title:"Our mission is to leverage custom t-shirts for a charitable donation to a charity of your choice. You can select a charity from the dropdown menu, browse our database, or suggest your own charity."}
           %h3{:style=>"float:left"} Charity:
         %div.move
-          = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id)
+          = select_tag "charity_id", options_from_collection_for_select(@charities, "id", "name", selected: @charity_id), prompt: "Select Charity Later"
           =link_to "Browse Charity Database", charities_path, style:"float: right; color: #ed6430; line-height: 30px;margin-right: 100px;line-height: 42px;"
           -@charities.each do |charity|
             -unless charity.logo.blank?
-              %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, desc: charity.mission_statement.html_safe }}
+              %div{style:"display:none;", id: "charity_#{charity.id}", data: {logo: charity.logo.image(:thumb), name: charity.name, slug: charity.slug, desc: charity.mission_statement.html_safe }}
       %div{:style => "clear:both;margin-top:20px"}
         %div{:style => "width:30%; float:left;"}
-          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %a.order-help{:style=>"float:left",title:"This is the shirt you would like to print on. We carry all brands and styles, which you can see if you click ‘change style’."}
           %h3 Style:
         %div.move
           %span.selected_style_name= Style.first.name
@@ -392,7 +406,7 @@
             Change
       %div{:style => "clear:both;margin-top:20px;height:auto;"}
         %div{:style => "width:20%; float:left;"}
-          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %a.order-help{:style=>"float:left",title:"Select a color for your t-shirt. Tip: White is always less expensive than black and colors."}
           %h3 Color:
         %div.move
           .color_boxes
@@ -402,7 +416,7 @@
                   .color_code_div{"title" => "#{color.name}"}
       %div{:style => "clear:both;margin-top:20px"}
         %div{:style => "width:20%; float:left;"}
-          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %a.order-help{:style=>"float:left",title:"Choose the sizes for your order. If you do not have an exact size count, no worries. Sizes can be adjusted later, this is used primarily for to see a real time estimate. Note that 2XL and up will be more expensive, which will be reflected in your actual quote."}
           %h3 Sizes:
         %div.move
           .shirt_sizes
@@ -441,7 +455,7 @@
                   / size_input_mid ends
       %div{:style => "clear:both;margin-top:20px"}
         %div{:style => "width:30%; float:left;"}
-          %a.order-help{:style=>"float:left",title:"Our mission is to raise money & awarenress for our partner charities.  For every order we will donate 25¢ per shirt to a charity of your choice, from our pocket! Save & Share™ is our initiative to save you money compared to your last order and share money with a charity of your choice, the ultimate win-win!"}
+          %a.order-help{:style=>"float:left",title:"This reflects the number of colors in your design. The more colors in the design, the more expensive it is to print."}
           %h3 Ink Colors:
         %div.move
           %label Front
@@ -459,6 +473,9 @@
         %div#results{style: "float:left;text-align: left;"}
           %h4{style:"font-size: 15px;"}
             Calculate Price:
+          %h4
+            %span{style:"float: left;"} Units:
+            %strong.total_unit{style:"float: right;"}
           %h4
             %span{style:"float: left;"} Unit Price:
             %strong.unit{style:"float: right;"}

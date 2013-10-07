@@ -20,7 +20,7 @@
       %td=order.email
       %td=order.quantity
       %td=[order.n_s, order.n_m, order.n_l, order.n_xl, order.n_xxl].join(",")
-      %td=order.charity.name
+      %td=order.charity ? order.charity.name : "select later"
       %td=order.style.name
       %td
         %div{style:"width:20px;height:20px;background-color:##{order.shirt_color.code unless order.shirt_color.blank?}"}
