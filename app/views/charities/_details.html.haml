@@ -4,8 +4,10 @@
   = @title
 .rit_content
   .chose_charity
-    .back_link
-      %a.charity-link{:href => "javascript:;", :onclick => "set_active('#{@get_key}');"} Back
+    %div.leaderboard_btn.left{style:"margin-left: 0px;"}
+      =link_to "javascript:;", :onclick => "set_active('#{@get_key}');", class:"charity-link" do
+        %strong Back
+        =image_tag "btn_arrow.png", class:"left"
     / back_link ends
   / chose_charity ends
   .charity_list
@@ -31,7 +33,8 @@
         %p
           Tax ID: #{@charity.tax_id}
       / list_txt_det ends
-    .sharethis_div{style:"width: 250px;clear: none;"}
+    .sharethis_div{style:"width: 35%;clear: none;"}
+      .text Lend a social share & help this charity fundraise!
       .socialz
         %span.st_sharethis_large{:displaytext => "ShareThis"}
         %span.st_facebook_large{:displaytext => "Facebook"}
@@ -43,8 +46,7 @@
       -#  %img{:alt => "sharethis_image", :src => "/assets/sharing is caring.png"}/
       .sharethis_text
         %p
-          Every share helps this charity raise more money through our charity
-          %span contests.
+          Each Share helps this charity fundraise and also counts as 1 point for our monthly Share & Care Contest, which provides extra exposure and money for each month's winner!
       / <span class='st_pinterest_large' displayText='Pinterest'></span>
       / <span class='st_email_large' displayText='Email'></span>
     / c_list_txt_n ends
