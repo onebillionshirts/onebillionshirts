@@ -21,7 +21,7 @@
         %span.green 1 billion shirts printed per year,
         this simple idea can change the world!
       .quick_quote
-        %a.quick{href: "/faq"}
+        %a.quick{href: "/our_story"}
           Learn More
         %p
           %span
@@ -116,7 +116,7 @@
       =image_tag "Our_Customers_Care.png", style:"margin-left: auto; margin-right: auto;"
     .final-area{style:"float:left;margin-bottom:40px;"}
       %ul.bxbig
-        -ClientSpotlight.all.each_slice(3) do |char|
+        -ClientSpotlight.order("name ASC").all.each_slice(3) do |char|
           %li
             .single_charity
               -char.each do |c|

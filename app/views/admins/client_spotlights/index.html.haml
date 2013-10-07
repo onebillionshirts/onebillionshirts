@@ -6,14 +6,14 @@
 %table.table-striped.table.table-bordered
   %tr
     -#%th Description
-    -#%th Name
+    %th Order
     -#%th Type
     %th Image
     %th
   - @client_spotlights.each do |client_spotlight|
     %tr
       -#%td= raw(client_spotlight.description)
-      -#%td= client_spotlight.name
+      %td= client_spotlight.name
       -#%td= client_spotlight.client_spotlight_type
       %td= image_tag client_spotlight.client_spotlight_images.first.asset.url(:thumb) if client_spotlight.client_spotlight_images.present?
       %td
