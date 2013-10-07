@@ -122,7 +122,7 @@
               -char.each do |c|
                 .col{style:"width:30%"}
                   -unless c.client_spotlight_images.first.blank?
-                    =link_to (image_tag c.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "/client_slight?id=#{c.id}"
+                    =link_to (image_tag c.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"),  "#" #/client_slight?id=#{c.id}
 
   / our_idea ends
 / wrapper ends

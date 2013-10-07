@@ -5,16 +5,16 @@
     = link_to 'New Client spotlight', new_admins_client_spotlight_path, class:"btn btn-primary new_btn"
 %table.table-striped.table.table-bordered
   %tr
-    %th Description
-    %th Name
-    %th Type
+    -#%th Description
+    -#%th Name
+    -#%th Type
     %th Image
     %th
   - @client_spotlights.each do |client_spotlight|
     %tr
-      %td= raw(client_spotlight.description)
-      %td= client_spotlight.name
-      %td= client_spotlight.client_spotlight_type
+      -#%td= raw(client_spotlight.description)
+      -#%td= client_spotlight.name
+      -#%td= client_spotlight.client_spotlight_type
       %td= image_tag client_spotlight.client_spotlight_images.first.asset.url(:thumb) if client_spotlight.client_spotlight_images.present?
       %td
         = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_client_spotlight_path(client_spotlight)

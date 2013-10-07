@@ -9,20 +9,20 @@
         - @client_spotlight.errors.full_messages.each do |msg|
           %li= msg
   %fieldset
-    .control-group
-      = f.label :description, class:"control-label",:style=>"padding-right:30px"
-      .control
-      = f.text_area :description, :rows=>"4"
+    -#.control-group
+    -#  = f.label :description, class:"control-label",:style=>"padding-right:30px"
+    -#  .control
+    -#  = f.text_area :description, :rows=>"4"
   %fieldset
-    .control-group
-      = f.label :name, class:"control-label",:style=>"padding-right:30px"
-      .control
-      = f.text_field :name
+    -#.control-group
+    -#  = f.label :name, class:"control-label",:style=>"padding-right:30px"
+    -#  .control
+    -#  = f.text_field :name
   %fieldset
-    .control-group
-      = f.label :client_spotlight_type, class:"control-label",:style=>"padding-right:30px"
-      .control
-      = f.text_field :client_spotlight_type
+    -#.control-group
+    -#  = f.label :client_spotlight_type, class:"control-label",:style=>"padding-right:30px"
+    -#  .control
+    -#  = f.text_field :client_spotlight_type
   = f.fields_for :client_spotlight_images, f.object.client_spotlight_images.build do |asset|
     %fieldset
       .control-group

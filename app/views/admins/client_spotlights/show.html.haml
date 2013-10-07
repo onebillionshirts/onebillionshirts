@@ -1,12 +1,14 @@
 %p#notice= notice
 %p
-  %b Description:
-  = raw(@client_spotlight.description)
+  -#%b Description:
+  -#= raw(@client_spotlight.description)
+-#%p
+-#  %b Name:
+-#  = @client_spotlight.name
+-#%p
+-#  %b Type:
+-#  = @client_spotlight.client_spotlight_type
 %p
-  %b Name:
-  = @client_spotlight.name
-%p
-  %b Type:
-  = @client_spotlight.client_spotlight_type
+  = @client_spotlight.client_spotlight_images.first.asset.url(:thumb)
 = link_to 'Edit', edit_admins_client_spotlight_path(@client_spotlight)
 |
