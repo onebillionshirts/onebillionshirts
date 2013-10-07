@@ -2577,10 +2577,13 @@ h2 {
 /******************** New homepage styling start ***********************/
 .header_text {
     color: white;
-    width: 606px;
+    width: 690px;
     margin: 0 auto;
     font-size: 22px;
     font-family: ProximaNova-Regular !important;
+    line-height: 34px;
+    word-spacing: 7px;
+    text-align: center;
 }
 
 .header_text > span.green {
@@ -3991,7 +3994,17 @@ h2 {
     width: 92%;
 }
 
-.inner_wrapper_div h1, .faq_text h1{
+.inner_wrapper_div h1{
+    font-family: GothamRnd-Book !important;
+    font-size: 60px;
+    font-weight: 400;
+    margin: -4px auto;
+    text-align: center;
+    width: 93%;
+    color: white;
+}
+
+.faq_text h1{
     font-family: GothamRnd-Book !important;
     font-size: 48px;
     font-weight: 400;
@@ -4010,7 +4023,19 @@ h2 {
     margin-top: 36px;
 }
 
-.inner_wrapper_div h2, .faq_text h2 {
+.inner_wrapper_div h2 {
+    font-family: GothamRnd-Light !important;
+    font-size: 60px;
+    font-weight: 500;
+    margin: 15px auto;
+    text-align: center;
+    width: 80%;
+    color: white;
+    border-bottom: 1px solid gray;
+    margin-top: -10px;
+}
+
+.faq_text h2{
     font-family: GothamRnd-Light !important;
     font-size: 48px;
     font-weight: 500;
@@ -4385,15 +4410,15 @@ h2 {
     padding-bottom: 3px;
 }
 .quick_quote{
-    width: 500px;
+    width: 570px;
     position: absolute;
-    left: 257px;
-    top: 430px;
+    left: 210px;
+    top: 380px;
     cursor: pointer;
 }
 
 .quick_quote p{
-    width: 190px;
+    width: 270px;
     font-size: 15px;
     float: right;
     line-height: 18px;
