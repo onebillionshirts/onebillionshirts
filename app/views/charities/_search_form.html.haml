@@ -2,7 +2,7 @@
   .search_holder
     .srh_input
       = text_field_tag :search_key, "", placeholder:"SEARCH CHARITY"
-      %a#search{:href => "javascript:void(0)"}
+      %a#search{:href => "javascript:void(0)", style:"position: relative;"}
         %img{:src => "/assets/Search.png"}/
     / srh_input ends
   / search_holder ends
