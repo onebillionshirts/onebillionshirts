@@ -216,6 +216,7 @@
     %div{style:"margin-left: auto; margin-right: auto; width: 80%;margin-top: 20px;margin-bottom: 40px;"}
       %span{style:"float: left;font-size: 24px; color: black; font-weight: bold;margin: 35px 90px 0px 10px;width: 200px;text-align: center; font-family: Calibri !important;color:#777777;"} #{e.charity_name.present? ? truncate(e.charity_name, :length => 40, :omission => '..')  : e.charity.name}
       =image_tag e.charity_logo ? e.charity_logo.url(:medium) : (e.charity ? e.charity.logo.image.url(:medium) : "/assets/images/no_logo.jpg"), style:"width:175px; height:175px;"
+    %span{style:"margin-left:10px"} #{root_url.to_s.gsub("http://","").gsub("/","")}
     .socialz{style:"margin-left: auto; margin-right: auto; width: 100%; float: none;background: #eaeaea;height: 40px; padding-top: 10px;"}
       %strong{style:"float: left;margin: 8px;"} SHARE CARD:
       %span.st_sharethis_large{:displaytext => "ShareThis"}
