@@ -2,7 +2,7 @@ class Admins::ClientSpotlightsController < Admins::HomeController
 # GET /client_spotlights
 # GET /client_spotlights.json
   def index
-    @client_spotlights = ClientSpotlight.all
+    @client_spotlights = ClientSpotlight.order("name ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
