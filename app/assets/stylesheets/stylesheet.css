@@ -4931,7 +4931,8 @@ hr.style-right {
     width: 100%;
     margin: 0 auto;
     background-color: #ececec;
-    overflow: inherit;
+    overflow: auto;
+    height: auto;
 }
 
 .leaderboard_btn{
@@ -4990,4 +4991,6 @@ h3.col1{
 
 .white{
     font-family: ProximaNova-Regular !important;
+    overflow: auto;
+    height: auto;
 }
