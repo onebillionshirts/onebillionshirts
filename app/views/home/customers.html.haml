@@ -72,9 +72,9 @@
 
   .bg{
     background: #eeeeee;
-    height: 100%;
-    overflow-y: hidden;
-    padding-bottom: 50px;
+    height: auto;
+    padding-bottom: 10px;
+    overflow: auto;
   }
 
   .pagination{
@@ -191,14 +191,16 @@
       .main_content
         #design
           -@customers.each_slice(3) do |slice|
-            %div{style:"width:960px; height:300px; padding-left: 75px;"}
+            %div{style:"width: 950px; height:300px; padding-left: 48px;margin-bottom: 25px;"}
               -slice.each do |e|
                 .img3
-                  =image_tag e.logo.url(:medium), style:"width: 250px; height: 250px;margin-bottom: 10px;", class:"image_entity"
-                  %strong{style:"color: #4c4c4c;font-style: italic;padding-left: 14%;"}=truncate(e.text, :length => 25, :omission => '...')
+                  =image_tag e.logo.url(:medium), style:"width: 250px; height: 250px;margin-bottom: 10px;border: 2px solid rgba(213, 211, 211, 0.4); border-radius: 10px;", class:"image_entity"
+                  %div{style:"color: #4c4c4c; font-style: italic; text-align: center; width: 150px; margin: 0 50px 0 50px;font-weight: bold;"}=truncate(e.text, :length => 40, :omission => '...')
                   -#%span=e.description
                   =link_to "#", class:"vote plus_btn", data: {popid: "#{e.id}"}, style:"display: none" do
                     %i.icon-plus.icon-2x{style:"color: white;margin-left: 12px;"}
+      .pagination
+        = will_paginate @customers , class:"apple_pagination"
 
 
 -@customers.each do |e|
