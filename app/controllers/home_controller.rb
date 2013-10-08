@@ -133,7 +133,7 @@ class HomeController < ApplicationController
   end
 
   def customers
-    @customers = Customer.paginate(:page => params[:page], :per_page => 6)
+    @customers = Customer.paginate(:page => params[:page], :per_page => 50)
   end
 
   def print_thank_you_card
