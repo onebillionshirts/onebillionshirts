@@ -206,7 +206,7 @@
 -@customers.each do |e|
   %div{style:"background-color:white;width:650px;height:auto;display:none;", id:"style_picker-#{e.id}"}
     %div{style:"width:100%; height: 102px; padding-top: 5px;text-align:center; color:green;font-size: 90px;font-family: Hammer;"} Thank You!
-    %div{style:"width: 103%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;margin-left: -10px;font-weight: bolder;"} Customer That Care!
+    %div{style:"width: 103%; height:40px; text-align:center; color:white;background: #00a651;font-size: 20px;line-height: 36px;margin-left: -10px;font-weight: bolder;"} Our Customers Care!
     %div{style:"margin-left: auto; margin-right: auto; width: 80%;margin-top: 20px;"}
       =image_tag e.logo.url(:medium), style:"width:175px; height:175px;display:inline;"
       %span{style:"font-size: 24px; color: black; font-weight: bold;display: inline;float: right;margin-top: 55px;width: 275px;text-align: center;font-family: Calibri !important;color:#777777;"}=truncate(e.text, :length => 40, :omission => ' ..')

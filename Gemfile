@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '1.9.3'
 gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
@@ -26,6 +26,8 @@ gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.0'
 
 gem "imgkit"
+
+gem "rails_12factor", :group => :production
 
 # Gems used only for assets and not required
 # in production environments by default.

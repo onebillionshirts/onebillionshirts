@@ -4684,40 +4684,40 @@ div.all:hover{
     background: url("/assets/footer_icons_h.png") no-repeat;
 }
 .footer_second_portion a.fb{
-    background-position-x: -1px;
+    background-position: -1px;
 }
 .footer_second_portion a.fb:hover{
-    background-position-x: 0px;
+    background-position: 0px;
 }
 
 .footer_second_portion a.tw{
-    background-position-x: -51px;
+    background-position: -51px;
 }
 .footer_second_portion a.tw:hover{
-    background-position-x: -50px;
+    background-position: -50px;
 }
 
 .footer_second_portion a.gp{
-    background-position-x: -101px;
+    background-position: -101px;
 }
 .footer_second_portion a.gp:hover{
-    background-position-x: -100px;
+    background-position: -100px;
 }
 
 .footer_second_portion a.pin{
-    background-position-x: -151px;
+    background-position: -151px;
 }
 .footer_second_portion a.pin:hover{
-    background-position-x: -150px;
+    background-position: -150px;
 }
 
 .footer_second_portion a.em{
     margin-right: 15px;
-    background-position-x: -211px;
+    background-position: -211px;
 }
 .footer_second_portion a.em:hover{
     margin-right: 15px;
-    background-position-x: -210px;
+    background-position: -210px;
 
 }
 
