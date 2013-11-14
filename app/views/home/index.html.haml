@@ -116,7 +116,7 @@
       =image_tag "Our_Customers_Care.png", style:"margin-left: auto; margin-right: auto;"
     .final-area{style:"float:left;margin-bottom:40px;"}
       %ul.bxbig
-        -ClientSpotlight.order("name ASC").all.each_slice(3) do |char|
+        -@home_client_spotlights.in_groups_of(3, false) do |char|
           %li
             .single_charity
               -char.each do |c|

@@ -4,4 +4,6 @@ class ClientSpotlight < ActiveRecord::Base
   has_many :client_spotlight_images, :dependent => :destroy
 
   accepts_nested_attributes_for :client_spotlight_images, :allow_destroy => true
+
+  scope :alphabetically, order("name ASC")
 end

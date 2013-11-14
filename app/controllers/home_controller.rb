@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   def index
     @banners = Banner.all
     @charities = Charity.featured
+    @home_client_spotlights = ClientSpotlight.alphabetically.all
     get_default_charity
   end
 
