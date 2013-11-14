@@ -1,9 +1,9 @@
 .header-wrapper
   .header-container
-    .logo_quote
-      = link_to '', root_path, class:"logo"
-      -#%div{:style => "float: right;text-align: center;-webkit-border-radius: 6px;   font-size: 20px; color: white; background-color: #ed6430; padding: 10px 45px; top: -7px;position: relative;"}
-      -#  %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
+    .blog_link
+    = link_to '', root_path, class:"logo"
+    -#%div{:style => "float: right;text-align: center;-webkit-border-radius: 6px;   font-size: 20px; color: white; background-color: #ed6430; padding: 10px 45px; top: -7px;position: relative;"}
+    -#  %a{href: "/orders/quick_quote", :style => "display: inline;color: white;font-size: 15px;font-weight: normal;cursor: pointer;"} Order Form
     .navigation
       %ul#nav1
         %li{class:"#{(params[:controller]=='home' && params[:action] !='customers' && params[:action] !='index' && params[:action] !='contact' ) || params[:controller]=='contests' ? 'active_state' : 'none'}" }
@@ -27,7 +27,7 @@
         %li{class:"#{params[:controller]=='orders' ? 'active_state' : 'none'}" }
           %a{:href => "/orders/quick_quote"} QUICK QUOTE
         %li
-          %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fonebillionshirts&width=100&height=21&colorscheme=light&layout=button_count&action=like&show_faces=false&send=false&appId=491891004239366", :style => "border:none; overflow:hidden; width:100px; height:21px;"}      -#%li
+          %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fonebillionshirts&locale=en_US&width=100&height=21&colorscheme=light&layout=button_count&action=like&show_faces=false&send=false&appId=491891004239366", :style => "border:none; overflow:hidden; width:100px; height:21px;"}      -#%li
         -#  %a{:href => "/charities"} Charities
         -#%li
         -#  %a{:href => "/contact"} Contact

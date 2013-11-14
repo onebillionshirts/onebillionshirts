@@ -27,6 +27,13 @@ gem 'will_paginate', '~> 3.0'
 
 gem "imgkit"
 
+gem "awesome_print"
+
+#gem "taps"
+#gem "sqlite3"
+#gem "sequel"
+#gem "heroku"
+
 gem "rails_12factor", :group => :production
 
 # Gems used only for assets and not required

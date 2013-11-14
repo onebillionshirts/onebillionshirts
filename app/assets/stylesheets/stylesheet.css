@@ -208,8 +208,6 @@ h2 {
     width: 162px;
     height: 158px;
     float: left;
-    z-index: 999;
-    position: relative;
 }
 
 .save_n_share {
@@ -262,9 +260,10 @@ h2 {
 
 .navigation {
     /*float: right;*/
-    margin-left: 200px;
-    position: relative;
-    top: 4px;
+    margin-left: 37px;
+    width: 851px;
+    height: 50px;
+    float: left;
 }
 
 .navigation li {
@@ -4358,6 +4357,7 @@ h2 {
   top: 0;
   right: 0;
   z-index: 1000;
+  border-top: 6px solid #009446;
 }
 
 
@@ -4366,11 +4366,24 @@ h2 {
   margin: 0 auto;
 }
 
+.blog_link {
+    width: 71px;
+    height: 54px;
+    background: url("/assets/blog_not_hovered.png") no-repeat;
+    float: right;
+    margin-right: 84px;
+    margin-top: -6px;
+}
+
+.blog_link:hover {
+    background: url("/assets/blog_hovered.png") no-repeat;
+}
+
 .featured-section {
     background: url("/assets/home_main.png") no-repeat;
     height: 519px;
     background-position: center center;
-    margin-top: 115px;
+    margin-top: 121px;
     position: relative;
     background-size: cover;
 }
