@@ -18,7 +18,7 @@
   / navigation holder
   / item container
   %ul#itemContainer
-    - @charities.each_slice(3) do |slice|
+    - @charities.in_groups_of(3, false) do |slice|
       -slice.each do |charity|
         %li{style:"float: left; width: 27%;margin-left:30px;border-right: 2px solid rgba(255, 255, 255, 0.28);padding-right: 18px;"}
           .charity_list
