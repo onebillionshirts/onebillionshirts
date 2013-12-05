@@ -1,6 +1,6 @@
 OneBS::Application.routes.draw do
 
-
+  get 'home/update_badge', :as => 'update_badge'
 
   get "medias/show"
 
@@ -10,6 +10,7 @@ OneBS::Application.routes.draw do
   # first created -> highest priority.
   match "/how_it_works", :to => "home#how_it_works"
   match "/participate", :to => "home#participate"
+  match "/badges", :to => "home#badges"
   match "/about", :to => "home#about"
   match "/charities", :to => "charities#index"
   match "/contact", :to => "home#contact"

@@ -66,3 +66,5 @@ gem 'jquery-rails'
 gem "friendly_id", "~> 4.0.9"
 
 gem "letter_opener", :group => :development
+
+gem 'zeroclipboard-rails'

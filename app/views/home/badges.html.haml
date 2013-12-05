@@ -1,0 +1,169 @@
+- content_for :head do
+  - @title = "Badges"
+  = @title
+  -# @page_content = @page.page_content
+  -# @header_content =@page.header_content
+
+
+-content_for(:about_head) do
+  .slider_hold{style: "height: auto;"}
+    .slider_text
+      %h1{style: "width: 634px;"}
+        %span Together
+        we can impact the lives of millions.
+      %p Let's work together to make our world a better place
+  / slider_text ends
+.my_heading
+  %hr.style-left{style: "width: 300px;"}/
+  %h3{style: "margin-left: 55px;"} Charity Badges
+  %hr.style-right{style: "width: 300px;"}/
+.img_det_txt
+  %p
+    Our mission is to raise money & awareness for great charities across the globe.  We are proud to be the first custom apparel company that allows customers to leverage their orders for a seamless charitable donation.
+    %br/
+    %br/
+    Simply put our badge or information on your website or emails and begin leveraging your sphere of influence as a brand new fundraising stream that did not exist yesterday!
+    %br/
+    %br/
+    %strong{:style => "font-size: 22px; margin-left: 20px;"} 1. Choose Charity
+    %br/
+    %br/
+    = collection_select(nil, :charity_id,  @charities,  :website, :name, {:prompt   => "Choose a Charity"}, {:id => 'charity_list'})
+    .choose_charity 
+      .choose_charity_text
+        don’t see your charity?  
+      = link_to "Sign up here", new_charity_path, class: "choose_charity_link"
+    %br/
+    %br/
+    %strong{:style => "font-size: 22px; margin-left: 20px;"} 2. Choose Badge
+    %br/
+    %br/
+    .badge_container
+      .half_left.rectangular_badge
+        = image_tag "/assets/badges/001.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_one", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_one{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "001", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.rectangular_badge
+        = image_tag "/assets/badges/002.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_two", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_two{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "002", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.rectangular_badge
+        = image_tag "/assets/badges/003.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_three", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_three{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "003", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.round_badge_max
+        = image_tag "/assets/badges/004.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_four", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_four{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "004", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.round_badge_medium
+        = image_tag "/assets/badges/005.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_five", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_five{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "005", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.round_badge_mini
+        = image_tag "/assets/badges/006.png"
+      .half_right
+        %button.d_clip_button.my_clip_button{"data-clipboard-target" => "script_container_six", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        %textarea.text_for_script#script_container_six{readonly: ""}
+          %script{src: "http://localhost:3000/test.js", type: "text/javascript", class: "badges_script_tag", id: "badges_script", data: {image: "006", url:"#"}}
+    %br/
+    %br/
+    .badge_container
+      .half_left.left_text
+        %p Other ways to give page
+      .half_right
+        .text_for_script
+          .badges_text{style: "margin-top: 30px; line-height: 20px;"}
+            %b
+              Need custom apparel?
+            %br
+            If you have a need for custom apparel (t-shirts, polos, etc.), onebillionshirts.org will print your
+            %br
+            apparel, cut costs, and donate a mandatory 25¢ per unit back to us.  
+            = link_to "Calculate your impact", root_url, class: "calculate_impact_link"
+    %br
+    %br
+    .badge_container
+      .half_left.square_badge
+        = image_tag "/assets/badges/007.png"
+      .half_right
+        .text_for_script
+          .badges_text{style: "margin-top: 30px;"}
+            Need custom t-shirts?  Cut costs & help us fundraise with @1BillionShirts.
+            %br  
+            http://www.onebillionshirts.org/your-charity-link 
+    %br/
+    %br/
+    .badge_container
+      .half_left.square_badge
+        = image_tag "/assets/badges/008.png"
+      .half_right
+        .text_for_script
+          .badges_text{style: "margin-top: 5px;"}
+            We are now featured on OneBillionShirts.org, which is a custom apparel company that offers
+            %br
+            an alternative way to purchase t-shirts, polos, etc.  They will not only cut your costs but donate
+            %br
+            a mandatory 25¢ back to us.  This is a great way for you to leverage your next order, save
+            %br
+            money and donate to your favorite cause!  http://www.onebillionshirts.org/your-charity
+    %br/
+    %br/
+    .badge_container
+      .half_left.square_badge
+        = image_tag "/assets/badges/009.png"
+      .half_right
+        .text_for_script
+          .badges_text{style: "margin-top: 5px;"}
+            Hello,
+            %br
+            Our organization has partnered with Onebillionshirts.org to provide an alternative option for
+            %br
+            purchasing custom apparel.  They not only have great prices and high quality products but
+            %br
+            there is a mandatory 25¢ per unit donation back to our organization!
+:css
+  .calc_btn {
+      float: left;
+      margin: 0 auto 0 122px;
+      padding: 12px 0 10px;
+      width: 550px;
+  }
+:javascript
+  $(document).ready(function() {
+    $('#charity_list').change(function() {
+      $.ajax({
+        url: "#{update_badge_path}",
+        data: {
+          charity : $('#charity_list').val()
+        },
+        dataType: "script"
+      });
+    });
+
+    var clip = new ZeroClipboard($(".d_clip_button"));
+  });

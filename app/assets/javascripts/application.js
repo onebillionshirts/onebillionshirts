@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require tinymce
 //= require jquery_nested_form
+//= require zeroclipboard
 //= require_tree .

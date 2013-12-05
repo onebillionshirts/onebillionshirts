@@ -55,6 +55,16 @@ class HomeController < ApplicationController
     render layout: "about"
   end
 
+  def badges
+    @charities = Charity.all
+    render layout: "about"
+  end
+
+  def update_badge
+    @selected_charity = Charity.where(:website => params[:charity]).first  
+    ap @selected_charity.website
+  end
+
   def top_ten_reasons
     @page = Page.find_by_page_name('top_ten_reasons')
     @page_content =  @page.page_content
