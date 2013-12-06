@@ -115,7 +115,8 @@
           .badges_text{style: "margin-top: 30px;"}
             Need custom t-shirts?  Cut costs & help us fundraise with @1BillionShirts.
             %br  
-            http://www.onebillionshirts.org/your-charity-link 
+            %span.charity_url_name
+              http://www.onebillionshirts.org/your-charity-link
     %br/
     %br/
     .badge_container
@@ -123,14 +124,16 @@
         = image_tag "/assets/badges/008.png"
       .half_right
         .text_for_script
-          .badges_text{style: "margin-top: 5px;"}
+          .badges_text{style: "margin-top: 5px; line-height: 25px;"}
             We are now featured on OneBillionShirts.org, which is a custom apparel company that offers
             %br
             an alternative way to purchase t-shirts, polos, etc.  They will not only cut your costs but donate
             %br
             a mandatory 25¢ back to us.  This is a great way for you to leverage your next order, save
             %br
-            money and donate to your favorite cause!  http://www.onebillionshirts.org/your-charity
+            money and donate to your favorite cause!  
+            %span.charity_url_name 
+              http://www.onebillionshirts.org/your-charity-link
     %br/
     %br/
     .badge_container

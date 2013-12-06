@@ -50,7 +50,7 @@
         %span
           %a{:href => "/manifesto", class:"#{params[:action]=='manifesto' ? 'current' : 'none' }"} Manifesto
         %span
-          %a{:href => "/contests", class:"#{params[:controller]=='contests' ? 'current' : 'none' }"} Contests
+          %a{:href => "/badges", class:"#{params[:action]=='badges' ? 'current' : 'none' }"} Badges
     .my_wrapper
       = yield
   = render :partial => "/layouts/footer"

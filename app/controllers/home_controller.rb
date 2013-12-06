@@ -57,12 +57,13 @@ class HomeController < ApplicationController
 
   def badges
     @charities = Charity.all
+    @charity_url = "http://www.onebillionshirts.org/your-charity"
     render layout: "about"
   end
 
   def update_badge
-    @selected_charity = Charity.where(:website => params[:charity]).first  
-    ap @selected_charity.website
+    @selected_charity = Charity.where(:website => params[:charity]).first 
+    @charity_url = charity_url(@selected_charity)
   end
 
   def top_ten_reasons
