@@ -10,9 +10,9 @@
       .footer_first_div
         %h2 Customers
         .footer_first_left
-          =link_to "Products", '/brand'
           =link_to "Quick Quote", '/orders/quick_quote'
           =link_to "Browse Charities", '/charities'
+          =link_to "Contact Us", '/contact', :class => "contact_us_footer"
       .footer_second_div
         %h2 Charities
         .footer_second_portion
@@ -38,6 +38,6 @@
             (800) 489-2605
           %span{style:"float: right;padding-right: 10px;"}
             info@onebillionshirts.org
-    .footer_subdiv
-      = link_to "", "/contact", class:"contact_foot"
+    .footer_subdiv{:style => "margin-top: 15px;"}
+      = link_to "", "/badges", class:"contact_foot"
 

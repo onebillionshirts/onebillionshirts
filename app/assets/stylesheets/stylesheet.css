@@ -196,6 +196,14 @@ h2 {
 
 }
 
+@font-face {
+    font-family: 'myriad-pro-bold';
+    src: url('/assets/MyriadPro-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*************************** Homepage styling start ***********************************/
 .logo_quote {
     clear: both;
@@ -502,17 +510,23 @@ h2 {
 }
 
 .contact_foot{
-    background: url("/assets/contact_s.png");
+    background: url("/assets/footer_badges.png");
+    width: 309px;
+    height: 75px;
+    //margin-left: 30px;
+    float: right;
+    margin-right: 25px;
+}
+
+.cсontact_foot:hover{
+    background: url("/assets/contact_h.png");
     width: 309px;
     height: 33px;
     margin-left: 30px;
 }
 
-.contact_foot:hover{
-    background: url("/assets/contact_h.png");
-    width: 309px;
-    height: 33px;
-    margin-left: 30px;
+.contact_us_footer {
+    font-family: myriad-pro-bold !important;
 }
 
 .foot .footer_subdiv {

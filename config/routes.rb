@@ -78,25 +78,25 @@ OneBS::Application.routes.draw do
   # just remember to delete public/index.html.
 
     namespace :admins do
-    resources :orders
-    resources :site_events  do
-      get :subscribers, :on => :collection
-      put :approve, :on => :member
-    end
-    resource :cost_matrix
-    resources :banners
-    resources :client_spotlights
-    resources :questions
-    resources :questions_categories
-    resources :posts
-    resources :charities do
-      member do
-        put :approve
+      resources :orders
+      resources :site_events  do
+        get :subscribers, :on => :collection
+        put :approve, :on => :member
       end
-      collection do
-        get :image_form
-        get :pending
-      end
+      resource :cost_matrix
+      resources :banners
+      resources :client_spotlights
+      resources :questions
+      resources :questions_categories
+      resources :posts
+      resources :charities do
+        member do
+          put :approve
+        end
+        collection do
+          get :image_form
+          get :pending
+        end
     end
     resources :charity_categories
     resources :suggested_charities
