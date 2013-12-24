@@ -13,7 +13,7 @@ gem "tinymce-rails"
 gem "wkhtmltopdf-heroku"
 gem "wkhtmltopdf-binary"
 gem "wicked_pdf"
-gem "gmaps4rails"
+gem "gmaps4rails", "~> 1.5.6"
 gem "haml"
 
 gem "nokogiri"
