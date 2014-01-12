@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @banners = Banner.all
     @charities = Charity.featured
     @home_client_spotlights = ClientSpotlight.alphabetically.all
+    @customers = Customer.paginate(:page => params[:page], :per_page => 50)
     get_default_charity
   end
 

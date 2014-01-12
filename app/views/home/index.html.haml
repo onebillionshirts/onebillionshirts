@@ -1,128 +1,117 @@
 - content_for :head do
   - @title = "OneBillionShirts.org - Custom T-shirts For Good!"
   = @title
-.featured-section
+.upper-section
   .wrapper
     .inner_wrapper_div
       %br
       %br
       %br
-      %h1{style:"margin-top: 33px;"}
-        Custom T-shirts
-      %h2
-        That Help Others!
+      %h1
+        Your 
+        #rotate
+          %div Race
+          %div Staff
+          %div Corporate
+          %div Promo
+          %div Team
+          %div Event
+          %div School
+        t-shirts
+      %h1.bottom_h1
+        Can help others!
       -#.process-images
       .header_text
-        Print with us and
-        %strong we donate
-        %span 25¢
-        %strong per shirt
-        to a charity of your choice. With over
-        %span.green 1 billion shirts printed per year,
-        this simple idea can change the world!
-      .quick_quote
-        %a.quick{href: "/about"}
-          Learn More
-        %p
+        Calculate the impact your order can have on those that need it most.
+      .slider_value
+        %span.slider_value_number 24 
+        SHIRTS
+      .slider_arrow
+      %input{"data-slider" => "true", "data-slider-range" => "24,1000", "data-slider-highlight" => "true", type: "text", id: "homepage_slider"}
+      .homepage_icons
+        .homepage_cake.homepage_quarter
+          %span.image_container
+            = image_tag "homepage_cake.png", class: "homepage_cake_image"
+          %span.cake_value.blue_lines ---
           %span
-            or
-          %a.inline{href: "/orders/quick_quote"}
-            Request a Quote
-    .progress_bar
+            Toys for a homeless child’s birthday party!
+          %span.orange
+            Birthday Wishes
+        .homepage_bottle.homepage_quarter
+          %span.image_container
+            = image_tag "homepage_bottle.png", class: "homepage_bottle_image"
+          %span.bottle_value.blue_lines ---
+          %span
+            Refugees provided with clean drinking water for a month
+          %span.orange
+            Waterproject.com
+        .homepage_dish.homepage_quarter
+          %span.image_container
+            = image_tag "homepage_dish.png", class: "homepage_dish_image"
+          %span.dish_value.blue_lines ---
+          %span
+            Meals provided to hungry American children.
+          %span.orange
+            Share Our Strength
+        .homepage_cat.homepage_quarter
+          %span.image_container
+            = image_tag "homepage_cat.png", class: "homepage_cat_image"
+          %span.cat_value.blue_lines ---
+          %span
+            Homeless animals find a place to call home.
+          %span.orange
+            ASPCA
+
+    .real_time_pricing
+      = link_to "VIEW REAL TIME PRICING", "/orders/quick_quote", class: "real_time_link"
+      = image_tag "real_time_pricing.png", class: "pricing_arrow"
+
+.featured-section
+  .wrapper
+    .inner_wrapper_div
+      .header_text
+        We’re onebillionshirts.org, a print company that allows you to leverage your custom t-shirt order to raise money for charity. If you already order t-shirts, why not cut costs and help others? This simple idea can make a huge change!
+  .homepage_overlay
+
 .wrapper{style:"height: 280px;"}
   .our_idea
-    .area_33
-      %h4 Need T-Shirts?
+    .area_50
+      %h4 Q. How does this work?
       %p
-        We save our customers up to 50% on their custom t-shirts and also donate a mandatory 25¢ per shirt to a charity of their choice.
-        %span.orange
-          %a{href: "/orders/quick_quote"} Check our real time prices
-        and see if working with us makes sense!
-    .area_33
-      %h4 Suggest a Charity
+        A. Simple. If you are placing a custom t-shirt order, our offer is that we will save you money compared to your current vendor and donate a mandatory 25¢ per shirt to charity.
+
+    .area_50
+      %h4 Q. How does this work?
       %p
-        Our mission is to help charities help others, just as our CEO was helped in his time of need.  If not in our database already,
-        %span.orange
-          %a{href: "/charities/new"} suggest a charity
-        and begin reaping the benefits today!
-    .area_33
-      %h4 Help Out For Free
+        A. Simple. If you are placing a custom t-shirt order, our offer is that we will save you money compared to your current vendor and donate a mandatory 25¢ per shirt to charity
+
+    .area_50
+      %h4 Q. Who donates the money?
       %p
-        If you are like us, sometimes you're just in the giving mood!  If you don't need t-shirts printed at the moment you can still
-        %span.orange lend your social influence
-        and help your favorite charity!
--#    %h3{style:"margin:0 auto; width:880px;"}
--#      “I was saved from War at age 14 with the help of charities.
--#      My mission is to turn every t-shirt into a donation
--#      %br
--#      and every customer into a philanthropist!”
--#    .testi{style:"height: 86px;"}
--#      %img{src:"/assets/testimonial-person-thumb.png"}
--#      %div{style:"line-height: 44px;"}
--#        %h4 Albion Calaj, CEO
--#        %a{href:"/our_story", style:"font-style: normal;margin-right: 35px; color: rgb(0, 133, 255); cursor: pointer;text-decoration: underline"} Read our story
--#  / our_idea ends
--#/ wrapper ends
--#.wrapper
--#  .top-charity{style:"position:relative"}
--#    .featured_banner
--#    .col
--#      =link_to (image_tag Charity.default.first.logo.image(:thumb),  style:"width:250px;border:1px solid #ccc"), charity_path(Charity.default.first) unless Charity.default.first.logo.blank?
--#      -#%img{src:"/assets/dummy.png"}
--#    .col
--#      %h3
--#        =Charity.default.first.name
--#      %span
--#        !=Charity.default.first.mission_statement.html_safe
--#      %a{href:"#{charity_path(Charity.default.first)}"} Learn More
--#  .featured-area
--#    %ul.bxslider
--#      -Charity.featured.each do |char|
--#        %li
--#          =link_to (image_tag char.logo.image(:thumb),  style:"width:100px;"), charity_path(char) unless char.logo.blank?
--#
--#
--#  / our_idea ends
--#/ wrapper ends
--#.wrapper{style:"clear:both;"}
--#  .how_it_works
--#    .how_img
--#      %img{src:"/assets/how-it-works.png"}
--#    .how_bottom
--#      .col
--#        %h3
--#          %span
--#            Charities
--#          love us because we are
--#          tapping into a brand new multi-million
--#          dollar fundraising stream that was not
--#          available yesterday.
--#        %a{href:"/impact", style:"width: 140px;"} Calculate Impact
--#      .col{style:"border-left:1px solid #ccc;"}
--#        %h3
--#          %span
--#            Customers
--#          love us because we save
--#          96% of clients money compared to
--#          their last vendor and also donate to a
--#          charity of their choice.
--#        %a{href:"how_it_works"} How It Works
-  / our_idea ends
-/ wrapper ends
+        A. The donation is made through our profits. Our business model cherishes our lean
+
+    .area_50
+      %h4 Q. Who donates the money?
+      %p
+        A. The donation is made through our profits. Our business model cherishes our lean and begin reaping the benefits today!
+    
 .light_grey_area
   .wrapper{style:"clear:both;"}
     -#%h1{style:"text-align:center;color: grey;margin-bottom: 20px;font-size: 38px;"} Testimonials
     .final-area{style:"margin-bottom:25px;"}
-      =image_tag "Our_Customers_Care.png", style:"margin-left: auto; margin-right: auto;"
+      =image_tag "customers_care.png", style:"margin-left: auto; margin-right: auto;"
     .final-area{style:"float:left;margin-bottom:40px;"}
-      %ul.bxbig
-        - @home_client_spotlights.in_groups_of(3, false) do |char|
+      %ul
+        - @customers.in_groups_of(4, false) do |char|
           %li
-            .single_charity
+            .single_charity_homepage
               -char.each do |c|
-                .col{style:"width:30%"}
-                  -unless c.client_spotlight_images.first.blank?
-                    =image_tag c.client_spotlight_images.first.asset(:thumb), style:"float: right;padding-right: 45px;"   #/client_slight?id=#{c.id}
+                .col
+                  =image_tag c.logo.url(:medium), style:"float: right;padding-right: 45px; height: 150px;"   #/client_slight?id=#{c.id}
+    .real_time_pricing
+      = link_to "VIEW REAL TIME PRICING", "/orders/quick_quote", class: "real_time_link"
+      = image_tag "real_time_pricing.png", class: "pricing_arrow"
+      = link_to "or learn more about our company", "/about", class: "learn_more"
 
   / our_idea ends
 / wrapper ends
