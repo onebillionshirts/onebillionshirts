@@ -1,6 +1,9 @@
 #encoding: utf-8
 
 class AddBasicSettings < ActiveRecord::Migration
+	class Setting < ActiveRecord::Base
+	end
+	
   def up
   	Setting.create :key => "first_icon", :value => ""
     Setting.create :key => "second_icon", :value => ""
