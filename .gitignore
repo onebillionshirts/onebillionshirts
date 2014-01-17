@@ -18,3 +18,4 @@
 db/schema.rb
 /vendor/bundle/
 *.DS_Store
+/public/system/settings

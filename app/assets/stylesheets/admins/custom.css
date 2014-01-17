@@ -45,3 +45,7 @@ color: lightgreen;
   margin-left:210px;
 }
 
+.settings_list .settings_list_image {
+    max-width: 80px;
+    max-height: 80px;
+}

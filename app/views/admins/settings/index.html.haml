@@ -2,7 +2,7 @@
   .span6
     %h2 Listing settings
 
-%table.table-striped.table.table-bordered
+%table.table-striped.table.table-bordered.settings_list
   %tr
     %th Key
     %th Value
@@ -12,7 +12,7 @@
       %td.key= t "admin.settings.keys.#{setting.key}"
       %td
         - if setting.key == "first_icon" || setting.key == "second_icon" || setting.key == "third_icon" || setting.key == "fourth_icon"
-          = image_tag setting.icon.url(:thumb)
+          = image_tag setting.icon.url(:thumb), class: "settings_list_image"
         - else 
           = setting.value
       %td.actions

@@ -4111,6 +4111,11 @@ h2 {
     vertical-align: bottom;
 }
 
+.upper-section .homepage_quarter span.image_container img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
 #rotate {
     display: inline-block;
     color: #00afeb;
