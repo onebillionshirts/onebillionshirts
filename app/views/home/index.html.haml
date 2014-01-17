@@ -1,6 +1,13 @@
 - content_for :head do
   - @title = "OneBillionShirts.org - Custom T-shirts For Good!"
   = @title
+
+:javascript
+  var first_value = (#{Setting.get_value 'first_algorithm'});
+  var second_value = (#{Setting.get_value 'second_algorithm'});
+  var third_value = (#{Setting.get_value 'third_algorithm'});
+  var fourth_value = (#{Setting.get_value 'fourth_algorithm'});
+
 .upper-section
   .wrapper
     .inner_wrapper_div
@@ -30,37 +37,41 @@
       %input{"data-slider" => "true", "data-slider-range" => "24,1000", "data-slider-highlight" => "true", type: "text", id: "homepage_slider"}
       .homepage_icons
         .homepage_cake.homepage_quarter
-          %span.image_container
-            = image_tag "homepage_cake.png", class: "homepage_cake_image"
-          %span.cake_value.blue_lines ---
+          .image_and_numbers
+            %span.image_container
+              = image_tag "#{Setting.get_value('first_icon').url(:thumb)}", class: "homepage_cake_image"
+            %span.cake_value.blue_lines ---
           %span
-            Toys for a homeless child’s birthday party!
+            = Setting.get_value('first_text')
           %span.orange
-            Birthday Wishes
+            = Setting.get_value('first_link')
         .homepage_bottle.homepage_quarter
-          %span.image_container
-            = image_tag "homepage_bottle.png", class: "homepage_bottle_image"
-          %span.bottle_value.blue_lines ---
+          .image_and_numbers
+            %span.image_container
+              = image_tag "#{Setting.get_value('second_icon').url(:thumb)}", class: "homepage_bottle_image"
+            %span.bottle_value.blue_lines ---
           %span
-            Refugees provided with clean drinking water for a month
+            = Setting.get_value('second_text')
           %span.orange
-            Waterproject.com
+            = Setting.get_value('second_link')
         .homepage_dish.homepage_quarter
-          %span.image_container
-            = image_tag "homepage_dish.png", class: "homepage_dish_image"
-          %span.dish_value.blue_lines ---
+          .image_and_numbers
+            %span.image_container
+              = image_tag "#{Setting.get_value('third_icon').url(:thumb)}", class: "homepage_dish_image"
+            %span.dish_value.blue_lines ---
           %span
-            Meals provided to hungry American children.
+            = Setting.get_value('third_text')
           %span.orange
-            Share Our Strength
+            = Setting.get_value('third_link')
         .homepage_cat.homepage_quarter
-          %span.image_container
-            = image_tag "homepage_cat.png", class: "homepage_cat_image"
-          %span.cat_value.blue_lines ---
+          .image_and_numbers
+            %span.image_container
+              = image_tag "#{Setting.get_value('fourth_icon').url(:thumb)}", class: "homepage_cat_image"
+            %span.cat_value.blue_lines ---
           %span
-            Homeless animals find a place to call home.
+            = Setting.get_value('fourth_text')
           %span.orange
-            ASPCA
+            = Setting.get_value('fourth_link')
 
     .real_time_pricing
       = link_to "VIEW REAL TIME PRICING", "/orders/quick_quote", class: "real_time_link"

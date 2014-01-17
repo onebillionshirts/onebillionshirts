@@ -4085,7 +4085,6 @@ h2 {
     text-align: left;
     width: 195px;
     margin-top: 10px;
-    float: left;
 }
 
 .upper-section .homepage_quarter span.orange {
@@ -4096,27 +4095,20 @@ h2 {
     font-size: 36px;
     color: #00afeb;
     width: 140px;
-    height: 36px;
+    display: table-cell; 
+    vertical-align: bottom;
+}
+
+.upper-section .homepage_quarter .image_and_numbers {
+    width: 240px; 
+    height: 100px; 
+    display: table;
 }
 
 .upper-section .homepage_quarter span.image_container {
     width: 100px;
-}
-
-.cake_value {
-    margin-top: 38px !important;
-}
-
-.bottle_value {
-    margin-top: 58px !important;
-}
-
-.dish_value {
-    margin-top: 25px !important;
-}
-
-.cat_value {
-    margin-top: 47px !important;
+    display: table-cell; 
+    vertical-align: bottom;
 }
 
 #rotate {
@@ -4189,22 +4181,6 @@ h2 {
     width: 40px !important;
     height: 40px !important;
     margin-top: -20px !important;
-}
-
-.homepage_cake {
-    margin-top: 21px;
-}
-
-.homepage_bottle {
-    
-}
-
-.homepage_dish {
-    margin-top: 33px;
-}
-
-.homepage_cat {
-    margin-top: 12px;
 }
 
 .inner_wrapper_div h1{

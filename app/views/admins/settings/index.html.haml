@@ -1,0 +1,19 @@
+.row
+  .span6
+    %h2 Listing settings
+
+%table.table-striped.table.table-bordered
+  %tr
+    %th Key
+    %th Value
+    %th
+  - @settings.each do |setting|
+    %tr
+      %td.key= t "admin.settings.keys.#{setting.key}"
+      %td
+        - if setting.key == "first_icon" || setting.key == "second_icon" || setting.key == "third_icon" || setting.key == "fourth_icon"
+          = image_tag setting.icon.url(:thumb)
+        - else 
+          = setting.value
+      %td.actions
+        = link_to '<i class="icon-pencil"></i>'.html_safe, edit_admins_setting_path(setting)

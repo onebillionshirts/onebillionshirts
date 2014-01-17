@@ -1,0 +1,28 @@
+.row
+  .span12{style:"text-align:center"}
+    %h2 
+      Editing 
+      = t "admin.settings.keys.#{@setting.key}"
+
+= form_for([:admins, @setting], :html => { :multipart => true, class:"form form-horizontal" }) do |f|
+  - if @setting.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@setting.errors.count, "error")
+        prohibited this setting from being saved:
+      %ul
+        - @setting.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    .control-group
+      - if @setting.key == "first_icon" || @setting.key == "second_icon" || @setting.key == "third_icon" || @setting.key == "fourth_icon"
+        = f.label :icon, class:"control-label"
+        .controls
+          = f.file_field :icon
+      - else
+        = f.label :value, class:"control-label"
+        .controls
+          = f.text_field :value
+
+  .span2.offset2
+    = f.submit "Save", :class => "btn btn-primary",:style=>"width:150px"

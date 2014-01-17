@@ -1,5 +1,27 @@
 # Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# See https://github.com/svenfuchs/rails_i18n/tree/master/rails%2Flocale for starting points.
 
 en:
   hello: "Hello world"
+  admin:
+    settings:
+      keys:
+        first_icon: 'First Icon'
+        second_icon: 'Second Icon'
+        third_icon: 'Third Icon'
+        fourth_icon: 'Fourth Icon'
+
+        first_text: 'First Text'
+        second_text: 'Second Text'
+        third_text: 'Third Text'
+        fourth_text: 'Fourth Text'
+
+        first_link: 'First Link'
+        second_link: 'Second Link'
+        third_link: 'Third Link'
+        fourth_link: 'Fourth Link'
+
+        first_algorithm: 'First Algorith'
+        second_algorithm: 'Second Algorith'
+        third_algorithm: 'Third Algorith'
+        fourth_algorithm: 'Fourth Algorith'

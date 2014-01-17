@@ -23,10 +23,10 @@ $(document).ready(
 		  // The currently selected value of the slider
 		  slider_value = Math.round(data.value);
 		  $(".slider_value_number").text(slider_value);
-		  $(".cake_value").text(Math.round((slider_value * 0.25) / 3));
-		  $(".bottle_value").text(Math.round((slider_value * 0.25) * 2.6));
-		  $(".dish_value").text(Math.round((slider_value * 0.25) * 10));
-		  $(".cat_value").text(Math.round((slider_value * 0.25) / 0.6));
+		  $(".cake_value").text(Math.round(slider_value * first_value));
+		  $(".bottle_value").text(Math.round(slider_value * second_value));
+		  $(".dish_value").text(Math.round(slider_value * third_value));
+		  $(".cat_value").text(Math.round(slider_value * fourth_value));
 		});
 
 		$(".dragger")

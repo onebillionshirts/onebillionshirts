@@ -109,6 +109,7 @@ OneBS::Application.routes.draw do
     resources :color_groups
     resources :contests
     resources :customers
+    resources :settings
   end
 
   resources :home do
