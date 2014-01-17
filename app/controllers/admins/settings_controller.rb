@@ -1,7 +1,7 @@
 class Admins::SettingsController < Admins::HomeController
 
   def index
-    @settings = Setting.order('created_at DESC')
+    @settings = Setting.order('created_at ASC')
   end
 
   def edit
