@@ -201,9 +201,9 @@
     $(".color_box_div").removeClass("chosen")
     $($(".color_box_div:visible")[0]).addClass("chosen")
 
-    //$("a.request").click(function(){
-    //  $("div.final_form").bPopup({closeClass: "popClose"});
-    //})
+    $("a.reqquest").click(function(){
+      $("div.final_form").bPopup({closeClass: "popClose"});
+    })
 
     $("a.place").click(function(){
       n_s = toZero(parseInt($("#n_s").val()))
@@ -568,7 +568,7 @@
 
 
   -#outline: 15px solid #ccc;
-  #myModal.modal.fade.final_form{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1", style:"text-align: center;"}
+  #myModal.modal.fade.final_form{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1", style:"text-align: center; z-index: 9999;"}
     .modal-dialog
       .modal-content{style: "width: 475px; height: auto; padding: 20px; left: 50%; margin-left: -238px;"}
         %span{style: "font-weight: bold;"}
