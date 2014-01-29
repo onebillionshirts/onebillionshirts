@@ -1,3 +1,4 @@
+= stylesheet_link_tag "bootstrap", :media => "all"
 :css
   a.popBtn{
     width: 100px;
@@ -117,23 +118,24 @@
     margin-right: auto;
   }
   .final_form a.place{
-   clear: both;
-   cursor: pointer;
-   margin-top: 40px;
-   font-size: 18px;
-   margin-left: auto;
-   margin-right: auto;
-   border: 1px solid;
-   width: 200px;
-   height: 40px;
-   padding: 5px;
-   line-height: 40px;
-   background-color: #60b4d9;
-   color: white;
-   border-radius: 5px;
+    clear: both;
+    cursor: pointer;
+    margin-top: 40px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    width: 200px;
+    height: 40px;
+    //padding: 5px;
+    line-height: 40px;
+    background-color: #60b4d9;
+    color: white;
+    border-radius: 5px;
   }
   .final_form input[type='file']{
     margin-top:3px;
+    margin-left: 140px;
   }
   .final_form input[type='text']{
     border: 1px solid #ccc;
@@ -146,15 +148,17 @@
   }
 
   .final_form textarea {
-  border: 1px solid #ccc;
-  font-size: 18px;
-  padding: 4px;
-  margin: 10px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    padding: 4px;
+    margin: 10px;
+    width: 290px;
+    border-radius: 5px;
   }
 
   .ui-widget-content {
-  border: 1px solid #e8e8e8;
-  background: #FFF ;
+    border: 1px solid #e8e8e8;
+    background: #FFF;
   }
 
   .desc_place p
@@ -198,9 +202,9 @@
     $(".color_box_div").removeClass("chosen")
     $($(".color_box_div:visible")[0]).addClass("chosen")
 
-    $("a.request").click(function(){
-      $("div.final_form").bPopup({closeClass: "popClose"});
-    })
+    //$("a.request").click(function(){
+    //  $("div.final_form").bPopup({closeClass: "popClose"});
+    //})
 
     $("a.place").click(function(){
       n_s = toZero(parseInt($("#n_s").val()))
@@ -378,6 +382,7 @@
 
     })
   })
+
 .featured-section_about{style:"background: #404945; height: 148px;    background-size: cover;"}
   .slider_hold{:style => "height:auto;"}
     .slider_text
@@ -509,7 +514,7 @@
           .desc_place{style:"height: 140px;overflow: hidden;"}
             =Charity.first.mission_statement.html_safe
     %div.after_section{style:"display:none;clear:both;margin-top:20px;text-align:center;width:100%;padding-top: 1px; padding-bottom: 30px;"}
-      %a.request{style:"margin-left: auto; margin-right: auto; margin-top:30px"}
+      %a.request{"data-target" => "#myModal", "data-toggle" => "modal", style:"margin-left: auto; margin-right: auto; margin-top:30px"}
         Request a Virtual Proof
 
 
@@ -564,27 +569,48 @@
 
 
   -#outline: 15px solid #ccc;
-  %div.final_form{style:"text-align:center;display:none;width:450px; height:500px;background-color:white;padding:20px;border:2px #ccc"}
-    Request Virtual Proof
-    =form_tag "/orders/", method: :post, multipart: true do
-      =hidden_field_tag :extras
-      =label_tag "Full Name"
-      =text_field_tag "name"
-      =label_tag "Email"
-      =text_field_tag "email"
-      =label_tag "Phone Number"
-      =text_field_tag "phone"
-      =label_tag "Zip Code"
-      =text_field_tag "zip"
-      =label_tag "Reference"
-      = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 67%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;border-radius: 5px;background: white;border: 1px solid #ccc;"
-      =label_tag "Front Art Work"
-      =file_field_tag :front_art
-      =label_tag "Back Art Work"
-      =file_field_tag :back_art
-      =label_tag "Instructions for our designers", nil , style:"margin-right: 35px; padding-top: 22px;"
-      =text_area_tag "instructions", '', rows:"3"
-      =check_box_tag :later, 1, false, style:"clear:both;width:13px;float:left;margin-top:15px;margin-left:10px;"
-      =label_tag "later", "Submit Artwork Later", style:"width:200px; margin-top:9px;margin-left:0px"
-    %a.place
-      Place Order
+  #myModal.modal.fade.final_form{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1", style:"text-align: center;"}
+    .modal-dialog
+      .modal-content{style: "width: 475px; height: auto; padding: 20px; left: 50%; margin-left: -238px;"}
+        %span{style: "font-weight: bold;"}
+          Request Virtual Proof
+        =form_tag "/orders/", method: :post, multipart: true do
+          =hidden_field_tag :extras
+          =label_tag "Full Name"
+          =text_field_tag "name"
+          =label_tag "Email"
+          =text_field_tag "email"
+          =label_tag "Phone Number"
+          =text_field_tag "phone"
+          =label_tag "Zip Code"
+          =text_field_tag "zip"
+          =label_tag "Reference"
+          = select_tag "reference_id", options_from_collection_for_select(Reference.all , "id", "name"), style:"width: 67%; margin-left: 10px; margin-top: 10px;  margin-bottom: 10px; height: 40px;border-radius: 5px;background: white;border: 1px solid #ccc;"
+          =label_tag "Front Art Work"
+          =file_field_tag :front_art
+          %br
+          =label_tag "Back Art Work"
+          =file_field_tag :back_art
+          %div{style: "margin-top: 15px;"}
+            =label_tag "Instructions for our designers", nil , style:"padding-top: 22px;"
+            =text_area_tag "instructions", '', rows:"3"
+          =check_box_tag :later, 1, false, style:"clear:both;width:13px;float:left;margin-top:15px;margin-left:10px;"
+          =label_tag "later", "Submit Artwork Later", style:"width:200px; margin-top:9px;margin-left:5px"
+        %a.place
+          Place Order
+
+  / Modal
+  #myMomdal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title Modal title
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          %button.btn.btn-primary{type: "button"} Save changes
+      / /.modal-content
+    / /.modal-dialog
+  / /.modal
